@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { Bot, Search, Star } from "lucide-react";
 import type { AppContext } from "../app/App";
 import { chats } from "../data/source";
@@ -16,7 +16,8 @@ export function OrdersPage(ctx: AppContext) {
   const [selected, setSelected] = useState(ctx.state.orders[0]?.order_id || "");
   const [summary, setSummary] = useState("");
   const [summaryMode, setSummaryMode] = useState<AiMode | null>(null);
-const [summaryLoading, setSummaryLoading] = useState(false);
+  const [summaryLoading, setSummaryLoading] = useState(false);
+  const detailRef = useRef<HTMLElement>(null);
   const updatePulse = useUpdatePulse(ctx.state.lastUpdated);
 
   const filtered = useMemo(() => ctx.state.orders.filter((order) => {
@@ -33,6 +34,22 @@ const [summaryLoading, setSummaryLoading] = useState(false);
 
   const order = ctx.state.orders.find((item) => item.order_id === selected) || filtered[0];
   const customer = order ? userById(order.user_id) : undefined;
+
+  function selectOrder(orderId: string) {
+    setSelected(orderId);
+    if (window.innerWidth <= 820) {
+      const jumpToDetail = () => {
+        const detail = detailRef.current;
+        if (!detail) return;
+        (document.activeElement as HTMLElement | null)?.blur?.();
+        const top = detail.getBoundingClientRect().top + window.scrollY - 12;
+        document.scrollingElement?.scrollTo({ top, behavior: "auto" });
+        window.scrollTo({ top, behavior: "auto" });
+      };
+      window.setTimeout(jumpToDetail, 120);
+      window.setTimeout(jumpToDetail, 360);
+    }
+  }
 
   async function analyzeOrder() {
     if (!order) return;
@@ -72,7 +89,7 @@ const [summaryLoading, setSummaryLoading] = useState(false);
           {filtered.length ? filtered.map((item, index) => {
             const user = userById(item.user_id);
             return (
-              <button className={`order-card ${selected === item.order_id ? "selected" : ""} ${updatePulse && index === 0 ? "pop-update" : ""}`} type="button" key={item.order_id} onClick={() => setSelected(item.order_id)}>
+              <button className={`order-card ${selected === item.order_id ? "selected" : ""} ${updatePulse && index === 0 ? "pop-update" : ""}`} type="button" key={item.order_id} onClick={() => selectOrder(item.order_id)}>
                 <span className="order-card-main">
                   <span className="order-card-headline">
                     <strong>{item.order_id}</strong>
@@ -80,7 +97,7 @@ const [summaryLoading, setSummaryLoading] = useState(false);
                   </span>
                   <span className="order-card-metrics">
                     <span>{compactBaht(item.total_price)}</span>
-                    <span>{item.items.length} item{item.items.length === 1 ? "" : "s"}</span>
+                    <span>{`${item.items.length} ${item.items.length === 1 ? "item" : "items"}`}</span>
                   </span>
                   <small>{dateTime(item.timestamp)} - {orderRisk(item, ctx.state.products)}</small>
                 </span>
@@ -89,7 +106,12 @@ const [summaryLoading, setSummaryLoading] = useState(false);
             );
           }) : <div className="empty-state">No orders match this filter.</div>}
         </div>
-        {order && customer && <aside className="panel detail-side">
+        {order && customer && <aside ref={detailRef} className="panel detail-side">
+          <div className="gemini-cta-center order-gemini-cta">
+            <button className="button primary ai-action gemini-cta-pulse" type="button" onClick={analyzeOrder} disabled={summaryLoading}><span className="ai-icon-pair"><Star size={13} /><Bot size={15} /></span>{summaryLoading ? "Gemini is thinking..." : "Gemini Order Summary"}</button>
+            <span className="cta-hand" aria-hidden="true">👆</span>
+          </div>
+          {summary && <div className="reply-box order-summary-result">{summaryMode === "fallback" && <FallbackNotice />}{summary}</div>}
           <h3>{order.order_id}</h3>
           <p className="summary">{customer.name} - {customer.role} - {customer.loyalty_points} loyalty points</p>
           <dl className="metric-row">
@@ -106,8 +128,6 @@ const [summaryLoading, setSummaryLoading] = useState(false);
           <div className="list">{chats.filter((chat) => chat.user_id === customer.user_id).slice(0, 2).map((chat) => <article className="list-item" key={chat.chat_id}><strong>{chat.chat_id} - {chat.status}</strong><span>{chat.messages.at(-1)?.text}</span></article>)}</div>
           <h4>Notifications</h4>
           <div className="list">{relatedNotifications(customer).slice(0, 2).map((item) => <article className="list-item" key={item.notif_id}><strong>{item.title}</strong><span>{item.message}</span><em>{dateTime(item.timestamp)}</em></article>)}</div>
-          <button className="button primary ai-action" type="button" onClick={analyzeOrder} disabled={summaryLoading}><span className="ai-icon-pair"><Star size={13} /><Bot size={15} /></span>{summaryLoading ? "Gemini is thinking..." : "Gemini Order Summary"}</button>
-          {summary && <div className="reply-box">{summaryMode === "fallback" && <FallbackNotice />}{summary}</div>}
         </aside>}
       </div>
     </section>
@@ -115,9 +135,9 @@ const [summaryLoading, setSummaryLoading] = useState(false);
 }
 
 function FallbackNotice() {
-  return <p className="fallback-result-label">ผลลัพธ์นี้มาจาก fallback  เนื่องจาก API rate limit</p>;
+  return <p className="fallback-result-label">This result is from fallback because the API rate limit was reached.</p>;
 }
 
 function compactBaht(value: number) {
-  return `฿${value.toLocaleString("en-US")}`;
+  return `THB ${value.toLocaleString("en-US")}`;
 }

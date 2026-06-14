@@ -83,7 +83,7 @@ export function ProductDetailPage(ctx: AppContext) {
 }
 
 function FallbackNotice() {
-  return <p className="fallback-result-label">ผลลัพธ์นี้มาจาก fallback  เนื่องจาก API rate limit</p>;
+  return <p className="fallback-result-label">This result is from fallback because the API rate limit was reached.</p>;
 }
 
 function Metric({ label, value }: { label: string; value: string }) {

@@ -365,7 +365,7 @@ function FounderBriefPopup({ ctx }: { ctx: AppContext }) {
         <div className="brief-popup-head">
           <div>
             <p className="caption">Gemini Suggest</p>
-            <h2 id="brief-popup-title">สิ่งที่ควรทำวันนี้</h2>
+            <h2 id="brief-popup-title">What to do today</h2>
           </div>
           <button className="icon-button" type="button" onClick={() => ctx.setFounderBriefPopupOpen(false)} aria-label="Close suggestion">
             <X size={16} aria-hidden="true" />
@@ -388,7 +388,7 @@ function FounderBriefPopup({ ctx }: { ctx: AppContext }) {
 }
 
 function FallbackNotice() {
-  return <p className="fallback-result-label">ผลลัพธ์นี้มาจาก fallback  เนื่องจาก API rate limit</p>;
+  return <p className="fallback-result-label">This result is from fallback because the API rate limit was reached.</p>;
 }
 
 function Kpi({ label, value, detail, icon }: { label: string; value: string; detail: string; icon?: React.ReactNode }) {

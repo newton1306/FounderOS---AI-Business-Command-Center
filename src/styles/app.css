@@ -1764,7 +1764,7 @@ select {
 }
 .order-card {
   width: 100%;
-  min-height: 78px;
+  min-height: 98px;
   text-align: left;
   padding: 12px;
   display: grid;
@@ -1774,7 +1774,7 @@ select {
   cursor: pointer;
   color: var(--ink);
   transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
-  overflow: hidden;
+  overflow: visible;
 }
 .order-card:hover {
   transform: translateY(-1px);
@@ -1826,7 +1826,12 @@ select {
 .order-card-main em,
 .order-card-main small {
   font-size: 0.78rem;
-  line-height: 1.2;
+  line-height: 1.35;
+}
+.order-card-main small {
+  overflow: visible;
+  text-overflow: clip;
+  white-space: normal;
 }
 .order-card-metrics {
   display: flex;
@@ -1873,6 +1878,17 @@ select {
   max-height: 100%;
   overflow: auto;
   align-content: start;
+}
+.order-gemini-cta {
+  justify-content: flex-start;
+  margin: 0;
+  padding: 0 0 4px;
+}
+.order-gemini-cta .gemini-cta-pulse {
+  min-width: 210px;
+}
+.order-summary-result {
+  margin-top: 0;
 }
 .empty-state {
   min-height: 128px;

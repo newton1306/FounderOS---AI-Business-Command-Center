@@ -661,7 +661,11 @@ main {
     inset 0 0 0 1px oklch(0.70 0.06 155 / 0.34);
 }
 .founder-brief .section-head {
-  padding: 18px 46px 12px 16px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 150px 12px 16px;
   margin: -14px -14px 0;
   border-radius: var(--radius) var(--radius) 12px 12px;
   color: white;
@@ -690,11 +694,16 @@ main {
   font-weight: 760;
   box-shadow: inset 0 0 0 1px oklch(0.83 0.035 145 / 0.7);
 }
-.brief-priority {
+.brief-ai-badges {
   position: absolute;
-  z-index: 1;
+  z-index: 3;
   top: 13px;
-  right: 48px;
+  right: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.brief-priority {
   min-height: 25px;
   display: inline-flex;
   align-items: center;
@@ -723,6 +732,10 @@ main {
 .ai-corner-star svg {
   fill: oklch(0.76 0.12 82);
 }
+.brief-ai-badges .ai-corner-star {
+  position: static;
+  flex: 0 0 auto;
+}
 .page-grid > .decision-panel { grid-area: brief; }
 .summary {
   margin: 7px 0 0;
@@ -736,12 +749,59 @@ main {
   gap: 8px;
   margin-top: 10px;
 }
+.action-list:empty {
+  display: none;
+}
 .decision-panel .action-list,
 .activity-panel .feed-list {
   min-height: 0;
   flex: 1;
   overflow: auto;
   padding-right: 2px;
+}
+.decision-panel .action-list,
+.activity-panel .feed-list,
+.floating-list,
+.voice-page .panel > .list,
+.voice-page > .decision-panel .action-list,
+.orders-page .orders-list,
+.orders-page .detail-side {
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: oklch(0.60 0.045 155 / 0.72) transparent;
+  box-shadow:
+    inset 0 -16px 13px -18px oklch(0.16 0.02 145 / 0.48),
+    inset 0 16px 13px -20px oklch(0.16 0.02 145 / 0.24);
+}
+.decision-panel .action-list::-webkit-scrollbar,
+.activity-panel .feed-list::-webkit-scrollbar,
+.floating-list::-webkit-scrollbar,
+.voice-page .panel > .list::-webkit-scrollbar,
+.voice-page > .decision-panel .action-list::-webkit-scrollbar,
+.orders-page .orders-list::-webkit-scrollbar,
+.orders-page .detail-side::-webkit-scrollbar {
+  width: 8px;
+}
+.decision-panel .action-list::-webkit-scrollbar-thumb,
+.activity-panel .feed-list::-webkit-scrollbar-thumb,
+.floating-list::-webkit-scrollbar-thumb,
+.voice-page .panel > .list::-webkit-scrollbar-thumb,
+.voice-page > .decision-panel .action-list::-webkit-scrollbar-thumb,
+.orders-page .orders-list::-webkit-scrollbar-thumb,
+.orders-page .detail-side::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background: oklch(0.58 0.05 155 / 0.76);
+  background-clip: padding-box;
+}
+.decision-panel .action-list::-webkit-scrollbar-track,
+.activity-panel .feed-list::-webkit-scrollbar-track,
+.floating-list::-webkit-scrollbar-track,
+.voice-page .panel > .list::-webkit-scrollbar-track,
+.voice-page > .decision-panel .action-list::-webkit-scrollbar-track,
+.orders-page .orders-list::-webkit-scrollbar-track,
+.orders-page .detail-side::-webkit-scrollbar-track {
+  background: transparent;
 }
 .action-item,
 .feed-item,
@@ -1407,6 +1467,19 @@ select {
   .founder-brief {
     padding-top: 18px;
   }
+  .founder-brief .section-head {
+    padding: 54px 16px 14px;
+  }
+  .founder-brief .section-head {
+    flex-direction: row;
+    align-items: center;
+  }
+  .brief-ai-badges {
+    top: 12px;
+    left: 14px;
+    right: 14px;
+    justify-content: flex-end;
+  }
   .founder-brief .summary {
     font-size: 1rem;
     line-height: 1.5;
@@ -1697,6 +1770,10 @@ select {
   .section-head {
     align-items: flex-start;
     flex-direction: column;
+  }
+  .founder-brief .section-head {
+    flex-direction: row;
+    align-items: center;
   }
   .kpi-grid,
   .dashboard-page .kpi-grid,

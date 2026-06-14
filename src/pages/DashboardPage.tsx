@@ -14,6 +14,10 @@ function shortLabel(value: string, max = 10) {
   return value.length > max ? `${value.slice(0, max - 1)}...` : value;
 }
 
+function axisLabel(value: string, max = 10) {
+  return shortLabel(value.replace(/\s+/g, " "), max).replace(/ /g, "\u00a0");
+}
+
 export function DashboardPage(ctx: AppContext) {
   const metrics = useMemo(() => getMetrics(ctx.state), [ctx.state]);
   const activities = useMemo(() => getActivities(ctx.state), [ctx.state]);
@@ -41,14 +45,16 @@ export function DashboardPage(ctx: AppContext) {
       </section>
 
       <section className="decision-panel ai-surface founder-brief">
-        <span className="ai-corner-star" aria-label="Gemini powered"><Star size={15} aria-hidden="true" /></span>
-        <span className="brief-priority">Decision layer</span>
+        <div className="brief-ai-badges">
+          <span className="brief-priority">Decision layer</span>
+          <span className="ai-corner-star" aria-label="Gemini powered"><Star size={15} aria-hidden="true" /></span>
+        </div>
         <div className="section-head">
+          <Bot size={20} aria-hidden="true" />
           <div>
             <p className="caption">Gemini decision layer</p>
             <h2>Founder Action Brief</h2>
           </div>
-          <Bot size={20} aria-hidden="true" />
         </div>
         {ctx.founderBriefMode === "fallback" && <FallbackNotice />}
         <p className="summary">{ctx.founderBrief?.summary || "No brief generated yet. Ask Gemini for a focused action plan from current revenue, stock, orders, reviews, and chats."}</p>
@@ -127,7 +133,7 @@ export function DashboardPage(ctx: AppContext) {
         </ChartCard>
         <ChartCard title="Low Stock Watchlist" tone="stock">
           <ResponsiveContainer width="100%" height={chartHeight}>
-            <BarChart data={stockRiskData(ctx.state).slice(0, 5)} layout="vertical" margin={{ left: 4, right: 28, top: 4, bottom: 0 }}>
+            <BarChart data={stockRiskData(ctx.state).slice(0, 4)} layout="vertical" margin={{ left: 0, right: 30, top: 8, bottom: 0 }}>
               <defs>
                 <linearGradient id="stockBars" x1="0" y1="0" x2="1" y2="0">
                   <stop offset="0%" stopColor="oklch(0.72 0.13 78)" />
@@ -136,7 +142,7 @@ export function DashboardPage(ctx: AppContext) {
               </defs>
               <CartesianGrid stroke="oklch(0.89 0.008 95)" strokeDasharray="3 7" horizontal={false} />
               <XAxis type="number" tick={{ fontSize: 11 }} tickLine={false} axisLine={false} />
-              <YAxis type="category" dataKey="name" tickFormatter={(value) => shortLabel(String(value), 13)} interval={0} width={96} tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
+              <YAxis type="category" dataKey="name" tickFormatter={(value) => axisLabel(String(value), 12)} interval={0} width={94} tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
               <Tooltip />
               <Bar dataKey="stock" fill="url(#stockBars)" radius={[0, 8, 8, 0]} barSize={12}>
                 <LabelList dataKey="stock" position="right" formatter={(value: number) => value > 0 ? value : ""} className="chart-value-label" />

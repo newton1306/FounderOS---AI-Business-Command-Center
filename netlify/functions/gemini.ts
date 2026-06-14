@@ -233,15 +233,15 @@ function compactPayload(payload: Record<string, unknown>) {
     }));
     const orders = state.orders || [];
     const totalRevenue = orders
-      .filter((o) => ["DELIVERED", "SHIPPED", "PAID"].includes(String(o.status)))
+      .filter((o) => String(o.status) !== "CANCELLED")
       .reduce((s, o) => s + Number(o.total_price || 0), 0);
     const statusCounts: Record<string, number> = {};
     orders.forEach((o) => { statusCounts[String(o.status)] = (statusCounts[String(o.status)] || 0) + 1; });
     return {
       task: payload.task,
       question: payload.question,
-      metrics: { totalRevenue, totalOrders: orders.length, statusCounts },
-      products: products.slice(0, 15)
+      metrics: { totalRevenue, totalOrders: orders.length, totalProducts: products.length, statusCounts },
+      products
     };
   }
 

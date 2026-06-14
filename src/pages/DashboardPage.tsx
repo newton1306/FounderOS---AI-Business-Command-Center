@@ -199,7 +199,8 @@ interface ChatMessage {
 }
 
 function ChatbotPanel({ ctx }: { ctx: AppContext }) {
-  const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const messages = ctx.chatMessages;
+  const setMessages = ctx.setChatMessages;
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [suggestions, setSuggestions] = useState<string[]>([]);

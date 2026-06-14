@@ -186,6 +186,6 @@ export function chatbotFallback(question: string, state: BusinessState): string 
 
   // General summary
   const metrics = getMetrics(state);
-  return `📊 Store Summary:\n• Total revenue: ฿${metrics.revenue.toLocaleString("th-TH")}\n• Orders: ${metrics.orders}\n• Stock risks: ${metrics.lowStock} products\n• Open chats: ${metrics.openChats}\n• Review rating: ${metrics.avgRating.toFixed(1)}/5\n\nTry asking something specific, e.g. "How much stock does X have?" or "Best sellers"`;
+  return `📊 Store Summary:\n• Products: ${state.products.length} items\n• Total revenue: ฿${metrics.revenue.toLocaleString("th-TH")}\n• Orders: ${metrics.orders}\n• Stock risks: ${metrics.lowStock} products\n• Open chats: ${metrics.openChats}\n• Review rating: ${metrics.avgRating.toFixed(1)}/5\n\nTry asking something specific, e.g. "How much stock does X have?" or "Best sellers"`;
 }
 

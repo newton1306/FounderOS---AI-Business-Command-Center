@@ -13,8 +13,8 @@ export function CustomerVoicePage(ctx: AppContext) {
   const avg = reviews.length ? reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length : 0;
   const negative = reviews.filter((review) => review.rating <= 2);
   const hiddenDuplicateChats = chats.length - chatGroups.length;
-  const [summary, setSummary] = useState<ActionBrief | null>(null);
-  const [summaryMode, setSummaryMode] = useState<AiMode | null>(null);
+  const summary = ctx.voiceSummary?.data || null;
+  const summaryMode = ctx.voiceSummary?.mode || null;
   const [reply, setReply] = useState<Record<string, string>>({});
   const [replyMode, setReplyMode] = useState<Record<string, AiMode>>({});
   const [mobileTab, setMobileTab] = useState<"ai" | "reviews" | "chats">("reviews");
@@ -23,8 +23,7 @@ export function CustomerVoicePage(ctx: AppContext) {
     ctx.setAiMode("live");
     ctx.setAiReason("Checking Gemini API...");
     const result = await getReviewPainSummary(ctx.state);
-    setSummary(result.data);
-    setSummaryMode(result.mode);
+    ctx.setVoiceSummary({ data: result.data, mode: result.mode });
     ctx.setAiMode(result.mode);
     ctx.setAiReason(result.reason);
   }

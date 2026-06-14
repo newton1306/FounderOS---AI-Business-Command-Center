@@ -49,6 +49,8 @@ export function App() {
   const [founderBrief, setFounderBrief] = useState<ActionBrief | null>(null);
   const [founderBriefMode, setFounderBriefMode] = useState<AiMode | null>(null);
   const [autoSim, setAutoSim] = useState(false);
+  const [chatMessages, setChatMessages] = useState<Array<{role: "user" | "bot"; text: string}>>([]);
+  const [voiceSummary, setVoiceSummary] = useState<{data: ActionBrief; mode: AiMode} | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchOpen, setSearchOpen] = useState(false);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
@@ -137,7 +139,7 @@ export function App() {
     else setSearchOpen(true);
   }
 
-  const context = { state, setState, aiMode, setAiMode, aiReason, setAiReason, founderBrief, setFounderBrief, founderBriefMode, setFounderBriefMode, online, pwaReady, simulate, autoSim, setAutoSim };
+  const context = { state, setState, aiMode, setAiMode, aiReason, setAiReason, founderBrief, setFounderBrief, founderBriefMode, setFounderBriefMode, online, pwaReady, simulate, autoSim, setAutoSim, chatMessages, setChatMessages, voiceSummary, setVoiceSummary };
   const statusItems = [
     { icon: online ? Wifi : WifiOff, label: online ? "Online" : "Offline", tone: online ? "success" : "warning" },
     { icon: Radio, label: pwaReady ? "PWA Ready" : "PWA Pending", tone: pwaReady ? "success" : "neutral" },
@@ -303,4 +305,8 @@ export type AppContext = {
   simulate: () => void;
   autoSim: boolean;
   setAutoSim: (value: boolean) => void;
+  chatMessages: Array<{role: "user" | "bot"; text: string}>;
+  setChatMessages: React.Dispatch<React.SetStateAction<Array<{role: "user" | "bot"; text: string}>>>;
+  voiceSummary: {data: ActionBrief; mode: AiMode} | null;
+  setVoiceSummary: (value: {data: ActionBrief; mode: AiMode} | null) => void;
 };

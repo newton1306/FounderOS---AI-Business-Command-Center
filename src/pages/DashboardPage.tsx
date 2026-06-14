@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Cell, Line, LineChart, Bar, BarChart, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import { Area, AreaChart, Bar, BarChart, CartesianGrid, Cell, LabelList, Line, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { Bot, MessageSquareText, Sparkles, TriangleAlert, Star, ToggleLeft, ToggleRight } from "lucide-react";
 import type { AppContext } from "../app/App";
 import { getActivities, getMetrics, orderStatusBreakdown, revenueByCategory, revenueTrend, stockRiskData } from "../lib/analytics";
@@ -42,6 +42,7 @@ export function DashboardPage(ctx: AppContext) {
 
       <section className="decision-panel ai-surface founder-brief">
         <span className="ai-corner-star" aria-label="Gemini powered"><Star size={15} aria-hidden="true" /></span>
+        <span className="brief-priority">Decision layer</span>
         <div className="section-head">
           <div>
             <p className="caption">Gemini decision layer</p>
@@ -75,43 +76,71 @@ export function DashboardPage(ctx: AppContext) {
       </section>
 
       <section className="chart-grid">
-        <ChartCard title="Revenue Trend">
+        <ChartCard title="Revenue Trend" tone="trend">
           <ResponsiveContainer width="100%" height={chartHeight}>
-            <LineChart data={revenueTrend(ctx.state)}>
-              <XAxis dataKey="month" tickLine={false} axisLine={false} />
-              <YAxis tickFormatter={(v) => `${v / 1000}k`} width={44} tickLine={false} axisLine={false} />
+            <AreaChart data={revenueTrend(ctx.state)} margin={{ top: 6, right: 10, left: 0, bottom: 0 }}>
+              <defs>
+                <linearGradient id="revenueArea" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="oklch(0.45 0.15 20)" stopOpacity={0.22} />
+                  <stop offset="100%" stopColor="oklch(0.45 0.15 20)" stopOpacity={0.02} />
+                </linearGradient>
+              </defs>
+              <CartesianGrid stroke="oklch(0.89 0.008 95)" strokeDasharray="3 7" vertical={false} />
+              <XAxis dataKey="month" tickLine={false} axisLine={false} tick={{ fontSize: 11 }} />
+              <YAxis tickFormatter={(v) => `${v / 1000}k`} width={44} tickLine={false} axisLine={false} tick={{ fontSize: 11 }} />
               <Tooltip formatter={(v) => currency.format(Number(v))} />
-              <Line dataKey="revenue" stroke="oklch(0.45 0.15 20)" strokeWidth={3} dot={false} />
-            </LineChart>
+              <Area type="monotone" dataKey="revenue" fill="url(#revenueArea)" stroke="none" />
+              <Line type="monotone" dataKey="revenue" stroke="oklch(0.45 0.15 20)" strokeWidth={3} dot={false} activeDot={{ r: 5, strokeWidth: 0, fill: "oklch(0.45 0.15 20)" }} />
+            </AreaChart>
           </ResponsiveContainer>
         </ChartCard>
-        <ChartCard title="Order Status">
+        <ChartCard title="Order Status" tone="status">
           <ResponsiveContainer width="100%" height={chartHeight}>
             <PieChart>
-              <Pie data={orderStatusBreakdown(ctx.state)} dataKey="value" nameKey="name" innerRadius={34} outerRadius={55} paddingAngle={2}>
+              <Pie data={orderStatusBreakdown(ctx.state)} dataKey="value" nameKey="name" innerRadius={38} outerRadius={58} paddingAngle={3} cornerRadius={6}>
                 {orderStatusBreakdown(ctx.state).map((_, index) => <Cell key={index} fill={pieColors[index % pieColors.length]} />)}
               </Pie>
+              <text x="50%" y="48%" textAnchor="middle" dominantBaseline="middle" className="donut-center-main">{metrics.orders}</text>
+              <text x="50%" y="62%" textAnchor="middle" dominantBaseline="middle" className="donut-center-sub">orders</text>
               <Tooltip />
             </PieChart>
           </ResponsiveContainer>
         </ChartCard>
-        <ChartCard title="Revenue by Category">
+        <ChartCard title="Revenue by Category" tone="category">
           <ResponsiveContainer width="100%" height={chartHeight}>
-            <BarChart data={revenueByCategory(ctx.state)}>
-              <XAxis dataKey="category" tickFormatter={(value) => shortLabel(String(value), 9)} interval={0} tick={{ fontSize: 11 }} tickLine={false} axisLine={false} />
-              <YAxis tickFormatter={(v) => `${v / 1000}k`} width={44} tickLine={false} axisLine={false} />
+            <BarChart data={revenueByCategory(ctx.state).slice(0, 6)} layout="vertical" margin={{ top: 4, right: 30, left: 4, bottom: 0 }}>
+              <defs>
+                <linearGradient id="categoryBars" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stopColor="oklch(0.66 0.14 145)" />
+                  <stop offset="100%" stopColor="oklch(0.43 0.09 155)" />
+                </linearGradient>
+              </defs>
+              <CartesianGrid stroke="oklch(0.89 0.008 95)" strokeDasharray="3 7" horizontal={false} />
+              <XAxis type="number" tickFormatter={(v) => `${v / 1000}k`} tick={{ fontSize: 11 }} tickLine={false} axisLine={false} />
+              <YAxis type="category" dataKey="category" tickFormatter={(value) => shortLabel(String(value), 10)} interval={0} width={70} tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
               <Tooltip formatter={(v) => currency.format(Number(v))} />
-              <Bar dataKey="revenue" fill="oklch(0.58 0.15 145)" radius={[6, 6, 0, 0]} />
+              <Bar dataKey="revenue" fill="url(#categoryBars)" radius={[0, 8, 8, 0]} barSize={11}>
+                <LabelList dataKey="revenue" position="right" formatter={(value: number) => `${Math.round(value / 1000)}k`} className="chart-value-label" />
+              </Bar>
             </BarChart>
           </ResponsiveContainer>
         </ChartCard>
-        <ChartCard title="Low Stock Watchlist">
+        <ChartCard title="Low Stock Watchlist" tone="stock">
           <ResponsiveContainer width="100%" height={chartHeight}>
-            <BarChart data={stockRiskData(ctx.state).slice(0, 6)} layout="vertical" margin={{ left: 4, right: 8 }}>
+            <BarChart data={stockRiskData(ctx.state).slice(0, 5)} layout="vertical" margin={{ left: 4, right: 28, top: 4, bottom: 0 }}>
+              <defs>
+                <linearGradient id="stockBars" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stopColor="oklch(0.72 0.13 78)" />
+                  <stop offset="100%" stopColor="oklch(0.58 0.14 42)" />
+                </linearGradient>
+              </defs>
+              <CartesianGrid stroke="oklch(0.89 0.008 95)" strokeDasharray="3 7" horizontal={false} />
               <XAxis type="number" tick={{ fontSize: 11 }} tickLine={false} axisLine={false} />
-              <YAxis type="category" dataKey="name" tickFormatter={(value) => shortLabel(String(value), 11)} interval={0} width={78} tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
+              <YAxis type="category" dataKey="name" tickFormatter={(value) => shortLabel(String(value), 13)} interval={0} width={96} tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
               <Tooltip />
-              <Bar dataKey="stock" fill="oklch(0.70 0.14 78)" radius={[0, 6, 6, 0]} />
+              <Bar dataKey="stock" fill="url(#stockBars)" radius={[0, 8, 8, 0]} barSize={12}>
+                <LabelList dataKey="stock" position="right" formatter={(value: number) => value > 0 ? value : ""} className="chart-value-label" />
+              </Bar>
             </BarChart>
           </ResponsiveContainer>
         </ChartCard>
@@ -151,6 +180,6 @@ function Kpi({ label, value, detail, icon }: { label: string; value: string; det
   return <article className="kpi-card">{icon && <div>{icon}</div>}<span>{label}</span><strong>{value}</strong><small>{detail}</small></article>;
 }
 
-function ChartCard({ title, children }: { title: string; children: React.ReactNode }) {
-  return <article className="chart-card"><h3>{title}</h3>{children}</article>;
+function ChartCard({ title, tone, children }: { title: string; tone: "trend" | "status" | "category" | "stock"; children: React.ReactNode }) {
+  return <article className={`chart-card chart-card-${tone}`}><h3>{title}</h3>{children}</article>;
 }

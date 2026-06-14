@@ -19,12 +19,12 @@ function axisLabel(value: string, max = 10) {
 }
 
 const SUGGEST_MESSAGES = [
-  "สินค้าไหนขายดี?",
-  "สต็อกต่ำมีอะไรบ้าง?",
-  "ยอดรายได้ทั้งหมด",
-  "ออเดอร์มีกี่รายการ?",
-  "รีวิวเชิงลบมีอะไรบ้าง?",
-  "แชทลูกค้าที่เปิดอยู่"
+  "Which products sell best?",
+  "Any low stock items?",
+  "Total revenue overview",
+  "How many orders are there?",
+  "Any negative reviews?",
+  "Open customer chats"
 ];
 
 export function DashboardPage(ctx: AppContext) {
@@ -235,7 +235,7 @@ function ChatbotPanel({ ctx }: { ctx: AppContext }) {
       ctx.setAiReason(result.reason);
       setMessages((prev) => [...prev, { role: "bot", text: result.data }]);
     } catch {
-      setMessages((prev) => [...prev, { role: "bot", text: "ขออภัยครับ เกิดข้อผิดพลาด ลองถามใหม่อีกครั้ง" }]);
+      setMessages((prev) => [...prev, { role: "bot", text: "Sorry, an error occurred. Please try again." }]);
     }
     setLoading(false);
   }
@@ -267,7 +267,7 @@ function ChatbotPanel({ ctx }: { ctx: AppContext }) {
         {messages.length === 0 && (
           <div className="chat-welcome">
             <Bot size={32} />
-            <p>ถามอะไรก็ได้เกี่ยวกับร้านของคุณ</p>
+            <p>Ask anything about your store</p>
             <div className="chat-suggest-grid">
               {SUGGEST_MESSAGES.map((msg) => (
                 <button className="chat-suggest-btn" key={msg} type="button" onClick={() => sendMessage(msg)}>
@@ -286,7 +286,7 @@ function ChatbotPanel({ ctx }: { ctx: AppContext }) {
         {loading && (
           <div className="chat-bubble bot">
             <span className="chat-bubble-icon"><Sparkles size={12} /></span>
-            <div className="chat-bubble-text chat-typing">กำลังคิด...</div>
+            <div className="chat-bubble-text chat-typing">Thinking...</div>
           </div>
         )}
         <div ref={messagesEndRef} />
@@ -310,7 +310,7 @@ function ChatbotPanel({ ctx }: { ctx: AppContext }) {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => { if (e.key === "Enter") sendMessage(input); }}
-          placeholder="ถามเกี่ยวกับร้าน เช่น สินค้าเหลือเท่าไหร่..."
+          placeholder="Ask about your store, e.g. how much stock is left..."
           disabled={loading}
         />
         <button className="chat-send-btn" type="button" onClick={() => sendMessage(input)} disabled={loading || !input.trim()}>
@@ -333,7 +333,7 @@ function ChatbotPanel({ ctx }: { ctx: AppContext }) {
 }
 
 function FallbackNotice() {
-  return <p className="fallback-result-label">ผลลัพธ์นี้มาจาก fallback  เนื่องจาก API rate limit</p>;
+  return <p className="fallback-result-label">This result is from local fallback due to API rate limit</p>;
 }
 
 function Kpi({ label, value, detail, icon }: { label: string; value: string; detail: string; icon?: React.ReactNode }) {

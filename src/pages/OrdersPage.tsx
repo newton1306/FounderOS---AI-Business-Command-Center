@@ -105,5 +105,5 @@ export function OrdersPage(ctx: AppContext) {
 }
 
 function FallbackNotice() {
-  return <p className="fallback-result-label">ผลลัพธ์นี้มาจาก fallback  เนื่องจาก API rate limit</p>;
+  return <p className="fallback-result-label">This result is from local fallback due to API rate limit</p>;
 }

@@ -120,72 +120,72 @@ export function chatbotFallback(question: string, state: BusinessState): string 
   const matchedProduct = state.products.find((p) => q.includes(p.name.toLowerCase()) || q.includes(p.product_id.toLowerCase()));
 
   // Stock query
-  if (/เหลือ|สต็อก|stock|คงเหลือ|เท่าไหร่|กี่ชิ้น|หมด/.test(q)) {
+  if (/เหลือ|สต็อก|stock|คงเหลือ|เท่าไหร่|กี่ชิ้น|หมด|left|remaining|low/.test(q)) {
     if (matchedProduct) {
-      const status = matchedProduct.stock <= 0 ? "❌ หมดสต็อก" : matchedProduct.stock <= 5 ? "⚠️ ใกล้หมด" : "✅ มีของ";
-      return `📦 **${matchedProduct.name}** — สต็อกเหลือ **${matchedProduct.stock} ชิ้น** (${status})`;
+      const status = matchedProduct.stock <= 0 ? "❌ Out of stock" : matchedProduct.stock <= 5 ? "⚠️ Running low" : "✅ In stock";
+      return `📦 **${matchedProduct.name}** — **${matchedProduct.stock} units** remaining (${status})`;
     }
     const lowStock = state.products.filter((p) => p.stock <= 5).sort((a, b) => a.stock - b.stock).slice(0, 5);
     if (lowStock.length) {
-      return `📦 สินค้าสต็อกต่ำ:\n${lowStock.map((p) => `• ${p.name}: ${p.stock} ชิ้น ${p.stock <= 0 ? "❌" : "⚠️"}`).join("\n")}`;
+      return `📦 Low stock products:\n${lowStock.map((p) => `• ${p.name}: ${p.stock} units ${p.stock <= 0 ? "❌" : "⚠️"}`).join("\n")}`;
     }
-    return "✅ สต็อกสินค้าทุกชิ้นอยู่ในระดับปกติครับ";
+    return "✅ All products have healthy stock levels.";
   }
 
   // Price query
-  if (/ราคา|price|กี่บาท|เท่าไร/.test(q)) {
+  if (/ราคา|price|กี่บาท|เท่าไร|cost|how much/.test(q)) {
     if (matchedProduct) {
-      return `💰 **${matchedProduct.name}** — ราคา **฿${matchedProduct.price.toLocaleString("th-TH")}** | หมวด: ${matchedProduct.category} | สต็อก: ${matchedProduct.stock} ชิ้น`;
+      return `💰 **${matchedProduct.name}** — Price: **฿${matchedProduct.price.toLocaleString("th-TH")}** | Category: ${matchedProduct.category} | Stock: ${matchedProduct.stock} units`;
     }
-    return "กรุณาระบุชื่อสินค้าที่ต้องการทราบราคาครับ";
+    return "Please specify a product name to check its price.";
   }
 
   // Best seller query
-  if (/ขายดี|best.?seller|ยอดขาย|ขายได้|top/.test(q)) {
+  if (/ขายดี|best.?seller|ยอดขาย|ขายได้|top|popular/.test(q)) {
     const insights = getProductInsights(state);
     const top5 = insights.sort((a, b) => b.unitsSold - a.unitsSold).slice(0, 5);
-    return `🏆 สินค้าขายดี Top 5:\n${top5.map((item, i) => `${i + 1}. ${item.product.name} — ขายได้ ${item.unitsSold} ชิ้น (฿${item.revenue.toLocaleString("th-TH")})`).join("\n")}`;
+    return `🏆 Top 5 Best Sellers:\n${top5.map((item, i) => `${i + 1}. ${item.product.name} — ${item.unitsSold} units sold (฿${item.revenue.toLocaleString("th-TH")})`).join("\n")}`;
   }
 
   // Revenue query
-  if (/รายได้|revenue|ยอด|เงิน|กำไร/.test(q)) {
+  if (/รายได้|revenue|ยอด|เงิน|กำไร|income|sales/.test(q)) {
     const metrics = getMetrics(state);
-    return `💵 ยอดรายได้รวม: **฿${metrics.revenue.toLocaleString("th-TH")}** จาก ${metrics.orders} ออเดอร์\n• ออเดอร์ค้าง (PENDING): ${metrics.statusSummary.PENDING || 0}\n• ถูกยกเลิก: ${metrics.statusSummary.CANCELLED || 0}`;
+    return `💵 Total Revenue: **฿${metrics.revenue.toLocaleString("th-TH")}** from ${metrics.orders} orders\n• Pending orders: ${metrics.statusSummary.PENDING || 0}\n• Cancelled: ${metrics.statusSummary.CANCELLED || 0}`;
   }
 
   // Review query
-  if (/รีวิว|review|คะแนน|rating|ดาว/.test(q)) {
+  if (/รีวิว|review|คะแนน|rating|ดาว|feedback/.test(q)) {
     if (matchedProduct) {
       const reviews = allReviews.filter((r) => r.target_id === matchedProduct.product_id);
-      if (!reviews.length) return `📝 **${matchedProduct.name}** ยังไม่มีรีวิวครับ`;
+      if (!reviews.length) return `📝 **${matchedProduct.name}** has no reviews yet.`;
       const avg = reviews.reduce((s, r) => s + r.rating, 0) / reviews.length;
       const neg = reviews.filter((r) => r.rating <= 2);
-      return `📝 **${matchedProduct.name}** — คะแนนเฉลี่ย **${avg.toFixed(1)}/5** (${reviews.length} รีวิว)\n${neg.length ? `⚠️ รีวิวเชิงลบ ${neg.length} รายการ: ${neg.slice(0, 2).map((r) => `"${r.comment}"`).join(", ")}` : "✅ ไม่มีรีวิวเชิงลบ"}`;
+      return `📝 **${matchedProduct.name}** — Average rating: **${avg.toFixed(1)}/5** (${reviews.length} reviews)\n${neg.length ? `⚠️ ${neg.length} negative review(s): ${neg.slice(0, 2).map((r) => `"${r.comment}"`).join(", ")}` : "✅ No negative reviews"}`;
     }
     const metrics = getMetrics(state);
-    return `📝 ภาพรวมรีวิว: เฉลี่ย **${metrics.avgRating.toFixed(1)}/5** | รีวิวเชิงลบ: ${metrics.negativeReviews} รายการ`;
+    return `📝 Review overview: Average **${metrics.avgRating.toFixed(1)}/5** | Negative reviews: ${metrics.negativeReviews}`;
   }
 
   // Order query
-  if (/ออเดอร์|order|คำสั่งซื้อ|สถานะ/.test(q)) {
+  if (/ออเดอร์|order|คำสั่งซื้อ|สถานะ|status/.test(q)) {
     const metrics = getMetrics(state);
-    return `📋 ออเดอร์ทั้งหมด: ${metrics.orders}\n• DELIVERED: ${metrics.statusSummary.DELIVERED || 0}\n• SHIPPED: ${metrics.statusSummary.SHIPPED || 0}\n• PAID: ${metrics.statusSummary.PAID || 0}\n• PENDING: ${metrics.statusSummary.PENDING || 0}\n• CANCELLED: ${metrics.statusSummary.CANCELLED || 0}`;
+    return `📋 Total orders: ${metrics.orders}\n• DELIVERED: ${metrics.statusSummary.DELIVERED || 0}\n• SHIPPED: ${metrics.statusSummary.SHIPPED || 0}\n• PAID: ${metrics.statusSummary.PAID || 0}\n• PENDING: ${metrics.statusSummary.PENDING || 0}\n• CANCELLED: ${metrics.statusSummary.CANCELLED || 0}`;
   }
 
   // Chat query
-  if (/แชท|chat|ข้อความ|ลูกค้า|สอบถาม/.test(q)) {
+  if (/แชท|chat|ข้อความ|ลูกค้า|สอบถาม|customer|message/.test(q)) {
     const openChats = chats.filter((c) => c.status === "OPEN");
-    return `💬 แชทที่เปิดอยู่: **${openChats.length}** รายการ\n${openChats.slice(0, 3).map((c) => `• ${userById(c.user_id)?.name || c.user_id}: "${c.messages.at(-1)?.text || ""}"`).join("\n")}`;
+    return `💬 Open chats: **${openChats.length}**\n${openChats.slice(0, 3).map((c) => `• ${userById(c.user_id)?.name || c.user_id}: "${c.messages.at(-1)?.text || ""}"`).join("\n")}`;
   }
 
   // Product info (matched but no specific query type)
   if (matchedProduct) {
     const insight = getProductInsights(state).find((item) => item.product.product_id === matchedProduct.product_id);
-    return `📌 **${matchedProduct.name}**\n• ราคา: ฿${matchedProduct.price.toLocaleString("th-TH")}\n• สต็อก: ${matchedProduct.stock} ชิ้น\n• ขายได้: ${insight?.unitsSold || 0} ชิ้น\n• คะแนนรีวิว: ${insight?.averageRating?.toFixed(1) || "ไม่มี"}/5\n• หมวด: ${matchedProduct.category}`;
+    return `📌 **${matchedProduct.name}**\n• Price: ฿${matchedProduct.price.toLocaleString("th-TH")}\n• Stock: ${matchedProduct.stock} units\n• Units sold: ${insight?.unitsSold || 0}\n• Review rating: ${insight?.averageRating?.toFixed(1) || "N/A"}/5\n• Category: ${matchedProduct.category}`;
   }
 
   // General summary
   const metrics = getMetrics(state);
-  return `📊 สรุปร้านค้า:\n• รายได้รวม: ฿${metrics.revenue.toLocaleString("th-TH")}\n• ออเดอร์: ${metrics.orders} รายการ\n• สต็อกเสี่ยง: ${metrics.lowStock} สินค้า\n• แชทเปิด: ${metrics.openChats}\n• คะแนนรีวิว: ${metrics.avgRating.toFixed(1)}/5\n\nลองถามเฉพาะเจาะจงได้ เช่น "สินค้า X เหลือเท่าไหร่" หรือ "สินค้าขายดี"`;
+  return `📊 Store Summary:\n• Total revenue: ฿${metrics.revenue.toLocaleString("th-TH")}\n• Orders: ${metrics.orders}\n• Stock risks: ${metrics.lowStock} products\n• Open chats: ${metrics.openChats}\n• Review rating: ${metrics.avgRating.toFixed(1)}/5\n\nTry asking something specific, e.g. "How much stock does X have?" or "Best sellers"`;
 }
 

@@ -71,7 +71,7 @@ export function CustomerVoicePage(ctx: AppContext) {
           {!summary ? (
             <div className="voice-ai-empty">
               <Bot size={28} />
-              <p>กด "Gemini Pain Summary" ด้านบนเพื่อวิเคราะห์ปัญหาจากรีวิวและแชท</p>
+              <p>Press "Gemini Pain Summary" above to analyze issues from reviews and chats</p>
             </div>
           ) : (
             <div className="voice-ai-content">
@@ -134,7 +134,7 @@ export function CustomerVoicePage(ctx: AppContext) {
 }
 
 function FallbackNotice() {
-  return <p className="fallback-result-label">ผลลัพธ์นี้มาจาก fallback  เนื่องจาก API rate limit</p>;
+  return <p className="fallback-result-label">This result is from local fallback due to API rate limit</p>;
 }
 
 function Metric({ label, value }: { label: string; value: string }) {

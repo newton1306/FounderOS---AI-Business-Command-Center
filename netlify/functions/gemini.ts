@@ -73,6 +73,40 @@ function getResponseSchema(task: unknown) {
   };
 }
 
+function taskInstruction(task: unknown) {
+  if (task === "founder-brief") {
+    return [
+      "Task: founder-brief.",
+      "Write one specific summary sentence about revenue, stock, orders, reviews, and chats.",
+      "Return exactly 3 actions: one inventory/revenue action, one order/customer follow-up action, and one review/chat trust action.",
+      "Each action needs a concrete title, a data-grounded reason, and a business impact."
+    ].join(" ");
+  }
+  if (task === "product-insight") {
+    return [
+      "Task: product-insight.",
+      "Write one specific summary sentence for the selected product.",
+      "Return exactly 3 actions: one stock/demand action, one review or conversion action, and one merchandising action.",
+      "Each action must reference the supplied product or related state."
+    ].join(" ");
+  }
+  if (task === "review-pain") {
+    return [
+      "Task: review-pain.",
+      "Write one specific summary sentence about negative review themes.",
+      "Return exactly 3 actions: one review reply action, one product issue tagging action, and one FAQ/support prevention action.",
+      "Ground every reason in supplied reviews, products, or chats."
+    ].join(" ");
+  }
+  if (task === "reply-assistant") {
+    return "Task: reply-assistant. Return one polite Thai shop reply in data. Use the latest USER message and do not invent order data.";
+  }
+  if (task === "order-summary") {
+    return "Task: order-summary. Return one concise operational English order summary in data. Include customer, status, items, value, and risk.";
+  }
+  return "Task: unknown. Follow the requested schema exactly.";
+}
+
 function normalizeText(text: string) {
   const cleaned = text
     .replace(/```json|```/g, "")
@@ -94,18 +128,45 @@ function parsedOrGeminiText(text: string, task: unknown) {
     if (task === "reply-assistant" || task === "order-summary") {
       return { data: content };
     }
-    return {
-      summary: content.slice(0, 280),
-      actions: [
-        {
-          title: "Review Gemini suggestion",
-          reason: content,
-          impact: "This is a live Gemini response recovered from a malformed JSON envelope.",
-          source: "gemini"
-        }
-      ]
-    };
+    throw new Error("Gemini returned malformed action brief JSON");
   }
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return !!value && typeof value === "object" && !Array.isArray(value);
+}
+
+function textValue(value: unknown) {
+  return typeof value === "string" ? value.trim() : "";
+}
+
+function normalizeParsedResult(parsed: unknown, task: unknown) {
+  if (task === "reply-assistant" || task === "order-summary") {
+    if (!isRecord(parsed)) throw new Error("Gemini returned an invalid text result");
+    const data = textValue(parsed.data);
+    if (!data) throw new Error("Gemini returned an empty text result");
+    return { data };
+  }
+
+  const brief = isRecord(parsed) && isRecord(parsed.data) ? parsed.data : parsed;
+  if (!isRecord(brief)) throw new Error("Gemini returned an invalid action brief");
+  const summary = textValue(brief.summary);
+  const rawActions = Array.isArray(brief.actions) ? brief.actions : [];
+  const actions = rawActions
+    .filter(isRecord)
+    .map((action) => ({
+      title: textValue(action.title),
+      reason: textValue(action.reason),
+      impact: textValue(action.impact),
+      source: "gemini"
+    }))
+    .filter((action) => action.title && action.reason && action.impact)
+    .slice(0, 3);
+
+  if (!summary || actions.length < 3) {
+    throw new Error("Gemini action brief was incomplete");
+  }
+  return { data: { summary, actions } };
 }
 
 function compactPayload(payload: Record<string, unknown>) {
@@ -139,7 +200,9 @@ export const handler: Handler = async (event) => {
       "Return ONLY valid JSON in the requested shape. Be concise, practical, and grounded in the supplied data.",
       "Do not put raw line breaks inside string values. Use plain one-line strings.",
       "If task returns an action brief, shape is { summary: string, actions: [{ title, reason, impact, source: 'gemini' }] }.",
+      "Action brief tasks must return exactly 3 complete actions. Do not return a single paragraph, markdown, bullets outside JSON, or a partial envelope.",
       "If task is reply-assistant or order-summary, return { data: string }.",
+      taskInstruction(payload.task),
       JSON.stringify(compact).slice(0, 10000)
     ].join("\n");
 
@@ -167,7 +230,7 @@ export const handler: Handler = async (event) => {
     const json = await response.json();
     const text = json.candidates?.[0]?.content?.parts?.[0]?.text || "{}";
     const parsed = parsedOrGeminiText(text, payload.task);
-    return { statusCode: 200, body: JSON.stringify(parsed.data ? parsed : { data: parsed }) };
+    return { statusCode: 200, body: JSON.stringify(normalizeParsedResult(parsed, payload.task)) };
   } catch (error) {
     return { statusCode: 500, body: JSON.stringify({ error: error instanceof Error ? error.message : "Unknown error" }) };
   }

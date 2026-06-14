@@ -1,6 +1,6 @@
 import type { Handler } from "@netlify/functions";
 
-const model = "gemini-1.5-flash";
+const model = process.env.GEMINI_MODEL || "gemini-2.5-flash";
 
 function safeJson(text: string) {
   const cleaned = text.replace(/```json|```/g, "").trim();
@@ -31,7 +31,10 @@ export const handler: Handler = async (event) => {
       })
     });
     if (response.status === 429) return { statusCode: 429, body: JSON.stringify({ error: "quota limit" }) };
-    if (!response.ok) return { statusCode: response.status, body: JSON.stringify({ error: "Gemini API error" }) };
+    if (!response.ok) {
+      const detail = await response.text();
+      return { statusCode: response.status, body: JSON.stringify({ error: "Gemini API error", model, detail: detail.slice(0, 500) }) };
+    }
     const json = await response.json();
     const text = json.candidates?.[0]?.content?.parts?.[0]?.text || "{}";
     const parsed = safeJson(text);

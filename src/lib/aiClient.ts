@@ -2,7 +2,7 @@ import { founderBriefFallback, orderSummaryFallback, productInsightFallback, rep
 import { getFallbackUntil, getJson, setFallbackCooldown, setJson } from "./storage";
 import type { ActionBrief, AiMode, BusinessState, Chat, Order, Product } from "./types";
 
-const TIMEOUT_MS = 1200;
+const TIMEOUT_MS = 12000;
 
 export interface AiResult<T> {
   mode: AiMode;
@@ -34,7 +34,9 @@ async function callGemini<T>(payload: Record<string, unknown>, fallback: () => T
       return { mode: "fallback", reason: "quota limit", data: fallback() };
     }
     if (!response.ok) {
-      return { mode: "fallback", reason: "API error", data: fallback() };
+      const error = await response.json().catch(() => null) as { error?: string; model?: string } | null;
+      const reason = error?.model ? `${error.error || "API error"} (${error.model})` : error?.error || "API error";
+      return { mode: "fallback", reason, data: fallback() };
     }
     const json = (await response.json()) as { data?: T };
     if (!json.data) return { mode: "fallback", reason: "empty API result", data: fallback() };
@@ -43,7 +45,6 @@ async function callGemini<T>(payload: Record<string, unknown>, fallback: () => T
   } catch (error) {
     window.clearTimeout(timeout);
     const reason = error instanceof DOMException && error.name === "AbortError" ? "timeout" : "API error";
-    if (reason === "timeout") setFallbackCooldown(3);
     return { mode: "fallback", reason, data: fallback() };
   }
 }

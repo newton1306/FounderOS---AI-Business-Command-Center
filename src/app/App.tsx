@@ -4,7 +4,7 @@ import { BarChart3, Bell, Bot, Boxes, LayoutDashboard, MessageSquareText, Packag
 import { toast } from "sonner";
 import { chats, orders, products, users } from "../data/source";
 import { getActivities, getMetrics } from "../lib/analytics";
-import { clearFallbackCooldown, getFallbackUntil, setFallbackCooldown } from "../lib/storage";
+import { clearFallbackCooldown, getFallbackUntil, getJson, setFallbackCooldown, setJson } from "../lib/storage";
 import { simulateLiveOrder } from "../lib/simulation";
 import { useOnlineStatus, usePwaReady } from "../lib/status";
 import type { AiMode, BusinessState } from "../lib/types";
@@ -44,7 +44,7 @@ export function App() {
   const [aiMode, setAiMode] = useState<AiMode>(() => Date.now() < getFallbackUntil() ? "fallback" : "live");
   const [aiReason, setAiReason] = useState("ready");
   const [autoSim, setAutoSim] = useState(false);
-  const [fallbackOnly, setFallbackOnly] = useState(() => Date.now() < getFallbackUntil());
+  const [fallbackOnly, setFallbackOnly] = useState(() => getJson("ai_fallback_only", false));
   const [mobileStatusOpen, setMobileStatusOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchOpen, setSearchOpen] = useState(false);
@@ -78,6 +78,7 @@ export function App() {
 
   function toggleFallbackOnly(enabled: boolean) {
     setFallbackOnly(enabled);
+    setJson("ai_fallback_only", enabled);
     if (enabled) {
       setFallbackCooldown(24 * 60);
       setAiMode("fallback");

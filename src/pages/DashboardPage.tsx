@@ -4,7 +4,6 @@ import { Bot, MessageSquareText, Sparkles, TriangleAlert, Star, ToggleLeft, Togg
 import type { AppContext } from "../app/App";
 import { getActivities, getMetrics, orderStatusBreakdown, revenueByCategory, revenueTrend, stockRiskData } from "../lib/analytics";
 import { getFounderBrief } from "../lib/aiClient";
-import type { ActionBrief, AiMode } from "../lib/types";
 import { currency, dateTime, number } from "../lib/format";
 import { useUpdatePulse } from "../lib/useUpdatePulse";
 
@@ -18,16 +17,14 @@ function shortLabel(value: string, max = 10) {
 export function DashboardPage(ctx: AppContext) {
   const metrics = useMemo(() => getMetrics(ctx.state), [ctx.state]);
   const activities = useMemo(() => getActivities(ctx.state), [ctx.state]);
-  const [brief, setBrief] = useState<ActionBrief | null>(null);
-  const [briefMode, setBriefMode] = useState<AiMode | null>(null);
   const [briefLoading, setBriefLoading] = useState(false);
   const updatePulse = useUpdatePulse(ctx.state.lastUpdated);
 
   async function suggestBrief() {
     setBriefLoading(true);
     const result = await getFounderBrief(ctx.state);
-    setBrief(result.data);
-    setBriefMode(result.mode);
+    ctx.setFounderBrief(result.data);
+    ctx.setFounderBriefMode(result.mode);
     ctx.setAiMode(result.mode);
     ctx.setAiReason(result.reason);
     setBriefLoading(false);
@@ -52,22 +49,22 @@ export function DashboardPage(ctx: AppContext) {
           </div>
           <Bot size={20} aria-hidden="true" />
         </div>
-        {briefMode === "fallback" && <FallbackNotice />}
-        <p className="summary">{brief?.summary || "No brief generated yet. Ask Gemini for a focused action plan from current revenue, stock, orders, reviews, and chats."}</p>
-        {!brief && (
+        {ctx.founderBriefMode === "fallback" && <FallbackNotice />}
+        <p className="summary">{ctx.founderBrief?.summary || "No brief generated yet. Ask Gemini for a focused action plan from current revenue, stock, orders, reviews, and chats."}</p>
+        {!ctx.founderBrief && (
           <button className="button primary ai-action gemini-suggest" type="button" onClick={suggestBrief} disabled={briefLoading}>
             <span className="gemini-mark" aria-hidden="true"><Sparkles size={16} /></span>
             {briefLoading ? "Gemini is thinking..." : "Gemini Suggest"}
           </button>
         )}
-        {brief && (
+        {ctx.founderBrief && (
           <button className="button secondary ai-action gemini-refresh" type="button" onClick={suggestBrief} disabled={briefLoading}>
             <span className="gemini-mark" aria-hidden="true"><Sparkles size={15} /></span>
             {briefLoading ? "Updating..." : "Refresh Suggestion"}
           </button>
         )}
         <div className="action-list">
-          {(brief?.actions || []).map((action) => (
+          {(ctx.founderBrief?.actions || []).map((action) => (
             <article className="action-item" key={action.title}>
               <strong>{action.title}</strong>
               <span>{action.reason}</span>

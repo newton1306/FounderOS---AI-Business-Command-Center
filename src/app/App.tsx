@@ -7,7 +7,7 @@ import { getActivities, getMetrics } from "../lib/analytics";
 import { clearFallbackCooldown, getFallbackUntil, getJson, setFallbackCooldown, setJson } from "../lib/storage";
 import { simulateLiveOrder } from "../lib/simulation";
 import { useOnlineStatus, usePwaReady } from "../lib/status";
-import type { AiMode, BusinessState } from "../lib/types";
+import type { ActionBrief, AiMode, BusinessState } from "../lib/types";
 import { DashboardPage } from "../pages/DashboardPage";
 import { ProductsPage } from "../pages/ProductsPage";
 import { ProductDetailPage } from "../pages/ProductDetailPage";
@@ -43,6 +43,8 @@ export function App() {
   }));
   const [aiMode, setAiMode] = useState<AiMode>(() => Date.now() < getFallbackUntil() ? "fallback" : "live");
   const [aiReason, setAiReason] = useState("ready");
+  const [founderBrief, setFounderBrief] = useState<ActionBrief | null>(null);
+  const [founderBriefMode, setFounderBriefMode] = useState<AiMode | null>(null);
   const [autoSim, setAutoSim] = useState(false);
   const [fallbackOnly, setFallbackOnly] = useState(() => getJson("ai_fallback_only", false));
   const [mobileStatusOpen, setMobileStatusOpen] = useState(false);
@@ -147,7 +149,7 @@ export function App() {
     else setSearchOpen(true);
   }
 
-  const context = { state, setState, aiMode, setAiMode, aiReason, setAiReason, online, pwaReady, simulate, autoSim, setAutoSim, forceFallback: () => toggleFallbackOnly(true) };
+  const context = { state, setState, aiMode, setAiMode, aiReason, setAiReason, founderBrief, setFounderBrief, founderBriefMode, setFounderBriefMode, online, pwaReady, simulate, autoSim, setAutoSim, forceFallback: () => toggleFallbackOnly(true) };
   const statusItems = [
     { icon: online ? Wifi : WifiOff, label: online ? "Online" : "Offline", tone: online ? "success" : "warning" },
     { icon: Radio, label: pwaReady ? "PWA Ready" : "PWA Pending", tone: pwaReady ? "success" : "neutral" },
@@ -320,6 +322,10 @@ export type AppContext = {
   setAiMode: (mode: AiMode) => void;
   aiReason: string;
   setAiReason: (reason: string) => void;
+  founderBrief: ActionBrief | null;
+  setFounderBrief: (brief: ActionBrief | null) => void;
+  founderBriefMode: AiMode | null;
+  setFounderBriefMode: (mode: AiMode | null) => void;
   online: boolean;
   pwaReady: boolean;
   simulate: () => void;

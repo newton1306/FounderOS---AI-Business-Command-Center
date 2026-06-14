@@ -1,5 +1,6 @@
 # Dependencies
 node_modules/
+.pnpm-store/
 
 # Build output
 dist/
@@ -8,6 +9,10 @@ dist/
 .env
 .env.*
 !.env.example
+*.pem
+*.key
+*.p12
+*.pfx
 
 # Netlify local state
 .netlify/
@@ -19,6 +24,10 @@ dist/
 *.tsbuildinfo
 vite.config.js
 vite.config.d.ts
+.vite/
+.cache/
+.parcel-cache/
+.turbo/
 
 # Logs
 *.log
@@ -27,8 +36,35 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# Test and coverage output
+coverage/
+.nyc_output/
+playwright-report/
+test-results/
+blob-report/
+cypress/screenshots/
+cypress/videos/
+
+# Runtime and temporary files
+tmp/
+temp/
+.tmp/
+*.tmp
+*.temp
+*.pid
+*.seed
+*.pid.lock
+
+# Tool caches
+.eslintcache
+.stylelintcache
+
 # OS / editor noise
 .DS_Store
 Thumbs.db
 .vscode/
 .idea/
+*.swp
+*.swo
+*~
+.history/

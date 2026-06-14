@@ -220,21 +220,66 @@ function normalizeParsedResult(parsed: unknown, task: unknown) {
 }
 
 function compactPayload(payload: Record<string, unknown>) {
-  const state = payload.state as { products?: Array<Record<string, unknown>>; orders?: Array<Record<string, unknown>>; simulationEvents?: unknown[] } | undefined;
+  const state = payload.state as {
+    products?: Array<Record<string, unknown>>;
+    orders?: Array<Record<string, unknown>>;
+    simulationEvents?: unknown[];
+  } | undefined;
+
+  // For chatbot, pre-compute metrics instead of sending raw data
+  if (payload.task === "chatbot" && state) {
+    const products = (state.products || []).map((p) => ({
+      name: p.name, stock: p.stock, price: p.price, category: p.category
+    }));
+    const orders = state.orders || [];
+    const totalRevenue = orders
+      .filter((o) => ["DELIVERED", "SHIPPED", "PAID"].includes(String(o.status)))
+      .reduce((s, o) => s + Number(o.total_price || 0), 0);
+    const statusCounts: Record<string, number> = {};
+    orders.forEach((o) => { statusCounts[String(o.status)] = (statusCounts[String(o.status)] || 0) + 1; });
+    return {
+      task: payload.task,
+      question: payload.question,
+      metrics: { totalRevenue, totalOrders: orders.length, statusCounts },
+      products: products.slice(0, 15)
+    };
+  }
+
+  // For product-insight, send only the target product + minimal state
+  if (payload.task === "product-insight" && state) {
+    return {
+      task: payload.task,
+      product: payload.product && typeof payload.product === "object"
+        ? { ...(payload.product as Record<string, unknown>), image: undefined }
+        : payload.product,
+      products: (state.products || []).slice(0, 8).map((p) => ({ name: p.name, stock: p.stock, price: p.price })),
+      orderCount: (state.orders || []).length
+    };
+  }
+
   return {
     ...payload,
     product: payload.product && typeof payload.product === "object" ? { ...(payload.product as Record<string, unknown>), image: undefined } : payload.product,
     chat: payload.chat && typeof payload.chat === "object" ? {
       ...(payload.chat as Record<string, unknown>),
-      messages: ((payload.chat as { messages?: unknown[] }).messages || []).slice(-6)
+      messages: ((payload.chat as { messages?: unknown[] }).messages || []).slice(-4)
     } : payload.chat,
     state: state ? {
-      products: (state.products || []).map((product) => ({ ...product, image: undefined })),
-      orders: (state.orders || []).slice(-35),
-      simulationEvents: (state.simulationEvents || []).slice(0, 8),
-      lastUpdated: (state as { lastUpdated?: unknown }).lastUpdated
+      products: (state.products || []).map((product) => ({
+        name: product.name, stock: product.stock, price: product.price,
+        category: product.category, product_id: product.product_id
+      })),
+      orders: (state.orders || []).slice(-15).map((o) => ({
+        order_id: o.order_id, status: o.status, total_price: o.total_price
+      })),
+      simulationEvents: (state.simulationEvents || []).slice(0, 4)
     } : undefined
   };
+}
+
+function maxTokensForTask(task: unknown) {
+  if (task === "reply-assistant" || task === "chatbot" || task === "order-summary") return 800;
+  return 2048;
 }
 
 export const handler: Handler = async (event) => {
@@ -245,15 +290,16 @@ export const handler: Handler = async (event) => {
   try {
     const payload = JSON.parse(event.body || "{}");
     const compact = compactPayload(payload);
+    const isTextTask = ["reply-assistant", "order-summary", "chatbot"].includes(payload.task);
     const prompt = [
       "You are FounderOS, an AI business command center for an e-commerce founder.",
-      "Return ONLY valid JSON in the requested shape. Be concise, practical, and grounded in the supplied data.",
-      "Do not put raw line breaks inside string values. Use plain one-line strings.",
-      "If task returns an action brief, shape is { summary: string, actions: [{ title, reason, impact, source: 'gemini' }] }.",
-      "Action brief tasks must return exactly 3 complete actions. Do not return a single paragraph, markdown, bullets outside JSON, or a partial envelope.",
-      "If task is reply-assistant or order-summary, return { data: string }.",
+      "Return ONLY valid JSON. Be concise and data-grounded.",
+      "Do not put raw line breaks inside JSON string values.",
+      isTextTask
+        ? "Return { \"data\": \"your answer here\" }."
+        : "Return { \"summary\": \"one sentence\", \"actions\": [{ \"title\": \"...\", \"reason\": \"...\", \"impact\": \"...\", \"source\": \"gemini\" }] } with exactly 3 actions.",
       taskInstruction(payload.task),
-      JSON.stringify(compact).slice(0, 10000)
+      JSON.stringify(compact).slice(0, 4000)
     ].join("\n");
 
     const controller = new AbortController();
@@ -266,7 +312,7 @@ export const handler: Handler = async (event) => {
         contents: [{ parts: [{ text: prompt }] }],
         generationConfig: {
           temperature: 0.2,
-          maxOutputTokens: 700,
+          maxOutputTokens: maxTokensForTask(payload.task),
           responseMimeType: "application/json",
           responseSchema: getResponseSchema(payload.task)
         }

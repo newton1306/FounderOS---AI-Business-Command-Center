@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type Ref } from "react";
 import { Area, AreaChart, Bar, BarChart, CartesianGrid, Cell, LabelList, Line, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { Bot, MessageSquareText, Send, Sparkles, TriangleAlert, Star, X } from "lucide-react";
 import type { AppContext } from "../app/App";
@@ -23,13 +23,21 @@ const SUGGEST_MESSAGES = [
   "Any low stock items?",
   "Total revenue overview",
   "How many orders are there?",
-  "Any negative reviews?",
-  "Open customer chats"
+  "Any negative reviews?"
 ];
 
 export function DashboardPage(ctx: AppContext) {
   const metrics = useMemo(() => getMetrics(ctx.state), [ctx.state]);
   const [briefLoading, setBriefLoading] = useState(false);
+  const assistantRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (window.innerWidth > 820) return;
+    const id = window.requestAnimationFrame(() => {
+      assistantRef.current?.scrollIntoView({ block: "start", behavior: "auto" });
+    });
+    return () => window.cancelAnimationFrame(id);
+  }, []);
 
   async function suggestBrief() {
     setBriefLoading(true);
@@ -159,7 +167,7 @@ export function DashboardPage(ctx: AppContext) {
       </section>
 
       {/* Chatbot panel replaces Activity Feed */}
-      <ChatbotPanel ctx={ctx} />
+      <ChatbotPanel ctx={ctx} panelRef={assistantRef} />
     </div>
   );
 }
@@ -206,7 +214,7 @@ interface ChatMessage {
   text: string;
 }
 
-function ChatbotPanel({ ctx }: { ctx: AppContext }) {
+function ChatbotPanel({ ctx, panelRef }: { ctx: AppContext; panelRef?: Ref<HTMLElement> }) {
   const messages = ctx.chatMessages;
   const setMessages = ctx.setChatMessages;
   const input = ctx.chatbotDraft;
@@ -268,7 +276,7 @@ function ChatbotPanel({ ctx }: { ctx: AppContext }) {
   }
 
   return (
-    <section className="chatbot-panel">
+    <section className="chatbot-panel" id="store-assistant" ref={panelRef}>
       <div className="section-head">
         <div className="chatbot-head-left">
           <span className="chatbot-gemini-icon"><Sparkles size={16} /></span>

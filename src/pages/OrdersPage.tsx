@@ -4,7 +4,7 @@ import type { AppContext } from "../app/App";
 import { chats } from "../data/source";
 import { getOrderSummary } from "../lib/aiClient";
 import { orderRisk, productById, relatedNotifications, userById } from "../lib/analytics";
-import { currency, dateTime, number } from "../lib/format";
+import { currency, dateTime } from "../lib/format";
 import { useUpdatePulse } from "../lib/useUpdatePulse";
 import type { AiMode } from "../lib/types";
 
@@ -16,7 +16,7 @@ export function OrdersPage(ctx: AppContext) {
   const [selected, setSelected] = useState(ctx.state.orders[0]?.order_id || "");
   const [summary, setSummary] = useState("");
   const [summaryMode, setSummaryMode] = useState<AiMode | null>(null);
-  const [summaryLoading, setSummaryLoading] = useState(false);
+const [summaryLoading, setSummaryLoading] = useState(false);
   const updatePulse = useUpdatePulse(ctx.state.lastUpdated);
 
   const filtered = useMemo(() => ctx.state.orders.filter((order) => {
@@ -75,8 +75,12 @@ export function OrdersPage(ctx: AppContext) {
               <button className={`order-card ${selected === item.order_id ? "selected" : ""} ${updatePulse && index === 0 ? "pop-update" : ""}`} type="button" key={item.order_id} onClick={() => setSelected(item.order_id)}>
                 <span className="order-card-main">
                   <span className="order-card-headline">
-                    <strong>{item.order_id} -- {item.items.length} item(s) {number.format(item.total_price)}B</strong>
+                    <strong>{item.order_id}</strong>
                     <span>{user?.name || "Unknown"} - {user?.role || "MEMBER"}</span>
+                  </span>
+                  <span className="order-card-metrics">
+                    <span>{compactBaht(item.total_price)}</span>
+                    <span>{item.items.length} item{item.items.length === 1 ? "" : "s"}</span>
                   </span>
                   <small>{dateTime(item.timestamp)} - {orderRisk(item, ctx.state.products)}</small>
                 </span>
@@ -112,4 +116,8 @@ export function OrdersPage(ctx: AppContext) {
 
 function FallbackNotice() {
   return <p className="fallback-result-label">ผลลัพธ์นี้มาจาก fallback  เนื่องจาก API rate limit</p>;
+}
+
+function compactBaht(value: number) {
+  return `฿${value.toLocaleString("en-US")}`;
 }

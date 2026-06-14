@@ -15,7 +15,7 @@ export function CustomerVoicePage(ctx: AppContext) {
   const hiddenDuplicateChats = chats.length - chatGroups.length;
   const summary = ctx.voiceSummary?.data || null;
   const summaryMode = ctx.voiceSummary?.mode || null;
-  const [mobileTab, setMobileTab] = useState<"ai" | "reviews" | "chats">("reviews");
+  const [mobileTab, setMobileTab] = useState<"ai" | "reviews" | "chats">("ai");
 
   async function summarize() {
     ctx.setVoiceSummaryLoading(true);

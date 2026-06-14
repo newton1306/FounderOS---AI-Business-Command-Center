@@ -1764,11 +1764,12 @@ select {
 }
 .order-card {
   width: 100%;
+  min-height: 78px;
   text-align: left;
-  padding: 10px;
+  padding: 12px;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: 8px;
+  gap: 10px;
   align-items: start;
   cursor: pointer;
   color: var(--ink);
@@ -1790,17 +1791,16 @@ select {
 .order-card-main {
   min-width: 0;
   display: grid;
-  gap: 3px;
+  gap: 6px;
 }
 .order-card-headline {
   min-width: 0;
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.9fr);
-  gap: 8px;
-  align-items: baseline;
+  grid-template-columns: minmax(0, 1fr) minmax(120px, auto);
+  gap: 10px;
+  align-items: start;
 }
 .order-card-main strong,
-.order-card-main span,
 .order-card-main em,
 .order-card-main small {
   min-width: 0;
@@ -1818,12 +1818,40 @@ select {
   font-weight: 500;
   color: var(--muted);
   text-align: right;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
-.order-card-main span,
 .order-card-main em,
 .order-card-main small {
   font-size: 0.78rem;
   line-height: 1.2;
+}
+.order-card-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-width: 0;
+}
+.order-card-metrics span {
+  min-height: 24px;
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  max-width: 100%;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 0.75rem;
+  font-weight: 850;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+.order-card-metrics span:first-child {
+  background: var(--primary-soft);
+  color: var(--primary-strong);
 }
 .order-status {
   justify-self: end;
@@ -2358,6 +2386,9 @@ select {
   .order-card-headline > span {
     justify-self: start;
     text-align: left;
+  }
+  .order-card-metrics {
+    gap: 5px;
   }
   .order-status {
     justify-self: start;

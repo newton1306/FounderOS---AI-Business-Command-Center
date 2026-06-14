@@ -60,6 +60,7 @@ export function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchOpen, setSearchOpen] = useState(false);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
+  const [unreadCount, setUnreadCount] = useState(0);
   const online = useOnlineStatus();
   const pwaReady = usePwaReady();
   const metrics = useMemo(() => getMetrics(state), [state]);
@@ -81,6 +82,7 @@ export function App() {
     setState((current) => {
       const next = simulateLiveOrder(current);
       const event = next.simulationEvents[0];
+      setUnreadCount((c) => c + 1);
       // On mobile, don't show any toast/popup
       if (!isMobileViewport()) {
         toast.success(event.title, { description: event.detail });
@@ -114,9 +116,9 @@ export function App() {
     return [...productResults, ...orderResults, ...chatResults].slice(0, 6);
   }, [searchQuery, state.orders, state.products]);
 
-  // Notifications: show all items, green (success) first
+  // Notifications: show only simulation events, green (success) first
   const notificationItems = useMemo(() => {
-    const activityItems = getActivities(state).map((item) => ({
+    const activityItems = state.simulationEvents.map((item) => ({
       id: item.id,
       title: item.title,
       message: item.detail,
@@ -130,7 +132,6 @@ export function App() {
         const toneDiff = toneOrder[a.tone] - toneOrder[b.tone];
         return toneDiff || Date.parse(b.timestamp) - Date.parse(a.timestamp);
       });
-    // No .slice() — show ALL notifications, panel is scrollable
   }, [state.simulationEvents]);
 
   function goToResult(to: string) {
@@ -194,8 +195,9 @@ export function App() {
               <input value={searchQuery} onChange={(event) => { setSearchQuery(event.target.value); setSearchOpen(true); }} onFocus={() => setSearchOpen(true)} onKeyDown={(event) => { if (event.key === "Enter") submitSearch(); if (event.key === "Escape") setSearchOpen(false); }} placeholder="Search..." />
               <button type="button" onClick={submitSearch} aria-label="Run search"><Search size={18} aria-hidden="true" /></button>
             </label>
-            <button className={`icon-button ${notificationsOpen ? "active" : ""}`} type="button" onClick={() => { setNotificationsOpen((value) => !value); setSearchOpen(false); }} aria-label="Notifications" aria-expanded={notificationsOpen}>
+            <button className={`icon-button noti-button ${notificationsOpen ? "active" : ""}`} type="button" onClick={() => { setNotificationsOpen((value) => !value); setSearchOpen(false); setUnreadCount(0); }} aria-label="Notifications" aria-expanded={notificationsOpen}>
               <Bell size={17} aria-hidden="true" />
+              {unreadCount > 0 && <span className="noti-badge">{unreadCount}</span>}
             </button>
             {searchOpen && <SearchPanel query={searchQuery} results={searchResults} onClose={() => setSearchOpen(false)} onSelect={goToResult} />}
             {notificationsOpen && <NotificationPanel items={notificationItems} onClose={() => setNotificationsOpen(false)} onSelect={goToResult} />}
@@ -272,7 +274,7 @@ function NotificationPanel({ items, onClose, onSelect }: { items: Array<{ id: st
     <section className="floating-panel notification-panel" aria-label="Notifications">
       <div className="section-head"><h2>Notifications</h2><button className="icon-button" type="button" onClick={onClose} aria-label="Close notifications"><X size={15} /></button></div>
       <div className="floating-list">
-        {items.map((item) => (
+        {items.length === 0 ? <p className="panel-empty">No new notifications. Waiting for new events...</p> : items.map((item) => (
           <button className={`floating-item ${item.tone}`} type="button" key={item.id} onClick={() => onSelect(item.to)}>
             <strong>{item.title}</strong>
             <small>{item.tone === "warning" ? "Action notification" : item.tone === "success" ? "Success notification" : "System notification"}</small>

@@ -248,6 +248,27 @@ h4 {
   color: white;
   background: var(--dark);
 }
+.noti-button {
+  position: relative;
+}
+.noti-badge {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background: var(--danger);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 800;
+  border-radius: 999px;
+  padding: 1px 5px;
+  min-width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--bg);
+  box-sizing: content-box;
+}
 .floating-panel {
   position: absolute;
   z-index: 18;

@@ -87,8 +87,8 @@ export function DashboardPage(ctx: AppContext) {
             <AreaChart data={revenueTrend(ctx.state)} margin={{ top: 6, right: 10, left: 0, bottom: 0 }}>
               <defs>
                 <linearGradient id="revenueArea" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="oklch(0.45 0.15 20)" stopOpacity={0.22} />
-                  <stop offset="100%" stopColor="oklch(0.45 0.15 20)" stopOpacity={0.02} />
+                  <stop offset="0%" stopColor="oklch(0.36 0.16 20)" stopOpacity={0.34} />
+                  <stop offset="100%" stopColor="oklch(0.36 0.16 20)" stopOpacity={0.06} />
                 </linearGradient>
               </defs>
               <CartesianGrid stroke="oklch(0.89 0.008 95)" strokeDasharray="3 7" vertical={false} />
@@ -96,7 +96,7 @@ export function DashboardPage(ctx: AppContext) {
               <YAxis tickFormatter={(v) => `${v / 1000}k`} width={44} tickLine={false} axisLine={false} tick={{ fontSize: 11 }} />
               <Tooltip formatter={(v) => currency.format(Number(v))} />
               <Area type="monotone" dataKey="revenue" fill="url(#revenueArea)" stroke="none" />
-              <Line type="monotone" dataKey="revenue" stroke="oklch(0.45 0.15 20)" strokeWidth={3} dot={false} activeDot={{ r: 5, strokeWidth: 0, fill: "oklch(0.45 0.15 20)" }} />
+              <Line type="monotone" dataKey="revenue" stroke="oklch(0.33 0.17 20)" strokeWidth={3.6} dot={false} activeDot={{ r: 5, strokeWidth: 0, fill: "oklch(0.33 0.17 20)" }} />
             </AreaChart>
           </ResponsiveContainer>
         </ChartCard>

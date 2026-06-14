@@ -68,10 +68,12 @@ export function DashboardPage(ctx: AppContext) {
         {ctx.founderBriefMode === "fallback" && <FallbackNotice />}
         <p className="summary">{ctx.founderBrief?.summary || "No brief generated yet. Ask Gemini for a focused action plan from current revenue, stock, orders, reviews, and chats."}</p>
         {!ctx.founderBrief && (
-          <button className="button primary ai-action gemini-suggest" type="button" onClick={suggestBrief} disabled={briefLoading}>
-            <span className="gemini-mark" aria-hidden="true"><Sparkles size={16} /></span>
-            {briefLoading ? "Gemini is thinking..." : "Gemini Suggest"}
-          </button>
+          <div className="gemini-cta-center">
+            <button className="button primary ai-action gemini-suggest gemini-cta-pulse" type="button" onClick={suggestBrief} disabled={briefLoading}>
+              <span className="gemini-mark" aria-hidden="true"><Sparkles size={16} /></span>
+              {briefLoading ? "Gemini is thinking..." : "Gemini Suggest"}
+            </button>
+          </div>
         )}
         {ctx.founderBrief && (
           <button className="button secondary ai-action gemini-refresh" type="button" onClick={suggestBrief} disabled={briefLoading}>

@@ -65,12 +65,15 @@ export function CustomerVoicePage(ctx: AppContext) {
           <div className="voice-ai-header">
             <span className="ai-corner-star" aria-label="Gemini powered"><Star size={15} aria-hidden="true" /></span>
             <h3>AI Pain Analysis</h3>
-            <button className="button primary ai-action voice-ai-btn" type="button" onClick={summarize}><span className="ai-icon-pair"><Star size={13} /><Bot size={15} /></span>{summary ? "Refresh" : "Analyze"}</button>
+            {summary && <button className="button secondary ai-action voice-ai-btn" type="button" onClick={summarize}><span className="ai-icon-pair"><Star size={13} /><Bot size={15} /></span>Refresh</button>}
           </div>
           {!summary ? (
             <div className="voice-ai-empty">
               <Bot size={28} />
               <p>Analyze pain points from reviews and customer chats with Gemini</p>
+              <button className="button primary ai-action gemini-cta-pulse" type="button" onClick={summarize}>
+                <span className="ai-icon-pair"><Star size={13} /><Bot size={15} /></span>Analyze
+              </button>
             </div>
           ) : (
             <div className="voice-ai-content">

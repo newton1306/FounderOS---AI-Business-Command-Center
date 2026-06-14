@@ -497,6 +497,89 @@ h4 {
   width: fit-content;
   margin-top: 12px;
 }
+/* ─── Centered CTA wrapper ─── */
+.gemini-cta-center {
+  display: flex;
+  justify-content: center;
+  padding: 18px 0 6px;
+}
+/* ─── Animated CTA pulse button ─── */
+.gemini-cta-pulse {
+  position: relative;
+  min-width: 180px;
+  padding: 12px 28px !important;
+  font-size: 0.92rem !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.02em;
+  border-radius: 999px !important;
+  overflow: hidden;
+  animation: ctaBounce 2.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite;
+  box-shadow:
+    0 4px 14px oklch(0.30 0.14 155 / 0.22),
+    0 0 0 0 oklch(0.55 0.14 155 / 0.35);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+.gemini-cta-pulse:not(:disabled):hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow:
+    0 6px 22px oklch(0.30 0.14 155 / 0.32),
+    0 0 0 0 oklch(0.55 0.14 155 / 0);
+  animation: none;
+}
+.gemini-cta-pulse:not(:disabled):active {
+  transform: translateY(0) scale(0.97);
+}
+/* Shimmer sweep */
+.gemini-cta-pulse::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    oklch(1 0 0 / 0.25) 45%,
+    oklch(1 0 0 / 0.35) 50%,
+    oklch(1 0 0 / 0.25) 55%,
+    transparent 65%
+  );
+  animation: ctaShimmer 3s ease-in-out infinite;
+  pointer-events: none;
+}
+.gemini-cta-pulse:disabled::after {
+  animation: none;
+  opacity: 0;
+}
+/* Glow ring */
+.gemini-cta-pulse::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: inherit;
+  background: transparent;
+  box-shadow: 0 0 0 0 oklch(0.55 0.14 155 / 0.45);
+  animation: ctaRing 2.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite;
+  pointer-events: none;
+}
+@keyframes ctaBounce {
+  0%, 100% { transform: translateY(0); }
+  12% { transform: translateY(-5px); }
+  24% { transform: translateY(0); }
+  36% { transform: translateY(-3px); }
+  48% { transform: translateY(0); }
+}
+@keyframes ctaShimmer {
+  0% { transform: translateX(-120%); }
+  40%, 100% { transform: translateX(120%); }
+}
+@keyframes ctaRing {
+  0% { box-shadow: 0 0 0 0 oklch(0.55 0.14 155 / 0.40); }
+  30% { box-shadow: 0 0 0 8px oklch(0.55 0.14 155 / 0); }
+  100% { box-shadow: 0 0 0 0 oklch(0.55 0.14 155 / 0); }
+}
+/* Voice AI empty state button centering */
+.voice-ai-empty .gemini-cta-pulse {
+  margin-top: 8px;
+}
 .compact-action { display: none; }
 .inline-link {
   display: inline-flex;

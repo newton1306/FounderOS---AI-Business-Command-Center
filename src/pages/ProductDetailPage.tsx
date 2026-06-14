@@ -19,6 +19,8 @@ export function ProductDetailPage(ctx: AppContext) {
   const relatedReviews = reviewsForProduct(product.product_id);
 
   async function analyze() {
+    ctx.setAiMode("live");
+    ctx.setAiReason("Checking Gemini API...");
     const result = await getProductInsight(product, ctx.state);
     setAi(result.data);
     setAiMode(result.mode);
@@ -53,7 +55,7 @@ export function ProductDetailPage(ctx: AppContext) {
         <span className="ai-corner-star" aria-label="Gemini powered"><Star size={15} aria-hidden="true" /></span>
         <div className="section-head"><h2>Gemini Product Insight</h2><PackageCheck size={20} /></div>
         {aiMode === "fallback" && <FallbackNotice />}
-        <p className="summary">{ai?.summary || "Click Gemini Product Insight for a product-specific Gemini or fallback insight."}</p>
+        <p className="summary">{ai?.summary || "Click Gemini Product Insight for a product-specific live Gemini insight."}</p>
         <div className="action-list">{ai?.actions.map((action) => <article className="action-item" key={action.title}><strong>{action.title}</strong><span>{action.reason}</span><em>{action.impact}</em></article>)}</div>
       </section>
       <div className="two-column product-detail-sections">
@@ -75,7 +77,7 @@ export function ProductDetailPage(ctx: AppContext) {
 }
 
 function FallbackNotice() {
-  return <p className="fallback-result-label">{"\u0e1c\u0e25\u0e25\u0e31\u0e1e\u0e18\u0e4c\u0e19\u0e35\u0e49\u0e21\u0e32\u0e08\u0e32\u0e01 fallback"}</p>;
+  return <p className="fallback-result-label">ผลลัพธ์นี้มาจาก fallback  เนื่องจาก API rate limit</p>;
 }
 
 function Metric({ label, value }: { label: string; value: string }) {

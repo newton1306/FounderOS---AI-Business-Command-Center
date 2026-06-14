@@ -35,6 +35,8 @@ export function OrdersPage(ctx: AppContext) {
 
   async function analyzeOrder() {
     if (!order) return;
+    ctx.setAiMode("live");
+    ctx.setAiReason("Checking Gemini API...");
     const result = await getOrderSummary(order, ctx.state);
     setSummary(result.data);
     setSummaryMode(result.mode);
@@ -103,5 +105,5 @@ export function OrdersPage(ctx: AppContext) {
 }
 
 function FallbackNotice() {
-  return <p className="fallback-result-label">{"\u0e1c\u0e25\u0e25\u0e31\u0e1e\u0e18\u0e4c\u0e19\u0e35\u0e49\u0e21\u0e32\u0e08\u0e32\u0e01 fallback"}</p>;
+  return <p className="fallback-result-label">ผลลัพธ์นี้มาจาก fallback  เนื่องจาก API rate limit</p>;
 }

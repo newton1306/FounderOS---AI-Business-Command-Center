@@ -4,7 +4,6 @@ import { BarChart3, Bell, Bot, Boxes, LayoutDashboard, MessageSquareText, Packag
 import { toast } from "sonner";
 import { chats, orders, products, users } from "../data/source";
 import { getActivities, getMetrics } from "../lib/analytics";
-import { clearFallbackCooldown, getFallbackUntil, getJson, setFallbackCooldown, setJson } from "../lib/storage";
 import { simulateLiveOrder } from "../lib/simulation";
 import { useOnlineStatus, usePwaReady } from "../lib/status";
 import type { ActionBrief, AiMode, BusinessState } from "../lib/types";
@@ -41,12 +40,11 @@ export function App() {
     simulationEvents: [],
     lastUpdated: new Date().toISOString()
   }));
-  const [aiMode, setAiMode] = useState<AiMode>(() => Date.now() < getFallbackUntil() ? "fallback" : "live");
+  const [aiMode, setAiMode] = useState<AiMode>("live");
   const [aiReason, setAiReason] = useState("ready");
   const [founderBrief, setFounderBrief] = useState<ActionBrief | null>(null);
   const [founderBriefMode, setFounderBriefMode] = useState<AiMode | null>(null);
   const [autoSim, setAutoSim] = useState(false);
-  const [fallbackOnly, setFallbackOnly] = useState(() => getJson("ai_fallback_only", false));
   const [mobileStatusOpen, setMobileStatusOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchOpen, setSearchOpen] = useState(false);
@@ -58,9 +56,9 @@ export function App() {
 
   useEffect(() => {
     if (!online) setAiMode("offline");
-    else if (fallbackOnly || Date.now() < getFallbackUntil()) setAiMode("fallback");
     else setAiMode("live");
-  }, [online, fallbackOnly]);
+    setAiReason(online ? "ready" : "offline");
+  }, [online]);
 
   useEffect(() => {
     if (!autoSim) return;
@@ -76,22 +74,6 @@ export function App() {
       if (event.severity === "warning") toast.warning("Low Stock Alert", { description: event.detail });
       return next;
     });
-  }
-
-  function toggleFallbackOnly(enabled: boolean) {
-    setFallbackOnly(enabled);
-    setJson("ai_fallback_only", enabled);
-    if (enabled) {
-      setFallbackCooldown(24 * 60);
-      setAiMode("fallback");
-      setAiReason("fallback only enabled");
-      toast.info("Fallback Only Enabled", { description: "Gemini calls will use the local fallback path." });
-      return;
-    }
-    clearFallbackCooldown();
-    if (online) setAiMode("live");
-    setAiReason("ready");
-    toast.success("Fallback Only Off", { description: "Gemini can be used when available." });
   }
 
   const searchResults = useMemo(() => {
@@ -149,7 +131,7 @@ export function App() {
     else setSearchOpen(true);
   }
 
-  const context = { state, setState, aiMode, setAiMode, aiReason, setAiReason, founderBrief, setFounderBrief, founderBriefMode, setFounderBriefMode, online, pwaReady, simulate, autoSim, setAutoSim, forceFallback: () => toggleFallbackOnly(true) };
+  const context = { state, setState, aiMode, setAiMode, aiReason, setAiReason, founderBrief, setFounderBrief, founderBriefMode, setFounderBriefMode, online, pwaReady, simulate, autoSim, setAutoSim };
   const statusItems = [
     { icon: online ? Wifi : WifiOff, label: online ? "Online" : "Offline", tone: online ? "success" : "warning" },
     { icon: Radio, label: pwaReady ? "PWA Ready" : "PWA Pending", tone: pwaReady ? "success" : "neutral" },
@@ -211,10 +193,6 @@ export function App() {
 
         <section className="status-bar" aria-label="System status">
           {statusItems.map((item) => <StatusChip key={item.label} icon={item.icon} label={item.label} tone={item.tone} />)}
-          <label className="switch-row compact-switch">
-            <span><strong>Fallback Only</strong></span>
-            <input type="checkbox" checked={fallbackOnly} onChange={(event) => toggleFallbackOnly(event.target.checked)} />
-          </label>
         </section>
 
         <main>
@@ -266,10 +244,6 @@ export function App() {
             <Bell size={16} aria-hidden="true" />
             Notifications
           </button>
-          <label className="switch-row">
-            <span><strong>Fallback Only</strong><small>{fallbackOnly ? "Local fallback is forced" : "Gemini when available"}</small></span>
-            <input type="checkbox" checked={fallbackOnly} onChange={(event) => toggleFallbackOnly(event.target.checked)} />
-          </label>
         </div>
         {searchOpen && <SearchPanel query={searchQuery} results={searchResults} onClose={() => setSearchOpen(false)} onSelect={goToResult} />}
         {notificationsOpen && <NotificationPanel items={notificationItems} onClose={() => setNotificationsOpen(false)} onSelect={goToResult} />}
@@ -331,5 +305,4 @@ export type AppContext = {
   simulate: () => void;
   autoSim: boolean;
   setAutoSim: (value: boolean) => void;
-  forceFallback: () => void;
 };

@@ -1,5 +1,5 @@
 import { founderBriefFallback, orderSummaryFallback, productInsightFallback, replyFallback, reviewPainFallback } from "./fallbackAi";
-import { getFallbackUntil, getJson, setFallbackCooldown, setJson } from "./storage";
+import { getJson, setJson } from "./storage";
 import type { ActionBrief, AiMode, BusinessState, Chat, Order, Product } from "./types";
 
 const TIMEOUT_MS = 45000;
@@ -15,9 +15,6 @@ async function callGemini<T>(payload: Record<string, unknown>, fallback: () => T
     const cached = cacheKey ? getJson<T | null>(cacheKey, null) : null;
     return { mode: cached ? "cached" : "offline", reason: cached ? "offline cached result" : "offline local fallback", data: cached || fallback() };
   }
-  if (Date.now() < getFallbackUntil()) {
-    return { mode: "fallback", reason: "fallback cooldown active", data: fallback() };
-  }
 
   const controller = new AbortController();
   const timeout = window.setTimeout(() => controller.abort(), TIMEOUT_MS);
@@ -30,8 +27,7 @@ async function callGemini<T>(payload: Record<string, unknown>, fallback: () => T
     });
     window.clearTimeout(timeout);
     if (response.status === 429) {
-      setFallbackCooldown(15);
-      return { mode: "fallback", reason: "quota limit", data: fallback() };
+      return { mode: "fallback", reason: "API rate limit", data: fallback() };
     }
     if (!response.ok) {
       const error = await response.json().catch(() => null) as { error?: string; model?: string } | null;

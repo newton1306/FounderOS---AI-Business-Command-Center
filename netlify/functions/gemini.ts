@@ -5,7 +5,42 @@ const GEMINI_TIMEOUT_MS = 25000;
 
 function safeJson(text: string) {
   const cleaned = text.replace(/```json|```/g, "").trim();
-  return JSON.parse(cleaned);
+  const jsonText = cleaned.match(/\{[\s\S]*\}/)?.[0] || cleaned;
+  try {
+    return JSON.parse(jsonText);
+  } catch {
+    return JSON.parse(repairJsonText(jsonText));
+  }
+}
+
+function repairJsonText(text: string) {
+  let inString = false;
+  let escaped = false;
+  let repaired = "";
+  for (const char of text) {
+    if (escaped) {
+      repaired += char;
+      escaped = false;
+      continue;
+    }
+    if (char === "\\") {
+      repaired += char;
+      escaped = true;
+      continue;
+    }
+    if (char === "\"") {
+      inString = !inString;
+      repaired += char;
+      continue;
+    }
+    if (inString && char === "\n") {
+      repaired += "\\n";
+      continue;
+    }
+    if (inString && char === "\r") continue;
+    repaired += char;
+  }
+  return repaired.replace(/,\s*([}\]])/g, "$1");
 }
 
 function compactPayload(payload: Record<string, unknown>) {
@@ -37,6 +72,7 @@ export const handler: Handler = async (event) => {
     const prompt = [
       "You are FounderOS, an AI business command center for an e-commerce founder.",
       "Return ONLY valid JSON in the requested shape. Be concise, practical, and grounded in the supplied data.",
+      "Do not put raw line breaks inside string values. Use plain one-line strings.",
       "If task returns an action brief, shape is { summary: string, actions: [{ title, reason, impact, source: 'gemini' }] }.",
       "If task is reply-assistant or order-summary, return { data: string }.",
       JSON.stringify(compact).slice(0, 10000)

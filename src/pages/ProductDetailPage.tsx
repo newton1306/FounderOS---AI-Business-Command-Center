@@ -35,7 +35,7 @@ export function ProductDetailPage(ctx: AppContext) {
           <p className="caption">{product.category}</p>
           <h2>{product.name}</h2>
           <p className="summary">Stock impact: {product.stock <= 5 ? "urgent restock risk" : "inventory is usable but should be watched against order velocity"}.</p>
-          <button className="button primary ai-action" type="button" onClick={analyze}><span className="ai-icon-pair"><Star size={13} /><Bot size={15} /></span>Analyze Product</button>
+          <button className="button primary ai-action" type="button" onClick={analyze}><span className="ai-icon-pair"><Star size={13} /><Bot size={15} /></span>Gemini Product Insight</button>
         </div>
       </div>
       <div className="kpi-grid compact">
@@ -45,15 +45,15 @@ export function ProductDetailPage(ctx: AppContext) {
         <Metric label="Avg Rating" value={insight.averageRating ? insight.averageRating.toFixed(1) : "N/A"} />
       </div>
       <div className="mobile-segment" aria-label="Product detail sections">
-        <button className={mobileTab === "ai" ? "active" : ""} type="button" onClick={() => setMobileTab("ai")}>AI</button>
+        <button className={mobileTab === "ai" ? "active" : ""} type="button" onClick={() => setMobileTab("ai")}>Gemini</button>
         <button className={mobileTab === "orders" ? "active" : ""} type="button" onClick={() => setMobileTab("orders")}>Orders</button>
         <button className={mobileTab === "reviews" ? "active" : ""} type="button" onClick={() => setMobileTab("reviews")}>Reviews</button>
       </div>
       <section className="decision-panel product-detail-panel ai-surface" data-mobile-panel={mobileTab === "ai" ? "active" : "hidden"}>
-        <span className="ai-corner-star" aria-label="AI powered"><Star size={15} aria-hidden="true" /></span>
-        <div className="section-head"><h2>AI Product Insight</h2><PackageCheck size={20} /></div>
+        <span className="ai-corner-star" aria-label="Gemini powered"><Star size={15} aria-hidden="true" /></span>
+        <div className="section-head"><h2>Gemini Product Insight</h2><PackageCheck size={20} /></div>
         {aiMode === "fallback" && <FallbackNotice />}
-        <p className="summary">{ai?.summary || "Click Analyze Product for a product-specific AI or fallback insight."}</p>
+        <p className="summary">{ai?.summary || "Click Gemini Product Insight for a product-specific Gemini or fallback insight."}</p>
         <div className="action-list">{ai?.actions.map((action) => <article className="action-item" key={action.title}><strong>{action.title}</strong><span>{action.reason}</span><em>{action.impact}</em></article>)}</div>
       </section>
       <div className="two-column product-detail-sections">
@@ -75,7 +75,7 @@ export function ProductDetailPage(ctx: AppContext) {
 }
 
 function FallbackNotice() {
-  return <p className="fallback-result-label">ผลลัพธ์นี้มาจาก fallback</p>;
+  return <p className="fallback-result-label">{"\u0e1c\u0e25\u0e25\u0e31\u0e1e\u0e18\u0e4c\u0e19\u0e35\u0e49\u0e21\u0e32\u0e08\u0e32\u0e01 fallback"}</p>;
 }
 
 function Metric({ label, value }: { label: string; value: string }) {

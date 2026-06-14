@@ -83,13 +83,13 @@ export function App() {
       setFallbackCooldown(24 * 60);
       setAiMode("fallback");
       setAiReason("fallback only enabled");
-      toast.info("Fallback Only Enabled", { description: "AI calls will use the local fallback path." });
+      toast.info("Fallback Only Enabled", { description: "Gemini calls will use the local fallback path." });
       return;
     }
     clearFallbackCooldown();
     if (online) setAiMode("live");
     setAiReason("ready");
-    toast.success("Fallback Only Off", { description: "Live AI can be used when available." });
+    toast.success("Fallback Only Off", { description: "Gemini can be used when available." });
   }
 
   const searchResults = useMemo(() => {
@@ -151,7 +151,7 @@ export function App() {
   const statusItems = [
     { icon: online ? Wifi : WifiOff, label: online ? "Online" : "Offline", tone: online ? "success" : "warning" },
     { icon: Radio, label: pwaReady ? "PWA Ready" : "PWA Pending", tone: pwaReady ? "success" : "neutral" },
-    { icon: Bot, label: aiMode === "live" ? "AI Live" : aiMode === "cached" ? "AI Cached" : aiMode === "offline" ? "AI Offline" : "AI Fallback Active", tone: aiMode === "live" ? "success" : "warning" },
+    { icon: Bot, label: aiMode === "live" ? "Gemini Live" : aiMode === "cached" ? "Gemini Cached" : aiMode === "offline" ? "Gemini Offline" : "Gemini Fallback Active", tone: aiMode === "live" ? "success" : "warning" },
     { icon: RefreshCcw, label: `Updated ${dateTime(state.lastUpdated)}`, tone: "neutral" },
     { icon: BarChart3, label: aiReason, tone: "neutral" }
   ] as const;
@@ -163,7 +163,7 @@ export function App() {
           <div className="brand-mark">F</div>
           <div>
             <strong>FounderOS</strong>
-            <span>AI Command Center</span>
+            <span>Gemini Command Center</span>
           </div>
         </div>
         <nav className="side-nav">
@@ -205,7 +205,7 @@ export function App() {
           </div>
         </header>
 
-        {!online && <div className="banner warning"><WifiOff size={16} /> Offline mode active. Dashboard, products, orders, simulation, and local AI fallback remain available.</div>}
+        {!online && <div className="banner warning"><WifiOff size={16} /> Offline mode active. Dashboard, products, orders, simulation, and local fallback remain available.</div>}
 
         <section className="status-bar" aria-label="System status">
           {statusItems.map((item) => <StatusChip key={item.label} icon={item.icon} label={item.label} tone={item.tone} />)}
@@ -265,7 +265,7 @@ export function App() {
             Notifications
           </button>
           <label className="switch-row">
-            <span><strong>Fallback Only</strong><small>{fallbackOnly ? "Local fallback is forced" : "Live AI when available"}</small></span>
+            <span><strong>Fallback Only</strong><small>{fallbackOnly ? "Local fallback is forced" : "Gemini when available"}</small></span>
             <input type="checkbox" checked={fallbackOnly} onChange={(event) => toggleFallbackOnly(event.target.checked)} />
           </label>
         </div>

@@ -38,14 +38,14 @@ export function CustomerVoicePage(ctx: AppContext) {
   return (
     <section className={`page-stack voice-page ${summary ? "has-ai-summary" : ""}`}>
       <div className="section-head page-actions-head">
-        <button className="button primary ai-action" type="button" onClick={summarize}><span className="ai-icon-pair"><Star size={13} /><Bot size={15} /></span>Summarize Customer Pain Points</button>
+        <button className="button primary ai-action" type="button" onClick={summarize}><span className="ai-icon-pair"><Star size={13} /><Bot size={15} /></span>Gemini Pain Summary</button>
       </div>
       <div className="kpi-grid compact">
         <Metric label="Average Rating" value={avg.toFixed(1)} />
         <Metric label="Negative Reviews" value={String(negative.length)} />
         <Metric label="Open Chats" value={String(chats.filter((chat) => chat.status === "OPEN").length)} />
       </div>
-      {summary && <section className="decision-panel ai-surface"><span className="ai-corner-star" aria-label="AI powered"><Star size={15} aria-hidden="true" /></span>{summaryMode === "fallback" && <FallbackNotice />}<p className="summary">{summary.summary}</p><div className="action-list">{summary.actions.map((action) => <article className="action-item" key={action.title}><strong>{action.title}</strong><span>{action.reason}</span><em>{action.impact}</em></article>)}</div></section>}
+      {summary && <section className="decision-panel ai-surface"><span className="ai-corner-star" aria-label="Gemini powered"><Star size={15} aria-hidden="true" /></span>{summaryMode === "fallback" && <FallbackNotice />}<p className="summary">{summary.summary}</p><div className="action-list">{summary.actions.map((action) => <article className="action-item" key={action.title}><strong>{action.title}</strong><span>{action.reason}</span><em>{action.impact}</em></article>)}</div></section>}
       <div className="mobile-segment" aria-label="Customer voice sections">
         <button className={mobileTab === "reviews" ? "active" : ""} type="button" onClick={() => setMobileTab("reviews")}>Reviews</button>
         <button className={mobileTab === "chats" ? "active" : ""} type="button" onClick={() => setMobileTab("chats")}>Chats</button>
@@ -72,7 +72,7 @@ export function CustomerVoicePage(ctx: AppContext) {
                 <span>{topic}</span>
                 <p>{latest?.text}</p>
                 <time>{dateTime(latest?.timestamp || new Date().toISOString())}</time>
-                <button className="button secondary ai-action" type="button" onClick={() => generateReply(chat.chat_id)}><span className="ai-icon-pair"><Star size={13} /><Bot size={15} /></span>Generate Reply</button>
+                <button className="button secondary ai-action" type="button" onClick={() => generateReply(chat.chat_id)}><span className="ai-icon-pair"><Star size={13} /><Bot size={15} /></span>Gemini Reply</button>
                 {reply[chat.chat_id] && <div className="reply-box">{replyMode[chat.chat_id] === "fallback" && <FallbackNotice />}{reply[chat.chat_id]}</div>}
               </article>;
             })}
@@ -84,7 +84,7 @@ export function CustomerVoicePage(ctx: AppContext) {
 }
 
 function FallbackNotice() {
-  return <p className="fallback-result-label">ผลลัพธ์นี้มาจาก fallback</p>;
+  return <p className="fallback-result-label">{"\u0e1c\u0e25\u0e25\u0e31\u0e1e\u0e18\u0e4c\u0e19\u0e35\u0e49\u0e21\u0e32\u0e08\u0e32\u0e01 fallback"}</p>;
 }
 
 function Metric({ label, value }: { label: string; value: string }) {

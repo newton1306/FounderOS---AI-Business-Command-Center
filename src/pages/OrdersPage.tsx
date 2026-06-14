@@ -94,7 +94,7 @@ export function OrdersPage(ctx: AppContext) {
           <div className="list">{chats.filter((chat) => chat.user_id === customer.user_id).slice(0, 2).map((chat) => <article className="list-item" key={chat.chat_id}><strong>{chat.chat_id} - {chat.status}</strong><span>{chat.messages.at(-1)?.text}</span></article>)}</div>
           <h4>Notifications</h4>
           <div className="list">{relatedNotifications(customer).slice(0, 2).map((item) => <article className="list-item" key={item.notif_id}><strong>{item.title}</strong><span>{item.message}</span><em>{dateTime(item.timestamp)}</em></article>)}</div>
-          <button className="button primary ai-action" type="button" onClick={analyzeOrder}><span className="ai-icon-pair"><Star size={13} /><Bot size={15} /></span>AI Order Summary</button>
+          <button className="button primary ai-action" type="button" onClick={analyzeOrder}><span className="ai-icon-pair"><Star size={13} /><Bot size={15} /></span>Gemini Order Summary</button>
           {summary && <div className="reply-box">{summaryMode === "fallback" && <FallbackNotice />}{summary}</div>}
         </aside>}
       </div>
@@ -103,5 +103,5 @@ export function OrdersPage(ctx: AppContext) {
 }
 
 function FallbackNotice() {
-  return <p className="fallback-result-label">ผลลัพธ์นี้มาจาก fallback</p>;
+  return <p className="fallback-result-label">{"\u0e1c\u0e25\u0e25\u0e31\u0e1e\u0e18\u0e4c\u0e19\u0e35\u0e49\u0e21\u0e32\u0e08\u0e32\u0e01 fallback"}</p>;
 }

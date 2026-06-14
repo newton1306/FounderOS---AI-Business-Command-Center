@@ -1,6 +1,6 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { Cell, Line, LineChart, Bar, BarChart, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
-import { Bot, MessageSquareText, TriangleAlert, Star, ToggleLeft, ToggleRight } from "lucide-react";
+import { Bot, MessageSquareText, Sparkles, TriangleAlert, Star, ToggleLeft, ToggleRight } from "lucide-react";
 import type { AppContext } from "../app/App";
 import { getActivities, getMetrics, orderStatusBreakdown, revenueByCategory, revenueTrend, stockRiskData } from "../lib/analytics";
 import { getFounderBrief } from "../lib/aiClient";
@@ -20,19 +20,18 @@ export function DashboardPage(ctx: AppContext) {
   const activities = useMemo(() => getActivities(ctx.state), [ctx.state]);
   const [brief, setBrief] = useState<ActionBrief | null>(null);
   const [briefMode, setBriefMode] = useState<AiMode | null>(null);
+  const [briefLoading, setBriefLoading] = useState(false);
   const updatePulse = useUpdatePulse(ctx.state.lastUpdated);
 
-  useEffect(() => {
-    let active = true;
-    getFounderBrief(ctx.state).then((result) => {
-      if (!active) return;
-      setBrief(result.data);
-      setBriefMode(result.mode);
-      ctx.setAiMode(result.mode);
-      ctx.setAiReason(result.reason);
-    });
-    return () => { active = false; };
-  }, [ctx.state.lastUpdated]);
+  async function suggestBrief() {
+    setBriefLoading(true);
+    const result = await getFounderBrief(ctx.state);
+    setBrief(result.data);
+    setBriefMode(result.mode);
+    ctx.setAiMode(result.mode);
+    ctx.setAiReason(result.reason);
+    setBriefLoading(false);
+  }
 
   return (
     <div className="page-grid dashboard-page">
@@ -45,16 +44,28 @@ export function DashboardPage(ctx: AppContext) {
       </section>
 
       <section className="decision-panel ai-surface founder-brief">
-        <span className="ai-corner-star" aria-label="AI powered"><Star size={15} aria-hidden="true" /></span>
+        <span className="ai-corner-star" aria-label="Gemini powered"><Star size={15} aria-hidden="true" /></span>
         <div className="section-head">
           <div>
-            <p className="caption">AI decision layer</p>
+            <p className="caption">Gemini decision layer</p>
             <h2>Founder Action Brief</h2>
           </div>
           <Bot size={20} aria-hidden="true" />
         </div>
         {briefMode === "fallback" && <FallbackNotice />}
-        <p className="summary">{brief?.summary || "Generating local decision brief..."}</p>
+        <p className="summary">{brief?.summary || "No brief generated yet. Ask Gemini for a focused action plan from current revenue, stock, orders, reviews, and chats."}</p>
+        {!brief && (
+          <button className="button primary ai-action gemini-suggest" type="button" onClick={suggestBrief} disabled={briefLoading}>
+            <span className="gemini-mark" aria-hidden="true"><Sparkles size={16} /></span>
+            {briefLoading ? "Gemini is thinking..." : "Gemini Suggest"}
+          </button>
+        )}
+        {brief && (
+          <button className="button secondary ai-action gemini-refresh" type="button" onClick={suggestBrief} disabled={briefLoading}>
+            <span className="gemini-mark" aria-hidden="true"><Sparkles size={15} /></span>
+            {briefLoading ? "Updating..." : "Refresh Suggestion"}
+          </button>
+        )}
         <div className="action-list">
           {(brief?.actions || []).map((action) => (
             <article className="action-item" key={action.title}>
@@ -136,7 +147,7 @@ export function DashboardPage(ctx: AppContext) {
 }
 
 function FallbackNotice() {
-  return <p className="fallback-result-label">ผลลัพธ์นี้มาจาก fallback</p>;
+  return <p className="fallback-result-label">{"\u0e1c\u0e25\u0e25\u0e31\u0e1e\u0e18\u0e4c\u0e19\u0e35\u0e49\u0e21\u0e32\u0e08\u0e32\u0e01 fallback"}</p>;
 }
 
 function Kpi({ label, value, detail, icon }: { label: string; value: string; detail: string; icon?: React.ReactNode }) {

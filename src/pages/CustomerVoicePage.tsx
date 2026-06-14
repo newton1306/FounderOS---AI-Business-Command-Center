@@ -4,13 +4,15 @@ import type { AppContext } from "../app/App";
 import { chats } from "../data/source";
 import { detectChatTopic, productById, productReviews, userById } from "../lib/analytics";
 import { getReply, getReviewPainSummary } from "../lib/aiClient";
-import type { ActionBrief, AiMode } from "../lib/types";
+import type { ActionBrief, AiMode, Chat } from "../lib/types";
 import { dateTime } from "../lib/format";
 
 export function CustomerVoicePage(ctx: AppContext) {
   const reviews = useMemo(() => productReviews(), []);
+  const chatGroups = useMemo(() => groupDuplicateChats(chats), []);
   const avg = reviews.length ? reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length : 0;
   const negative = reviews.filter((review) => review.rating <= 2);
+  const hiddenDuplicateChats = chats.length - chatGroups.length;
   const [summary, setSummary] = useState<ActionBrief | null>(null);
   const [summaryMode, setSummaryMode] = useState<AiMode | null>(null);
   const [reply, setReply] = useState<Record<string, string>>({});
@@ -43,7 +45,8 @@ export function CustomerVoicePage(ctx: AppContext) {
       <div className="kpi-grid compact">
         <Metric label="Average Rating" value={avg.toFixed(1)} />
         <Metric label="Negative Reviews" value={String(negative.length)} />
-        <Metric label="Open Chats" value={String(chats.filter((chat) => chat.status === "OPEN").length)} />
+        <Metric label="Open Chats" value={String(chatGroups.filter((group) => group.chat.status === "OPEN").length)} />
+        <Metric label="Merged Duplicates" value={String(hiddenDuplicateChats)} />
       </div>
       {summary && <section className="decision-panel ai-surface"><span className="ai-corner-star" aria-label="Gemini powered"><Star size={15} aria-hidden="true" /></span>{summaryMode === "fallback" && <FallbackNotice />}<p className="summary">{summary.summary}</p><div className="action-list">{summary.actions.map((action) => <article className="action-item" key={action.title}><strong>{action.title}</strong><span>{action.reason}</span><em>{action.impact}</em></article>)}</div></section>}
       <div className="mobile-segment" aria-label="Customer voice sections">
@@ -63,15 +66,23 @@ export function CustomerVoicePage(ctx: AppContext) {
         <section className="panel" data-mobile-panel={mobileTab === "chats" ? "active" : "hidden"}>
           <h3>Chat Inbox</h3>
           <div className="list">
-            {chats.slice().sort((a, b) => a.status.localeCompare(b.status)).map((chat) => {
+            {chatGroups.map((group) => {
+              const chat = group.chat;
               const customer = userById(chat.user_id);
               const latest = chat.messages[chat.messages.length - 1];
+              const latestCustomerMessage = [...chat.messages].reverse().find((message) => message.sender === "USER");
+              const latestShopMessage = [...chat.messages].reverse().find((message) => message.sender === "SHOP");
               const topic = detectChatTopic(chat.messages.map((message) => message.text).join(" "));
               return <article className={`chat-card ${chat.status === "OPEN" ? "open" : ""}`} key={chat.chat_id}>
                 <div className="chat-head"><strong>{customer?.name || "Customer"}</strong><span className="badge watch">{customer?.role || "MEMBER"} - {chat.status}</span></div>
-                <span>{topic}</span>
-                <p>{latest?.text}</p>
-                <time>{dateTime(latest?.timestamp || new Date().toISOString())}</time>
+                <div className="chat-meta-row">
+                  <span>{topic}</span>
+                  <span className={`sender-chip ${latest?.sender === "USER" ? "customer" : "shop"}`}>{latest?.sender === "USER" ? "Last: Customer" : "Last: Shop"}</span>
+                </div>
+                <p><strong className="message-label">Customer:</strong> {latestCustomerMessage?.text || latest?.text}</p>
+                {latest?.sender === "SHOP" && latestShopMessage && <em className="shop-preview">Shop replied: {latestShopMessage.text}</em>}
+                {group.duplicates.length > 1 && <span className="duplicate-note">Merged {group.duplicates.length} similar records: {group.duplicates.map((item) => item.chat_id).join(", ")}</span>}
+                <time>{dateTime((latestCustomerMessage || latest)?.timestamp || new Date().toISOString())}</time>
                 <button className="button secondary ai-action" type="button" onClick={() => generateReply(chat.chat_id)}><span className="ai-icon-pair"><Star size={13} /><Bot size={15} /></span>Gemini Reply</button>
                 {reply[chat.chat_id] && <div className="reply-box">{replyMode[chat.chat_id] === "fallback" && <FallbackNotice />}{reply[chat.chat_id]}</div>}
               </article>;
@@ -89,4 +100,27 @@ function FallbackNotice() {
 
 function Metric({ label, value }: { label: string; value: string }) {
   return <article className="kpi-card"><span>{label}</span><strong>{value}</strong></article>;
+}
+
+function groupDuplicateChats(items: Chat[]) {
+  const groups = new Map<string, Chat[]>();
+  for (const chat of items) {
+    const signature = [
+      chat.user_id,
+      ...chat.messages.map((message) => `${message.sender}:${message.text}`)
+    ].join("|");
+    groups.set(signature, [...(groups.get(signature) || []), chat]);
+  }
+
+  return Array.from(groups.values())
+    .map((duplicates) => {
+      const chat = duplicates.find((item) => item.status === "OPEN") || duplicates[0];
+      return { chat, duplicates };
+    })
+    .sort((a, b) => {
+      if (a.chat.status !== b.chat.status) return a.chat.status === "OPEN" ? -1 : 1;
+      const aLatest = a.chat.messages.at(-1)?.timestamp || "";
+      const bLatest = b.chat.messages.at(-1)?.timestamp || "";
+      return bLatest.localeCompare(aLatest);
+    });
 }

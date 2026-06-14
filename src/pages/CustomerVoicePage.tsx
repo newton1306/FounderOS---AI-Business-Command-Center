@@ -43,9 +43,7 @@ export function CustomerVoicePage(ctx: AppContext) {
 
   return (
     <section className="page-stack voice-page voice-page-v2">
-      <div className="section-head page-actions-head">
-        <button className="button primary ai-action" type="button" onClick={summarize}><span className="ai-icon-pair"><Star size={13} /><Bot size={15} /></span>Gemini Pain Summary</button>
-      </div>
+      <div className="section-head page-actions-head" />
       <div className="kpi-grid compact">
         <Metric label="Average Rating" value={avg.toFixed(1)} />
         <Metric label="Negative Reviews" value={String(negative.length)} />
@@ -67,11 +65,12 @@ export function CustomerVoicePage(ctx: AppContext) {
           <div className="voice-ai-header">
             <span className="ai-corner-star" aria-label="Gemini powered"><Star size={15} aria-hidden="true" /></span>
             <h3>AI Pain Analysis</h3>
+            <button className="button primary ai-action voice-ai-btn" type="button" onClick={summarize}><span className="ai-icon-pair"><Star size={13} /><Bot size={15} /></span>{summary ? "Refresh" : "Analyze"}</button>
           </div>
           {!summary ? (
             <div className="voice-ai-empty">
               <Bot size={28} />
-              <p>Press "Gemini Pain Summary" above to analyze issues from reviews and chats</p>
+              <p>Analyze pain points from reviews and customer chats with Gemini</p>
             </div>
           ) : (
             <div className="voice-ai-content">

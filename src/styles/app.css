@@ -1464,6 +1464,16 @@ select {
   position: static;
   flex: 0 0 auto;
 }
+.voice-ai-header h3 {
+  flex: 1;
+  min-width: 0;
+}
+.voice-ai-btn {
+  flex: 0 0 auto;
+  padding: 6px 14px;
+  font-size: 0.76rem;
+  white-space: nowrap;
+}
 .voice-ai-empty {
   flex: 1;
   display: flex;

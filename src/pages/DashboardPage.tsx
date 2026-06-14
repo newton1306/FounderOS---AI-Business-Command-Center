@@ -4,7 +4,7 @@ import { Bot, MessageSquareText, TriangleAlert, Star, ToggleLeft, ToggleRight } 
 import type { AppContext } from "../app/App";
 import { getActivities, getMetrics, orderStatusBreakdown, revenueByCategory, revenueTrend, stockRiskData } from "../lib/analytics";
 import { getFounderBrief } from "../lib/aiClient";
-import type { ActionBrief } from "../lib/types";
+import type { ActionBrief, AiMode } from "../lib/types";
 import { currency, dateTime, number } from "../lib/format";
 import { useUpdatePulse } from "../lib/useUpdatePulse";
 
@@ -19,6 +19,7 @@ export function DashboardPage(ctx: AppContext) {
   const metrics = useMemo(() => getMetrics(ctx.state), [ctx.state]);
   const activities = useMemo(() => getActivities(ctx.state), [ctx.state]);
   const [brief, setBrief] = useState<ActionBrief | null>(null);
+  const [briefMode, setBriefMode] = useState<AiMode | null>(null);
   const updatePulse = useUpdatePulse(ctx.state.lastUpdated);
 
   useEffect(() => {
@@ -26,6 +27,7 @@ export function DashboardPage(ctx: AppContext) {
     getFounderBrief(ctx.state).then((result) => {
       if (!active) return;
       setBrief(result.data);
+      setBriefMode(result.mode);
       ctx.setAiMode(result.mode);
       ctx.setAiReason(result.reason);
     });
@@ -51,6 +53,7 @@ export function DashboardPage(ctx: AppContext) {
           </div>
           <Bot size={20} aria-hidden="true" />
         </div>
+        {briefMode === "fallback" && <FallbackNotice />}
         <p className="summary">{brief?.summary || "Generating local decision brief..."}</p>
         <div className="action-list">
           {(brief?.actions || []).map((action) => (
@@ -130,6 +133,10 @@ export function DashboardPage(ctx: AppContext) {
       </section>
     </div>
   );
+}
+
+function FallbackNotice() {
+  return <p className="fallback-result-label">ผลลัพธ์นี้มาจาก fallback</p>;
 }
 
 function Kpi({ label, value, detail, icon }: { label: string; value: string; detail: string; icon?: React.ReactNode }) {

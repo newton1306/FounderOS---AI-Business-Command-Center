@@ -6,6 +6,7 @@ import { getOrderSummary } from "../lib/aiClient";
 import { orderRisk, productById, relatedNotifications, userById } from "../lib/analytics";
 import { currency, dateTime, number } from "../lib/format";
 import { useUpdatePulse } from "../lib/useUpdatePulse";
+import type { AiMode } from "../lib/types";
 
 export function OrdersPage(ctx: AppContext) {
   const [query, setQuery] = useState("");
@@ -14,6 +15,7 @@ export function OrdersPage(ctx: AppContext) {
   const [sort, setSort] = useState("latest");
   const [selected, setSelected] = useState(ctx.state.orders[0]?.order_id || "");
   const [summary, setSummary] = useState("");
+  const [summaryMode, setSummaryMode] = useState<AiMode | null>(null);
   const updatePulse = useUpdatePulse(ctx.state.lastUpdated);
 
   const filtered = useMemo(() => ctx.state.orders.filter((order) => {
@@ -35,6 +37,7 @@ export function OrdersPage(ctx: AppContext) {
     if (!order) return;
     const result = await getOrderSummary(order, ctx.state);
     setSummary(result.data);
+    setSummaryMode(result.mode);
     ctx.setAiMode(result.mode);
     ctx.setAiReason(result.reason);
   }
@@ -92,9 +95,13 @@ export function OrdersPage(ctx: AppContext) {
           <h4>Notifications</h4>
           <div className="list">{relatedNotifications(customer).slice(0, 2).map((item) => <article className="list-item" key={item.notif_id}><strong>{item.title}</strong><span>{item.message}</span><em>{dateTime(item.timestamp)}</em></article>)}</div>
           <button className="button primary ai-action" type="button" onClick={analyzeOrder}><span className="ai-icon-pair"><Star size={13} /><Bot size={15} /></span>AI Order Summary</button>
-          {summary && <div className="reply-box">{summary}</div>}
+          {summary && <div className="reply-box">{summaryMode === "fallback" && <FallbackNotice />}{summary}</div>}
         </aside>}
       </div>
     </section>
   );
+}
+
+function FallbackNotice() {
+  return <p className="fallback-result-label">ผลลัพธ์นี้มาจาก fallback</p>;
 }

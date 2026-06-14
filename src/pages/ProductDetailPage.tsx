@@ -4,13 +4,14 @@ import { ArrowLeft, Bot, PackageCheck, Star } from "lucide-react";
 import type { AppContext } from "../app/App";
 import { getProductInsight } from "../lib/aiClient";
 import { getProductInsights, reviewsForProduct, userById } from "../lib/analytics";
-import type { ActionBrief } from "../lib/types";
+import type { ActionBrief, AiMode } from "../lib/types";
 import { currency, dateTime } from "../lib/format";
 
 export function ProductDetailPage(ctx: AppContext) {
   const { productId } = useParams();
   const insight = useMemo(() => getProductInsights(ctx.state).find((item) => item.product.product_id === productId), [ctx.state, productId]);
   const [ai, setAi] = useState<ActionBrief | null>(null);
+  const [aiMode, setAiMode] = useState<AiMode | null>(null);
   const [mobileTab, setMobileTab] = useState<"ai" | "orders" | "reviews">("ai");
   if (!insight) return <div className="empty-state">Product not found.</div>;
   const product = insight.product;
@@ -20,6 +21,7 @@ export function ProductDetailPage(ctx: AppContext) {
   async function analyze() {
     const result = await getProductInsight(product, ctx.state);
     setAi(result.data);
+    setAiMode(result.mode);
     ctx.setAiMode(result.mode);
     ctx.setAiReason(result.reason);
   }
@@ -50,6 +52,7 @@ export function ProductDetailPage(ctx: AppContext) {
       <section className="decision-panel product-detail-panel ai-surface" data-mobile-panel={mobileTab === "ai" ? "active" : "hidden"}>
         <span className="ai-corner-star" aria-label="AI powered"><Star size={15} aria-hidden="true" /></span>
         <div className="section-head"><h2>AI Product Insight</h2><PackageCheck size={20} /></div>
+        {aiMode === "fallback" && <FallbackNotice />}
         <p className="summary">{ai?.summary || "Click Analyze Product for a product-specific AI or fallback insight."}</p>
         <div className="action-list">{ai?.actions.map((action) => <article className="action-item" key={action.title}><strong>{action.title}</strong><span>{action.reason}</span><em>{action.impact}</em></article>)}</div>
       </section>
@@ -69,6 +72,10 @@ export function ProductDetailPage(ctx: AppContext) {
       </div>
     </section>
   );
+}
+
+function FallbackNotice() {
+  return <p className="fallback-result-label">ผลลัพธ์นี้มาจาก fallback</p>;
 }
 
 function Metric({ label, value }: { label: string; value: string }) {

@@ -4,7 +4,7 @@ import type { AppContext } from "../app/App";
 import { chats } from "../data/source";
 import { detectChatTopic, productById, productReviews, userById } from "../lib/analytics";
 import { getReply, getReviewPainSummary } from "../lib/aiClient";
-import type { ActionBrief } from "../lib/types";
+import type { ActionBrief, AiMode } from "../lib/types";
 import { dateTime } from "../lib/format";
 
 export function CustomerVoicePage(ctx: AppContext) {
@@ -12,12 +12,15 @@ export function CustomerVoicePage(ctx: AppContext) {
   const avg = reviews.length ? reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length : 0;
   const negative = reviews.filter((review) => review.rating <= 2);
   const [summary, setSummary] = useState<ActionBrief | null>(null);
+  const [summaryMode, setSummaryMode] = useState<AiMode | null>(null);
   const [reply, setReply] = useState<Record<string, string>>({});
+  const [replyMode, setReplyMode] = useState<Record<string, AiMode>>({});
   const [mobileTab, setMobileTab] = useState<"reviews" | "chats">("reviews");
 
   async function summarize() {
     const result = await getReviewPainSummary(ctx.state);
     setSummary(result.data);
+    setSummaryMode(result.mode);
     ctx.setAiMode(result.mode);
     ctx.setAiReason(result.reason);
   }
@@ -27,6 +30,7 @@ export function CustomerVoicePage(ctx: AppContext) {
     if (!chat) return;
     const result = await getReply(chat);
     setReply((current) => ({ ...current, [chatId]: result.data }));
+    setReplyMode((current) => ({ ...current, [chatId]: result.mode }));
     ctx.setAiMode(result.mode);
     ctx.setAiReason(result.reason);
   }
@@ -41,7 +45,7 @@ export function CustomerVoicePage(ctx: AppContext) {
         <Metric label="Negative Reviews" value={String(negative.length)} />
         <Metric label="Open Chats" value={String(chats.filter((chat) => chat.status === "OPEN").length)} />
       </div>
-      {summary && <section className="decision-panel ai-surface"><span className="ai-corner-star" aria-label="AI powered"><Star size={15} aria-hidden="true" /></span><p className="summary">{summary.summary}</p><div className="action-list">{summary.actions.map((action) => <article className="action-item" key={action.title}><strong>{action.title}</strong><span>{action.reason}</span><em>{action.impact}</em></article>)}</div></section>}
+      {summary && <section className="decision-panel ai-surface"><span className="ai-corner-star" aria-label="AI powered"><Star size={15} aria-hidden="true" /></span>{summaryMode === "fallback" && <FallbackNotice />}<p className="summary">{summary.summary}</p><div className="action-list">{summary.actions.map((action) => <article className="action-item" key={action.title}><strong>{action.title}</strong><span>{action.reason}</span><em>{action.impact}</em></article>)}</div></section>}
       <div className="mobile-segment" aria-label="Customer voice sections">
         <button className={mobileTab === "reviews" ? "active" : ""} type="button" onClick={() => setMobileTab("reviews")}>Reviews</button>
         <button className={mobileTab === "chats" ? "active" : ""} type="button" onClick={() => setMobileTab("chats")}>Chats</button>
@@ -69,7 +73,7 @@ export function CustomerVoicePage(ctx: AppContext) {
                 <p>{latest?.text}</p>
                 <time>{dateTime(latest?.timestamp || new Date().toISOString())}</time>
                 <button className="button secondary ai-action" type="button" onClick={() => generateReply(chat.chat_id)}><span className="ai-icon-pair"><Star size={13} /><Bot size={15} /></span>Generate Reply</button>
-                {reply[chat.chat_id] && <div className="reply-box">{reply[chat.chat_id]}</div>}
+                {reply[chat.chat_id] && <div className="reply-box">{replyMode[chat.chat_id] === "fallback" && <FallbackNotice />}{reply[chat.chat_id]}</div>}
               </article>;
             })}
           </div>
@@ -77,6 +81,10 @@ export function CustomerVoicePage(ctx: AppContext) {
       </div>
     </section>
   );
+}
+
+function FallbackNotice() {
+  return <p className="fallback-result-label">ผลลัพธ์นี้มาจาก fallback</p>;
 }
 
 function Metric({ label, value }: { label: string; value: string }) {

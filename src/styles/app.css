@@ -737,6 +737,21 @@ main {
   fill: oklch(0.78 0.12 82);
   flex: 0 0 auto;
 }
+.fallback-result-label {
+  width: fit-content;
+  margin: 8px 0 0;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: oklch(0.94 0.045 24);
+  color: oklch(0.34 0.105 24);
+  font-size: 0.76rem;
+  font-weight: 850;
+  line-height: 1.2;
+}
+.reply-box .fallback-result-label {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
 .pop-update {
   animation: pop-update 760ms cubic-bezier(0.22, 1, 0.36, 1);
   outline: 0 solid transparent;

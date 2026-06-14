@@ -2,7 +2,7 @@ import { founderBriefFallback, orderSummaryFallback, productInsightFallback, rep
 import { getFallbackUntil, getJson, setFallbackCooldown, setJson } from "./storage";
 import type { ActionBrief, AiMode, BusinessState, Chat, Order, Product } from "./types";
 
-const TIMEOUT_MS = 12000;
+const TIMEOUT_MS = 45000;
 
 export interface AiResult<T> {
   mode: AiMode;

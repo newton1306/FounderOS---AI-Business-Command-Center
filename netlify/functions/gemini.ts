@@ -43,6 +43,71 @@ function repairJsonText(text: string) {
   return repaired.replace(/,\s*([}\]])/g, "$1");
 }
 
+function getResponseSchema(task: unknown) {
+  if (task === "reply-assistant" || task === "order-summary") {
+    return {
+      type: "OBJECT",
+      properties: { data: { type: "STRING" } },
+      required: ["data"]
+    };
+  }
+  return {
+    type: "OBJECT",
+    properties: {
+      summary: { type: "STRING" },
+      actions: {
+        type: "ARRAY",
+        items: {
+          type: "OBJECT",
+          properties: {
+            title: { type: "STRING" },
+            reason: { type: "STRING" },
+            impact: { type: "STRING" },
+            source: { type: "STRING" }
+          },
+          required: ["title", "reason", "impact", "source"]
+        }
+      }
+    },
+    required: ["summary", "actions"]
+  };
+}
+
+function normalizeText(text: string) {
+  const cleaned = text
+    .replace(/```json|```/g, "")
+    .replace(/^\s*\{?|\}?\s*$/g, "")
+    .replace(/"\s*[,}]\s*$/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+  return cleaned
+    .replace(/^"(data|summary|reason|impact)"\s*:\s*"?/i, "")
+    .replace(/",?\s*"(actions|source|title)"\s*:.+$/i, "")
+    .trim();
+}
+
+function parsedOrGeminiText(text: string, task: unknown) {
+  try {
+    return safeJson(text);
+  } catch {
+    const content = normalizeText(text) || "Gemini returned a recommendation, but the JSON envelope was malformed.";
+    if (task === "reply-assistant" || task === "order-summary") {
+      return { data: content };
+    }
+    return {
+      summary: content.slice(0, 280),
+      actions: [
+        {
+          title: "Review Gemini suggestion",
+          reason: content,
+          impact: "This is a live Gemini response recovered from a malformed JSON envelope.",
+          source: "gemini"
+        }
+      ]
+    };
+  }
+}
+
 function compactPayload(payload: Record<string, unknown>) {
   const state = payload.state as { products?: Array<Record<string, unknown>>; orders?: Array<Record<string, unknown>>; simulationEvents?: unknown[] } | undefined;
   return {
@@ -86,7 +151,12 @@ export const handler: Handler = async (event) => {
       signal: controller.signal,
       body: JSON.stringify({
         contents: [{ parts: [{ text: prompt }] }],
-        generationConfig: { temperature: 0.2, maxOutputTokens: 700, responseMimeType: "application/json" }
+        generationConfig: {
+          temperature: 0.2,
+          maxOutputTokens: 700,
+          responseMimeType: "application/json",
+          responseSchema: getResponseSchema(payload.task)
+        }
       })
     }).finally(() => clearTimeout(timeout));
     if (response.status === 429) return { statusCode: 429, body: JSON.stringify({ error: "quota limit" }) };
@@ -96,7 +166,7 @@ export const handler: Handler = async (event) => {
     }
     const json = await response.json();
     const text = json.candidates?.[0]?.content?.parts?.[0]?.text || "{}";
-    const parsed = safeJson(text);
+    const parsed = parsedOrGeminiText(text, payload.task);
     return { statusCode: 200, body: JSON.stringify(parsed.data ? parsed : { data: parsed }) };
   } catch (error) {
     return { statusCode: 500, body: JSON.stringify({ error: error instanceof Error ? error.message : "Unknown error" }) };

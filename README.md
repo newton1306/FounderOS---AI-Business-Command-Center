@@ -2,6 +2,16 @@
 
 FounderOS is a hackathon mini app for the "Frontend to Founder" theme. It turns the provided e-commerce JSON data into a living business command center for an online store founder. The app connects products, orders, users, reviews, chats, notifications, and locations into a practical workflow for deciding what to restock, which order needs attention, and which customer issue should be answered first.
 
+## Hackathon Entry
+
+FounderOS was built for the Informatics MSU Hackathon 2026 by team สามหนุ่มมหาปลัย from King Mongkut's University of Technology Thonburi (KMUTT).
+
+Team members:
+
+- Narawit Sandorn
+- Nattakit Promvisit
+- Siwat Guttra
+
 ## What It Does
 
 - Shows an overview of revenue, order health, stock risk, review pain, and customer support pressure.

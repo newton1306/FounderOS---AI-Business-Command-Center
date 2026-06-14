@@ -580,6 +580,26 @@ h4 {
 .voice-ai-empty .gemini-cta-pulse {
   margin-top: 8px;
 }
+/* ─── Bouncing hand cursor ─── */
+.cta-hand {
+  display: inline-block;
+  font-size: 1.6rem;
+  margin-left: -8px;
+  margin-top: 10px;
+  filter: drop-shadow(0 2px 4px oklch(0.20 0.04 155 / 0.25));
+  animation: handTap 2.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite;
+  pointer-events: none;
+  transform-origin: center bottom;
+}
+@keyframes handTap {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  10% { transform: translateY(-8px) rotate(-4deg); }
+  20% { transform: translateY(2px) rotate(2deg) scale(0.92); }
+  26% { transform: translateY(0) rotate(0deg); }
+  34% { transform: translateY(-5px) rotate(-3deg); }
+  42% { transform: translateY(1px) rotate(1deg) scale(0.95); }
+  50% { transform: translateY(0) rotate(0deg); }
+}
 .compact-action { display: none; }
 .inline-link {
   display: inline-flex;

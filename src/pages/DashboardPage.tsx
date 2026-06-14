@@ -73,6 +73,7 @@ export function DashboardPage(ctx: AppContext) {
               <span className="gemini-mark" aria-hidden="true"><Sparkles size={16} /></span>
               {briefLoading ? "Gemini is thinking..." : "Gemini Suggest"}
             </button>
+            <span className="cta-hand" aria-hidden="true">👆</span>
           </div>
         )}
         {ctx.founderBrief && (

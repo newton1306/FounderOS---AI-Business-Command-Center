@@ -286,9 +286,16 @@ h4 {
   overflow: hidden;
 }
 .notification-panel .floating-list {
+  min-height: 0;
   max-height: min(450px, calc(100vh - 220px));
   overflow-y: auto;
+  overscroll-behavior: contain;
   padding-bottom: 8px;
+  padding-right: 2px;
+}
+.notification-panel .floating-item span {
+  overflow-wrap: anywhere;
+  white-space: normal;
 }
 .floating-panel .section-head h2 {
   font-size: 0.95rem;
@@ -2094,6 +2101,7 @@ select {
 }
 
 .mobile-nav,
+.mobile-auto-sim,
 .mobile-status-drawer { display: none; }
 .mobile-segment { display: none; }
 
@@ -2638,6 +2646,30 @@ select {
   .mobile-nav button.active {
     color: white;
     background: var(--dark);
+  }
+  .mobile-auto-sim.status-chip {
+    position: fixed;
+    z-index: 21;
+    right: 18px;
+    bottom: 92px;
+    display: inline-flex;
+    width: auto;
+    max-width: calc(25vw + 34px);
+    min-height: 38px;
+    padding: 7px 10px;
+    border: 0;
+    border-radius: 999px;
+    box-shadow: var(--soft-shadow);
+    cursor: pointer;
+    gap: 5px;
+    white-space: nowrap;
+  }
+  .mobile-auto-sim.status-chip.success {
+    box-shadow: var(--soft-shadow), inset 0 0 0 1px oklch(0.72 0.075 155 / 0.42);
+  }
+  .mobile-auto-sim.status-chip:focus-visible {
+    outline: 3px solid var(--primary-soft);
+    outline-offset: 3px;
   }
 }
 

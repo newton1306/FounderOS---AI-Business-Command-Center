@@ -197,7 +197,7 @@ export function App() {
             </label>
             <button className={`icon-button noti-button ${notificationsOpen ? "active" : ""}`} type="button" onClick={() => { setNotificationsOpen((value) => !value); setSearchOpen(false); setUnreadCount(0); }} aria-label="Notifications" aria-expanded={notificationsOpen}>
               <Bell size={17} aria-hidden="true" />
-              {unreadCount > 0 && <span className="noti-badge">{unreadCount}</span>}
+              {unreadCount > 0 && <span className="noti-badge">{unreadCount > 99 ? "99+" : unreadCount}</span>}
             </button>
             {searchOpen && <SearchPanel query={searchQuery} results={searchResults} onClose={() => setSearchOpen(false)} onSelect={goToResult} />}
             {notificationsOpen && <NotificationPanel items={notificationItems} onClose={() => setNotificationsOpen(false)} onSelect={goToResult} />}
@@ -233,6 +233,16 @@ export function App() {
           );
         })}
       </nav>
+      <button
+        className={`mobile-auto-sim status-chip ${autoSim ? "success" : "neutral"}`}
+        type="button"
+        onClick={() => setAutoSim((value) => !value)}
+        aria-pressed={autoSim}
+        aria-label={autoSim ? "Turn off auto simulation" : "Turn on auto simulation"}
+      >
+        {autoSim ? <ToggleRight size={18} aria-hidden="true" /> : <ToggleLeft size={18} aria-hidden="true" />}
+        Auto Sim
+      </button>
     </div>
   );
 }

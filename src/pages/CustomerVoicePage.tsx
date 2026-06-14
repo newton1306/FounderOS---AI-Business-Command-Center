@@ -4,7 +4,7 @@ import type { AppContext } from "../app/App";
 import { chats } from "../data/source";
 import { detectChatTopic, productById, productReviews, userById } from "../lib/analytics";
 import { getReply, getReviewPainSummary } from "../lib/aiClient";
-import type { Chat } from "../lib/types";
+import type { Chat, ChatMessage } from "../lib/types";
 import { dateTime } from "../lib/format";
 
 export function CustomerVoicePage(ctx: AppContext) {
@@ -53,7 +53,7 @@ export function CustomerVoicePage(ctx: AppContext) {
       <div className="kpi-grid compact">
         <Metric label="Average Rating" value={avg.toFixed(1)} />
         <Metric label="Negative Reviews" value={String(negative.length)} />
-        <Metric label="Open Chats" value={String(chatGroups.filter((group) => group.chat.status === "OPEN").length)} />
+        <Metric label="Needs Reply" value={String(chatGroups.filter((group) => chatNeedsReply(group.chat)).length)} />
         <Metric label="Merged Duplicates" value={String(hiddenDuplicateChats)} />
       </div>
 
@@ -120,20 +120,19 @@ export function CustomerVoicePage(ctx: AppContext) {
               const chat = group.chat;
               const customer = userById(chat.user_id);
               const latest = chat.messages[chat.messages.length - 1];
-              const latestCustomerMessage = [...chat.messages].reverse().find((message) => message.sender === "USER");
-              const latestShopMessage = [...chat.messages].reverse().find((message) => message.sender === "SHOP");
               const topic = detectChatTopic(chat.messages.map((message) => message.text).join(" "));
-              return <article className={`chat-card ${chat.status === "OPEN" ? "open" : ""}`} key={chat.chat_id}>
+              const state = getChatState(chat);
+              const canGenerateReply = chatNeedsReply(chat);
+              return <article className={`chat-card ${chat.status === "OPEN" ? "open" : ""} ${state.tone}`} key={chat.chat_id}>
                 <div className="chat-head"><strong>{customer?.name || "Customer"}</strong><span className="badge watch">{customer?.role || "MEMBER"} - {chat.status}</span></div>
                 <div className="chat-meta-row">
                   <span>{topic}</span>
-                  <span className={`sender-chip ${latest?.sender === "USER" ? "customer" : "shop"}`}>{latest?.sender === "USER" ? "Last: Customer" : "Last: Shop"}</span>
+                  <span className={`chat-state-chip ${state.tone}`}>{state.label}</span>
                 </div>
-                <p><strong className="message-label">Customer:</strong> {latestCustomerMessage?.text || latest?.text}</p>
-                {latest?.sender === "SHOP" && latestShopMessage && <em className="shop-preview">Shop replied: {latestShopMessage.text}</em>}
+                <ChatThreadPreview chat={chat} customerName={customer?.name} />
                 {group.duplicates.length > 1 && <span className="duplicate-note">Merged {group.duplicates.length} similar records: {group.duplicates.map((item) => item.chat_id).join(", ")}</span>}
-                <time>{dateTime((latestCustomerMessage || latest)?.timestamp || new Date().toISOString())}</time>
-                <button className="button secondary ai-action" type="button" onClick={() => generateReply(chat.chat_id)} disabled={Boolean(ctx.chatReplyLoading[chat.chat_id])}><span className="ai-icon-pair"><Star size={13} /><Bot size={15} /></span>{ctx.chatReplyLoading[chat.chat_id] ? "Gemini is thinking..." : "Gemini Reply"}</button>
+                <time>Last activity {dateTime(latest?.timestamp || new Date().toISOString())}</time>
+                {canGenerateReply ? <button className="button secondary ai-action" type="button" onClick={() => generateReply(chat.chat_id)} disabled={Boolean(ctx.chatReplyLoading[chat.chat_id])}><span className="ai-icon-pair"><Star size={13} /><Bot size={15} /></span>{ctx.chatReplyLoading[chat.chat_id] ? "Gemini is thinking..." : "Gemini Reply"}</button> : <span className="chat-action-note">{state.note}</span>}
                 {ctx.chatReplies[chat.chat_id] && <div className="reply-box">{ctx.chatReplies[chat.chat_id].mode === "fallback" && <FallbackNotice />}{ctx.chatReplies[chat.chat_id].text}</div>}
               </article>;
             })}
@@ -150,6 +149,37 @@ function FallbackNotice() {
 
 function Metric({ label, value }: { label: string; value: string }) {
   return <article className="kpi-card"><span>{label}</span><strong>{value}</strong></article>;
+}
+
+function ChatThreadPreview({ chat, customerName }: { chat: Chat; customerName?: string }) {
+  return (
+    <div className="chat-thread-preview">
+      {chat.messages.slice(-4).map((message, index) => (
+        <div className={`thread-message ${message.sender === "USER" ? "customer" : "shop"}`} key={`${message.timestamp}-${index}`}>
+          <span>{speakerLabel(message, customerName)}</span>
+          <p>{message.text}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function speakerLabel(message: ChatMessage, customerName?: string) {
+  return message.sender === "USER" ? customerName || "Customer" : "Shop";
+}
+
+function chatNeedsReply(chat: Chat) {
+  return chat.status === "OPEN" && chat.messages.at(-1)?.sender === "USER";
+}
+
+function getChatState(chat: Chat) {
+  if (chat.status === "CLOSED") {
+    return { label: "Closed", note: "No reply needed - this conversation is closed.", tone: "closed" };
+  }
+  if (chatNeedsReply(chat)) {
+    return { label: "Needs reply", note: "Gemini can draft the next shop reply.", tone: "needs-reply" };
+  }
+  return { label: "Answered by shop", note: "No reply needed - the shop already answered.", tone: "answered" };
 }
 
 function groupDuplicateChats(items: Chat[]) {

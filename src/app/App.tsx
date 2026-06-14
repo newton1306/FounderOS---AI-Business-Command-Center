@@ -282,6 +282,7 @@ function NotificationPanel({ items, onClose, onSelect }: { items: Array<{ id: st
         {items.map((item) => (
           <button className={`floating-item ${item.tone}`} type="button" key={item.id} onClick={() => onSelect(item.to)}>
             <strong>{item.title}</strong>
+            <small>{item.tone === "warning" ? "Action notification" : item.tone === "success" ? "Success notification" : "System notification"}</small>
             <span>{item.message}</span>
             <em>{dateTime(item.timestamp)}</em>
           </button>

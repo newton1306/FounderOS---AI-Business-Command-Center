@@ -325,17 +325,17 @@ h4 {
 }
 .floating-item.success {
   background: var(--primary-soft);
-  border-left: 4px solid var(--primary);
   position: relative;
   z-index: 2;
-  box-shadow: 0 2px 8px oklch(0.45 0.08 155 / 0.15);
+  box-shadow: inset 0 0 0 1px oklch(0.72 0.075 155 / 0.55);
 }
 .floating-item.warning {
   background: oklch(0.94 0.045 82);
 }
 .floating-item strong,
 .floating-item span,
-.floating-item em {
+.floating-item em,
+.floating-item small {
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -346,6 +346,16 @@ h4 {
 .floating-item span {
   color: var(--muted);
   white-space: nowrap;
+}
+.floating-item small {
+  width: fit-content;
+  padding: 2px 7px;
+  border-radius: 999px;
+  color: oklch(0.34 0.035 155);
+  background: oklch(0.94 0.018 155);
+  font-size: 0.68rem;
+  font-weight: 850;
+  line-height: 1.2;
 }
 .floating-item em,
 .panel-empty {
@@ -1685,6 +1695,14 @@ select {
 .chat-card.open {
   background: linear-gradient(135deg, var(--bg), oklch(0.96 0.025 145));
 }
+.chat-card.needs-reply {
+  box-shadow:
+    inset 0 0 0 1px oklch(0.78 0.075 82 / 0.82),
+    0 5px 8px oklch(0.32 0.05 82 / 0.08);
+}
+.chat-card.answered {
+  background: var(--bg);
+}
 .chat-meta-row {
   display: flex;
   align-items: center;
@@ -1706,13 +1724,78 @@ select {
   background: oklch(0.95 0.018 250);
   color: oklch(0.37 0.04 250);
 }
-.message-label {
-  color: var(--ink);
+.chat-state-chip {
+  flex: 0 0 auto;
+  width: fit-content;
+  max-width: 100%;
+  border-radius: 999px;
+  padding: 3px 8px;
+  font-size: 0.7rem;
+  font-weight: 900;
+  line-height: 1.2;
+  white-space: nowrap;
 }
-.shop-preview {
+.chat-state-chip.needs-reply {
+  background: oklch(0.94 0.05 82);
+  color: oklch(0.34 0.085 82);
+}
+.chat-state-chip.answered {
+  background: var(--primary-soft);
+  color: var(--primary-strong);
+}
+.chat-state-chip.closed {
+  background: oklch(0.91 0.006 95);
   color: var(--muted);
-  font-size: 0.78rem;
-  font-style: normal;
+}
+.chat-thread-preview {
+  display: grid;
+  gap: 6px;
+}
+.thread-message {
+  max-width: 92%;
+  min-width: 0;
+  display: grid;
+  gap: 3px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  overflow-wrap: anywhere;
+}
+.thread-message.customer {
+  justify-self: start;
+  background: var(--surface);
+  color: var(--ink);
+  border-bottom-left-radius: 5px;
+}
+.thread-message.shop {
+  justify-self: end;
+  background: var(--dark);
+  color: white;
+  border-bottom-right-radius: 5px;
+}
+.thread-message span {
+  color: inherit;
+  opacity: 0.72;
+  font-size: 0.68rem;
+  font-weight: 850;
+  line-height: 1.2;
+}
+.thread-message p {
+  margin: 0;
+  color: inherit;
+  font-size: 0.82rem;
+  line-height: 1.38;
+}
+.chat-action-note {
+  width: fit-content;
+  max-width: 100%;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 0.74rem;
+  font-weight: 750;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
 }
 .duplicate-note {
   display: inline-flex;
@@ -1889,6 +1972,71 @@ select {
 }
 .order-summary-result {
   margin-top: 0;
+}
+.related-chat-card,
+.notification-event {
+  display: grid;
+  gap: 7px;
+  padding: 10px;
+  border-radius: 12px;
+  background: var(--surface);
+}
+.related-chat-head,
+.notification-event-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+.related-chat-head strong,
+.notification-event-head strong {
+  min-width: 0;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+.related-chat-meta,
+.notification-event-meta {
+  color: var(--muted);
+  font-size: 0.74rem;
+  font-weight: 750;
+  line-height: 1.25;
+}
+.compact-thread-preview {
+  gap: 5px;
+}
+.compact-thread-preview .thread-message {
+  max-width: 95%;
+  padding: 7px 9px;
+}
+.notification-event {
+  background: oklch(0.975 0.006 95);
+  box-shadow: inset 0 0 0 1px oklch(0.88 0.009 95);
+}
+.notification-type {
+  flex: 0 0 auto;
+  max-width: 45%;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: oklch(0.93 0.015 250);
+  color: oklch(0.34 0.04 250);
+  font-size: 0.66rem;
+  font-weight: 900;
+  line-height: 1.15;
+  text-transform: uppercase;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.notification-event p {
+  margin: 0;
+  color: var(--ink);
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+.notification-event em {
+  color: var(--muted);
+  font-size: 0.74rem;
+  font-style: normal;
 }
 .empty-state {
   min-height: 128px;

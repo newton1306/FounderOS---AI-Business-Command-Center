@@ -6,7 +6,7 @@ import { getOrderSummary } from "../lib/aiClient";
 import { orderRisk, productById, relatedNotifications, userById } from "../lib/analytics";
 import { currency, dateTime } from "../lib/format";
 import { useUpdatePulse } from "../lib/useUpdatePulse";
-import type { AiMode } from "../lib/types";
+import type { AiMode, Chat, ChatMessage } from "../lib/types";
 
 export function OrdersPage(ctx: AppContext) {
   const [query, setQuery] = useState("");
@@ -125,9 +125,30 @@ export function OrdersPage(ctx: AppContext) {
             return <article className="list-item" key={item.product_id}><strong>{product?.name || item.product_id}</strong><span>Qty {item.qty} - stock after order {product?.stock ?? "N/A"}</span></article>;
           })}</div>
           <h4>Related chats</h4>
-          <div className="list">{chats.filter((chat) => chat.user_id === customer.user_id).slice(0, 2).map((chat) => <article className="list-item" key={chat.chat_id}><strong>{chat.chat_id} - {chat.status}</strong><span>{chat.messages.at(-1)?.text}</span></article>)}</div>
+          <div className="list">{chats.filter((chat) => chat.user_id === customer.user_id).slice(0, 2).map((chat) => {
+            const chatState = getChatState(chat);
+            const latest = chat.messages.at(-1);
+            return (
+              <article className="related-chat-card" key={chat.chat_id}>
+                <div className="related-chat-head">
+                  <strong>{chat.chat_id}</strong>
+                  <span className={`chat-state-chip ${chatState.tone}`}>{chatState.label}</span>
+                </div>
+                <span className="related-chat-meta">{chat.status} - Last activity {dateTime(latest?.timestamp || order.timestamp)}</span>
+                <ChatThreadPreview chat={chat} customerName={customer.name} />
+              </article>
+            );
+          })}</div>
           <h4>Notifications</h4>
-          <div className="list">{relatedNotifications(customer).slice(0, 2).map((item) => <article className="list-item" key={item.notif_id}><strong>{item.title}</strong><span>{item.message}</span><em>{dateTime(item.timestamp)}</em></article>)}</div>
+          <div className="list">{relatedNotifications(customer).slice(0, 2).map((item) => <article className="notification-event" key={item.notif_id}>
+            <div className="notification-event-head">
+              <strong>{item.title}</strong>
+              <span className="notification-type">{item.type.replace(/_/g, " ")}</span>
+            </div>
+            <span className="notification-event-meta">{item.is_read ? "Read" : "Unread"} system notification</span>
+            <p>{item.message}</p>
+            <em>{dateTime(item.timestamp)}</em>
+          </article>)}</div>
         </aside>}
       </div>
     </section>
@@ -140,4 +161,31 @@ function FallbackNotice() {
 
 function compactBaht(value: number) {
   return `THB ${value.toLocaleString("en-US")}`;
+}
+
+function ChatThreadPreview({ chat, customerName }: { chat: Chat; customerName?: string }) {
+  return (
+    <div className="chat-thread-preview compact-thread-preview">
+      {chat.messages.slice(-2).map((message, index) => (
+        <div className={`thread-message ${message.sender === "USER" ? "customer" : "shop"}`} key={`${message.timestamp}-${index}`}>
+          <span>{speakerLabel(message, customerName)}</span>
+          <p>{message.text}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function speakerLabel(message: ChatMessage, customerName?: string) {
+  return message.sender === "USER" ? customerName || "Customer" : "Shop";
+}
+
+function chatNeedsReply(chat: Chat) {
+  return chat.status === "OPEN" && chat.messages.at(-1)?.sender === "USER";
+}
+
+function getChatState(chat: Chat) {
+  if (chat.status === "CLOSED") return { label: "Closed", tone: "closed" };
+  if (chatNeedsReply(chat)) return { label: "Needs reply", tone: "needs-reply" };
+  return { label: "Answered by shop", tone: "answered" };
 }

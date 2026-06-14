@@ -1,0 +1,352 @@
+[
+  {
+    "res_id": "r-001",
+    "name": "Spicy Kitchen Indian",
+    "cuisine": "Indian",
+    "rating": 4.1,
+    "delivery_time_min": 40
+  },
+  {
+    "res_id": "r-002",
+    "name": "Tasty Cafe Chinese",
+    "cuisine": "Chinese",
+    "rating": 5.0,
+    "delivery_time_min": 30
+  },
+  {
+    "res_id": "r-003",
+    "name": "Urban Spoon Chinese",
+    "cuisine": "Chinese",
+    "rating": 4.0,
+    "delivery_time_min": 40
+  },
+  {
+    "res_id": "r-004",
+    "name": "Tasty Garden Dessert",
+    "cuisine": "Dessert",
+    "rating": 4.3,
+    "delivery_time_min": 40
+  },
+  {
+    "res_id": "r-005",
+    "name": "Fresh Garden Thai",
+    "cuisine": "Thai",
+    "rating": 4.9,
+    "delivery_time_min": 40
+  },
+  {
+    "res_id": "r-006",
+    "name": "Golden Spoon Thai",
+    "cuisine": "Thai",
+    "rating": 3.7,
+    "delivery_time_min": 40
+  },
+  {
+    "res_id": "r-007",
+    "name": "Fresh Garden Chinese",
+    "cuisine": "Chinese",
+    "rating": 4.3,
+    "delivery_time_min": 45
+  },
+  {
+    "res_id": "r-008",
+    "name": "Royal Plate Healthy",
+    "cuisine": "Healthy",
+    "rating": 4.1,
+    "delivery_time_min": 60
+  },
+  {
+    "res_id": "r-009",
+    "name": "Spicy Garden Indian",
+    "cuisine": "Indian",
+    "rating": 4.4,
+    "delivery_time_min": 50
+  },
+  {
+    "res_id": "r-010",
+    "name": "Fresh Bistro Dessert",
+    "cuisine": "Dessert",
+    "rating": 4.3,
+    "delivery_time_min": 30
+  },
+  {
+    "res_id": "r-011",
+    "name": "Local Kitchen Chinese",
+    "cuisine": "Chinese",
+    "rating": 3.8,
+    "delivery_time_min": 40
+  },
+  {
+    "res_id": "r-012",
+    "name": "Spicy Bistro Japanese",
+    "cuisine": "Japanese",
+    "rating": 3.7,
+    "delivery_time_min": 30
+  },
+  {
+    "res_id": "r-013",
+    "name": "Tasty Bowl Japanese",
+    "cuisine": "Japanese",
+    "rating": 4.1,
+    "delivery_time_min": 20
+  },
+  {
+    "res_id": "r-014",
+    "name": "Golden Garden Vietnamese",
+    "cuisine": "Vietnamese",
+    "rating": 3.5,
+    "delivery_time_min": 45
+  },
+  {
+    "res_id": "r-015",
+    "name": "Tasty Bistro Italian",
+    "cuisine": "Italian",
+    "rating": 5.0,
+    "delivery_time_min": 45
+  },
+  {
+    "res_id": "r-016",
+    "name": "Local House Dessert",
+    "cuisine": "Dessert",
+    "rating": 3.6,
+    "delivery_time_min": 30
+  },
+  {
+    "res_id": "r-017",
+    "name": "Green House Dessert",
+    "cuisine": "Dessert",
+    "rating": 3.6,
+    "delivery_time_min": 20
+  },
+  {
+    "res_id": "r-018",
+    "name": "Royal Bowl Indian",
+    "cuisine": "Indian",
+    "rating": 4.3,
+    "delivery_time_min": 35
+  },
+  {
+    "res_id": "r-019",
+    "name": "Local House Japanese",
+    "cuisine": "Japanese",
+    "rating": 4.1,
+    "delivery_time_min": 45
+  },
+  {
+    "res_id": "r-020",
+    "name": "Green Kitchen Chinese",
+    "cuisine": "Chinese",
+    "rating": 4.4,
+    "delivery_time_min": 50
+  },
+  {
+    "res_id": "r-021",
+    "name": "Tasty Cafe Japanese",
+    "cuisine": "Japanese",
+    "rating": 4.4,
+    "delivery_time_min": 25
+  },
+  {
+    "res_id": "r-022",
+    "name": "Tasty Grill Indian",
+    "cuisine": "Indian",
+    "rating": 3.9,
+    "delivery_time_min": 20
+  },
+  {
+    "res_id": "r-023",
+    "name": "Spicy Grill American",
+    "cuisine": "American",
+    "rating": 4.9,
+    "delivery_time_min": 35
+  },
+  {
+    "res_id": "r-024",
+    "name": "Urban Bowl Healthy",
+    "cuisine": "Healthy",
+    "rating": 4.9,
+    "delivery_time_min": 60
+  },
+  {
+    "res_id": "r-025",
+    "name": "Green Cafe Indian",
+    "cuisine": "Indian",
+    "rating": 3.6,
+    "delivery_time_min": 35
+  },
+  {
+    "res_id": "r-026",
+    "name": "Happy Plate Italian",
+    "cuisine": "Italian",
+    "rating": 4.1,
+    "delivery_time_min": 45
+  },
+  {
+    "res_id": "r-027",
+    "name": "Fresh Kitchen Vietnamese",
+    "cuisine": "Vietnamese",
+    "rating": 4.0,
+    "delivery_time_min": 40
+  },
+  {
+    "res_id": "r-028",
+    "name": "Tasty Wok American",
+    "cuisine": "American",
+    "rating": 4.9,
+    "delivery_time_min": 25
+  },
+  {
+    "res_id": "r-029",
+    "name": "Royal House Thai",
+    "cuisine": "Thai",
+    "rating": 4.8,
+    "delivery_time_min": 50
+  },
+  {
+    "res_id": "r-030",
+    "name": "Green Cafe Chinese",
+    "cuisine": "Chinese",
+    "rating": 5.0,
+    "delivery_time_min": 35
+  },
+  {
+    "res_id": "r-031",
+    "name": "Happy Spoon Dessert",
+    "cuisine": "Dessert",
+    "rating": 4.5,
+    "delivery_time_min": 30
+  },
+  {
+    "res_id": "r-032",
+    "name": "Spicy Cafe Healthy",
+    "cuisine": "Healthy",
+    "rating": 4.2,
+    "delivery_time_min": 25
+  },
+  {
+    "res_id": "r-033",
+    "name": "Golden Grill Vietnamese",
+    "cuisine": "Vietnamese",
+    "rating": 3.9,
+    "delivery_time_min": 35
+  },
+  {
+    "res_id": "r-034",
+    "name": "Tasty Bistro Japanese",
+    "cuisine": "Japanese",
+    "rating": 4.8,
+    "delivery_time_min": 50
+  },
+  {
+    "res_id": "r-035",
+    "name": "Golden Cafe Japanese",
+    "cuisine": "Japanese",
+    "rating": 4.4,
+    "delivery_time_min": 60
+  },
+  {
+    "res_id": "r-036",
+    "name": "Happy House Vietnamese",
+    "cuisine": "Vietnamese",
+    "rating": 3.9,
+    "delivery_time_min": 25
+  },
+  {
+    "res_id": "r-037",
+    "name": "Royal Kitchen Japanese",
+    "cuisine": "Japanese",
+    "rating": 3.9,
+    "delivery_time_min": 60
+  },
+  {
+    "res_id": "r-038",
+    "name": "Royal House Chinese",
+    "cuisine": "Chinese",
+    "rating": 3.5,
+    "delivery_time_min": 45
+  },
+  {
+    "res_id": "r-039",
+    "name": "Lucky Garden American",
+    "cuisine": "American",
+    "rating": 4.5,
+    "delivery_time_min": 50
+  },
+  {
+    "res_id": "r-040",
+    "name": "Lucky Garden Korean",
+    "cuisine": "Korean",
+    "rating": 4.0,
+    "delivery_time_min": 35
+  },
+  {
+    "res_id": "r-041",
+    "name": "Lucky Bistro Healthy",
+    "cuisine": "Healthy",
+    "rating": 3.9,
+    "delivery_time_min": 35
+  },
+  {
+    "res_id": "r-042",
+    "name": "Golden Kitchen Korean",
+    "cuisine": "Korean",
+    "rating": 3.8,
+    "delivery_time_min": 60
+  },
+  {
+    "res_id": "r-043",
+    "name": "Urban Wok Italian",
+    "cuisine": "Italian",
+    "rating": 4.1,
+    "delivery_time_min": 30
+  },
+  {
+    "res_id": "r-044",
+    "name": "Urban House Italian",
+    "cuisine": "Italian",
+    "rating": 4.6,
+    "delivery_time_min": 25
+  },
+  {
+    "res_id": "r-045",
+    "name": "Local Wok Vietnamese",
+    "cuisine": "Vietnamese",
+    "rating": 3.7,
+    "delivery_time_min": 25
+  },
+  {
+    "res_id": "r-046",
+    "name": "Local Cafe Healthy",
+    "cuisine": "Healthy",
+    "rating": 3.9,
+    "delivery_time_min": 35
+  },
+  {
+    "res_id": "r-047",
+    "name": "Spicy Kitchen Vietnamese",
+    "cuisine": "Vietnamese",
+    "rating": 4.2,
+    "delivery_time_min": 30
+  },
+  {
+    "res_id": "r-048",
+    "name": "Tasty Kitchen Italian",
+    "cuisine": "Italian",
+    "rating": 4.2,
+    "delivery_time_min": 25
+  },
+  {
+    "res_id": "r-049",
+    "name": "Urban Garden Vietnamese",
+    "cuisine": "Vietnamese",
+    "rating": 3.9,
+    "delivery_time_min": 50
+  },
+  {
+    "res_id": "r-050",
+    "name": "Urban Cafe Healthy",
+    "cuisine": "Healthy",
+    "rating": 4.6,
+    "delivery_time_min": 45
+  }
+]

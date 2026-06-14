@@ -1,0 +1,352 @@
+[
+  {
+    "ticket_id": "tkt-001",
+    "user_id": "u015",
+    "flight_id": "fl-037",
+    "seat": "18F",
+    "status": "CANCELLED"
+  },
+  {
+    "ticket_id": "tkt-002",
+    "user_id": "u014",
+    "flight_id": "fl-011",
+    "seat": "24A",
+    "status": "BOARDED"
+  },
+  {
+    "ticket_id": "tkt-003",
+    "user_id": "u012",
+    "flight_id": "fl-035",
+    "seat": "25C",
+    "status": "CANCELLED"
+  },
+  {
+    "ticket_id": "tkt-004",
+    "user_id": "u012",
+    "flight_id": "fl-040",
+    "seat": "25F",
+    "status": "ISSUED"
+  },
+  {
+    "ticket_id": "tkt-005",
+    "user_id": "u004",
+    "flight_id": "fl-019",
+    "seat": "5A",
+    "status": "BOARDED"
+  },
+  {
+    "ticket_id": "tkt-006",
+    "user_id": "u006",
+    "flight_id": "fl-021",
+    "seat": "1E",
+    "status": "BOARDED"
+  },
+  {
+    "ticket_id": "tkt-007",
+    "user_id": "u001",
+    "flight_id": "fl-012",
+    "seat": "12B",
+    "status": "BOARDED"
+  },
+  {
+    "ticket_id": "tkt-008",
+    "user_id": "u004",
+    "flight_id": "fl-009",
+    "seat": "17B",
+    "status": "CANCELLED"
+  },
+  {
+    "ticket_id": "tkt-009",
+    "user_id": "u009",
+    "flight_id": "fl-011",
+    "seat": "5E",
+    "status": "ISSUED"
+  },
+  {
+    "ticket_id": "tkt-010",
+    "user_id": "u008",
+    "flight_id": "fl-030",
+    "seat": "2E",
+    "status": "ISSUED"
+  },
+  {
+    "ticket_id": "tkt-011",
+    "user_id": "u014",
+    "flight_id": "fl-032",
+    "seat": "18B",
+    "status": "ISSUED"
+  },
+  {
+    "ticket_id": "tkt-012",
+    "user_id": "u004",
+    "flight_id": "fl-030",
+    "seat": "30E",
+    "status": "BOARDED"
+  },
+  {
+    "ticket_id": "tkt-013",
+    "user_id": "u002",
+    "flight_id": "fl-031",
+    "seat": "4B",
+    "status": "BOARDED"
+  },
+  {
+    "ticket_id": "tkt-014",
+    "user_id": "u009",
+    "flight_id": "fl-035",
+    "seat": "4F",
+    "status": "CHECKED_IN"
+  },
+  {
+    "ticket_id": "tkt-015",
+    "user_id": "u004",
+    "flight_id": "fl-024",
+    "seat": "15C",
+    "status": "CANCELLED"
+  },
+  {
+    "ticket_id": "tkt-016",
+    "user_id": "u003",
+    "flight_id": "fl-045",
+    "seat": "7B",
+    "status": "CHECKED_IN"
+  },
+  {
+    "ticket_id": "tkt-017",
+    "user_id": "u002",
+    "flight_id": "fl-024",
+    "seat": "2D",
+    "status": "ISSUED"
+  },
+  {
+    "ticket_id": "tkt-018",
+    "user_id": "u003",
+    "flight_id": "fl-044",
+    "seat": "27E",
+    "status": "CHECKED_IN"
+  },
+  {
+    "ticket_id": "tkt-019",
+    "user_id": "u010",
+    "flight_id": "fl-019",
+    "seat": "24D",
+    "status": "BOARDED"
+  },
+  {
+    "ticket_id": "tkt-020",
+    "user_id": "u012",
+    "flight_id": "fl-041",
+    "seat": "25E",
+    "status": "CANCELLED"
+  },
+  {
+    "ticket_id": "tkt-021",
+    "user_id": "u008",
+    "flight_id": "fl-048",
+    "seat": "3E",
+    "status": "CANCELLED"
+  },
+  {
+    "ticket_id": "tkt-022",
+    "user_id": "u003",
+    "flight_id": "fl-034",
+    "seat": "27E",
+    "status": "CHECKED_IN"
+  },
+  {
+    "ticket_id": "tkt-023",
+    "user_id": "u001",
+    "flight_id": "fl-003",
+    "seat": "28F",
+    "status": "BOARDED"
+  },
+  {
+    "ticket_id": "tkt-024",
+    "user_id": "u006",
+    "flight_id": "fl-040",
+    "seat": "8A",
+    "status": "ISSUED"
+  },
+  {
+    "ticket_id": "tkt-025",
+    "user_id": "u009",
+    "flight_id": "fl-009",
+    "seat": "20B",
+    "status": "ISSUED"
+  },
+  {
+    "ticket_id": "tkt-026",
+    "user_id": "u002",
+    "flight_id": "fl-008",
+    "seat": "30D",
+    "status": "ISSUED"
+  },
+  {
+    "ticket_id": "tkt-027",
+    "user_id": "u009",
+    "flight_id": "fl-018",
+    "seat": "3C",
+    "status": "BOARDED"
+  },
+  {
+    "ticket_id": "tkt-028",
+    "user_id": "u013",
+    "flight_id": "fl-020",
+    "seat": "4A",
+    "status": "CHECKED_IN"
+  },
+  {
+    "ticket_id": "tkt-029",
+    "user_id": "u003",
+    "flight_id": "fl-009",
+    "seat": "13A",
+    "status": "CHECKED_IN"
+  },
+  {
+    "ticket_id": "tkt-030",
+    "user_id": "u006",
+    "flight_id": "fl-003",
+    "seat": "18D",
+    "status": "CHECKED_IN"
+  },
+  {
+    "ticket_id": "tkt-031",
+    "user_id": "u004",
+    "flight_id": "fl-004",
+    "seat": "9D",
+    "status": "BOARDED"
+  },
+  {
+    "ticket_id": "tkt-032",
+    "user_id": "u006",
+    "flight_id": "fl-015",
+    "seat": "11A",
+    "status": "CANCELLED"
+  },
+  {
+    "ticket_id": "tkt-033",
+    "user_id": "u004",
+    "flight_id": "fl-029",
+    "seat": "19C",
+    "status": "CHECKED_IN"
+  },
+  {
+    "ticket_id": "tkt-034",
+    "user_id": "u001",
+    "flight_id": "fl-015",
+    "seat": "12C",
+    "status": "CANCELLED"
+  },
+  {
+    "ticket_id": "tkt-035",
+    "user_id": "u011",
+    "flight_id": "fl-028",
+    "seat": "2B",
+    "status": "CANCELLED"
+  },
+  {
+    "ticket_id": "tkt-036",
+    "user_id": "u014",
+    "flight_id": "fl-048",
+    "seat": "12C",
+    "status": "BOARDED"
+  },
+  {
+    "ticket_id": "tkt-037",
+    "user_id": "u007",
+    "flight_id": "fl-014",
+    "seat": "15C",
+    "status": "CHECKED_IN"
+  },
+  {
+    "ticket_id": "tkt-038",
+    "user_id": "u012",
+    "flight_id": "fl-017",
+    "seat": "18D",
+    "status": "BOARDED"
+  },
+  {
+    "ticket_id": "tkt-039",
+    "user_id": "u004",
+    "flight_id": "fl-008",
+    "seat": "27B",
+    "status": "CHECKED_IN"
+  },
+  {
+    "ticket_id": "tkt-040",
+    "user_id": "u013",
+    "flight_id": "fl-042",
+    "seat": "1F",
+    "status": "ISSUED"
+  },
+  {
+    "ticket_id": "tkt-041",
+    "user_id": "u008",
+    "flight_id": "fl-006",
+    "seat": "28F",
+    "status": "BOARDED"
+  },
+  {
+    "ticket_id": "tkt-042",
+    "user_id": "u006",
+    "flight_id": "fl-049",
+    "seat": "11A",
+    "status": "ISSUED"
+  },
+  {
+    "ticket_id": "tkt-043",
+    "user_id": "u003",
+    "flight_id": "fl-018",
+    "seat": "10D",
+    "status": "CANCELLED"
+  },
+  {
+    "ticket_id": "tkt-044",
+    "user_id": "u008",
+    "flight_id": "fl-020",
+    "seat": "17C",
+    "status": "CANCELLED"
+  },
+  {
+    "ticket_id": "tkt-045",
+    "user_id": "u003",
+    "flight_id": "fl-043",
+    "seat": "3E",
+    "status": "CHECKED_IN"
+  },
+  {
+    "ticket_id": "tkt-046",
+    "user_id": "u008",
+    "flight_id": "fl-016",
+    "seat": "17A",
+    "status": "ISSUED"
+  },
+  {
+    "ticket_id": "tkt-047",
+    "user_id": "u006",
+    "flight_id": "fl-026",
+    "seat": "5C",
+    "status": "BOARDED"
+  },
+  {
+    "ticket_id": "tkt-048",
+    "user_id": "u009",
+    "flight_id": "fl-034",
+    "seat": "5A",
+    "status": "BOARDED"
+  },
+  {
+    "ticket_id": "tkt-049",
+    "user_id": "u005",
+    "flight_id": "fl-021",
+    "seat": "26B",
+    "status": "CANCELLED"
+  },
+  {
+    "ticket_id": "tkt-050",
+    "user_id": "u008",
+    "flight_id": "fl-033",
+    "seat": "18B",
+    "status": "CHECKED_IN"
+  }
+]

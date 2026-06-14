@@ -1,0 +1,602 @@
+[
+  {
+    "location_id": "loc-001",
+    "name": "Phuket City Hospital",
+    "type": "HOSPITAL",
+    "ref_id": "hos-02",
+    "address": "570/8 Beach Road Rd, Bang Rak, Phuket 30119",
+    "coordinates": {
+      "lat": 7.8425,
+      "lng": 98.3632
+    },
+    "operating_hours": "24 Hours"
+  },
+  {
+    "location_id": "loc-002",
+    "name": "Bangkok General Hospital",
+    "type": "HOSPITAL",
+    "ref_id": "hos-02",
+    "address": "636/11 Phetchaburi Rd, Huai Khwang, Bangkok 74006",
+    "coordinates": {
+      "lat": 13.7196,
+      "lng": 100.5443
+    },
+    "operating_hours": "24 Hours"
+  },
+  {
+    "location_id": "loc-003",
+    "name": "Khon Kaen City Hospital",
+    "type": "HOSPITAL",
+    "ref_id": "hos-09",
+    "address": "660/2 Ratchada Rd, Mueang Chiang Mai, Khon Kaen 61391",
+    "coordinates": {
+      "lat": 16.3867,
+      "lng": 102.7776
+    },
+    "operating_hours": "24 Hours"
+  },
+  {
+    "location_id": "loc-004",
+    "name": "Chon Buri Memorial Hospital",
+    "type": "HOSPITAL",
+    "ref_id": "hos-09",
+    "address": "32/19 Rama I Rd, Mueang Chiang Mai, Chon Buri 50579",
+    "coordinates": {
+      "lat": 13.382,
+      "lng": 101.0077
+    },
+    "operating_hours": "24 Hours"
+  },
+  {
+    "location_id": "loc-005",
+    "name": "Hotel Chon Buri Inn",
+    "type": "HOTEL",
+    "ref_id": "h-020",
+    "address": "210/2 Rama IV Rd, Kathu, Chon Buri 66575",
+    "coordinates": {
+      "lat": 13.3738,
+      "lng": 101.0032
+    },
+    "operating_hours": "24 Hours"
+  },
+  {
+    "location_id": "loc-006",
+    "name": "Hotel Chiang Mai Resort",
+    "type": "HOTEL",
+    "ref_id": "h-012",
+    "address": "877/17 Beach Road Rd, Huai Khwang, Chiang Mai 23863",
+    "coordinates": {
+      "lat": 18.7482,
+      "lng": 98.9409
+    },
+    "operating_hours": "24 Hours"
+  },
+  {
+    "location_id": "loc-007",
+    "name": "Spicy Kitchen",
+    "type": "RESTAURANT",
+    "ref_id": "r-014",
+    "address": "362/19 Rama IV Rd, Pathum Wan, Khon Kaen 39906",
+    "coordinates": {
+      "lat": 16.4231,
+      "lng": 102.8147
+    },
+    "operating_hours": "10:00 - 22:00"
+  },
+  {
+    "location_id": "loc-008",
+    "name": "Spicy Spoon",
+    "type": "RESTAURANT",
+    "ref_id": "r-030",
+    "address": "934/19 Rama I Rd, Mueang Chiang Mai, Chon Buri 62260",
+    "coordinates": {
+      "lat": 13.3512,
+      "lng": 100.9389
+    },
+    "operating_hours": "10:00 - 22:00"
+  },
+  {
+    "location_id": "loc-009",
+    "name": "Central World Live",
+    "type": "EVENT_VENUE",
+    "ref_id": "venue-01",
+    "address": "912/3 Sukhumvit Rd, Chatuchak, Khon Kaen 73021",
+    "coordinates": {
+      "lat": 16.4549,
+      "lng": 102.8002
+    },
+    "operating_hours": "08:00 - 20:00"
+  },
+  {
+    "location_id": "loc-010",
+    "name": "Chiang Mai General Hospital",
+    "type": "HOSPITAL",
+    "ref_id": "hos-07",
+    "address": "421/19 Phetchaburi Rd, Watthana, Chiang Mai 66510",
+    "coordinates": {
+      "lat": 18.7783,
+      "lng": 98.9574
+    },
+    "operating_hours": "24 Hours"
+  },
+  {
+    "location_id": "loc-011",
+    "name": "Chon Buri Memorial Hospital",
+    "type": "HOSPITAL",
+    "ref_id": "hos-02",
+    "address": "376/13 Phetchaburi Rd, Watthana, Chon Buri 22978",
+    "coordinates": {
+      "lat": 13.3368,
+      "lng": 100.9559
+    },
+    "operating_hours": "24 Hours"
+  },
+  {
+    "location_id": "loc-012",
+    "name": "Happy Kitchen",
+    "type": "RESTAURANT",
+    "ref_id": "r-046",
+    "address": "845/9 Silom Rd, Bang Lamung, Bangkok 15047",
+    "coordinates": {
+      "lat": 13.7938,
+      "lng": 100.4545
+    },
+    "operating_hours": "10:00 - 22:00"
+  },
+  {
+    "location_id": "loc-013",
+    "name": "Shop Mall Branch",
+    "type": "STORE",
+    "ref_id": "shop-10",
+    "address": "177/3 Ratchada Rd, Chatuchak, Khon Kaen 68726",
+    "coordinates": {
+      "lat": 16.3989,
+      "lng": 102.859
+    },
+    "operating_hours": "10:00 - 21:00"
+  },
+  {
+    "location_id": "loc-014",
+    "name": "Bangkok General Hospital",
+    "type": "HOSPITAL",
+    "ref_id": "hos-08",
+    "address": "760/5 Silom Rd, Huai Khwang, Bangkok 59020",
+    "coordinates": {
+      "lat": 13.7786,
+      "lng": 100.4757
+    },
+    "operating_hours": "24 Hours"
+  },
+  {
+    "location_id": "loc-015",
+    "name": "Shop Outlet Branch",
+    "type": "STORE",
+    "ref_id": "shop-12",
+    "address": "896/4 Sukhumvit Rd, Kathu, Khon Kaen 59023",
+    "coordinates": {
+      "lat": 16.4772,
+      "lng": 102.8528
+    },
+    "operating_hours": "10:00 - 21:00"
+  },
+  {
+    "location_id": "loc-016",
+    "name": "Shop Central Branch",
+    "type": "STORE",
+    "ref_id": "shop-09",
+    "address": "250/14 Charoen Krung Rd, Chatuchak, Khon Kaen 54212",
+    "coordinates": {
+      "lat": 16.4014,
+      "lng": 102.7947
+    },
+    "operating_hours": "10:00 - 21:00"
+  },
+  {
+    "location_id": "loc-017",
+    "name": "Hotel Chiang Mai Resort",
+    "type": "HOTEL",
+    "ref_id": "h-036",
+    "address": "403/4 Rama IV Rd, Huai Khwang, Chiang Mai 23193",
+    "coordinates": {
+      "lat": 18.8139,
+      "lng": 99.0209
+    },
+    "operating_hours": "24 Hours"
+  },
+  {
+    "location_id": "loc-018",
+    "name": "Siam Paragon Hall",
+    "type": "EVENT_VENUE",
+    "ref_id": "venue-01",
+    "address": "521/19 Sukhumvit Rd, Bang Lamung, Phuket 19957",
+    "coordinates": {
+      "lat": 7.8752,
+      "lng": 98.3856
+    },
+    "operating_hours": "08:00 - 20:00"
+  },
+  {
+    "location_id": "loc-019",
+    "name": "Shop Robinsons Branch",
+    "type": "STORE",
+    "ref_id": "shop-09",
+    "address": "743/10 Charoen Krung Rd, Mueang Chiang Mai, Phuket 14391",
+    "coordinates": {
+      "lat": 7.9285,
+      "lng": 98.3654
+    },
+    "operating_hours": "10:00 - 21:00"
+  },
+  {
+    "location_id": "loc-020",
+    "name": "Chon Buri Memorial Hospital",
+    "type": "HOSPITAL",
+    "ref_id": "hos-03",
+    "address": "240/9 Nimmanhaemin Rd, Kathu, Chon Buri 77223",
+    "coordinates": {
+      "lat": 13.3758,
+      "lng": 100.9945
+    },
+    "operating_hours": "24 Hours"
+  },
+  {
+    "location_id": "loc-021",
+    "name": "Golden Kitchen",
+    "type": "RESTAURANT",
+    "ref_id": "r-045",
+    "address": "695/14 Charoen Krung Rd, Mueang Chiang Mai, Phuket 43058",
+    "coordinates": {
+      "lat": 7.8878,
+      "lng": 98.3611
+    },
+    "operating_hours": "10:00 - 22:00"
+  },
+  {
+    "location_id": "loc-022",
+    "name": "True Digital Park",
+    "type": "EVENT_VENUE",
+    "ref_id": "venue-07",
+    "address": "838/16 Rama IV Rd, Bang Rak, Chon Buri 55758",
+    "coordinates": {
+      "lat": 13.3462,
+      "lng": 100.9911
+    },
+    "operating_hours": "08:00 - 20:00"
+  },
+  {
+    "location_id": "loc-023",
+    "name": "Golden Kitchen",
+    "type": "RESTAURANT",
+    "ref_id": "r-049",
+    "address": "962/3 Rama IV Rd, Bang Rak, Chiang Mai 49889",
+    "coordinates": {
+      "lat": 18.7422,
+      "lng": 99.0176
+    },
+    "operating_hours": "10:00 - 22:00"
+  },
+  {
+    "location_id": "loc-024",
+    "name": "Shop Robinsons Branch",
+    "type": "STORE",
+    "ref_id": "shop-14",
+    "address": "84/14 Sathorn Rd, Bang Rak, Phuket 11156",
+    "coordinates": {
+      "lat": 7.8328,
+      "lng": 98.4009
+    },
+    "operating_hours": "10:00 - 21:00"
+  },
+  {
+    "location_id": "loc-025",
+    "name": "Hotel Chiang Mai View",
+    "type": "HOTEL",
+    "ref_id": "h-015",
+    "address": "376/17 Nimmanhaemin Rd, Watthana, Chiang Mai 20930",
+    "coordinates": {
+      "lat": 18.8206,
+      "lng": 99.026
+    },
+    "operating_hours": "24 Hours"
+  },
+  {
+    "location_id": "loc-026",
+    "name": "Shop Robinsons Branch",
+    "type": "STORE",
+    "ref_id": "shop-14",
+    "address": "174/12 Phetchaburi Rd, Watthana, Chiang Mai 37926",
+    "coordinates": {
+      "lat": 18.7759,
+      "lng": 98.9501
+    },
+    "operating_hours": "10:00 - 21:00"
+  },
+  {
+    "location_id": "loc-027",
+    "name": "Phuket Convention Center",
+    "type": "EVENT_VENUE",
+    "ref_id": "venue-04",
+    "address": "888/3 Beach Road Rd, Bang Lamung, Khon Kaen 49417",
+    "coordinates": {
+      "lat": 16.4782,
+      "lng": 102.8583
+    },
+    "operating_hours": "08:00 - 20:00"
+  },
+  {
+    "location_id": "loc-028",
+    "name": "Hotel Chon Buri View",
+    "type": "HOTEL",
+    "ref_id": "h-007",
+    "address": "503/16 Phetchaburi Rd, Chatuchak, Chon Buri 33528",
+    "coordinates": {
+      "lat": 13.3408,
+      "lng": 100.9573
+    },
+    "operating_hours": "24 Hours"
+  },
+  {
+    "location_id": "loc-029",
+    "name": "Shop Robinsons Branch",
+    "type": "STORE",
+    "ref_id": "shop-06",
+    "address": "34/18 Rama I Rd, Pathum Wan, Chiang Mai 73839",
+    "coordinates": {
+      "lat": 18.7766,
+      "lng": 98.9857
+    },
+    "operating_hours": "10:00 - 21:00"
+  },
+  {
+    "location_id": "loc-030",
+    "name": "Shop Robinsons Branch",
+    "type": "STORE",
+    "ref_id": "shop-09",
+    "address": "924/8 Rama I Rd, Watthana, Bangkok 49441",
+    "coordinates": {
+      "lat": 13.7451,
+      "lng": 100.5301
+    },
+    "operating_hours": "10:00 - 21:00"
+  },
+  {
+    "location_id": "loc-031",
+    "name": "Hotel Chiang Mai Resort",
+    "type": "HOTEL",
+    "ref_id": "h-040",
+    "address": "815/12 Beach Road Rd, Huai Khwang, Chiang Mai 68726",
+    "coordinates": {
+      "lat": 18.7394,
+      "lng": 98.9576
+    },
+    "operating_hours": "24 Hours"
+  },
+  {
+    "location_id": "loc-032",
+    "name": "Golden Spoon",
+    "type": "RESTAURANT",
+    "ref_id": "r-048",
+    "address": "152/2 Rama I Rd, Bang Rak, Khon Kaen 51176",
+    "coordinates": {
+      "lat": 16.4386,
+      "lng": 102.7999
+    },
+    "operating_hours": "10:00 - 22:00"
+  },
+  {
+    "location_id": "loc-033",
+    "name": "Shop Outlet Branch",
+    "type": "STORE",
+    "ref_id": "shop-03",
+    "address": "265/1 Sathorn Rd, Kathu, Bangkok 46547",
+    "coordinates": {
+      "lat": 13.7654,
+      "lng": 100.4845
+    },
+    "operating_hours": "10:00 - 21:00"
+  },
+  {
+    "location_id": "loc-034",
+    "name": "Shop Central Branch",
+    "type": "STORE",
+    "ref_id": "shop-20",
+    "address": "664/9 Sathorn Rd, Bang Lamung, Chiang Mai 74539",
+    "coordinates": {
+      "lat": 18.8225,
+      "lng": 99.0345
+    },
+    "operating_hours": "10:00 - 21:00"
+  },
+  {
+    "location_id": "loc-035",
+    "name": "Shop Robinsons Branch",
+    "type": "STORE",
+    "ref_id": "shop-10",
+    "address": "698/17 Rama I Rd, Pathum Wan, Phuket 41084",
+    "coordinates": {
+      "lat": 7.9087,
+      "lng": 98.3474
+    },
+    "operating_hours": "10:00 - 21:00"
+  },
+  {
+    "location_id": "loc-036",
+    "name": "Thunder Dome",
+    "type": "EVENT_VENUE",
+    "ref_id": "venue-08",
+    "address": "231/10 Silom Rd, Huai Khwang, Chon Buri 24914",
+    "coordinates": {
+      "lat": 13.3899,
+      "lng": 101.0219
+    },
+    "operating_hours": "08:00 - 20:00"
+  },
+  {
+    "location_id": "loc-037",
+    "name": "Shop Robinsons Branch",
+    "type": "STORE",
+    "ref_id": "shop-01",
+    "address": "525/2 Phetchaburi Rd, Watthana, Chiang Mai 12244",
+    "coordinates": {
+      "lat": 18.7431,
+      "lng": 99.0098
+    },
+    "operating_hours": "10:00 - 21:00"
+  },
+  {
+    "location_id": "loc-038",
+    "name": "Shop Mall Branch",
+    "type": "STORE",
+    "ref_id": "shop-01",
+    "address": "612/1 Rama I Rd, Chatuchak, Chon Buri 82545",
+    "coordinates": {
+      "lat": 13.3315,
+      "lng": 100.9804
+    },
+    "operating_hours": "10:00 - 21:00"
+  },
+  {
+    "location_id": "loc-039",
+    "name": "Chon Buri International Hospital",
+    "type": "HOSPITAL",
+    "ref_id": "hos-09",
+    "address": "44/7 Phetchaburi Rd, Mueang Chiang Mai, Chon Buri 81470",
+    "coordinates": {
+      "lat": 13.3349,
+      "lng": 101.0068
+    },
+    "operating_hours": "24 Hours"
+  },
+  {
+    "location_id": "loc-040",
+    "name": "Shop Outlet Branch",
+    "type": "STORE",
+    "ref_id": "shop-04",
+    "address": "20/2 Sathorn Rd, Watthana, Bangkok 21856",
+    "coordinates": {
+      "lat": 13.7773,
+      "lng": 100.4961
+    },
+    "operating_hours": "10:00 - 21:00"
+  },
+  {
+    "location_id": "loc-041",
+    "name": "Happy Spoon",
+    "type": "RESTAURANT",
+    "ref_id": "r-046",
+    "address": "806/4 Phetchaburi Rd, Kathu, Chiang Mai 48799",
+    "coordinates": {
+      "lat": 18.7545,
+      "lng": 99.0058
+    },
+    "operating_hours": "10:00 - 22:00"
+  },
+  {
+    "location_id": "loc-042",
+    "name": "Shop Central Branch",
+    "type": "STORE",
+    "ref_id": "shop-06",
+    "address": "261/10 Rama IV Rd, Watthana, Phuket 79059",
+    "coordinates": {
+      "lat": 7.8783,
+      "lng": 98.3687
+    },
+    "operating_hours": "10:00 - 21:00"
+  },
+  {
+    "location_id": "loc-043",
+    "name": "Thunder Dome",
+    "type": "EVENT_VENUE",
+    "ref_id": "venue-08",
+    "address": "953/8 Rama I Rd, Chatuchak, Bangkok 24920",
+    "coordinates": {
+      "lat": 13.73,
+      "lng": 100.489
+    },
+    "operating_hours": "08:00 - 20:00"
+  },
+  {
+    "location_id": "loc-044",
+    "name": "Shop Outlet Branch",
+    "type": "STORE",
+    "ref_id": "shop-05",
+    "address": "533/2 Phetchaburi Rd, Watthana, Phuket 18681",
+    "coordinates": {
+      "lat": 7.9037,
+      "lng": 98.3854
+    },
+    "operating_hours": "10:00 - 21:00"
+  },
+  {
+    "location_id": "loc-045",
+    "name": "Bangkok Memorial Hospital",
+    "type": "HOSPITAL",
+    "ref_id": "hos-10",
+    "address": "341/18 Rama I Rd, Mueang Chiang Mai, Bangkok 80005",
+    "coordinates": {
+      "lat": 13.8006,
+      "lng": 100.5145
+    },
+    "operating_hours": "24 Hours"
+  },
+  {
+    "location_id": "loc-046",
+    "name": "True Digital Park",
+    "type": "EVENT_VENUE",
+    "ref_id": "venue-05",
+    "address": "7/2 Phetchaburi Rd, Kathu, Khon Kaen 68107",
+    "coordinates": {
+      "lat": 16.4793,
+      "lng": 102.8721
+    },
+    "operating_hours": "08:00 - 20:00"
+  },
+  {
+    "location_id": "loc-047",
+    "name": "Union Hall",
+    "type": "EVENT_VENUE",
+    "ref_id": "venue-08",
+    "address": "470/7 Nimmanhaemin Rd, Kathu, Khon Kaen 71772",
+    "coordinates": {
+      "lat": 16.4601,
+      "lng": 102.8135
+    },
+    "operating_hours": "08:00 - 20:00"
+  },
+  {
+    "location_id": "loc-048",
+    "name": "Hotel Chiang Mai View",
+    "type": "HOTEL",
+    "ref_id": "h-038",
+    "address": "211/16 Sukhumvit Rd, Mueang Chiang Mai, Chiang Mai 65551",
+    "coordinates": {
+      "lat": 18.8383,
+      "lng": 99.0194
+    },
+    "operating_hours": "24 Hours"
+  },
+  {
+    "location_id": "loc-049",
+    "name": "Spicy Bowl",
+    "type": "RESTAURANT",
+    "ref_id": "r-027",
+    "address": "850/18 Charoen Krung Rd, Pathum Wan, Khon Kaen 36500",
+    "coordinates": {
+      "lat": 16.438,
+      "lng": 102.7747
+    },
+    "operating_hours": "10:00 - 22:00"
+  },
+  {
+    "location_id": "loc-050",
+    "name": "Golden Kitchen",
+    "type": "RESTAURANT",
+    "ref_id": "r-050",
+    "address": "664/17 Silom Rd, Pathum Wan, Chon Buri 48979",
+    "coordinates": {
+      "lat": 13.4013,
+      "lng": 100.9357
+    },
+    "operating_hours": "10:00 - 22:00"
+  }
+]

@@ -1,0 +1,122 @@
+[
+  {
+    "user_id": "u001",
+    "name": "Somchai Jaidee",
+    "email": "somchai@example.com",
+    "phone": "081-111-1111",
+    "loyalty_points": 500,
+    "role": "MEMBER"
+  },
+  {
+    "user_id": "u002",
+    "name": "Alice Smith",
+    "email": "alice@example.com",
+    "phone": "089-999-9999",
+    "loyalty_points": 1200,
+    "role": "VIP"
+  },
+  {
+    "user_id": "u003",
+    "name": "Mana Dee",
+    "email": "mana.d@example.com",
+    "phone": "082-222-3333",
+    "loyalty_points": 50,
+    "role": "MEMBER"
+  },
+  {
+    "user_id": "u004",
+    "name": "Somsri Jai-ngam",
+    "email": "somsri.j@example.com",
+    "phone": "083-444-5555",
+    "loyalty_points": 850,
+    "role": "MEMBER"
+  },
+  {
+    "user_id": "u005",
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "phone": "091-234-5678",
+    "loyalty_points": 2100,
+    "role": "VIP"
+  },
+  {
+    "user_id": "u006",
+    "name": "Prasit Kung",
+    "email": "prasit.k@example.com",
+    "phone": "061-888-7777",
+    "loyalty_points": 300,
+    "role": "MEMBER"
+  },
+  {
+    "user_id": "u007",
+    "name": "Mary Johnson",
+    "email": "mary.j@example.com",
+    "phone": "092-333-4444",
+    "loyalty_points": 150,
+    "role": "MEMBER"
+  },
+  {
+    "user_id": "u008",
+    "name": "Wipa Rattanaporn",
+    "email": "wipa.r@example.com",
+    "phone": "084-555-6666",
+    "loyalty_points": 3500,
+    "role": "VIP"
+  },
+  {
+    "user_id": "u009",
+    "name": "Kenji Sato",
+    "email": "kenji.s@example.com",
+    "phone": "085-777-8888",
+    "loyalty_points": 20,
+    "role": "MEMBER"
+  },
+  {
+    "user_id": "u010",
+    "name": "Nida Patchara",
+    "email": "nida.p@example.com",
+    "phone": "093-666-9999",
+    "loyalty_points": 900,
+    "role": "MEMBER"
+  },
+  {
+    "user_id": "u011",
+    "name": "David Brown",
+    "email": "david.b@example.com",
+    "phone": "086-123-0000",
+    "loyalty_points": 4500,
+    "role": "VIP"
+  },
+  {
+    "user_id": "u012",
+    "name": "Kanda Munkong",
+    "email": "kanda.m@example.com",
+    "phone": "062-987-6543",
+    "loyalty_points": 600,
+    "role": "MEMBER"
+  },
+  {
+    "user_id": "u013",
+    "name": "Sarah Lee",
+    "email": "sarah.l@example.com",
+    "phone": "087-654-3210",
+    "loyalty_points": 1250,
+    "role": "VIP"
+  },
+  {
+    "user_id": "u014",
+    "name": "Arthit Suriya",
+    "email": "arthit.s@example.com",
+    "phone": "094-111-2222",
+    "loyalty_points": 45,
+    "role": "MEMBER"
+  },
+  {
+    "user_id": "u015",
+    "name": "Pimchanok Luea",
+    "email": "pimchanok.l@example.com",
+    "phone": "088-222-1111",
+    "loyalty_points": 780,
+    "role": "MEMBER"
+  }
+]

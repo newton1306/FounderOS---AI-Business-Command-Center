@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="FounderOS icon">
+  <rect width="512" height="512" rx="96" fill="#641f25"/>
+  <path d="M126 333V149h260v54H188v49h156v51H188v30h198v54H126z" fill="#fff"/>
+  <path d="M192 124h128v34H192zM192 354h128v34H192z" fill="#e7b85a"/>
+</svg>

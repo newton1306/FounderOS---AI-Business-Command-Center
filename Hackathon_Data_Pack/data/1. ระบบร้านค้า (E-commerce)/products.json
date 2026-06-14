@@ -1,0 +1,402 @@
+[
+  {
+    "product_id": "p-101",
+    "name": "Wireless Noise Cancelling Headphones",
+    "category": "Electronics",
+    "price": 2500,
+    "stock": 50,
+    "image": "https://placehold.co/300x300?text=Headphones"
+  },
+  {
+    "product_id": "p-102",
+    "name": "Running Shoes Gen 5",
+    "category": "Fashion",
+    "price": 1800,
+    "stock": 10,
+    "image": "https://placehold.co/300x300?text=Shoes"
+  },
+  {
+    "product_id": "p-103",
+    "name": "Smart Watch Series X",
+    "category": "Electronics",
+    "price": 4500,
+    "stock": 25,
+    "image": "https://placehold.co/300x300?text=Smart+Watch"
+  },
+  {
+    "product_id": "p-104",
+    "name": "Mechanical Keyboard RGB",
+    "category": "Electronics",
+    "price": 3200,
+    "stock": 5,
+    "image": "https://placehold.co/300x300?text=Keyboard"
+  },
+  {
+    "product_id": "p-105",
+    "name": "Gaming Mouse Wireless",
+    "category": "Electronics",
+    "price": 1200,
+    "stock": 0,
+    "image": "https://placehold.co/300x300?text=Mouse"
+  },
+  {
+    "product_id": "p-106",
+    "name": "4K Monitor 27 inch",
+    "category": "Electronics",
+    "price": 8900,
+    "stock": 12,
+    "image": "https://placehold.co/300x300?text=Monitor"
+  },
+  {
+    "product_id": "p-107",
+    "name": "USB-C Fast Charger",
+    "category": "Electronics",
+    "price": 550,
+    "stock": 100,
+    "image": "https://placehold.co/300x300?text=Charger"
+  },
+  {
+    "product_id": "p-108",
+    "name": "Bluetooth Speaker Mini",
+    "category": "Electronics",
+    "price": 790,
+    "stock": 30,
+    "image": "https://placehold.co/300x300?text=Speaker"
+  },
+  {
+    "product_id": "p-109",
+    "name": "Laptop Stand Aluminum",
+    "category": "Electronics",
+    "price": 450,
+    "stock": 45,
+    "image": "https://placehold.co/300x300?text=Stand"
+  },
+  {
+    "product_id": "p-110",
+    "name": "Webcam HD 1080p",
+    "category": "Electronics",
+    "price": 1100,
+    "stock": 8,
+    "image": "https://placehold.co/300x300?text=Webcam"
+  },
+  {
+    "product_id": "p-111",
+    "name": "Cotton T-Shirt Black",
+    "category": "Fashion",
+    "price": 250,
+    "stock": 60,
+    "image": "https://placehold.co/300x300?text=T-Shirt"
+  },
+  {
+    "product_id": "p-112",
+    "name": "Denim Jeans Slim Fit",
+    "category": "Fashion",
+    "price": 990,
+    "stock": 20,
+    "image": "https://placehold.co/300x300?text=Jeans"
+  },
+  {
+    "product_id": "p-113",
+    "name": "Leather Wallet",
+    "category": "Fashion",
+    "price": 1500,
+    "stock": 15,
+    "image": "https://placehold.co/300x300?text=Wallet"
+  },
+  {
+    "product_id": "p-114",
+    "name": "Aviator Sunglasses",
+    "category": "Fashion",
+    "price": 500,
+    "stock": 35,
+    "image": "https://placehold.co/300x300?text=Sunglasses"
+  },
+  {
+    "product_id": "p-115",
+    "name": "Hoodie Sweatshirt Grey",
+    "category": "Fashion",
+    "price": 750,
+    "stock": 0,
+    "image": "https://placehold.co/300x300?text=Hoodie"
+  },
+  {
+    "product_id": "p-116",
+    "name": "Canvas Backpack",
+    "category": "Fashion",
+    "price": 1200,
+    "stock": 18,
+    "image": "https://placehold.co/300x300?text=Backpack"
+  },
+  {
+    "product_id": "p-117",
+    "name": "Sports Cap",
+    "category": "Fashion",
+    "price": 300,
+    "stock": 50,
+    "image": "https://placehold.co/300x300?text=Cap"
+  },
+  {
+    "product_id": "p-118",
+    "name": "Formal Shirt White",
+    "category": "Fashion",
+    "price": 600,
+    "stock": 25,
+    "image": "https://placehold.co/300x300?text=Shirt"
+  },
+  {
+    "product_id": "p-119",
+    "name": "Winter Jacket",
+    "category": "Fashion",
+    "price": 2200,
+    "stock": 5,
+    "image": "https://placehold.co/300x300?text=Jacket"
+  },
+  {
+    "product_id": "p-120",
+    "name": "Ankle Socks (Pack of 3)",
+    "category": "Fashion",
+    "price": 150,
+    "stock": 100,
+    "image": "https://placehold.co/300x300?text=Socks"
+  },
+  {
+    "product_id": "p-121",
+    "name": "Modern Desk Lamp",
+    "category": "Home",
+    "price": 850,
+    "stock": 20,
+    "image": "https://placehold.co/300x300?text=Lamp"
+  },
+  {
+    "product_id": "p-122",
+    "name": "Memory Foam Pillow",
+    "category": "Home",
+    "price": 600,
+    "stock": 30,
+    "image": "https://placehold.co/300x300?text=Pillow"
+  },
+  {
+    "product_id": "p-123",
+    "name": "Ceramic Coffee Mug",
+    "category": "Home",
+    "price": 120,
+    "stock": 80,
+    "image": "https://placehold.co/300x300?text=Mug"
+  },
+  {
+    "product_id": "p-124",
+    "name": "Bath Towel Set",
+    "category": "Home",
+    "price": 450,
+    "stock": 22,
+    "image": "https://placehold.co/300x300?text=Towel"
+  },
+  {
+    "product_id": "p-125",
+    "name": "Minimalist Wall Clock",
+    "category": "Home",
+    "price": 550,
+    "stock": 14,
+    "image": "https://placehold.co/300x300?text=Clock"
+  },
+  {
+    "product_id": "p-126",
+    "name": "Plant Pot (Indoor)",
+    "category": "Home",
+    "price": 250,
+    "stock": 0,
+    "image": "https://placehold.co/300x300?text=Pot"
+  },
+  {
+    "product_id": "p-127",
+    "name": "Essential Oil Diffuser",
+    "category": "Home",
+    "price": 990,
+    "stock": 15,
+    "image": "https://placehold.co/300x300?text=Diffuser"
+  },
+  {
+    "product_id": "p-128",
+    "name": "Non-Stick Frying Pan",
+    "category": "Home",
+    "price": 750,
+    "stock": 28,
+    "image": "https://placehold.co/300x300?text=Pan"
+  },
+  {
+    "product_id": "p-129",
+    "name": "Picture Frame 8x10",
+    "category": "Home",
+    "price": 180,
+    "stock": 60,
+    "image": "https://placehold.co/300x300?text=Frame"
+  },
+  {
+    "product_id": "p-130",
+    "name": "Floor Rug (Grey)",
+    "category": "Home",
+    "price": 1200,
+    "stock": 8,
+    "image": "https://placehold.co/300x300?text=Rug"
+  },
+  {
+    "product_id": "p-131",
+    "name": "Yoga Mat",
+    "category": "Sports",
+    "price": 350,
+    "stock": 40,
+    "image": "https://placehold.co/300x300?text=Yoga+Mat"
+  },
+  {
+    "product_id": "p-132",
+    "name": "Dumbbell Set (5kg)",
+    "category": "Sports",
+    "price": 900,
+    "stock": 12,
+    "image": "https://placehold.co/300x300?text=Dumbbell"
+  },
+  {
+    "product_id": "p-133",
+    "name": "Sports Water Bottle",
+    "category": "Sports",
+    "price": 150,
+    "stock": 100,
+    "image": "https://placehold.co/300x300?text=Bottle"
+  },
+  {
+    "product_id": "p-134",
+    "name": "Football Size 5",
+    "category": "Sports",
+    "price": 550,
+    "stock": 25,
+    "image": "https://placehold.co/300x300?text=Football"
+  },
+  {
+    "product_id": "p-135",
+    "name": "Badminton Racket",
+    "category": "Sports",
+    "price": 1200,
+    "stock": 10,
+    "image": "https://placehold.co/300x300?text=Racket"
+  },
+  {
+    "product_id": "p-136",
+    "name": "Resistance Bands Set",
+    "category": "Sports",
+    "price": 250,
+    "stock": 55,
+    "image": "https://placehold.co/300x300?text=Bands"
+  },
+  {
+    "product_id": "p-137",
+    "name": "Camping Tent (2 Person)",
+    "category": "Sports",
+    "price": 1800,
+    "stock": 5,
+    "image": "https://placehold.co/300x300?text=Tent"
+  },
+  {
+    "product_id": "p-138",
+    "name": "Jump Rope",
+    "category": "Sports",
+    "price": 120,
+    "stock": 70,
+    "image": "https://placehold.co/300x300?text=Rope"
+  },
+  {
+    "product_id": "p-139",
+    "name": "Cycling Helmet",
+    "category": "Sports",
+    "price": 850,
+    "stock": 15,
+    "image": "https://placehold.co/300x300?text=Helmet"
+  },
+  {
+    "product_id": "p-140",
+    "name": "Foam Roller",
+    "category": "Sports",
+    "price": 300,
+    "stock": 30,
+    "image": "https://placehold.co/300x300?text=Roller"
+  },
+  {
+    "product_id": "p-141",
+    "name": "Vitamin C Serum",
+    "category": "Beauty",
+    "price": 590,
+    "stock": 45,
+    "image": "https://placehold.co/300x300?text=Serum"
+  },
+  {
+    "product_id": "p-142",
+    "name": "Matte Lipstick Red",
+    "category": "Beauty",
+    "price": 290,
+    "stock": 60,
+    "image": "https://placehold.co/300x300?text=Lipstick"
+  },
+  {
+    "product_id": "p-143",
+    "name": "Moisturizing Cream",
+    "category": "Beauty",
+    "price": 450,
+    "stock": 20,
+    "image": "https://placehold.co/300x300?text=Cream"
+  },
+  {
+    "product_id": "p-144",
+    "name": "Sunscreen SPF 50",
+    "category": "Beauty",
+    "price": 390,
+    "stock": 10,
+    "image": "https://placehold.co/300x300?text=Sunscreen"
+  },
+  {
+    "product_id": "p-145",
+    "name": "Perfume 50ml",
+    "category": "Beauty",
+    "price": 2500,
+    "stock": 0,
+    "image": "https://placehold.co/300x300?text=Perfume"
+  },
+  {
+    "product_id": "p-146",
+    "name": "Face Wash Gentle",
+    "category": "Beauty",
+    "price": 190,
+    "stock": 80,
+    "image": "https://placehold.co/300x300?text=Face+Wash"
+  },
+  {
+    "product_id": "p-147",
+    "name": "Action Figure Hero",
+    "category": "Toys",
+    "price": 1200,
+    "stock": 12,
+    "image": "https://placehold.co/300x300?text=Figure"
+  },
+  {
+    "product_id": "p-148",
+    "name": "Board Game Strategy",
+    "category": "Toys",
+    "price": 1500,
+    "stock": 8,
+    "image": "https://placehold.co/300x300?text=Board+Game"
+  },
+  {
+    "product_id": "p-149",
+    "name": "Plush Bear Toy",
+    "category": "Toys",
+    "price": 400,
+    "stock": 35,
+    "image": "https://placehold.co/300x300?text=Bear"
+  },
+  {
+    "product_id": "p-150",
+    "name": "Building Blocks Set",
+    "category": "Toys",
+    "price": 850,
+    "stock": 25,
+    "image": "https://placehold.co/300x300?text=Blocks"
+  }
+]

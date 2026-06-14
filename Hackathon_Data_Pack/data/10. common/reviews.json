@@ -1,0 +1,522 @@
+[
+  {
+    "review_id": "rev-1001",
+    "user_id": "u009",
+    "target_id": "h-024",
+    "target_type": "HOTEL",
+    "rating": 2,
+    "comment": "Too expensive for what you get.",
+    "timestamp": "2025-03-05T07:15:00Z",
+    "images": [
+      "https://placehold.co/200x200?text=Review1"
+    ]
+  },
+  {
+    "review_id": "rev-1002",
+    "user_id": "u012",
+    "target_id": "h-046",
+    "target_type": "HOTEL",
+    "rating": 5,
+    "comment": "Breakfast was delicious.",
+    "timestamp": "2025-05-14T06:10:00Z",
+    "images": []
+  },
+  {
+    "review_id": "rev-1003",
+    "user_id": "u015",
+    "target_id": "doc-33",
+    "target_type": "DOCTOR",
+    "rating": 2,
+    "comment": "Appointment was cancelled last minute.",
+    "timestamp": "2025-01-15T11:47:00Z",
+    "images": []
+  },
+  {
+    "review_id": "rev-1004",
+    "user_id": "u001",
+    "target_id": "h-006",
+    "target_type": "HOTEL",
+    "rating": 4,
+    "comment": "Breakfast was delicious.",
+    "timestamp": "2025-01-22T01:43:00Z",
+    "images": []
+  },
+  {
+    "review_id": "rev-1005",
+    "user_id": "u012",
+    "target_id": "h-009",
+    "target_type": "HOTEL",
+    "rating": 3,
+    "comment": "Breakfast was disappointing.",
+    "timestamp": "2025-05-14T15:28:00Z",
+    "images": [
+      "https://placehold.co/200x200?text=Review5"
+    ]
+  },
+  {
+    "review_id": "rev-1006",
+    "user_id": "u010",
+    "target_id": "p-106",
+    "target_type": "PRODUCT",
+    "rating": 4,
+    "comment": "Exactly what I was looking for.",
+    "timestamp": "2025-07-31T13:21:00Z",
+    "images": []
+  },
+  {
+    "review_id": "rev-1007",
+    "user_id": "u007",
+    "target_id": "doc-24",
+    "target_type": "DOCTOR",
+    "rating": 5,
+    "comment": "Very professional and kind.",
+    "timestamp": "2025-07-18T22:12:00Z",
+    "images": []
+  },
+  {
+    "review_id": "rev-1008",
+    "user_id": "u012",
+    "target_id": "h-050",
+    "target_type": "HOTEL",
+    "rating": 4,
+    "comment": "Pool area is fantastic.",
+    "timestamp": "2025-02-22T23:34:00Z",
+    "images": []
+  },
+  {
+    "review_id": "rev-1009",
+    "user_id": "u001",
+    "target_id": "p-115",
+    "target_type": "PRODUCT",
+    "rating": 4,
+    "comment": "Exactly what I was looking for.",
+    "timestamp": "2026-01-03T18:21:00Z",
+    "images": []
+  },
+  {
+    "review_id": "rev-1010",
+    "user_id": "u002",
+    "target_id": "h-002",
+    "target_type": "HOTEL",
+    "rating": 2,
+    "comment": "AC was not working.",
+    "timestamp": "2025-04-19T11:58:00Z",
+    "images": []
+  },
+  {
+    "review_id": "rev-1011",
+    "user_id": "u008",
+    "target_id": "p-104",
+    "target_type": "PRODUCT",
+    "rating": 3,
+    "comment": "Did not match the description.",
+    "timestamp": "2026-01-18T00:07:00Z",
+    "images": []
+  },
+  {
+    "review_id": "rev-1012",
+    "user_id": "u009",
+    "target_id": "doc-08",
+    "target_type": "DOCTOR",
+    "rating": 5,
+    "comment": "Highly skilled and knowledgeable.",
+    "timestamp": "2025-06-05T02:18:00Z",
+    "images": []
+  },
+  {
+    "review_id": "rev-1013",
+    "user_id": "u008",
+    "target_id": "p-138",
+    "target_type": "PRODUCT",
+    "rating": 1,
+    "comment": "Stopped working after a week.",
+    "timestamp": "2025-04-17T18:22:00Z",
+    "images": [
+      "https://placehold.co/200x200?text=Review13"
+    ]
+  },
+  {
+    "review_id": "rev-1014",
+    "user_id": "u001",
+    "target_id": "h-049",
+    "target_type": "HOTEL",
+    "rating": 5,
+    "comment": "Amazing view and friendly staff.",
+    "timestamp": "2025-11-05T20:13:00Z",
+    "images": []
+  },
+  {
+    "review_id": "rev-1015",
+    "user_id": "u002",
+    "target_id": "doc-34",
+    "target_type": "DOCTOR",
+    "rating": 4,
+    "comment": "Helped me recover quickly.",
+    "timestamp": "2025-02-16T14:46:00Z",
+    "images": []
+  },
+  {
+    "review_id": "rev-1016",
+    "user_id": "u002",
+    "target_id": "p-110",
+    "target_type": "PRODUCT",
+    "rating": 3,
+    "comment": "Not worth the price.",
+    "timestamp": "2025-08-24T01:55:00Z",
+    "images": []
+  },
+  {
+    "review_id": "rev-1017",
+    "user_id": "u002",
+    "target_id": "h-044",
+    "target_type": "HOTEL",
+    "rating": 5,
+    "comment": "Great location, close to everything.",
+    "timestamp": "2025-08-08T21:05:00Z",
+    "images": []
+  },
+  {
+    "review_id": "rev-1018",
+    "user_id": "u009",
+    "target_id": "doc-18",
+    "target_type": "DOCTOR",
+    "rating": 5,
+    "comment": "Wait time was short.",
+    "timestamp": "2025-09-10T00:28:00Z",
+    "images": []
+  },
+  {
+    "review_id": "rev-1019",
+    "user_id": "u015",
+    "target_id": "doc-15",
+    "target_type": "DOCTOR",
+    "rating": 3,
+    "comment": "Staff was unhelpful.",
+    "timestamp": "2025-12-10T11:31:00Z",
+    "images": []
+  },
+  {
+    "review_id": "rev-1020",
+    "user_id": "u012",
+    "target_id": "p-113",
+    "target_type": "PRODUCT",
+    "rating": 4,
+    "comment": "Great quality, highly recommended!",
+    "timestamp": "2025-06-11T08:36:00Z",
+    "images": []
+  },
+  {
+    "review_id": "rev-1021",
+    "user_id": "u010",
+    "target_id": "p-133",
+    "target_type": "PRODUCT",
+    "rating": 4,
+    "comment": "Fast shipping and good packaging.",
+    "timestamp": "2025-02-26T23:06:00Z",
+    "images": []
+  },
+  {
+    "review_id": "rev-1022",
+    "user_id": "u003",
+    "target_id": "doc-10",
+    "target_type": "DOCTOR",
+    "rating": 5,
+    "comment": "Highly skilled and knowledgeable.",
+    "timestamp": "2025-07-07T04:11:00Z",
+    "images": []
+  },
+  {
+    "review_id": "rev-1023",
+    "user_id": "u002",
+    "target_id": "doc-45",
+    "target_type": "DOCTOR",
+    "rating": 4,
+    "comment": "Helped me recover quickly.",
+    "timestamp": "2025-12-03T03:47:00Z",
+    "images": []
+  },
+  {
+    "review_id": "rev-1024",
+    "user_id": "u009",
+    "target_id": "p-127",
+    "target_type": "PRODUCT",
+    "rating": 4,
+    "comment": "Fast shipping and good packaging.",
+    "timestamp": "2025-11-10T00:14:00Z",
+    "images": []
+  },
+  {
+    "review_id": "rev-1025",
+    "user_id": "u011",
+    "target_id": "p-139",
+    "target_type": "PRODUCT",
+    "rating": 5,
+    "comment": "Great quality, highly recommended!",
+    "timestamp": "2025-02-08T15:08:00Z",
+    "images": [
+      "https://placehold.co/200x200?text=Review25"
+    ]
+  },
+  {
+    "review_id": "rev-1026",
+    "user_id": "u002",
+    "target_id": "p-114",
+    "target_type": "PRODUCT",
+    "rating": 2,
+    "comment": "Stopped working after a week.",
+    "timestamp": "2025-11-05T11:28:00Z",
+    "images": []
+  },
+  {
+    "review_id": "rev-1027",
+    "user_id": "u009",
+    "target_id": "p-138",
+    "target_type": "PRODUCT",
+    "rating": 5,
+    "comment": "Fast shipping and good packaging.",
+    "timestamp": "2025-01-14T09:56:00Z",
+    "images": []
+  },
+  {
+    "review_id": "rev-1028",
+    "user_id": "u012",
+    "target_id": "p-133",
+    "target_type": "PRODUCT",
+    "rating": 5,
+    "comment": "Fast shipping and good packaging.",
+    "timestamp": "2025-11-06T08:17:00Z",
+    "images": []
+  },
+  {
+    "review_id": "rev-1029",
+    "user_id": "u015",
+    "target_id": "h-005",
+    "target_type": "HOTEL",
+    "rating": 3,
+    "comment": "Staff was rude.",
+    "timestamp": "2026-02-04T20:04:00Z",
+    "images": [
+      "https://placehold.co/200x200?text=Review29"
+    ]
+  },
+  {
+    "review_id": "rev-1030",
+    "user_id": "u015",
+    "target_id": "h-027",
+    "target_type": "HOTEL",
+    "rating": 2,
+    "comment": "AC was not working.",
+    "timestamp": "2026-01-09T17:03:00Z",
+    "images": []
+  },
+  {
+    "review_id": "rev-1031",
+    "user_id": "u013",
+    "target_id": "p-131",
+    "target_type": "PRODUCT",
+    "rating": 5,
+    "comment": "Love the design and build quality.",
+    "timestamp": "2025-02-02T10:33:00Z",
+    "images": []
+  },
+  {
+    "review_id": "rev-1032",
+    "user_id": "u014",
+    "target_id": "doc-08",
+    "target_type": "DOCTOR",
+    "rating": 4,
+    "comment": "Very professional and kind.",
+    "timestamp": "2025-07-08T07:15:00Z",
+    "images": []
+  },
+  {
+    "review_id": "rev-1033",
+    "user_id": "u015",
+    "target_id": "doc-21",
+    "target_type": "DOCTOR",
+    "rating": 2,
+    "comment": "Prescription didn't help.",
+    "timestamp": "2025-06-07T04:39:00Z",
+    "images": [
+      "https://placehold.co/200x200?text=Review33"
+    ]
+  },
+  {
+    "review_id": "rev-1034",
+    "user_id": "u008",
+    "target_id": "h-005",
+    "target_type": "HOTEL",
+    "rating": 3,
+    "comment": "Noisy neighbors and thin walls.",
+    "timestamp": "2025-04-20T12:33:00Z",
+    "images": []
+  },
+  {
+    "review_id": "rev-1035",
+    "user_id": "u005",
+    "target_id": "p-113",
+    "target_type": "PRODUCT",
+    "rating": 4,
+    "comment": "Love the design and build quality.",
+    "timestamp": "2025-03-20T06:03:00Z",
+    "images": []
+  },
+  {
+    "review_id": "rev-1036",
+    "user_id": "u010",
+    "target_id": "h-027",
+    "target_type": "HOTEL",
+    "rating": 5,
+    "comment": "Amazing view and friendly staff.",
+    "timestamp": "2026-01-05T23:55:00Z",
+    "images": []
+  },
+  {
+    "review_id": "rev-1037",
+    "user_id": "u010",
+    "target_id": "p-132",
+    "target_type": "PRODUCT",
+    "rating": 1,
+    "comment": "Stopped working after a week.",
+    "timestamp": "2025-05-03T18:11:00Z",
+    "images": []
+  },
+  {
+    "review_id": "rev-1038",
+    "user_id": "u001",
+    "target_id": "h-004",
+    "target_type": "HOTEL",
+    "rating": 5,
+    "comment": "Room was clean and spacious.",
+    "timestamp": "2025-08-20T16:28:00Z",
+    "images": []
+  },
+  {
+    "review_id": "rev-1039",
+    "user_id": "u011",
+    "target_id": "doc-07",
+    "target_type": "DOCTOR",
+    "rating": 5,
+    "comment": "Helped me recover quickly.",
+    "timestamp": "2025-03-07T10:59:00Z",
+    "images": [
+      "https://placehold.co/200x200?text=Review39"
+    ]
+  },
+  {
+    "review_id": "rev-1040",
+    "user_id": "u006",
+    "target_id": "doc-28",
+    "target_type": "DOCTOR",
+    "rating": 4,
+    "comment": "Helped me recover quickly.",
+    "timestamp": "2025-07-20T22:07:00Z",
+    "images": []
+  },
+  {
+    "review_id": "rev-1041",
+    "user_id": "u006",
+    "target_id": "p-144",
+    "target_type": "PRODUCT",
+    "rating": 5,
+    "comment": "Works perfectly.",
+    "timestamp": "2026-01-15T01:01:00Z",
+    "images": [
+      "https://placehold.co/200x200?text=Review41"
+    ]
+  },
+  {
+    "review_id": "rev-1042",
+    "user_id": "u015",
+    "target_id": "p-137",
+    "target_type": "PRODUCT",
+    "rating": 5,
+    "comment": "Works perfectly.",
+    "timestamp": "2025-08-26T15:56:00Z",
+    "images": []
+  },
+  {
+    "review_id": "rev-1043",
+    "user_id": "u004",
+    "target_id": "doc-30",
+    "target_type": "DOCTOR",
+    "rating": 2,
+    "comment": "Wait time was too long.",
+    "timestamp": "2025-11-25T17:43:00Z",
+    "images": []
+  },
+  {
+    "review_id": "rev-1044",
+    "user_id": "u009",
+    "target_id": "doc-07",
+    "target_type": "DOCTOR",
+    "rating": 4,
+    "comment": "Wait time was short.",
+    "timestamp": "2025-01-14T06:27:00Z",
+    "images": []
+  },
+  {
+    "review_id": "rev-1045",
+    "user_id": "u015",
+    "target_id": "p-112",
+    "target_type": "PRODUCT",
+    "rating": 5,
+    "comment": "Fast shipping and good packaging.",
+    "timestamp": "2025-06-06T11:15:00Z",
+    "images": [
+      "https://placehold.co/200x200?text=Review45"
+    ]
+  },
+  {
+    "review_id": "rev-1046",
+    "user_id": "u005",
+    "target_id": "doc-40",
+    "target_type": "DOCTOR",
+    "rating": 3,
+    "comment": "Prescription didn't help.",
+    "timestamp": "2025-06-20T08:47:00Z",
+    "images": []
+  },
+  {
+    "review_id": "rev-1047",
+    "user_id": "u014",
+    "target_id": "h-043",
+    "target_type": "HOTEL",
+    "rating": 1,
+    "comment": "Noisy neighbors and thin walls.",
+    "timestamp": "2025-09-10T19:02:00Z",
+    "images": []
+  },
+  {
+    "review_id": "rev-1048",
+    "user_id": "u014",
+    "target_id": "doc-36",
+    "target_type": "DOCTOR",
+    "rating": 2,
+    "comment": "Wait time was too long.",
+    "timestamp": "2025-02-09T20:08:00Z",
+    "images": [
+      "https://placehold.co/200x200?text=Review48"
+    ]
+  },
+  {
+    "review_id": "rev-1049",
+    "user_id": "u004",
+    "target_id": "p-147",
+    "target_type": "PRODUCT",
+    "rating": 2,
+    "comment": "Shipping took too long.",
+    "timestamp": "2025-05-16T09:06:00Z",
+    "images": []
+  },
+  {
+    "review_id": "rev-1050",
+    "user_id": "u011",
+    "target_id": "doc-37",
+    "target_type": "DOCTOR",
+    "rating": 5,
+    "comment": "Helped me recover quickly.",
+    "timestamp": "2025-08-30T18:27:00Z",
+    "images": []
+  }
+]

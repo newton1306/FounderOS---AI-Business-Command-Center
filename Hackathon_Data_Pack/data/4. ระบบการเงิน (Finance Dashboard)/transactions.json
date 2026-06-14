@@ -1,0 +1,452 @@
+[
+  {
+    "txn_id": "tx-101",
+    "user_id": "u010",
+    "type": "EXPENSE",
+    "category": "Entertainment",
+    "amount": 2811.0,
+    "date": "2025-01-07T17:43:00Z",
+    "note": "Payment for Entertainment"
+  },
+  {
+    "txn_id": "tx-102",
+    "user_id": "u003",
+    "type": "EXPENSE",
+    "category": "Rent",
+    "amount": 6602.0,
+    "date": "2024-12-28T15:10:00Z",
+    "note": "Monthly Rent"
+  },
+  {
+    "txn_id": "tx-103",
+    "user_id": "u010",
+    "type": "EXPENSE",
+    "category": "Food",
+    "amount": 677.0,
+    "date": "2024-12-19T10:00:00Z",
+    "note": "Coffee"
+  },
+  {
+    "txn_id": "tx-104",
+    "user_id": "u013",
+    "type": "INCOME",
+    "category": "Bonus",
+    "amount": 22034.0,
+    "date": "2024-04-01T20:48:00Z",
+    "note": "Year End Bonus"
+  },
+  {
+    "txn_id": "tx-105",
+    "user_id": "u006",
+    "type": "EXPENSE",
+    "category": "Entertainment",
+    "amount": 707.0,
+    "date": "2024-01-01T09:23:00Z",
+    "note": "Payment for Entertainment"
+  },
+  {
+    "txn_id": "tx-106",
+    "user_id": "u011",
+    "type": "EXPENSE",
+    "category": "Transport",
+    "amount": 2160.0,
+    "date": "2024-09-09T11:37:00Z",
+    "note": "Payment for Transport"
+  },
+  {
+    "txn_id": "tx-107",
+    "user_id": "u006",
+    "type": "EXPENSE",
+    "category": "Shopping",
+    "amount": 2277.0,
+    "date": "2025-06-06T13:39:00Z",
+    "note": "Online Shopping"
+  },
+  {
+    "txn_id": "tx-108",
+    "user_id": "u003",
+    "type": "EXPENSE",
+    "category": "Shopping",
+    "amount": 2393.0,
+    "date": "2025-03-01T09:03:00Z",
+    "note": "Online Shopping"
+  },
+  {
+    "txn_id": "tx-109",
+    "user_id": "u010",
+    "type": "EXPENSE",
+    "category": "Transport",
+    "amount": 2513.0,
+    "date": "2025-01-23T08:52:00Z",
+    "note": "Payment for Transport"
+  },
+  {
+    "txn_id": "tx-110",
+    "user_id": "u010",
+    "type": "EXPENSE",
+    "category": "Education",
+    "amount": 1895.0,
+    "date": "2026-01-22T14:16:00Z",
+    "note": "Payment for Education"
+  },
+  {
+    "txn_id": "tx-111",
+    "user_id": "u003",
+    "type": "EXPENSE",
+    "category": "Entertainment",
+    "amount": 1380.0,
+    "date": "2025-06-20T18:11:00Z",
+    "note": "Payment for Entertainment"
+  },
+  {
+    "txn_id": "tx-112",
+    "user_id": "u011",
+    "type": "EXPENSE",
+    "category": "Food",
+    "amount": 413.0,
+    "date": "2025-06-06T16:54:00Z",
+    "note": "Coffee"
+  },
+  {
+    "txn_id": "tx-113",
+    "user_id": "u010",
+    "type": "EXPENSE",
+    "category": "Rent",
+    "amount": 9935.0,
+    "date": "2025-12-09T20:09:00Z",
+    "note": "Monthly Rent"
+  },
+  {
+    "txn_id": "tx-114",
+    "user_id": "u011",
+    "type": "EXPENSE",
+    "category": "Rent",
+    "amount": 10087.0,
+    "date": "2024-10-07T16:00:00Z",
+    "note": "Monthly Rent"
+  },
+  {
+    "txn_id": "tx-115",
+    "user_id": "u013",
+    "type": "INCOME",
+    "category": "Freelance",
+    "amount": 3696.0,
+    "date": "2024-06-04T08:55:00Z",
+    "note": "Project Payment"
+  },
+  {
+    "txn_id": "tx-116",
+    "user_id": "u009",
+    "type": "EXPENSE",
+    "category": "Food",
+    "amount": 373.0,
+    "date": "2024-04-10T13:16:00Z",
+    "note": "Groceries"
+  },
+  {
+    "txn_id": "tx-117",
+    "user_id": "u002",
+    "type": "EXPENSE",
+    "category": "Rent",
+    "amount": 10186.0,
+    "date": "2025-08-27T10:56:00Z",
+    "note": "Monthly Rent"
+  },
+  {
+    "txn_id": "tx-118",
+    "user_id": "u004",
+    "type": "EXPENSE",
+    "category": "Food",
+    "amount": 520.0,
+    "date": "2024-09-04T17:37:00Z",
+    "note": "Groceries"
+  },
+  {
+    "txn_id": "tx-119",
+    "user_id": "u014",
+    "type": "EXPENSE",
+    "category": "Education",
+    "amount": 2213.0,
+    "date": "2024-03-12T11:50:00Z",
+    "note": "Payment for Education"
+  },
+  {
+    "txn_id": "tx-120",
+    "user_id": "u012",
+    "type": "EXPENSE",
+    "category": "Education",
+    "amount": 2589.0,
+    "date": "2025-07-15T14:44:00Z",
+    "note": "Payment for Education"
+  },
+  {
+    "txn_id": "tx-121",
+    "user_id": "u009",
+    "type": "INCOME",
+    "category": "Bonus",
+    "amount": 17062.0,
+    "date": "2024-11-19T19:35:00Z",
+    "note": "Year End Bonus"
+  },
+  {
+    "txn_id": "tx-122",
+    "user_id": "u015",
+    "type": "INCOME",
+    "category": "Gift",
+    "amount": 1085.0,
+    "date": "2025-07-30T11:36:00Z",
+    "note": "Received money"
+  },
+  {
+    "txn_id": "tx-123",
+    "user_id": "u015",
+    "type": "EXPENSE",
+    "category": "Entertainment",
+    "amount": 2878.0,
+    "date": "2024-03-05T12:23:00Z",
+    "note": "Payment for Entertainment"
+  },
+  {
+    "txn_id": "tx-124",
+    "user_id": "u012",
+    "type": "EXPENSE",
+    "category": "Health",
+    "amount": 2616.0,
+    "date": "2024-03-06T16:03:00Z",
+    "note": "Payment for Health"
+  },
+  {
+    "txn_id": "tx-125",
+    "user_id": "u006",
+    "type": "INCOME",
+    "category": "Gift",
+    "amount": 2305.0,
+    "date": "2025-09-23T13:09:00Z",
+    "note": "Received money"
+  },
+  {
+    "txn_id": "tx-126",
+    "user_id": "u006",
+    "type": "EXPENSE",
+    "category": "Rent",
+    "amount": 9139.0,
+    "date": "2024-03-29T11:57:00Z",
+    "note": "Monthly Rent"
+  },
+  {
+    "txn_id": "tx-127",
+    "user_id": "u015",
+    "type": "EXPENSE",
+    "category": "Transport",
+    "amount": 1352.0,
+    "date": "2024-11-20T13:04:00Z",
+    "note": "Payment for Transport"
+  },
+  {
+    "txn_id": "tx-128",
+    "user_id": "u007",
+    "type": "EXPENSE",
+    "category": "Utilities",
+    "amount": 1018.0,
+    "date": "2025-01-25T12:41:00Z",
+    "note": "Water/Electric Bill"
+  },
+  {
+    "txn_id": "tx-129",
+    "user_id": "u007",
+    "type": "EXPENSE",
+    "category": "Transport",
+    "amount": 1443.0,
+    "date": "2024-08-22T09:36:00Z",
+    "note": "Payment for Transport"
+  },
+  {
+    "txn_id": "tx-130",
+    "user_id": "u008",
+    "type": "EXPENSE",
+    "category": "Transport",
+    "amount": 2884.0,
+    "date": "2024-07-26T10:55:00Z",
+    "note": "Payment for Transport"
+  },
+  {
+    "txn_id": "tx-131",
+    "user_id": "u013",
+    "type": "EXPENSE",
+    "category": "Food",
+    "amount": 94.0,
+    "date": "2025-09-25T20:50:00Z",
+    "note": "Lunch"
+  },
+  {
+    "txn_id": "tx-132",
+    "user_id": "u013",
+    "type": "EXPENSE",
+    "category": "Shopping",
+    "amount": 4429.0,
+    "date": "2024-05-11T20:30:00Z",
+    "note": "Online Shopping"
+  },
+  {
+    "txn_id": "tx-133",
+    "user_id": "u002",
+    "type": "EXPENSE",
+    "category": "Shopping",
+    "amount": 3869.0,
+    "date": "2025-08-01T16:15:00Z",
+    "note": "Online Shopping"
+  },
+  {
+    "txn_id": "tx-134",
+    "user_id": "u004",
+    "type": "INCOME",
+    "category": "Salary",
+    "amount": 38310.0,
+    "date": "2024-09-13T08:13:00Z",
+    "note": "Monthly Salary"
+  },
+  {
+    "txn_id": "tx-135",
+    "user_id": "u012",
+    "type": "EXPENSE",
+    "category": "Entertainment",
+    "amount": 183.0,
+    "date": "2025-10-10T10:18:00Z",
+    "note": "Payment for Entertainment"
+  },
+  {
+    "txn_id": "tx-136",
+    "user_id": "u012",
+    "type": "EXPENSE",
+    "category": "Food",
+    "amount": 109.0,
+    "date": "2024-09-14T15:47:00Z",
+    "note": "Coffee"
+  },
+  {
+    "txn_id": "tx-137",
+    "user_id": "u015",
+    "type": "INCOME",
+    "category": "Bonus",
+    "amount": 10934.0,
+    "date": "2024-11-30T18:14:00Z",
+    "note": "Year End Bonus"
+  },
+  {
+    "txn_id": "tx-138",
+    "user_id": "u005",
+    "type": "EXPENSE",
+    "category": "Health",
+    "amount": 2942.0,
+    "date": "2024-01-20T08:59:00Z",
+    "note": "Payment for Health"
+  },
+  {
+    "txn_id": "tx-139",
+    "user_id": "u015",
+    "type": "INCOME",
+    "category": "Gift",
+    "amount": 665.0,
+    "date": "2025-06-12T15:34:00Z",
+    "note": "Received money"
+  },
+  {
+    "txn_id": "tx-140",
+    "user_id": "u013",
+    "type": "EXPENSE",
+    "category": "Entertainment",
+    "amount": 994.0,
+    "date": "2024-09-29T12:06:00Z",
+    "note": "Payment for Entertainment"
+  },
+  {
+    "txn_id": "tx-141",
+    "user_id": "u015",
+    "type": "EXPENSE",
+    "category": "Transport",
+    "amount": 2858.0,
+    "date": "2025-07-21T15:55:00Z",
+    "note": "Payment for Transport"
+  },
+  {
+    "txn_id": "tx-142",
+    "user_id": "u014",
+    "type": "EXPENSE",
+    "category": "Rent",
+    "amount": 12735.0,
+    "date": "2024-06-13T17:48:00Z",
+    "note": "Monthly Rent"
+  },
+  {
+    "txn_id": "tx-143",
+    "user_id": "u008",
+    "type": "INCOME",
+    "category": "Gift",
+    "amount": 4141.0,
+    "date": "2024-08-25T10:01:00Z",
+    "note": "Received money"
+  },
+  {
+    "txn_id": "tx-144",
+    "user_id": "u005",
+    "type": "INCOME",
+    "category": "Investment",
+    "amount": 903.0,
+    "date": "2024-03-16T12:03:00Z",
+    "note": "Received money"
+  },
+  {
+    "txn_id": "tx-145",
+    "user_id": "u009",
+    "type": "INCOME",
+    "category": "Freelance",
+    "amount": 13457.0,
+    "date": "2024-09-22T17:47:00Z",
+    "note": "Project Payment"
+  },
+  {
+    "txn_id": "tx-146",
+    "user_id": "u014",
+    "type": "EXPENSE",
+    "category": "Entertainment",
+    "amount": 2314.0,
+    "date": "2025-01-07T13:24:00Z",
+    "note": "Payment for Entertainment"
+  },
+  {
+    "txn_id": "tx-147",
+    "user_id": "u006",
+    "type": "EXPENSE",
+    "category": "Food",
+    "amount": 336.0,
+    "date": "2025-01-05T14:54:00Z",
+    "note": "Lunch"
+  },
+  {
+    "txn_id": "tx-148",
+    "user_id": "u005",
+    "type": "EXPENSE",
+    "category": "Entertainment",
+    "amount": 2122.0,
+    "date": "2025-12-07T09:28:00Z",
+    "note": "Payment for Entertainment"
+  },
+  {
+    "txn_id": "tx-149",
+    "user_id": "u006",
+    "type": "INCOME",
+    "category": "Investment",
+    "amount": 2416.0,
+    "date": "2025-12-09T08:12:00Z",
+    "note": "Received money"
+  },
+  {
+    "txn_id": "tx-150",
+    "user_id": "u006",
+    "type": "EXPENSE",
+    "category": "Entertainment",
+    "amount": 2752.0,
+    "date": "2024-08-30T16:45:00Z",
+    "note": "Payment for Entertainment"
+  }
+]

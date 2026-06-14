@@ -1,0 +1,1377 @@
+[
+  {
+    "chat_id": "chat-556",
+    "user_id": "u007",
+    "shop_id": "shop-03",
+    "status": "OPEN",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e2a\u0e34\u0e19\u0e04\u0e49\u0e32\u0e19\u0e35\u0e49\u0e21\u0e35\u0e1b\u0e23\u0e30\u0e01\u0e31\u0e19\u0e44\u0e2b\u0e21\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-02-05T12:20:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e21\u0e35\u0e1b\u0e23\u0e30\u0e01\u0e31\u0e19\u0e28\u0e39\u0e19\u0e22\u0e4c 1 \u0e1b\u0e35\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-02-05T12:21:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e16\u0e49\u0e32\u0e40\u0e2a\u0e35\u0e22\u0e2a\u0e48\u0e07\u0e0b\u0e48\u0e2d\u0e21\u0e17\u0e35\u0e48\u0e44\u0e2b\u0e19\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-02-05T12:29:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e2a\u0e48\u0e07\u0e17\u0e35\u0e48\u0e28\u0e39\u0e19\u0e22\u0e4c\u0e1a\u0e23\u0e34\u0e01\u0e32\u0e23\u0e17\u0e31\u0e48\u0e27\u0e1b\u0e23\u0e30\u0e40\u0e17\u0e28\u0e44\u0e14\u0e49\u0e40\u0e25\u0e22\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-02-05T12:38:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-557",
+    "user_id": "u014",
+    "shop_id": "shop-12",
+    "status": "OPEN",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e44\u0e14\u0e49\u0e23\u0e31\u0e1a\u0e02\u0e2d\u0e07\u0e41\u0e25\u0e49\u0e27\u0e04\u0e23\u0e31\u0e1a \u0e41\u0e15\u0e48\u0e01\u0e25\u0e48\u0e2d\u0e07\u0e1a\u0e38\u0e1a",
+        "timestamp": "2026-02-03T19:43:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e15\u0e49\u0e2d\u0e07\u0e02\u0e2d\u0e2d\u0e20\u0e31\u0e22\u0e14\u0e49\u0e27\u0e22\u0e04\u0e23\u0e31\u0e1a \u0e2a\u0e34\u0e19\u0e04\u0e49\u0e32\u0e02\u0e49\u0e32\u0e07\u0e43\u0e19\u0e40\u0e2a\u0e35\u0e22\u0e2b\u0e32\u0e22\u0e44\u0e2b\u0e21\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-02-03T19:52:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e22\u0e31\u0e07\u0e44\u0e21\u0e48\u0e44\u0e14\u0e49\u0e41\u0e01\u0e30\u0e04\u0e23\u0e31\u0e1a \u0e40\u0e14\u0e35\u0e4b\u0e22\u0e27\u0e25\u0e2d\u0e07\u0e41\u0e01\u0e30\u0e14\u0e39\u0e01\u0e48\u0e2d\u0e19",
+        "timestamp": "2026-02-03T19:59:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e04\u0e23\u0e31\u0e1a\u0e1c\u0e21 \u0e16\u0e49\u0e32\u0e40\u0e2a\u0e35\u0e22\u0e2b\u0e32\u0e22\u0e41\u0e08\u0e49\u0e07\u0e40\u0e04\u0e25\u0e21\u0e44\u0e14\u0e49\u0e40\u0e25\u0e22\u0e19\u0e30\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-02-03T20:03:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-558",
+    "user_id": "u001",
+    "shop_id": "shop-04",
+    "status": "CLOSED",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e2a\u0e48\u0e07\u0e02\u0e2d\u0e07\u0e2b\u0e23\u0e37\u0e2d\u0e22\u0e31\u0e07\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-01-29T19:11:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e2a\u0e48\u0e07\u0e41\u0e25\u0e49\u0e27\u0e04\u0e23\u0e31\u0e1a \u0e23\u0e2d\u0e1a\u0e27\u0e31\u0e19\u0e19\u0e35\u0e49",
+        "timestamp": "2026-01-29T19:19:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e02\u0e2d\u0e40\u0e25\u0e02\u0e1e\u0e31\u0e2a\u0e14\u0e38\u0e2b\u0e19\u0e48\u0e2d\u0e22\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-01-29T19:25:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "TH1234567890 \u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-01-29T19:29:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-559",
+    "user_id": "u015",
+    "shop_id": "shop-09",
+    "status": "OPEN",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e2a\u0e34\u0e19\u0e04\u0e49\u0e32\u0e19\u0e35\u0e49\u0e21\u0e35\u0e02\u0e2d\u0e07\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e2a\u0e48\u0e07\u0e44\u0e2b\u0e21\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-01-23T15:39:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e21\u0e35\u0e04\u0e23\u0e31\u0e1a \u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e2a\u0e48\u0e07\u0e17\u0e31\u0e19\u0e17\u0e35\u0e04\u0e23\u0e31\u0e1a!",
+        "timestamp": "2026-01-23T15:47:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e07\u0e31\u0e49\u0e19\u0e2a\u0e31\u0e48\u0e07\u0e40\u0e25\u0e22\u0e19\u0e30\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-01-23T15:57:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e02\u0e2d\u0e1a\u0e04\u0e38\u0e13\u0e04\u0e23\u0e31\u0e1a \u0e23\u0e2d\u0e23\u0e31\u0e1a\u0e2d\u0e2d\u0e40\u0e14\u0e2d\u0e23\u0e4c\u0e44\u0e14\u0e49\u0e40\u0e25\u0e22",
+        "timestamp": "2026-01-23T16:06:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-560",
+    "user_id": "u007",
+    "shop_id": "shop-09",
+    "status": "OPEN",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e2a\u0e34\u0e19\u0e04\u0e49\u0e32\u0e19\u0e35\u0e49\u0e21\u0e35\u0e02\u0e2d\u0e07\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e2a\u0e48\u0e07\u0e44\u0e2b\u0e21\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-01-18T16:33:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e21\u0e35\u0e04\u0e23\u0e31\u0e1a \u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e2a\u0e48\u0e07\u0e17\u0e31\u0e19\u0e17\u0e35\u0e04\u0e23\u0e31\u0e1a!",
+        "timestamp": "2026-01-18T16:35:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e07\u0e31\u0e49\u0e19\u0e2a\u0e31\u0e48\u0e07\u0e40\u0e25\u0e22\u0e19\u0e30\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-01-18T16:43:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e02\u0e2d\u0e1a\u0e04\u0e38\u0e13\u0e04\u0e23\u0e31\u0e1a \u0e23\u0e2d\u0e23\u0e31\u0e1a\u0e2d\u0e2d\u0e40\u0e14\u0e2d\u0e23\u0e4c\u0e44\u0e14\u0e49\u0e40\u0e25\u0e22",
+        "timestamp": "2026-01-18T16:47:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-561",
+    "user_id": "u005",
+    "shop_id": "shop-05",
+    "status": "CLOSED",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e23\u0e38\u0e48\u0e19\u0e19\u0e35\u0e49\u0e02\u0e19\u0e32\u0e14\u0e40\u0e17\u0e48\u0e32\u0e44\u0e2b\u0e23\u0e48\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-02-06T16:04:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e02\u0e19\u0e32\u0e14 30x40 \u0e0b\u0e21. \u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-02-06T16:12:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e21\u0e35\u0e2a\u0e35\u0e14\u0e33\u0e44\u0e2b\u0e21\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-02-06T16:21:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e21\u0e35\u0e04\u0e23\u0e31\u0e1a \u0e40\u0e25\u0e37\u0e2d\u0e01\u0e43\u0e19\u0e15\u0e31\u0e27\u0e40\u0e25\u0e37\u0e2d\u0e01\u0e44\u0e14\u0e49\u0e40\u0e25\u0e22",
+        "timestamp": "2026-02-06T16:30:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-562",
+    "user_id": "u002",
+    "shop_id": "shop-05",
+    "status": "CLOSED",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e2a\u0e34\u0e19\u0e04\u0e49\u0e32\u0e19\u0e35\u0e49\u0e21\u0e35\u0e02\u0e2d\u0e07\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e2a\u0e48\u0e07\u0e44\u0e2b\u0e21\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-02-05T13:23:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e21\u0e35\u0e04\u0e23\u0e31\u0e1a \u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e2a\u0e48\u0e07\u0e17\u0e31\u0e19\u0e17\u0e35\u0e04\u0e23\u0e31\u0e1a!",
+        "timestamp": "2026-02-05T13:28:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e07\u0e31\u0e49\u0e19\u0e2a\u0e31\u0e48\u0e07\u0e40\u0e25\u0e22\u0e19\u0e30\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-02-05T13:34:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e02\u0e2d\u0e1a\u0e04\u0e38\u0e13\u0e04\u0e23\u0e31\u0e1a \u0e23\u0e2d\u0e23\u0e31\u0e1a\u0e2d\u0e2d\u0e40\u0e14\u0e2d\u0e23\u0e4c\u0e44\u0e14\u0e49\u0e40\u0e25\u0e22",
+        "timestamp": "2026-02-05T13:39:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-563",
+    "user_id": "u014",
+    "shop_id": "shop-12",
+    "status": "OPEN",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e2a\u0e48\u0e07\u0e02\u0e2d\u0e07\u0e2b\u0e23\u0e37\u0e2d\u0e22\u0e31\u0e07\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-02-03T12:58:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e2a\u0e48\u0e07\u0e41\u0e25\u0e49\u0e27\u0e04\u0e23\u0e31\u0e1a \u0e23\u0e2d\u0e1a\u0e27\u0e31\u0e19\u0e19\u0e35\u0e49",
+        "timestamp": "2026-02-03T13:07:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e02\u0e2d\u0e40\u0e25\u0e02\u0e1e\u0e31\u0e2a\u0e14\u0e38\u0e2b\u0e19\u0e48\u0e2d\u0e22\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-02-03T13:10:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "TH1234567890 \u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-02-03T13:16:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-564",
+    "user_id": "u006",
+    "shop_id": "shop-04",
+    "status": "OPEN",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e25\u0e14\u0e23\u0e32\u0e04\u0e32\u0e44\u0e14\u0e49\u0e2d\u0e35\u0e01\u0e44\u0e2b\u0e21\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-02-09T15:47:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e15\u0e2d\u0e19\u0e19\u0e35\u0e49\u0e40\u0e1b\u0e47\u0e19\u0e23\u0e32\u0e04\u0e32\u0e42\u0e1b\u0e23\u0e42\u0e21\u0e0a\u0e31\u0e48\u0e19\u0e41\u0e25\u0e49\u0e27\u0e04\u0e23\u0e31\u0e1a \u0e25\u0e14\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e44\u0e21\u0e48\u0e44\u0e14\u0e49\u0e41\u0e25\u0e49\u0e27",
+        "timestamp": "2026-02-09T15:50:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e42\u0e2d\u0e40\u0e04\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-02-09T16:00:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-565",
+    "user_id": "u003",
+    "shop_id": "shop-11",
+    "status": "OPEN",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e23\u0e38\u0e48\u0e19\u0e19\u0e35\u0e49\u0e02\u0e19\u0e32\u0e14\u0e40\u0e17\u0e48\u0e32\u0e44\u0e2b\u0e23\u0e48\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-01-16T17:58:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e02\u0e19\u0e32\u0e14 30x40 \u0e0b\u0e21. \u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-01-16T18:03:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e21\u0e35\u0e2a\u0e35\u0e14\u0e33\u0e44\u0e2b\u0e21\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-01-16T18:09:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e21\u0e35\u0e04\u0e23\u0e31\u0e1a \u0e40\u0e25\u0e37\u0e2d\u0e01\u0e43\u0e19\u0e15\u0e31\u0e27\u0e40\u0e25\u0e37\u0e2d\u0e01\u0e44\u0e14\u0e49\u0e40\u0e25\u0e22",
+        "timestamp": "2026-01-16T18:15:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-566",
+    "user_id": "u013",
+    "shop_id": "shop-15",
+    "status": "OPEN",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e25\u0e14\u0e23\u0e32\u0e04\u0e32\u0e44\u0e14\u0e49\u0e2d\u0e35\u0e01\u0e44\u0e2b\u0e21\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-01-18T20:50:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e15\u0e2d\u0e19\u0e19\u0e35\u0e49\u0e40\u0e1b\u0e47\u0e19\u0e23\u0e32\u0e04\u0e32\u0e42\u0e1b\u0e23\u0e42\u0e21\u0e0a\u0e31\u0e48\u0e19\u0e41\u0e25\u0e49\u0e27\u0e04\u0e23\u0e31\u0e1a \u0e25\u0e14\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e44\u0e21\u0e48\u0e44\u0e14\u0e49\u0e41\u0e25\u0e49\u0e27",
+        "timestamp": "2026-01-18T20:56:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e42\u0e2d\u0e40\u0e04\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-01-18T21:03:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-567",
+    "user_id": "u013",
+    "shop_id": "shop-12",
+    "status": "CLOSED",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e2a\u0e34\u0e19\u0e04\u0e49\u0e32\u0e19\u0e35\u0e49\u0e21\u0e35\u0e1b\u0e23\u0e30\u0e01\u0e31\u0e19\u0e44\u0e2b\u0e21\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-01-19T17:26:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e21\u0e35\u0e1b\u0e23\u0e30\u0e01\u0e31\u0e19\u0e28\u0e39\u0e19\u0e22\u0e4c 1 \u0e1b\u0e35\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-01-19T17:33:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e16\u0e49\u0e32\u0e40\u0e2a\u0e35\u0e22\u0e2a\u0e48\u0e07\u0e0b\u0e48\u0e2d\u0e21\u0e17\u0e35\u0e48\u0e44\u0e2b\u0e19\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-01-19T17:36:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e2a\u0e48\u0e07\u0e17\u0e35\u0e48\u0e28\u0e39\u0e19\u0e22\u0e4c\u0e1a\u0e23\u0e34\u0e01\u0e32\u0e23\u0e17\u0e31\u0e48\u0e27\u0e1b\u0e23\u0e30\u0e40\u0e17\u0e28\u0e44\u0e14\u0e49\u0e40\u0e25\u0e22\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-01-19T17:44:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-568",
+    "user_id": "u007",
+    "shop_id": "shop-02",
+    "status": "CLOSED",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e25\u0e14\u0e23\u0e32\u0e04\u0e32\u0e44\u0e14\u0e49\u0e2d\u0e35\u0e01\u0e44\u0e2b\u0e21\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-01-29T16:58:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e15\u0e2d\u0e19\u0e19\u0e35\u0e49\u0e40\u0e1b\u0e47\u0e19\u0e23\u0e32\u0e04\u0e32\u0e42\u0e1b\u0e23\u0e42\u0e21\u0e0a\u0e31\u0e48\u0e19\u0e41\u0e25\u0e49\u0e27\u0e04\u0e23\u0e31\u0e1a \u0e25\u0e14\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e44\u0e21\u0e48\u0e44\u0e14\u0e49\u0e41\u0e25\u0e49\u0e27",
+        "timestamp": "2026-01-29T17:02:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e42\u0e2d\u0e40\u0e04\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-01-29T17:06:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-569",
+    "user_id": "u014",
+    "shop_id": "shop-08",
+    "status": "CLOSED",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e2a\u0e48\u0e07\u0e02\u0e2d\u0e07\u0e2b\u0e23\u0e37\u0e2d\u0e22\u0e31\u0e07\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-01-25T19:20:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e2a\u0e48\u0e07\u0e41\u0e25\u0e49\u0e27\u0e04\u0e23\u0e31\u0e1a \u0e23\u0e2d\u0e1a\u0e27\u0e31\u0e19\u0e19\u0e35\u0e49",
+        "timestamp": "2026-01-25T19:24:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e02\u0e2d\u0e40\u0e25\u0e02\u0e1e\u0e31\u0e2a\u0e14\u0e38\u0e2b\u0e19\u0e48\u0e2d\u0e22\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-01-25T19:33:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "TH1234567890 \u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-01-25T19:37:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-570",
+    "user_id": "u014",
+    "shop_id": "shop-20",
+    "status": "CLOSED",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e23\u0e38\u0e48\u0e19\u0e19\u0e35\u0e49\u0e02\u0e19\u0e32\u0e14\u0e40\u0e17\u0e48\u0e32\u0e44\u0e2b\u0e23\u0e48\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-02-04T08:41:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e02\u0e19\u0e32\u0e14 30x40 \u0e0b\u0e21. \u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-02-04T08:51:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e21\u0e35\u0e2a\u0e35\u0e14\u0e33\u0e44\u0e2b\u0e21\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-02-04T08:55:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e21\u0e35\u0e04\u0e23\u0e31\u0e1a \u0e40\u0e25\u0e37\u0e2d\u0e01\u0e43\u0e19\u0e15\u0e31\u0e27\u0e40\u0e25\u0e37\u0e2d\u0e01\u0e44\u0e14\u0e49\u0e40\u0e25\u0e22",
+        "timestamp": "2026-02-04T09:04:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-571",
+    "user_id": "u001",
+    "shop_id": "shop-08",
+    "status": "OPEN",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e44\u0e14\u0e49\u0e23\u0e31\u0e1a\u0e02\u0e2d\u0e07\u0e41\u0e25\u0e49\u0e27\u0e04\u0e23\u0e31\u0e1a \u0e41\u0e15\u0e48\u0e01\u0e25\u0e48\u0e2d\u0e07\u0e1a\u0e38\u0e1a",
+        "timestamp": "2026-01-26T14:22:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e15\u0e49\u0e2d\u0e07\u0e02\u0e2d\u0e2d\u0e20\u0e31\u0e22\u0e14\u0e49\u0e27\u0e22\u0e04\u0e23\u0e31\u0e1a \u0e2a\u0e34\u0e19\u0e04\u0e49\u0e32\u0e02\u0e49\u0e32\u0e07\u0e43\u0e19\u0e40\u0e2a\u0e35\u0e22\u0e2b\u0e32\u0e22\u0e44\u0e2b\u0e21\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-01-26T14:31:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e22\u0e31\u0e07\u0e44\u0e21\u0e48\u0e44\u0e14\u0e49\u0e41\u0e01\u0e30\u0e04\u0e23\u0e31\u0e1a \u0e40\u0e14\u0e35\u0e4b\u0e22\u0e27\u0e25\u0e2d\u0e07\u0e41\u0e01\u0e30\u0e14\u0e39\u0e01\u0e48\u0e2d\u0e19",
+        "timestamp": "2026-01-26T14:39:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e04\u0e23\u0e31\u0e1a\u0e1c\u0e21 \u0e16\u0e49\u0e32\u0e40\u0e2a\u0e35\u0e22\u0e2b\u0e32\u0e22\u0e41\u0e08\u0e49\u0e07\u0e40\u0e04\u0e25\u0e21\u0e44\u0e14\u0e49\u0e40\u0e25\u0e22\u0e19\u0e30\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-01-26T14:41:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-572",
+    "user_id": "u011",
+    "shop_id": "shop-05",
+    "status": "CLOSED",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e2a\u0e48\u0e07\u0e02\u0e2d\u0e07\u0e2b\u0e23\u0e37\u0e2d\u0e22\u0e31\u0e07\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-02-08T17:25:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e2a\u0e48\u0e07\u0e41\u0e25\u0e49\u0e27\u0e04\u0e23\u0e31\u0e1a \u0e23\u0e2d\u0e1a\u0e27\u0e31\u0e19\u0e19\u0e35\u0e49",
+        "timestamp": "2026-02-08T17:31:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e02\u0e2d\u0e40\u0e25\u0e02\u0e1e\u0e31\u0e2a\u0e14\u0e38\u0e2b\u0e19\u0e48\u0e2d\u0e22\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-02-08T17:35:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "TH1234567890 \u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-02-08T17:36:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-573",
+    "user_id": "u004",
+    "shop_id": "shop-17",
+    "status": "CLOSED",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e2a\u0e34\u0e19\u0e04\u0e49\u0e32\u0e19\u0e35\u0e49\u0e21\u0e35\u0e1b\u0e23\u0e30\u0e01\u0e31\u0e19\u0e44\u0e2b\u0e21\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-02-06T16:26:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e21\u0e35\u0e1b\u0e23\u0e30\u0e01\u0e31\u0e19\u0e28\u0e39\u0e19\u0e22\u0e4c 1 \u0e1b\u0e35\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-02-06T16:27:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e16\u0e49\u0e32\u0e40\u0e2a\u0e35\u0e22\u0e2a\u0e48\u0e07\u0e0b\u0e48\u0e2d\u0e21\u0e17\u0e35\u0e48\u0e44\u0e2b\u0e19\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-02-06T16:36:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e2a\u0e48\u0e07\u0e17\u0e35\u0e48\u0e28\u0e39\u0e19\u0e22\u0e4c\u0e1a\u0e23\u0e34\u0e01\u0e32\u0e23\u0e17\u0e31\u0e48\u0e27\u0e1b\u0e23\u0e30\u0e40\u0e17\u0e28\u0e44\u0e14\u0e49\u0e40\u0e25\u0e22\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-02-06T16:46:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-574",
+    "user_id": "u007",
+    "shop_id": "shop-16",
+    "status": "CLOSED",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e2a\u0e48\u0e07\u0e02\u0e2d\u0e07\u0e2b\u0e23\u0e37\u0e2d\u0e22\u0e31\u0e07\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-01-21T12:55:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e2a\u0e48\u0e07\u0e41\u0e25\u0e49\u0e27\u0e04\u0e23\u0e31\u0e1a \u0e23\u0e2d\u0e1a\u0e27\u0e31\u0e19\u0e19\u0e35\u0e49",
+        "timestamp": "2026-01-21T13:04:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e02\u0e2d\u0e40\u0e25\u0e02\u0e1e\u0e31\u0e2a\u0e14\u0e38\u0e2b\u0e19\u0e48\u0e2d\u0e22\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-01-21T13:13:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "TH1234567890 \u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-01-21T13:15:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-575",
+    "user_id": "u004",
+    "shop_id": "shop-20",
+    "status": "OPEN",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e25\u0e14\u0e23\u0e32\u0e04\u0e32\u0e44\u0e14\u0e49\u0e2d\u0e35\u0e01\u0e44\u0e2b\u0e21\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-01-29T16:07:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e15\u0e2d\u0e19\u0e19\u0e35\u0e49\u0e40\u0e1b\u0e47\u0e19\u0e23\u0e32\u0e04\u0e32\u0e42\u0e1b\u0e23\u0e42\u0e21\u0e0a\u0e31\u0e48\u0e19\u0e41\u0e25\u0e49\u0e27\u0e04\u0e23\u0e31\u0e1a \u0e25\u0e14\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e44\u0e21\u0e48\u0e44\u0e14\u0e49\u0e41\u0e25\u0e49\u0e27",
+        "timestamp": "2026-01-29T16:16:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e42\u0e2d\u0e40\u0e04\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-01-29T16:18:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-576",
+    "user_id": "u007",
+    "shop_id": "shop-09",
+    "status": "CLOSED",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e2a\u0e34\u0e19\u0e04\u0e49\u0e32\u0e19\u0e35\u0e49\u0e21\u0e35\u0e02\u0e2d\u0e07\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e2a\u0e48\u0e07\u0e44\u0e2b\u0e21\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-02-09T13:18:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e21\u0e35\u0e04\u0e23\u0e31\u0e1a \u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e2a\u0e48\u0e07\u0e17\u0e31\u0e19\u0e17\u0e35\u0e04\u0e23\u0e31\u0e1a!",
+        "timestamp": "2026-02-09T13:27:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e07\u0e31\u0e49\u0e19\u0e2a\u0e31\u0e48\u0e07\u0e40\u0e25\u0e22\u0e19\u0e30\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-02-09T13:34:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e02\u0e2d\u0e1a\u0e04\u0e38\u0e13\u0e04\u0e23\u0e31\u0e1a \u0e23\u0e2d\u0e23\u0e31\u0e1a\u0e2d\u0e2d\u0e40\u0e14\u0e2d\u0e23\u0e4c\u0e44\u0e14\u0e49\u0e40\u0e25\u0e22",
+        "timestamp": "2026-02-09T13:42:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-577",
+    "user_id": "u013",
+    "shop_id": "shop-11",
+    "status": "OPEN",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e25\u0e14\u0e23\u0e32\u0e04\u0e32\u0e44\u0e14\u0e49\u0e2d\u0e35\u0e01\u0e44\u0e2b\u0e21\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-01-23T16:41:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e15\u0e2d\u0e19\u0e19\u0e35\u0e49\u0e40\u0e1b\u0e47\u0e19\u0e23\u0e32\u0e04\u0e32\u0e42\u0e1b\u0e23\u0e42\u0e21\u0e0a\u0e31\u0e48\u0e19\u0e41\u0e25\u0e49\u0e27\u0e04\u0e23\u0e31\u0e1a \u0e25\u0e14\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e44\u0e21\u0e48\u0e44\u0e14\u0e49\u0e41\u0e25\u0e49\u0e27",
+        "timestamp": "2026-01-23T16:47:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e42\u0e2d\u0e40\u0e04\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-01-23T16:50:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-578",
+    "user_id": "u008",
+    "shop_id": "shop-15",
+    "status": "OPEN",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e2a\u0e34\u0e19\u0e04\u0e49\u0e32\u0e19\u0e35\u0e49\u0e21\u0e35\u0e1b\u0e23\u0e30\u0e01\u0e31\u0e19\u0e44\u0e2b\u0e21\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-01-28T08:53:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e21\u0e35\u0e1b\u0e23\u0e30\u0e01\u0e31\u0e19\u0e28\u0e39\u0e19\u0e22\u0e4c 1 \u0e1b\u0e35\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-01-28T09:00:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e16\u0e49\u0e32\u0e40\u0e2a\u0e35\u0e22\u0e2a\u0e48\u0e07\u0e0b\u0e48\u0e2d\u0e21\u0e17\u0e35\u0e48\u0e44\u0e2b\u0e19\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-01-28T09:06:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e2a\u0e48\u0e07\u0e17\u0e35\u0e48\u0e28\u0e39\u0e19\u0e22\u0e4c\u0e1a\u0e23\u0e34\u0e01\u0e32\u0e23\u0e17\u0e31\u0e48\u0e27\u0e1b\u0e23\u0e30\u0e40\u0e17\u0e28\u0e44\u0e14\u0e49\u0e40\u0e25\u0e22\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-01-28T09:13:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-579",
+    "user_id": "u010",
+    "shop_id": "shop-09",
+    "status": "CLOSED",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e44\u0e14\u0e49\u0e23\u0e31\u0e1a\u0e02\u0e2d\u0e07\u0e41\u0e25\u0e49\u0e27\u0e04\u0e23\u0e31\u0e1a \u0e41\u0e15\u0e48\u0e01\u0e25\u0e48\u0e2d\u0e07\u0e1a\u0e38\u0e1a",
+        "timestamp": "2026-01-27T19:00:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e15\u0e49\u0e2d\u0e07\u0e02\u0e2d\u0e2d\u0e20\u0e31\u0e22\u0e14\u0e49\u0e27\u0e22\u0e04\u0e23\u0e31\u0e1a \u0e2a\u0e34\u0e19\u0e04\u0e49\u0e32\u0e02\u0e49\u0e32\u0e07\u0e43\u0e19\u0e40\u0e2a\u0e35\u0e22\u0e2b\u0e32\u0e22\u0e44\u0e2b\u0e21\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-01-27T19:09:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e22\u0e31\u0e07\u0e44\u0e21\u0e48\u0e44\u0e14\u0e49\u0e41\u0e01\u0e30\u0e04\u0e23\u0e31\u0e1a \u0e40\u0e14\u0e35\u0e4b\u0e22\u0e27\u0e25\u0e2d\u0e07\u0e41\u0e01\u0e30\u0e14\u0e39\u0e01\u0e48\u0e2d\u0e19",
+        "timestamp": "2026-01-27T19:17:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e04\u0e23\u0e31\u0e1a\u0e1c\u0e21 \u0e16\u0e49\u0e32\u0e40\u0e2a\u0e35\u0e22\u0e2b\u0e32\u0e22\u0e41\u0e08\u0e49\u0e07\u0e40\u0e04\u0e25\u0e21\u0e44\u0e14\u0e49\u0e40\u0e25\u0e22\u0e19\u0e30\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-01-27T19:24:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-580",
+    "user_id": "u007",
+    "shop_id": "shop-13",
+    "status": "OPEN",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e2a\u0e34\u0e19\u0e04\u0e49\u0e32\u0e19\u0e35\u0e49\u0e21\u0e35\u0e02\u0e2d\u0e07\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e2a\u0e48\u0e07\u0e44\u0e2b\u0e21\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-01-31T20:23:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e21\u0e35\u0e04\u0e23\u0e31\u0e1a \u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e2a\u0e48\u0e07\u0e17\u0e31\u0e19\u0e17\u0e35\u0e04\u0e23\u0e31\u0e1a!",
+        "timestamp": "2026-01-31T20:25:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e07\u0e31\u0e49\u0e19\u0e2a\u0e31\u0e48\u0e07\u0e40\u0e25\u0e22\u0e19\u0e30\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-01-31T20:29:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e02\u0e2d\u0e1a\u0e04\u0e38\u0e13\u0e04\u0e23\u0e31\u0e1a \u0e23\u0e2d\u0e23\u0e31\u0e1a\u0e2d\u0e2d\u0e40\u0e14\u0e2d\u0e23\u0e4c\u0e44\u0e14\u0e49\u0e40\u0e25\u0e22",
+        "timestamp": "2026-01-31T20:31:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-581",
+    "user_id": "u002",
+    "shop_id": "shop-12",
+    "status": "CLOSED",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e23\u0e38\u0e48\u0e19\u0e19\u0e35\u0e49\u0e02\u0e19\u0e32\u0e14\u0e40\u0e17\u0e48\u0e32\u0e44\u0e2b\u0e23\u0e48\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-02-05T12:38:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e02\u0e19\u0e32\u0e14 30x40 \u0e0b\u0e21. \u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-02-05T12:47:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e21\u0e35\u0e2a\u0e35\u0e14\u0e33\u0e44\u0e2b\u0e21\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-02-05T12:51:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e21\u0e35\u0e04\u0e23\u0e31\u0e1a \u0e40\u0e25\u0e37\u0e2d\u0e01\u0e43\u0e19\u0e15\u0e31\u0e27\u0e40\u0e25\u0e37\u0e2d\u0e01\u0e44\u0e14\u0e49\u0e40\u0e25\u0e22",
+        "timestamp": "2026-02-05T12:57:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-582",
+    "user_id": "u002",
+    "shop_id": "shop-13",
+    "status": "OPEN",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e44\u0e14\u0e49\u0e23\u0e31\u0e1a\u0e02\u0e2d\u0e07\u0e41\u0e25\u0e49\u0e27\u0e04\u0e23\u0e31\u0e1a \u0e41\u0e15\u0e48\u0e01\u0e25\u0e48\u0e2d\u0e07\u0e1a\u0e38\u0e1a",
+        "timestamp": "2026-02-09T17:42:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e15\u0e49\u0e2d\u0e07\u0e02\u0e2d\u0e2d\u0e20\u0e31\u0e22\u0e14\u0e49\u0e27\u0e22\u0e04\u0e23\u0e31\u0e1a \u0e2a\u0e34\u0e19\u0e04\u0e49\u0e32\u0e02\u0e49\u0e32\u0e07\u0e43\u0e19\u0e40\u0e2a\u0e35\u0e22\u0e2b\u0e32\u0e22\u0e44\u0e2b\u0e21\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-02-09T17:48:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e22\u0e31\u0e07\u0e44\u0e21\u0e48\u0e44\u0e14\u0e49\u0e41\u0e01\u0e30\u0e04\u0e23\u0e31\u0e1a \u0e40\u0e14\u0e35\u0e4b\u0e22\u0e27\u0e25\u0e2d\u0e07\u0e41\u0e01\u0e30\u0e14\u0e39\u0e01\u0e48\u0e2d\u0e19",
+        "timestamp": "2026-02-09T17:54:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e04\u0e23\u0e31\u0e1a\u0e1c\u0e21 \u0e16\u0e49\u0e32\u0e40\u0e2a\u0e35\u0e22\u0e2b\u0e32\u0e22\u0e41\u0e08\u0e49\u0e07\u0e40\u0e04\u0e25\u0e21\u0e44\u0e14\u0e49\u0e40\u0e25\u0e22\u0e19\u0e30\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-02-09T18:03:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-583",
+    "user_id": "u002",
+    "shop_id": "shop-13",
+    "status": "OPEN",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e2a\u0e34\u0e19\u0e04\u0e49\u0e32\u0e19\u0e35\u0e49\u0e21\u0e35\u0e1b\u0e23\u0e30\u0e01\u0e31\u0e19\u0e44\u0e2b\u0e21\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-01-26T20:24:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e21\u0e35\u0e1b\u0e23\u0e30\u0e01\u0e31\u0e19\u0e28\u0e39\u0e19\u0e22\u0e4c 1 \u0e1b\u0e35\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-01-26T20:31:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e16\u0e49\u0e32\u0e40\u0e2a\u0e35\u0e22\u0e2a\u0e48\u0e07\u0e0b\u0e48\u0e2d\u0e21\u0e17\u0e35\u0e48\u0e44\u0e2b\u0e19\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-01-26T20:39:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e2a\u0e48\u0e07\u0e17\u0e35\u0e48\u0e28\u0e39\u0e19\u0e22\u0e4c\u0e1a\u0e23\u0e34\u0e01\u0e32\u0e23\u0e17\u0e31\u0e48\u0e27\u0e1b\u0e23\u0e30\u0e40\u0e17\u0e28\u0e44\u0e14\u0e49\u0e40\u0e25\u0e22\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-01-26T20:43:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-584",
+    "user_id": "u007",
+    "shop_id": "shop-12",
+    "status": "OPEN",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e2a\u0e48\u0e07\u0e02\u0e2d\u0e07\u0e2b\u0e23\u0e37\u0e2d\u0e22\u0e31\u0e07\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-02-09T18:59:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e2a\u0e48\u0e07\u0e41\u0e25\u0e49\u0e27\u0e04\u0e23\u0e31\u0e1a \u0e23\u0e2d\u0e1a\u0e27\u0e31\u0e19\u0e19\u0e35\u0e49",
+        "timestamp": "2026-02-09T19:02:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e02\u0e2d\u0e40\u0e25\u0e02\u0e1e\u0e31\u0e2a\u0e14\u0e38\u0e2b\u0e19\u0e48\u0e2d\u0e22\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-02-09T19:07:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "TH1234567890 \u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-02-09T19:11:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-585",
+    "user_id": "u004",
+    "shop_id": "shop-12",
+    "status": "OPEN",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e23\u0e38\u0e48\u0e19\u0e19\u0e35\u0e49\u0e02\u0e19\u0e32\u0e14\u0e40\u0e17\u0e48\u0e32\u0e44\u0e2b\u0e23\u0e48\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-02-02T13:42:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e02\u0e19\u0e32\u0e14 30x40 \u0e0b\u0e21. \u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-02-02T13:46:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e21\u0e35\u0e2a\u0e35\u0e14\u0e33\u0e44\u0e2b\u0e21\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-02-02T13:51:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e21\u0e35\u0e04\u0e23\u0e31\u0e1a \u0e40\u0e25\u0e37\u0e2d\u0e01\u0e43\u0e19\u0e15\u0e31\u0e27\u0e40\u0e25\u0e37\u0e2d\u0e01\u0e44\u0e14\u0e49\u0e40\u0e25\u0e22",
+        "timestamp": "2026-02-02T13:59:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-586",
+    "user_id": "u009",
+    "shop_id": "shop-13",
+    "status": "OPEN",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e2a\u0e34\u0e19\u0e04\u0e49\u0e32\u0e19\u0e35\u0e49\u0e21\u0e35\u0e02\u0e2d\u0e07\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e2a\u0e48\u0e07\u0e44\u0e2b\u0e21\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-02-02T16:20:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e21\u0e35\u0e04\u0e23\u0e31\u0e1a \u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e2a\u0e48\u0e07\u0e17\u0e31\u0e19\u0e17\u0e35\u0e04\u0e23\u0e31\u0e1a!",
+        "timestamp": "2026-02-02T16:21:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e07\u0e31\u0e49\u0e19\u0e2a\u0e31\u0e48\u0e07\u0e40\u0e25\u0e22\u0e19\u0e30\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-02-02T16:22:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e02\u0e2d\u0e1a\u0e04\u0e38\u0e13\u0e04\u0e23\u0e31\u0e1a \u0e23\u0e2d\u0e23\u0e31\u0e1a\u0e2d\u0e2d\u0e40\u0e14\u0e2d\u0e23\u0e4c\u0e44\u0e14\u0e49\u0e40\u0e25\u0e22",
+        "timestamp": "2026-02-02T16:32:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-587",
+    "user_id": "u007",
+    "shop_id": "shop-19",
+    "status": "OPEN",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e2a\u0e48\u0e07\u0e02\u0e2d\u0e07\u0e2b\u0e23\u0e37\u0e2d\u0e22\u0e31\u0e07\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-01-22T19:20:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e2a\u0e48\u0e07\u0e41\u0e25\u0e49\u0e27\u0e04\u0e23\u0e31\u0e1a \u0e23\u0e2d\u0e1a\u0e27\u0e31\u0e19\u0e19\u0e35\u0e49",
+        "timestamp": "2026-01-22T19:22:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e02\u0e2d\u0e40\u0e25\u0e02\u0e1e\u0e31\u0e2a\u0e14\u0e38\u0e2b\u0e19\u0e48\u0e2d\u0e22\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-01-22T19:23:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "TH1234567890 \u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-01-22T19:28:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-588",
+    "user_id": "u007",
+    "shop_id": "shop-13",
+    "status": "OPEN",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e23\u0e38\u0e48\u0e19\u0e19\u0e35\u0e49\u0e02\u0e19\u0e32\u0e14\u0e40\u0e17\u0e48\u0e32\u0e44\u0e2b\u0e23\u0e48\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-02-09T17:15:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e02\u0e19\u0e32\u0e14 30x40 \u0e0b\u0e21. \u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-02-09T17:21:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e21\u0e35\u0e2a\u0e35\u0e14\u0e33\u0e44\u0e2b\u0e21\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-02-09T17:23:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e21\u0e35\u0e04\u0e23\u0e31\u0e1a \u0e40\u0e25\u0e37\u0e2d\u0e01\u0e43\u0e19\u0e15\u0e31\u0e27\u0e40\u0e25\u0e37\u0e2d\u0e01\u0e44\u0e14\u0e49\u0e40\u0e25\u0e22",
+        "timestamp": "2026-02-09T17:27:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-589",
+    "user_id": "u001",
+    "shop_id": "shop-14",
+    "status": "OPEN",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e2a\u0e48\u0e07\u0e02\u0e2d\u0e07\u0e2b\u0e23\u0e37\u0e2d\u0e22\u0e31\u0e07\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-02-02T19:33:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e2a\u0e48\u0e07\u0e41\u0e25\u0e49\u0e27\u0e04\u0e23\u0e31\u0e1a \u0e23\u0e2d\u0e1a\u0e27\u0e31\u0e19\u0e19\u0e35\u0e49",
+        "timestamp": "2026-02-02T19:40:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e02\u0e2d\u0e40\u0e25\u0e02\u0e1e\u0e31\u0e2a\u0e14\u0e38\u0e2b\u0e19\u0e48\u0e2d\u0e22\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-02-02T19:46:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "TH1234567890 \u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-02-02T19:54:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-590",
+    "user_id": "u004",
+    "shop_id": "shop-14",
+    "status": "OPEN",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e44\u0e14\u0e49\u0e23\u0e31\u0e1a\u0e02\u0e2d\u0e07\u0e41\u0e25\u0e49\u0e27\u0e04\u0e23\u0e31\u0e1a \u0e41\u0e15\u0e48\u0e01\u0e25\u0e48\u0e2d\u0e07\u0e1a\u0e38\u0e1a",
+        "timestamp": "2026-01-20T17:34:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e15\u0e49\u0e2d\u0e07\u0e02\u0e2d\u0e2d\u0e20\u0e31\u0e22\u0e14\u0e49\u0e27\u0e22\u0e04\u0e23\u0e31\u0e1a \u0e2a\u0e34\u0e19\u0e04\u0e49\u0e32\u0e02\u0e49\u0e32\u0e07\u0e43\u0e19\u0e40\u0e2a\u0e35\u0e22\u0e2b\u0e32\u0e22\u0e44\u0e2b\u0e21\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-01-20T17:41:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e22\u0e31\u0e07\u0e44\u0e21\u0e48\u0e44\u0e14\u0e49\u0e41\u0e01\u0e30\u0e04\u0e23\u0e31\u0e1a \u0e40\u0e14\u0e35\u0e4b\u0e22\u0e27\u0e25\u0e2d\u0e07\u0e41\u0e01\u0e30\u0e14\u0e39\u0e01\u0e48\u0e2d\u0e19",
+        "timestamp": "2026-01-20T17:42:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e04\u0e23\u0e31\u0e1a\u0e1c\u0e21 \u0e16\u0e49\u0e32\u0e40\u0e2a\u0e35\u0e22\u0e2b\u0e32\u0e22\u0e41\u0e08\u0e49\u0e07\u0e40\u0e04\u0e25\u0e21\u0e44\u0e14\u0e49\u0e40\u0e25\u0e22\u0e19\u0e30\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-01-20T17:47:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-591",
+    "user_id": "u004",
+    "shop_id": "shop-13",
+    "status": "OPEN",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e2a\u0e34\u0e19\u0e04\u0e49\u0e32\u0e19\u0e35\u0e49\u0e21\u0e35\u0e02\u0e2d\u0e07\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e2a\u0e48\u0e07\u0e44\u0e2b\u0e21\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-02-09T17:28:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e21\u0e35\u0e04\u0e23\u0e31\u0e1a \u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e2a\u0e48\u0e07\u0e17\u0e31\u0e19\u0e17\u0e35\u0e04\u0e23\u0e31\u0e1a!",
+        "timestamp": "2026-02-09T17:37:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e07\u0e31\u0e49\u0e19\u0e2a\u0e31\u0e48\u0e07\u0e40\u0e25\u0e22\u0e19\u0e30\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-02-09T17:41:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e02\u0e2d\u0e1a\u0e04\u0e38\u0e13\u0e04\u0e23\u0e31\u0e1a \u0e23\u0e2d\u0e23\u0e31\u0e1a\u0e2d\u0e2d\u0e40\u0e14\u0e2d\u0e23\u0e4c\u0e44\u0e14\u0e49\u0e40\u0e25\u0e22",
+        "timestamp": "2026-02-09T17:47:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-592",
+    "user_id": "u006",
+    "shop_id": "shop-13",
+    "status": "OPEN",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e2a\u0e34\u0e19\u0e04\u0e49\u0e32\u0e19\u0e35\u0e49\u0e21\u0e35\u0e1b\u0e23\u0e30\u0e01\u0e31\u0e19\u0e44\u0e2b\u0e21\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-02-09T13:48:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e21\u0e35\u0e1b\u0e23\u0e30\u0e01\u0e31\u0e19\u0e28\u0e39\u0e19\u0e22\u0e4c 1 \u0e1b\u0e35\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-02-09T13:50:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e16\u0e49\u0e32\u0e40\u0e2a\u0e35\u0e22\u0e2a\u0e48\u0e07\u0e0b\u0e48\u0e2d\u0e21\u0e17\u0e35\u0e48\u0e44\u0e2b\u0e19\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-02-09T13:59:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e2a\u0e48\u0e07\u0e17\u0e35\u0e48\u0e28\u0e39\u0e19\u0e22\u0e4c\u0e1a\u0e23\u0e34\u0e01\u0e32\u0e23\u0e17\u0e31\u0e48\u0e27\u0e1b\u0e23\u0e30\u0e40\u0e17\u0e28\u0e44\u0e14\u0e49\u0e40\u0e25\u0e22\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-02-09T14:04:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-593",
+    "user_id": "u004",
+    "shop_id": "shop-14",
+    "status": "OPEN",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e2a\u0e34\u0e19\u0e04\u0e49\u0e32\u0e19\u0e35\u0e49\u0e21\u0e35\u0e02\u0e2d\u0e07\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e2a\u0e48\u0e07\u0e44\u0e2b\u0e21\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-01-30T17:15:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e21\u0e35\u0e04\u0e23\u0e31\u0e1a \u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e2a\u0e48\u0e07\u0e17\u0e31\u0e19\u0e17\u0e35\u0e04\u0e23\u0e31\u0e1a!",
+        "timestamp": "2026-01-30T17:21:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e07\u0e31\u0e49\u0e19\u0e2a\u0e31\u0e48\u0e07\u0e40\u0e25\u0e22\u0e19\u0e30\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-01-30T17:30:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e02\u0e2d\u0e1a\u0e04\u0e38\u0e13\u0e04\u0e23\u0e31\u0e1a \u0e23\u0e2d\u0e23\u0e31\u0e1a\u0e2d\u0e2d\u0e40\u0e14\u0e2d\u0e23\u0e4c\u0e44\u0e14\u0e49\u0e40\u0e25\u0e22",
+        "timestamp": "2026-01-30T17:35:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-594",
+    "user_id": "u002",
+    "shop_id": "shop-13",
+    "status": "OPEN",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e2a\u0e34\u0e19\u0e04\u0e49\u0e32\u0e19\u0e35\u0e49\u0e21\u0e35\u0e02\u0e2d\u0e07\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e2a\u0e48\u0e07\u0e44\u0e2b\u0e21\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-02-09T20:30:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e21\u0e35\u0e04\u0e23\u0e31\u0e1a \u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e2a\u0e48\u0e07\u0e17\u0e31\u0e19\u0e17\u0e35\u0e04\u0e23\u0e31\u0e1a!",
+        "timestamp": "2026-02-09T20:37:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e07\u0e31\u0e49\u0e19\u0e2a\u0e31\u0e48\u0e07\u0e40\u0e25\u0e22\u0e19\u0e30\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-02-09T20:41:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e02\u0e2d\u0e1a\u0e04\u0e38\u0e13\u0e04\u0e23\u0e31\u0e1a \u0e23\u0e2d\u0e23\u0e31\u0e1a\u0e2d\u0e2d\u0e40\u0e14\u0e2d\u0e23\u0e4c\u0e44\u0e14\u0e49\u0e40\u0e25\u0e22",
+        "timestamp": "2026-02-09T20:43:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-595",
+    "user_id": "u002",
+    "shop_id": "shop-13",
+    "status": "OPEN",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e2a\u0e48\u0e07\u0e02\u0e2d\u0e07\u0e2b\u0e23\u0e37\u0e2d\u0e22\u0e31\u0e07\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-01-20T19:33:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e2a\u0e48\u0e07\u0e41\u0e25\u0e49\u0e27\u0e04\u0e23\u0e31\u0e1a \u0e23\u0e2d\u0e1a\u0e27\u0e31\u0e19\u0e19\u0e35\u0e49",
+        "timestamp": "2026-01-20T19:40:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e02\u0e2d\u0e40\u0e25\u0e02\u0e1e\u0e31\u0e2a\u0e14\u0e38\u0e2b\u0e19\u0e48\u0e2d\u0e22\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-01-20T19:43:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "TH1234567890 \u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-01-20T19:48:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-596",
+    "user_id": "u004",
+    "shop_id": "shop-14",
+    "status": "OPEN",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e23\u0e38\u0e48\u0e19\u0e19\u0e35\u0e49\u0e02\u0e19\u0e32\u0e14\u0e40\u0e17\u0e48\u0e32\u0e44\u0e2b\u0e23\u0e48\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-02-09T17:28:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e02\u0e19\u0e32\u0e14 30x40 \u0e0b\u0e21. \u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-02-09T17:34:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e21\u0e35\u0e2a\u0e35\u0e14\u0e33\u0e44\u0e2b\u0e21\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-02-09T17:44:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e21\u0e35\u0e04\u0e23\u0e31\u0e1a \u0e40\u0e25\u0e37\u0e2d\u0e01\u0e43\u0e19\u0e15\u0e31\u0e27\u0e40\u0e25\u0e37\u0e2d\u0e01\u0e44\u0e14\u0e49\u0e40\u0e25\u0e22",
+        "timestamp": "2026-02-09T17:53:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-597",
+    "user_id": "u004",
+    "shop_id": "shop-13",
+    "status": "OPEN",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e2a\u0e48\u0e07\u0e02\u0e2d\u0e07\u0e2b\u0e23\u0e37\u0e2d\u0e22\u0e31\u0e07\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-01-20T19:12:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e2a\u0e48\u0e07\u0e41\u0e25\u0e49\u0e27\u0e04\u0e23\u0e31\u0e1a \u0e23\u0e2d\u0e1a\u0e27\u0e31\u0e19\u0e19\u0e35\u0e49",
+        "timestamp": "2026-01-20T19:15:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e02\u0e2d\u0e40\u0e25\u0e02\u0e1e\u0e31\u0e2a\u0e14\u0e38\u0e2b\u0e19\u0e48\u0e2d\u0e22\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-01-20T19:21:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "TH1234567890 \u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-01-20T19:25:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-598",
+    "user_id": "u007",
+    "shop_id": "shop-13",
+    "status": "OPEN",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e44\u0e14\u0e49\u0e23\u0e31\u0e1a\u0e02\u0e2d\u0e07\u0e41\u0e25\u0e49\u0e27\u0e04\u0e23\u0e31\u0e1a \u0e41\u0e15\u0e48\u0e01\u0e25\u0e48\u0e2d\u0e07\u0e1a\u0e38\u0e1a",
+        "timestamp": "2026-01-22T19:15:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e15\u0e49\u0e2d\u0e07\u0e02\u0e2d\u0e2d\u0e20\u0e31\u0e22\u0e14\u0e49\u0e27\u0e22\u0e04\u0e23\u0e31\u0e1a \u0e2a\u0e34\u0e19\u0e04\u0e49\u0e32\u0e02\u0e49\u0e32\u0e07\u0e43\u0e19\u0e40\u0e2a\u0e35\u0e22\u0e2b\u0e32\u0e22\u0e44\u0e2b\u0e21\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-01-22T19:18:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e22\u0e31\u0e07\u0e44\u0e21\u0e48\u0e44\u0e14\u0e49\u0e41\u0e01\u0e30\u0e04\u0e23\u0e31\u0e1a \u0e40\u0e14\u0e35\u0e4b\u0e22\u0e27\u0e25\u0e2d\u0e07\u0e41\u0e01\u0e30\u0e14\u0e39\u0e01\u0e48\u0e2d\u0e19",
+        "timestamp": "2026-01-22T19:24:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e04\u0e23\u0e31\u0e1a\u0e1c\u0e21 \u0e16\u0e49\u0e32\u0e40\u0e2a\u0e35\u0e22\u0e2b\u0e32\u0e22\u0e41\u0e08\u0e49\u0e07\u0e40\u0e04\u0e25\u0e21\u0e44\u0e14\u0e49\u0e40\u0e25\u0e22\u0e19\u0e30\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-01-22T19:25:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-599",
+    "user_id": "u002",
+    "shop_id": "shop-19",
+    "status": "OPEN",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e23\u0e38\u0e48\u0e19\u0e19\u0e35\u0e49\u0e02\u0e19\u0e32\u0e14\u0e40\u0e17\u0e48\u0e32\u0e44\u0e2b\u0e23\u0e48\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-01-26T20:23:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e02\u0e19\u0e32\u0e14 30x40 \u0e0b\u0e21. \u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-01-26T20:25:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e21\u0e35\u0e2a\u0e35\u0e14\u0e33\u0e44\u0e2b\u0e21\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-01-26T20:34:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e21\u0e35\u0e04\u0e23\u0e31\u0e1a \u0e40\u0e25\u0e37\u0e2d\u0e01\u0e43\u0e19\u0e15\u0e31\u0e27\u0e40\u0e25\u0e37\u0e2d\u0e01\u0e44\u0e14\u0e49\u0e40\u0e25\u0e22",
+        "timestamp": "2026-01-26T20:41:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-600",
+    "user_id": "u002",
+    "shop_id": "shop-19",
+    "status": "OPEN",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e2a\u0e48\u0e07\u0e02\u0e2d\u0e07\u0e2b\u0e23\u0e37\u0e2d\u0e22\u0e31\u0e07\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-02-09T20:23:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e2a\u0e48\u0e07\u0e41\u0e25\u0e49\u0e27\u0e04\u0e23\u0e31\u0e1a \u0e23\u0e2d\u0e1a\u0e27\u0e31\u0e19\u0e19\u0e35\u0e49",
+        "timestamp": "2026-02-09T20:29:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e02\u0e2d\u0e40\u0e25\u0e02\u0e1e\u0e31\u0e2a\u0e14\u0e38\u0e2b\u0e19\u0e48\u0e2d\u0e22\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-02-09T20:33:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "TH1234567890 \u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-02-09T20:42:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-601",
+    "user_id": "u003",
+    "shop_id": "shop-14",
+    "status": "OPEN",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e23\u0e38\u0e48\u0e19\u0e19\u0e35\u0e49\u0e02\u0e19\u0e32\u0e14\u0e40\u0e17\u0e48\u0e32\u0e44\u0e2b\u0e23\u0e48\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-02-09T18:18:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e02\u0e19\u0e32\u0e14 30x40 \u0e0b\u0e21. \u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-02-09T18:27:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e21\u0e35\u0e2a\u0e35\u0e14\u0e33\u0e44\u0e2b\u0e21\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-02-09T18:29:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e21\u0e35\u0e04\u0e23\u0e31\u0e1a \u0e40\u0e25\u0e37\u0e2d\u0e01\u0e43\u0e19\u0e15\u0e31\u0e27\u0e40\u0e25\u0e37\u0e2d\u0e01\u0e44\u0e14\u0e49\u0e40\u0e25\u0e22",
+        "timestamp": "2026-02-09T18:31:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-602",
+    "user_id": "u007",
+    "shop_id": "shop-13",
+    "status": "OPEN",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e2a\u0e34\u0e19\u0e04\u0e49\u0e32\u0e19\u0e35\u0e49\u0e21\u0e35\u0e1b\u0e23\u0e30\u0e01\u0e31\u0e19\u0e44\u0e2b\u0e21\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-02-05T13:42:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e21\u0e35\u0e1b\u0e23\u0e30\u0e01\u0e31\u0e19\u0e28\u0e39\u0e19\u0e22\u0e4c 1 \u0e1b\u0e35\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-02-05T13:46:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e16\u0e49\u0e32\u0e40\u0e2a\u0e35\u0e22\u0e2a\u0e48\u0e07\u0e0b\u0e48\u0e2d\u0e21\u0e17\u0e35\u0e48\u0e44\u0e2b\u0e19\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-02-05T13:51:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e2a\u0e48\u0e07\u0e17\u0e35\u0e48\u0e28\u0e39\u0e19\u0e22\u0e4c\u0e1a\u0e23\u0e34\u0e01\u0e32\u0e23\u0e17\u0e31\u0e48\u0e27\u0e1b\u0e23\u0e30\u0e40\u0e17\u0e28\u0e44\u0e14\u0e49\u0e40\u0e25\u0e22\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-02-05T14:00:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-603",
+    "user_id": "u002",
+    "shop_id": "shop-17",
+    "status": "OPEN",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e2a\u0e34\u0e19\u0e04\u0e49\u0e32\u0e19\u0e35\u0e49\u0e21\u0e35\u0e02\u0e2d\u0e07\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e2a\u0e48\u0e07\u0e44\u0e2b\u0e21\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-02-02T16:15:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e21\u0e35\u0e04\u0e23\u0e31\u0e1a \u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e2a\u0e48\u0e07\u0e17\u0e31\u0e19\u0e17\u0e35\u0e04\u0e23\u0e31\u0e1a!",
+        "timestamp": "2026-02-02T16:21:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e07\u0e31\u0e49\u0e19\u0e2a\u0e31\u0e48\u0e07\u0e40\u0e25\u0e22\u0e19\u0e30\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-02-02T16:25:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e02\u0e2d\u0e1a\u0e04\u0e38\u0e13\u0e04\u0e23\u0e31\u0e1a \u0e23\u0e2d\u0e23\u0e31\u0e1a\u0e2d\u0e2d\u0e40\u0e14\u0e2d\u0e23\u0e4c\u0e44\u0e14\u0e49\u0e40\u0e25\u0e22",
+        "timestamp": "2026-02-02T16:34:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-604",
+    "user_id": "u007",
+    "shop_id": "shop-13",
+    "status": "OPEN",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e2a\u0e34\u0e19\u0e04\u0e49\u0e32\u0e19\u0e35\u0e49\u0e21\u0e35\u0e1b\u0e23\u0e30\u0e01\u0e31\u0e19\u0e44\u0e2b\u0e21\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-01-19T13:28:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e21\u0e35\u0e1b\u0e23\u0e30\u0e01\u0e31\u0e19\u0e28\u0e39\u0e19\u0e22\u0e4c 1 \u0e1b\u0e35\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-01-19T13:30:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e16\u0e49\u0e32\u0e40\u0e2a\u0e35\u0e22\u0e2a\u0e48\u0e07\u0e0b\u0e48\u0e2d\u0e21\u0e17\u0e35\u0e48\u0e44\u0e2b\u0e19\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-01-19T13:31:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e2a\u0e48\u0e07\u0e17\u0e35\u0e48\u0e28\u0e39\u0e19\u0e22\u0e4c\u0e1a\u0e23\u0e34\u0e01\u0e32\u0e23\u0e17\u0e31\u0e48\u0e27\u0e1b\u0e23\u0e30\u0e40\u0e17\u0e28\u0e44\u0e14\u0e49\u0e40\u0e25\u0e22\u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-01-19T13:35:00Z"
+      }
+    ]
+  },
+  {
+    "chat_id": "chat-605",
+    "user_id": "u002",
+    "shop_id": "shop-13",
+    "status": "OPEN",
+    "messages": [
+      {
+        "sender": "USER",
+        "text": "\u0e23\u0e38\u0e48\u0e19\u0e19\u0e35\u0e49\u0e02\u0e19\u0e32\u0e14\u0e40\u0e17\u0e48\u0e32\u0e44\u0e2b\u0e23\u0e48\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-02-09T18:18:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e02\u0e19\u0e32\u0e14 30x40 \u0e0b\u0e21. \u0e04\u0e23\u0e31\u0e1a",
+        "timestamp": "2026-02-09T18:27:00Z"
+      },
+      {
+        "sender": "USER",
+        "text": "\u0e21\u0e35\u0e2a\u0e35\u0e14\u0e33\u0e44\u0e2b\u0e21\u0e04\u0e23\u0e31\u0e1a?",
+        "timestamp": "2026-02-09T18:29:00Z"
+      },
+      {
+        "sender": "SHOP",
+        "text": "\u0e21\u0e35\u0e04\u0e23\u0e31\u0e1a \u0e40\u0e25\u0e37\u0e2d\u0e01\u0e43\u0e19\u0e15\u0e31\u0e27\u0e40\u0e25\u0e37\u0e2d\u0e01\u0e44\u0e14\u0e49\u0e40\u0e25\u0e22",
+        "timestamp": "2026-02-09T18:31:00Z"
+      }
+    ]
+  }
+]

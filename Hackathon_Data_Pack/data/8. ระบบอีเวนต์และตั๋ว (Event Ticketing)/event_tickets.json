@@ -1,0 +1,352 @@
+[
+  {
+    "ticket_id": "et-001",
+    "user_id": "u009",
+    "event_id": "ev-041",
+    "seat_zone": "D",
+    "status": "CANCELLED"
+  },
+  {
+    "ticket_id": "et-002",
+    "user_id": "u008",
+    "event_id": "ev-042",
+    "seat_zone": "B",
+    "status": "USED"
+  },
+  {
+    "ticket_id": "et-003",
+    "user_id": "u012",
+    "event_id": "ev-015",
+    "seat_zone": "D",
+    "status": "RESERVED"
+  },
+  {
+    "ticket_id": "et-004",
+    "user_id": "u006",
+    "event_id": "ev-039",
+    "seat_zone": "Regular",
+    "status": "REFUNDED"
+  },
+  {
+    "ticket_id": "et-005",
+    "user_id": "u006",
+    "event_id": "ev-017",
+    "seat_zone": "C",
+    "status": "USED"
+  },
+  {
+    "ticket_id": "et-006",
+    "user_id": "u005",
+    "event_id": "ev-047",
+    "seat_zone": "B",
+    "status": "RESERVED"
+  },
+  {
+    "ticket_id": "et-007",
+    "user_id": "u003",
+    "event_id": "ev-048",
+    "seat_zone": "B",
+    "status": "REFUNDED"
+  },
+  {
+    "ticket_id": "et-008",
+    "user_id": "u003",
+    "event_id": "ev-020",
+    "seat_zone": "D",
+    "status": "USED"
+  },
+  {
+    "ticket_id": "et-009",
+    "user_id": "u014",
+    "event_id": "ev-031",
+    "seat_zone": "Regular",
+    "status": "REFUNDED"
+  },
+  {
+    "ticket_id": "et-010",
+    "user_id": "u013",
+    "event_id": "ev-001",
+    "seat_zone": "B",
+    "status": "REFUNDED"
+  },
+  {
+    "ticket_id": "et-011",
+    "user_id": "u004",
+    "event_id": "ev-019",
+    "seat_zone": "C",
+    "status": "USED"
+  },
+  {
+    "ticket_id": "et-012",
+    "user_id": "u011",
+    "event_id": "ev-026",
+    "seat_zone": "Standing",
+    "status": "PAID"
+  },
+  {
+    "ticket_id": "et-013",
+    "user_id": "u004",
+    "event_id": "ev-042",
+    "seat_zone": "A",
+    "status": "RESERVED"
+  },
+  {
+    "ticket_id": "et-014",
+    "user_id": "u013",
+    "event_id": "ev-029",
+    "seat_zone": "B",
+    "status": "USED"
+  },
+  {
+    "ticket_id": "et-015",
+    "user_id": "u010",
+    "event_id": "ev-033",
+    "seat_zone": "Standing",
+    "status": "REFUNDED"
+  },
+  {
+    "ticket_id": "et-016",
+    "user_id": "u001",
+    "event_id": "ev-020",
+    "seat_zone": "Regular",
+    "status": "RESERVED"
+  },
+  {
+    "ticket_id": "et-017",
+    "user_id": "u015",
+    "event_id": "ev-042",
+    "seat_zone": "Regular",
+    "status": "RESERVED"
+  },
+  {
+    "ticket_id": "et-018",
+    "user_id": "u002",
+    "event_id": "ev-020",
+    "seat_zone": "C",
+    "status": "CANCELLED"
+  },
+  {
+    "ticket_id": "et-019",
+    "user_id": "u006",
+    "event_id": "ev-028",
+    "seat_zone": "A",
+    "status": "REFUNDED"
+  },
+  {
+    "ticket_id": "et-020",
+    "user_id": "u007",
+    "event_id": "ev-043",
+    "seat_zone": "D",
+    "status": "USED"
+  },
+  {
+    "ticket_id": "et-021",
+    "user_id": "u011",
+    "event_id": "ev-034",
+    "seat_zone": "A",
+    "status": "PAID"
+  },
+  {
+    "ticket_id": "et-022",
+    "user_id": "u006",
+    "event_id": "ev-010",
+    "seat_zone": "C",
+    "status": "RESERVED"
+  },
+  {
+    "ticket_id": "et-023",
+    "user_id": "u010",
+    "event_id": "ev-019",
+    "seat_zone": "A",
+    "status": "USED"
+  },
+  {
+    "ticket_id": "et-024",
+    "user_id": "u007",
+    "event_id": "ev-009",
+    "seat_zone": "C",
+    "status": "PAID"
+  },
+  {
+    "ticket_id": "et-025",
+    "user_id": "u005",
+    "event_id": "ev-037",
+    "seat_zone": "A",
+    "status": "PAID"
+  },
+  {
+    "ticket_id": "et-026",
+    "user_id": "u007",
+    "event_id": "ev-026",
+    "seat_zone": "B",
+    "status": "USED"
+  },
+  {
+    "ticket_id": "et-027",
+    "user_id": "u009",
+    "event_id": "ev-039",
+    "seat_zone": "Standing",
+    "status": "PAID"
+  },
+  {
+    "ticket_id": "et-028",
+    "user_id": "u006",
+    "event_id": "ev-043",
+    "seat_zone": "B",
+    "status": "USED"
+  },
+  {
+    "ticket_id": "et-029",
+    "user_id": "u013",
+    "event_id": "ev-003",
+    "seat_zone": "Standing",
+    "status": "PAID"
+  },
+  {
+    "ticket_id": "et-030",
+    "user_id": "u007",
+    "event_id": "ev-006",
+    "seat_zone": "Standing",
+    "status": "CANCELLED"
+  },
+  {
+    "ticket_id": "et-031",
+    "user_id": "u005",
+    "event_id": "ev-032",
+    "seat_zone": "B",
+    "status": "USED"
+  },
+  {
+    "ticket_id": "et-032",
+    "user_id": "u012",
+    "event_id": "ev-027",
+    "seat_zone": "D",
+    "status": "REFUNDED"
+  },
+  {
+    "ticket_id": "et-033",
+    "user_id": "u012",
+    "event_id": "ev-034",
+    "seat_zone": "Standing",
+    "status": "REFUNDED"
+  },
+  {
+    "ticket_id": "et-034",
+    "user_id": "u010",
+    "event_id": "ev-014",
+    "seat_zone": "B",
+    "status": "USED"
+  },
+  {
+    "ticket_id": "et-035",
+    "user_id": "u001",
+    "event_id": "ev-025",
+    "seat_zone": "C",
+    "status": "REFUNDED"
+  },
+  {
+    "ticket_id": "et-036",
+    "user_id": "u005",
+    "event_id": "ev-007",
+    "seat_zone": "Standing",
+    "status": "PAID"
+  },
+  {
+    "ticket_id": "et-037",
+    "user_id": "u005",
+    "event_id": "ev-041",
+    "seat_zone": "D",
+    "status": "RESERVED"
+  },
+  {
+    "ticket_id": "et-038",
+    "user_id": "u002",
+    "event_id": "ev-033",
+    "seat_zone": "D",
+    "status": "REFUNDED"
+  },
+  {
+    "ticket_id": "et-039",
+    "user_id": "u006",
+    "event_id": "ev-011",
+    "seat_zone": "Regular",
+    "status": "RESERVED"
+  },
+  {
+    "ticket_id": "et-040",
+    "user_id": "u003",
+    "event_id": "ev-019",
+    "seat_zone": "C",
+    "status": "RESERVED"
+  },
+  {
+    "ticket_id": "et-041",
+    "user_id": "u014",
+    "event_id": "ev-025",
+    "seat_zone": "B",
+    "status": "RESERVED"
+  },
+  {
+    "ticket_id": "et-042",
+    "user_id": "u013",
+    "event_id": "ev-044",
+    "seat_zone": "B",
+    "status": "REFUNDED"
+  },
+  {
+    "ticket_id": "et-043",
+    "user_id": "u012",
+    "event_id": "ev-012",
+    "seat_zone": "A",
+    "status": "USED"
+  },
+  {
+    "ticket_id": "et-044",
+    "user_id": "u014",
+    "event_id": "ev-019",
+    "seat_zone": "Standing",
+    "status": "USED"
+  },
+  {
+    "ticket_id": "et-045",
+    "user_id": "u015",
+    "event_id": "ev-031",
+    "seat_zone": "VIP",
+    "status": "PAID"
+  },
+  {
+    "ticket_id": "et-046",
+    "user_id": "u013",
+    "event_id": "ev-031",
+    "seat_zone": "VIP",
+    "status": "USED"
+  },
+  {
+    "ticket_id": "et-047",
+    "user_id": "u011",
+    "event_id": "ev-021",
+    "seat_zone": "Standing",
+    "status": "PAID"
+  },
+  {
+    "ticket_id": "et-048",
+    "user_id": "u012",
+    "event_id": "ev-037",
+    "seat_zone": "Standing",
+    "status": "USED"
+  },
+  {
+    "ticket_id": "et-049",
+    "user_id": "u006",
+    "event_id": "ev-049",
+    "seat_zone": "A",
+    "status": "PAID"
+  },
+  {
+    "ticket_id": "et-050",
+    "user_id": "u011",
+    "event_id": "ev-044",
+    "seat_zone": "D",
+    "status": "REFUNDED"
+  }
+]

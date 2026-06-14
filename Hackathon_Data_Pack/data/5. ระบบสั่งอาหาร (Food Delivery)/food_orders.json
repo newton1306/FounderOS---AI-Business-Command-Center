@@ -1,0 +1,651 @@
+[
+  {
+    "order_id": "fd-1000",
+    "user_id": "u008",
+    "restaurant_id": "r-027",
+    "menu_items": [
+      "Salad",
+      "Pizza",
+      "Tom Yum Kung",
+      "Water"
+    ],
+    "total_price": 775,
+    "status": "CANCELLED",
+    "rider_name": null
+  },
+  {
+    "order_id": "fd-1001",
+    "user_id": "u013",
+    "restaurant_id": "r-039",
+    "menu_items": [
+      "Tom Yum Kung",
+      "Sushi Set",
+      "Spaghetti",
+      "Iced Tea",
+      "Green Tea"
+    ],
+    "total_price": 1037,
+    "status": "COOKING",
+    "rider_name": "Dave"
+  },
+  {
+    "order_id": "fd-1002",
+    "user_id": "u014",
+    "restaurant_id": "r-043",
+    "menu_items": [
+      "Pad Thai",
+      "Burger",
+      "Green Tea",
+      "Water"
+    ],
+    "total_price": 933,
+    "status": "PENDING",
+    "rider_name": null
+  },
+  {
+    "order_id": "fd-1003",
+    "user_id": "u002",
+    "restaurant_id": "r-011",
+    "menu_items": [
+      "Fried Chicken",
+      "Tom Yum Kung",
+      "Som Tum",
+      "Coffee"
+    ],
+    "total_price": 1098,
+    "status": "PICKED_UP",
+    "rider_name": "Sarah"
+  },
+  {
+    "order_id": "fd-1004",
+    "user_id": "u001",
+    "restaurant_id": "r-016",
+    "menu_items": [
+      "Steak",
+      "Water"
+    ],
+    "total_price": 823,
+    "status": "PENDING",
+    "rider_name": null
+  },
+  {
+    "order_id": "fd-1005",
+    "user_id": "u008",
+    "restaurant_id": "r-027",
+    "menu_items": [
+      "Steak",
+      "Tom Yum Kung"
+    ],
+    "total_price": 513,
+    "status": "CANCELLED",
+    "rider_name": null
+  },
+  {
+    "order_id": "fd-1006",
+    "user_id": "u010",
+    "restaurant_id": "r-017",
+    "menu_items": [
+      "Ramen",
+      "Salad",
+      "Water"
+    ],
+    "total_price": 1138,
+    "status": "PENDING",
+    "rider_name": null
+  },
+  {
+    "order_id": "fd-1007",
+    "user_id": "u011",
+    "restaurant_id": "r-030",
+    "menu_items": [
+      "Steak",
+      "Burger",
+      "Green Curry",
+      "Orange Juice",
+      "Coffee"
+    ],
+    "total_price": 869,
+    "status": "DELIVERED",
+    "rider_name": "Mike"
+  },
+  {
+    "order_id": "fd-1008",
+    "user_id": "u014",
+    "restaurant_id": "r-050",
+    "menu_items": [
+      "Spaghetti",
+      "Ramen",
+      "Pad Thai"
+    ],
+    "total_price": 710,
+    "status": "COOKING",
+    "rider_name": "Sarah"
+  },
+  {
+    "order_id": "fd-1009",
+    "user_id": "u004",
+    "restaurant_id": "r-014",
+    "menu_items": [
+      "Burger",
+      "Steak",
+      "Water"
+    ],
+    "total_price": 1168,
+    "status": "PICKED_UP",
+    "rider_name": "Mike"
+  },
+  {
+    "order_id": "fd-1010",
+    "user_id": "u015",
+    "restaurant_id": "r-017",
+    "menu_items": [
+      "Ramen",
+      "Green Tea",
+      "Orange Juice"
+    ],
+    "total_price": 840,
+    "status": "CANCELLED",
+    "rider_name": null
+  },
+  {
+    "order_id": "fd-1011",
+    "user_id": "u005",
+    "restaurant_id": "r-043",
+    "menu_items": [
+      "Fried Rice",
+      "Burger",
+      "Pad Thai",
+      "Green Tea"
+    ],
+    "total_price": 521,
+    "status": "COOKING",
+    "rider_name": "Art"
+  },
+  {
+    "order_id": "fd-1012",
+    "user_id": "u006",
+    "restaurant_id": "r-046",
+    "menu_items": [
+      "Tom Yum Kung",
+      "Ramen",
+      "Green Curry",
+      "Orange Juice"
+    ],
+    "total_price": 406,
+    "status": "PICKED_UP",
+    "rider_name": "Manop"
+  },
+  {
+    "order_id": "fd-1013",
+    "user_id": "u013",
+    "restaurant_id": "r-025",
+    "menu_items": [
+      "Salad"
+    ],
+    "total_price": 321,
+    "status": "PICKED_UP",
+    "rider_name": "Ken"
+  },
+  {
+    "order_id": "fd-1014",
+    "user_id": "u010",
+    "restaurant_id": "r-049",
+    "menu_items": [
+      "Burger",
+      "Pad Thai",
+      "Fried Chicken"
+    ],
+    "total_price": 678,
+    "status": "CANCELLED",
+    "rider_name": null
+  },
+  {
+    "order_id": "fd-1015",
+    "user_id": "u008",
+    "restaurant_id": "r-048",
+    "menu_items": [
+      "Fried Chicken",
+      "Fried Rice",
+      "Smoothie",
+      "Green Tea"
+    ],
+    "total_price": 540,
+    "status": "COOKING",
+    "rider_name": "Mike"
+  },
+  {
+    "order_id": "fd-1016",
+    "user_id": "u010",
+    "restaurant_id": "r-012",
+    "menu_items": [
+      "Fried Rice",
+      "Green Curry",
+      "Pad Thai"
+    ],
+    "total_price": 658,
+    "status": "CANCELLED",
+    "rider_name": null
+  },
+  {
+    "order_id": "fd-1017",
+    "user_id": "u006",
+    "restaurant_id": "r-033",
+    "menu_items": [
+      "Fried Rice"
+    ],
+    "total_price": 195,
+    "status": "PENDING",
+    "rider_name": null
+  },
+  {
+    "order_id": "fd-1018",
+    "user_id": "u003",
+    "restaurant_id": "r-024",
+    "menu_items": [
+      "Pad Thai",
+      "Iced Tea"
+    ],
+    "total_price": 731,
+    "status": "CANCELLED",
+    "rider_name": null
+  },
+  {
+    "order_id": "fd-1019",
+    "user_id": "u012",
+    "restaurant_id": "r-025",
+    "menu_items": [
+      "Green Curry"
+    ],
+    "total_price": 548,
+    "status": "PICKED_UP",
+    "rider_name": "Boy"
+  },
+  {
+    "order_id": "fd-1020",
+    "user_id": "u012",
+    "restaurant_id": "r-025",
+    "menu_items": [
+      "Pad Thai",
+      "Sushi Set",
+      "Water"
+    ],
+    "total_price": 884,
+    "status": "PICKED_UP",
+    "rider_name": "Ken"
+  },
+  {
+    "order_id": "fd-1021",
+    "user_id": "u004",
+    "restaurant_id": "r-008",
+    "menu_items": [
+      "Fried Rice",
+      "Green Tea"
+    ],
+    "total_price": 677,
+    "status": "PICKED_UP",
+    "rider_name": "Somsak"
+  },
+  {
+    "order_id": "fd-1022",
+    "user_id": "u001",
+    "restaurant_id": "r-025",
+    "menu_items": [
+      "Pad Thai",
+      "Green Tea"
+    ],
+    "total_price": 1038,
+    "status": "COOKING",
+    "rider_name": "Sarah"
+  },
+  {
+    "order_id": "fd-1023",
+    "user_id": "u015",
+    "restaurant_id": "r-036",
+    "menu_items": [
+      "Fried Chicken",
+      "Orange Juice",
+      "Coke"
+    ],
+    "total_price": 740,
+    "status": "PICKED_UP",
+    "rider_name": "Mike"
+  },
+  {
+    "order_id": "fd-1024",
+    "user_id": "u011",
+    "restaurant_id": "r-045",
+    "menu_items": [
+      "Pad Thai",
+      "Coke"
+    ],
+    "total_price": 284,
+    "status": "PENDING",
+    "rider_name": null
+  },
+  {
+    "order_id": "fd-1025",
+    "user_id": "u005",
+    "restaurant_id": "r-048",
+    "menu_items": [
+      "Sushi Set",
+      "Orange Juice",
+      "Coffee"
+    ],
+    "total_price": 812,
+    "status": "PENDING",
+    "rider_name": null
+  },
+  {
+    "order_id": "fd-1026",
+    "user_id": "u014",
+    "restaurant_id": "r-024",
+    "menu_items": [
+      "Tom Yum Kung",
+      "Green Tea",
+      "Iced Tea"
+    ],
+    "total_price": 868,
+    "status": "PENDING",
+    "rider_name": null
+  },
+  {
+    "order_id": "fd-1027",
+    "user_id": "u009",
+    "restaurant_id": "r-042",
+    "menu_items": [
+      "Pizza",
+      "Salad",
+      "Coffee"
+    ],
+    "total_price": 416,
+    "status": "PICKED_UP",
+    "rider_name": "John"
+  },
+  {
+    "order_id": "fd-1028",
+    "user_id": "u002",
+    "restaurant_id": "r-028",
+    "menu_items": [
+      "Burger",
+      "Smoothie"
+    ],
+    "total_price": 686,
+    "status": "PICKED_UP",
+    "rider_name": "Mike"
+  },
+  {
+    "order_id": "fd-1029",
+    "user_id": "u015",
+    "restaurant_id": "r-019",
+    "menu_items": [
+      "Fried Chicken",
+      "Pad Thai",
+      "Fried Rice",
+      "Smoothie",
+      "Water"
+    ],
+    "total_price": 202,
+    "status": "COOKING",
+    "rider_name": "Sarah"
+  },
+  {
+    "order_id": "fd-1030",
+    "user_id": "u004",
+    "restaurant_id": "r-021",
+    "menu_items": [
+      "Fried Chicken",
+      "Spaghetti",
+      "Fried Rice",
+      "Smoothie"
+    ],
+    "total_price": 1040,
+    "status": "PICKED_UP",
+    "rider_name": "Art"
+  },
+  {
+    "order_id": "fd-1031",
+    "user_id": "u010",
+    "restaurant_id": "r-045",
+    "menu_items": [
+      "Pad Thai",
+      "Green Curry",
+      "Sushi Set"
+    ],
+    "total_price": 1149,
+    "status": "DELIVERED",
+    "rider_name": "John"
+  },
+  {
+    "order_id": "fd-1032",
+    "user_id": "u011",
+    "restaurant_id": "r-004",
+    "menu_items": [
+      "Ramen",
+      "Iced Tea"
+    ],
+    "total_price": 746,
+    "status": "CANCELLED",
+    "rider_name": null
+  },
+  {
+    "order_id": "fd-1033",
+    "user_id": "u007",
+    "restaurant_id": "r-011",
+    "menu_items": [
+      "Sushi Set",
+      "Green Curry"
+    ],
+    "total_price": 865,
+    "status": "PENDING",
+    "rider_name": null
+  },
+  {
+    "order_id": "fd-1034",
+    "user_id": "u008",
+    "restaurant_id": "r-038",
+    "menu_items": [
+      "Sushi Set"
+    ],
+    "total_price": 629,
+    "status": "CANCELLED",
+    "rider_name": null
+  },
+  {
+    "order_id": "fd-1035",
+    "user_id": "u014",
+    "restaurant_id": "r-032",
+    "menu_items": [
+      "Ramen",
+      "Som Tum"
+    ],
+    "total_price": 1001,
+    "status": "COOKING",
+    "rider_name": "Somsak"
+  },
+  {
+    "order_id": "fd-1036",
+    "user_id": "u007",
+    "restaurant_id": "r-015",
+    "menu_items": [
+      "Ramen",
+      "Orange Juice",
+      "Water"
+    ],
+    "total_price": 835,
+    "status": "DELIVERED",
+    "rider_name": "Golf"
+  },
+  {
+    "order_id": "fd-1037",
+    "user_id": "u006",
+    "restaurant_id": "r-032",
+    "menu_items": [
+      "Pad Thai",
+      "Pizza",
+      "Fried Rice",
+      "Smoothie"
+    ],
+    "total_price": 355,
+    "status": "PICKED_UP",
+    "rider_name": "Boy"
+  },
+  {
+    "order_id": "fd-1038",
+    "user_id": "u008",
+    "restaurant_id": "r-021",
+    "menu_items": [
+      "Ramen",
+      "Pizza",
+      "Salad"
+    ],
+    "total_price": 483,
+    "status": "COOKING",
+    "rider_name": "Art"
+  },
+  {
+    "order_id": "fd-1039",
+    "user_id": "u005",
+    "restaurant_id": "r-021",
+    "menu_items": [
+      "Tom Yum Kung",
+      "Sushi Set",
+      "Fried Rice",
+      "Green Tea"
+    ],
+    "total_price": 873,
+    "status": "PENDING",
+    "rider_name": null
+  },
+  {
+    "order_id": "fd-1040",
+    "user_id": "u009",
+    "restaurant_id": "r-033",
+    "menu_items": [
+      "Pad Thai",
+      "Ramen"
+    ],
+    "total_price": 334,
+    "status": "PICKED_UP",
+    "rider_name": "Boy"
+  },
+  {
+    "order_id": "fd-1041",
+    "user_id": "u013",
+    "restaurant_id": "r-036",
+    "menu_items": [
+      "Som Tum"
+    ],
+    "total_price": 216,
+    "status": "CANCELLED",
+    "rider_name": null
+  },
+  {
+    "order_id": "fd-1042",
+    "user_id": "u009",
+    "restaurant_id": "r-017",
+    "menu_items": [
+      "Burger",
+      "Spaghetti",
+      "Pizza"
+    ],
+    "total_price": 1001,
+    "status": "PICKED_UP",
+    "rider_name": "Sarah"
+  },
+  {
+    "order_id": "fd-1043",
+    "user_id": "u013",
+    "restaurant_id": "r-044",
+    "menu_items": [
+      "Spaghetti",
+      "Som Tum",
+      "Sushi Set"
+    ],
+    "total_price": 702,
+    "status": "DELIVERED",
+    "rider_name": "Boy"
+  },
+  {
+    "order_id": "fd-1044",
+    "user_id": "u015",
+    "restaurant_id": "r-035",
+    "menu_items": [
+      "Tom Yum Kung",
+      "Pizza",
+      "Spaghetti",
+      "Iced Tea"
+    ],
+    "total_price": 479,
+    "status": "PENDING",
+    "rider_name": null
+  },
+  {
+    "order_id": "fd-1045",
+    "user_id": "u010",
+    "restaurant_id": "r-041",
+    "menu_items": [
+      "Spaghetti",
+      "Pizza",
+      "Sushi Set",
+      "Green Tea",
+      "Water"
+    ],
+    "total_price": 765,
+    "status": "PICKED_UP",
+    "rider_name": "Dave"
+  },
+  {
+    "order_id": "fd-1046",
+    "user_id": "u002",
+    "restaurant_id": "r-023",
+    "menu_items": [
+      "Burger",
+      "Green Curry",
+      "Coffee"
+    ],
+    "total_price": 974,
+    "status": "PENDING",
+    "rider_name": null
+  },
+  {
+    "order_id": "fd-1047",
+    "user_id": "u015",
+    "restaurant_id": "r-047",
+    "menu_items": [
+      "Ramen",
+      "Salad",
+      "Fried Rice"
+    ],
+    "total_price": 849,
+    "status": "PICKED_UP",
+    "rider_name": "Dave"
+  },
+  {
+    "order_id": "fd-1048",
+    "user_id": "u007",
+    "restaurant_id": "r-030",
+    "menu_items": [
+      "Spaghetti",
+      "Steak",
+      "Water",
+      "Green Tea"
+    ],
+    "total_price": 359,
+    "status": "DELIVERED",
+    "rider_name": "John"
+  },
+  {
+    "order_id": "fd-1049",
+    "user_id": "u009",
+    "restaurant_id": "r-042",
+    "menu_items": [
+      "Spaghetti",
+      "Tom Yum Kung",
+      "Smoothie",
+      "Coffee"
+    ],
+    "total_price": 461,
+    "status": "DELIVERED",
+    "rider_name": "Ken"
+  }
+]

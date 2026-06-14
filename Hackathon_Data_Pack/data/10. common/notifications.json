@@ -1,0 +1,502 @@
+[
+  {
+    "notif_id": "nf-001",
+    "user_id": "u001",
+    "type": "PROMOTION",
+    "title": "โค้ดส่งฟรีมาแล้ว",
+    "message": "ใช้โค้ด FREESHIP ลดค่าส่งทันที 0 บาท",
+    "is_read": false,
+    "timestamp": "2026-01-29T19:12:00Z",
+    "action_link": "/vouchers"
+  },
+  {
+    "notif_id": "nf-002",
+    "user_id": "u011",
+    "type": "ORDER_UPDATE",
+    "title": "ส่งสินค้าสำเร็จ",
+    "message": "พัสดุสำหรับคำสั่งซื้อ #746 จัดส่งถึงมือคุณแล้ว",
+    "is_read": false,
+    "timestamp": "2026-01-27T21:21:00Z",
+    "action_link": "/orders/746"
+  },
+  {
+    "notif_id": "nf-003",
+    "user_id": "u008",
+    "type": "SYSTEM",
+    "title": "แจ้งเตือนความปลอดภัย",
+    "message": "มีการเข้าสู่ระบบจากอุปกรณ์ใหม่",
+    "is_read": true,
+    "timestamp": "2026-01-30T02:01:00Z",
+    "action_link": "/settings/security"
+  },
+  {
+    "notif_id": "nf-004",
+    "user_id": "u009",
+    "type": "SYSTEM",
+    "title": "ยินดีต้อนรับ!",
+    "message": "ขอบคุณที่สมัครสมาชิกกับเรา เริ่มต้นใช้งานได้เลย",
+    "is_read": true,
+    "timestamp": "2026-01-31T16:05:00Z",
+    "action_link": "/profile"
+  },
+  {
+    "notif_id": "nf-005",
+    "user_id": "u010",
+    "type": "PAYMENT",
+    "title": "ชำระเงินสำเร็จ",
+    "message": "ได้รับยอดเงินสำหรับรายการ #983 แล้ว",
+    "is_read": true,
+    "timestamp": "2026-01-28T17:24:00Z",
+    "action_link": "/wallet/history"
+  },
+  {
+    "notif_id": "nf-006",
+    "user_id": "u002",
+    "type": "REMINDER",
+    "title": "ตั๋วเครื่องบินพร้อมแล้ว",
+    "message": "เตรียมตัวให้พร้อมสำหรับการเดินทางเที่ยวบิน #111",
+    "is_read": false,
+    "timestamp": "2026-01-29T16:54:00Z",
+    "action_link": "/tickets/111"
+  },
+  {
+    "notif_id": "nf-007",
+    "user_id": "u002",
+    "type": "ORDER_UPDATE",
+    "title": "ส่งสินค้าสำเร็จ",
+    "message": "พัสดุสำหรับคำสั่งซื้อ #261 จัดส่งถึงมือคุณแล้ว",
+    "is_read": true,
+    "timestamp": "2026-01-21T18:47:00Z",
+    "action_link": "/orders/261"
+  },
+  {
+    "notif_id": "nf-008",
+    "user_id": "u013",
+    "type": "PROMOTION",
+    "title": "สินค้าใหม่เข้าแล้ว!",
+    "message": "คอลเลกชันฤดูหนาวมาถึงแล้ว ไปดูกันเลย",
+    "is_read": false,
+    "timestamp": "2026-01-22T16:22:00Z",
+    "action_link": "/products/new"
+  },
+  {
+    "notif_id": "nf-009",
+    "user_id": "u002",
+    "type": "ORDER_UPDATE",
+    "title": "สินค้าจัดส่งแล้ว",
+    "message": "คำสั่งซื้อ #511 ของคุณกำลังเดินทาง",
+    "is_read": true,
+    "timestamp": "2026-02-04T20:17:00Z",
+    "action_link": "/orders/511"
+  },
+  {
+    "notif_id": "nf-010",
+    "user_id": "u001",
+    "type": "ORDER_UPDATE",
+    "title": "ส่งสินค้าสำเร็จ",
+    "message": "พัสดุสำหรับคำสั่งซื้อ #649 จัดส่งถึงมือคุณแล้ว",
+    "is_read": false,
+    "timestamp": "2026-01-14T21:58:00Z",
+    "action_link": "/orders/649"
+  },
+  {
+    "notif_id": "nf-011",
+    "user_id": "u013",
+    "type": "SYSTEM",
+    "title": "แจ้งเตือนความปลอดภัย",
+    "message": "มีการเข้าสู่ระบบจากอุปกรณ์ใหม่",
+    "is_read": false,
+    "timestamp": "2026-01-16T11:27:00Z",
+    "action_link": "/settings/security"
+  },
+  {
+    "notif_id": "nf-012",
+    "user_id": "u011",
+    "type": "PAYMENT",
+    "title": "ชำระเงินสำเร็จ",
+    "message": "ได้รับยอดเงินสำหรับรายการ #509 แล้ว",
+    "is_read": true,
+    "timestamp": "2026-02-04T14:11:00Z",
+    "action_link": "/wallet/history"
+  },
+  {
+    "notif_id": "nf-013",
+    "user_id": "u014",
+    "type": "PAYMENT",
+    "title": "เงินคืนเข้ากระเป๋า",
+    "message": "ยอดเงินคืนจากการยกเลิกออเดอร์เข้าสู่ระบบแล้ว",
+    "is_read": true,
+    "timestamp": "2026-01-30T12:27:00Z",
+    "action_link": "/wallet"
+  },
+  {
+    "notif_id": "nf-014",
+    "user_id": "u012",
+    "type": "PAYMENT",
+    "title": "เงินคืนเข้ากระเป๋า",
+    "message": "ยอดเงินคืนจากการยกเลิกออเดอร์เข้าสู่ระบบแล้ว",
+    "is_read": false,
+    "timestamp": "2026-01-12T16:19:00Z",
+    "action_link": "/wallet"
+  },
+  {
+    "notif_id": "nf-015",
+    "user_id": "u009",
+    "type": "PAYMENT",
+    "title": "เงินคืนเข้ากระเป๋า",
+    "message": "ยอดเงินคืนจากการยกเลิกออเดอร์เข้าสู่ระบบแล้ว",
+    "is_read": true,
+    "timestamp": "2026-01-19T17:43:00Z",
+    "action_link": "/wallet"
+  },
+  {
+    "notif_id": "nf-016",
+    "user_id": "u011",
+    "type": "PROMOTION",
+    "title": "โค้ดส่งฟรีมาแล้ว",
+    "message": "ใช้โค้ด FREESHIP ลดค่าส่งทันที 0 บาท",
+    "is_read": true,
+    "timestamp": "2026-01-18T17:26:00Z",
+    "action_link": "/vouchers"
+  },
+  {
+    "notif_id": "nf-017",
+    "user_id": "u014",
+    "type": "REMINDER",
+    "title": "งานใกล้ถึงกำหนดส่ง",
+    "message": "โปรเจกต์ #432 ครบกำหนดในอีก 2 วัน",
+    "is_read": false,
+    "timestamp": "2026-01-22T10:14:00Z",
+    "action_link": "/projects/432"
+  },
+  {
+    "notif_id": "nf-018",
+    "user_id": "u001",
+    "type": "ORDER_UPDATE",
+    "title": "คำสั่งซื้อถูกยกเลิก",
+    "message": "คำสั่งซื้อ #517 ถูกยกเลิกตามคำขอ",
+    "is_read": false,
+    "timestamp": "2026-01-27T19:42:00Z",
+    "action_link": "/orders/517"
+  },
+  {
+    "notif_id": "nf-019",
+    "user_id": "u012",
+    "type": "PAYMENT",
+    "title": "เงินคืนเข้ากระเป๋า",
+    "message": "ยอดเงินคืนจากการยกเลิกออเดอร์เข้าสู่ระบบแล้ว",
+    "is_read": false,
+    "timestamp": "2026-01-27T20:29:00Z",
+    "action_link": "/wallet"
+  },
+  {
+    "notif_id": "nf-020",
+    "user_id": "u001",
+    "type": "ORDER_UPDATE",
+    "title": "ส่งสินค้าสำเร็จ",
+    "message": "พัสดุสำหรับคำสั่งซื้อ #481 จัดส่งถึงมือคุณแล้ว",
+    "is_read": false,
+    "timestamp": "2026-02-03T14:50:00Z",
+    "action_link": "/orders/481"
+  },
+  {
+    "notif_id": "nf-021",
+    "user_id": "u002",
+    "type": "PROMOTION",
+    "title": "ลดราคา 50%!",
+    "message": "โปรโมชั่นพิเศษเฉพาะวันนี้ รีบช้อปเลย",
+    "is_read": true,
+    "timestamp": "2026-01-16T19:30:00Z",
+    "action_link": "/promo/flash-sale"
+  },
+  {
+    "notif_id": "nf-022",
+    "user_id": "u010",
+    "type": "PROMOTION",
+    "title": "ลดราคา 50%!",
+    "message": "โปรโมชั่นพิเศษเฉพาะวันนี้ รีบช้อปเลย",
+    "is_read": false,
+    "timestamp": "2026-01-29T22:07:00Z",
+    "action_link": "/promo/flash-sale"
+  },
+  {
+    "notif_id": "nf-023",
+    "user_id": "u009",
+    "type": "PAYMENT",
+    "title": "เงินคืนเข้ากระเป๋า",
+    "message": "ยอดเงินคืนจากการยกเลิกออเดอร์เข้าสู่ระบบแล้ว",
+    "is_read": true,
+    "timestamp": "2026-01-10T21:32:00Z",
+    "action_link": "/wallet"
+  },
+  {
+    "notif_id": "nf-024",
+    "user_id": "u010",
+    "type": "REMINDER",
+    "title": "งานใกล้ถึงกำหนดส่ง",
+    "message": "โปรเจกต์ #782 ครบกำหนดในอีก 2 วัน",
+    "is_read": true,
+    "timestamp": "2026-01-14T10:25:00Z",
+    "action_link": "/projects/782"
+  },
+  {
+    "notif_id": "nf-025",
+    "user_id": "u006",
+    "type": "PAYMENT",
+    "title": "ชำระเงินสำเร็จ",
+    "message": "ได้รับยอดเงินสำหรับรายการ #100 แล้ว",
+    "is_read": true,
+    "timestamp": "2026-01-18T22:00:00Z",
+    "action_link": "/wallet/history"
+  },
+  {
+    "notif_id": "nf-026",
+    "user_id": "u007",
+    "type": "REMINDER",
+    "title": "ตั๋วเครื่องบินพร้อมแล้ว",
+    "message": "เตรียมตัวให้พร้อมสำหรับการเดินทางเที่ยวบิน #742",
+    "is_read": false,
+    "timestamp": "2026-02-06T06:02:00Z",
+    "action_link": "/tickets/742"
+  },
+  {
+    "notif_id": "nf-027",
+    "user_id": "u008",
+    "type": "PROMOTION",
+    "title": "ลดราคา 50%!",
+    "message": "โปรโมชั่นพิเศษเฉพาะวันนี้ รีบช้อปเลย",
+    "is_read": false,
+    "timestamp": "2026-02-03T06:06:00Z",
+    "action_link": "/promo/flash-sale"
+  },
+  {
+    "notif_id": "nf-028",
+    "user_id": "u013",
+    "type": "SYSTEM",
+    "title": "ยินดีต้อนรับ!",
+    "message": "ขอบคุณที่สมัครสมาชิกกับเรา เริ่มต้นใช้งานได้เลย",
+    "is_read": true,
+    "timestamp": "2026-01-26T10:44:00Z",
+    "action_link": "/profile"
+  },
+  {
+    "notif_id": "nf-029",
+    "user_id": "u011",
+    "type": "PAYMENT",
+    "title": "เงินคืนเข้ากระเป๋า",
+    "message": "ยอดเงินคืนจากการยกเลิกออเดอร์เข้าสู่ระบบแล้ว",
+    "is_read": true,
+    "timestamp": "2026-01-30T01:37:00Z",
+    "action_link": "/wallet"
+  },
+  {
+    "notif_id": "nf-030",
+    "user_id": "u004",
+    "type": "ORDER_UPDATE",
+    "title": "ส่งสินค้าสำเร็จ",
+    "message": "พัสดุสำหรับคำสั่งซื้อ #883 จัดส่งถึงมือคุณแล้ว",
+    "is_read": true,
+    "timestamp": "2026-01-29T10:36:00Z",
+    "action_link": "/orders/883"
+  },
+  {
+    "notif_id": "nf-031",
+    "user_id": "u011",
+    "type": "PROMOTION",
+    "title": "โค้ดส่งฟรีมาแล้ว",
+    "message": "ใช้โค้ด FREESHIP ลดค่าส่งทันที 0 บาท",
+    "is_read": true,
+    "timestamp": "2026-01-19T07:09:00Z",
+    "action_link": "/vouchers"
+  },
+  {
+    "notif_id": "nf-032",
+    "user_id": "u011",
+    "type": "REMINDER",
+    "title": "ตั๋วเครื่องบินพร้อมแล้ว",
+    "message": "เตรียมตัวให้พร้อมสำหรับการเดินทางเที่ยวบิน #976",
+    "is_read": false,
+    "timestamp": "2026-01-28T02:25:00Z",
+    "action_link": "/tickets/976"
+  },
+  {
+    "notif_id": "nf-033",
+    "user_id": "u014",
+    "type": "ORDER_UPDATE",
+    "title": "คำสั่งซื้อถูกยกเลิก",
+    "message": "คำสั่งซื้อ #367 ถูกยกเลิกตามคำขอ",
+    "is_read": false,
+    "timestamp": "2026-01-23T12:46:00Z",
+    "action_link": "/orders/367"
+  },
+  {
+    "notif_id": "nf-034",
+    "user_id": "u009",
+    "type": "PAYMENT",
+    "title": "เงินคืนเข้ากระเป๋า",
+    "message": "ยอดเงินคืนจากการยกเลิกออเดอร์เข้าสู่ระบบแล้ว",
+    "is_read": true,
+    "timestamp": "2026-02-06T13:54:00Z",
+    "action_link": "/wallet"
+  },
+  {
+    "notif_id": "nf-035",
+    "user_id": "u008",
+    "type": "SYSTEM",
+    "title": "ยินดีต้อนรับ!",
+    "message": "ขอบคุณที่สมัครสมาชิกกับเรา เริ่มต้นใช้งานได้เลย",
+    "is_read": false,
+    "timestamp": "2026-01-21T09:13:00Z",
+    "action_link": "/profile"
+  },
+  {
+    "notif_id": "nf-036",
+    "user_id": "u006",
+    "type": "REMINDER",
+    "title": "งานใกล้ถึงกำหนดส่ง",
+    "message": "โปรเจกต์ #196 ครบกำหนดในอีก 2 วัน",
+    "is_read": true,
+    "timestamp": "2026-02-09T13:39:00Z",
+    "action_link": "/projects/196"
+  },
+  {
+    "notif_id": "nf-037",
+    "user_id": "u003",
+    "type": "PAYMENT",
+    "title": "ชำระเงินสำเร็จ",
+    "message": "ได้รับยอดเงินสำหรับรายการ #757 แล้ว",
+    "is_read": false,
+    "timestamp": "2026-01-25T00:37:00Z",
+    "action_link": "/wallet/history"
+  },
+  {
+    "notif_id": "nf-038",
+    "user_id": "u015",
+    "type": "PROMOTION",
+    "title": "สินค้าใหม่เข้าแล้ว!",
+    "message": "คอลเลกชันฤดูหนาวมาถึงแล้ว ไปดูกันเลย",
+    "is_read": false,
+    "timestamp": "2026-01-28T06:20:00Z",
+    "action_link": "/products/new"
+  },
+  {
+    "notif_id": "nf-039",
+    "user_id": "u010",
+    "type": "PAYMENT",
+    "title": "เงินคืนเข้ากระเป๋า",
+    "message": "ยอดเงินคืนจากการยกเลิกออเดอร์เข้าสู่ระบบแล้ว",
+    "is_read": false,
+    "timestamp": "2026-01-15T19:31:00Z",
+    "action_link": "/wallet"
+  },
+  {
+    "notif_id": "nf-040",
+    "user_id": "u011",
+    "type": "REMINDER",
+    "title": "ใบนัดแพทย์พรุ่งนี้",
+    "message": "อย่าลืมคุณมีนัดกับคุณหมอ #790 พรุ่งนี้",
+    "is_read": false,
+    "timestamp": "2026-01-30T23:48:00Z",
+    "action_link": "/appointments/790"
+  },
+  {
+    "notif_id": "nf-041",
+    "user_id": "u003",
+    "type": "REMINDER",
+    "title": "งานใกล้ถึงกำหนดส่ง",
+    "message": "โปรเจกต์ #469 ครบกำหนดในอีก 2 วัน",
+    "is_read": false,
+    "timestamp": "2026-02-06T05:35:00Z",
+    "action_link": "/projects/469"
+  },
+  {
+    "notif_id": "nf-042",
+    "user_id": "u014",
+    "type": "SYSTEM",
+    "title": "ปิดปรับปรุงระบบ",
+    "message": "เราจะปิดปรับปรุงระบบในคืนนี้เวลา 02:00 น.",
+    "is_read": true,
+    "timestamp": "2026-01-24T18:35:00Z",
+    "action_link": "/announcements"
+  },
+  {
+    "notif_id": "nf-043",
+    "user_id": "u001",
+    "type": "ORDER_UPDATE",
+    "title": "คำสั่งซื้อถูกยกเลิก",
+    "message": "คำสั่งซื้อ #996 ถูกยกเลิกตามคำขอ",
+    "is_read": true,
+    "timestamp": "2026-01-17T13:58:00Z",
+    "action_link": "/orders/996"
+  },
+  {
+    "notif_id": "nf-044",
+    "user_id": "u008",
+    "type": "PROMOTION",
+    "title": "โค้ดส่งฟรีมาแล้ว",
+    "message": "ใช้โค้ด FREESHIP ลดค่าส่งทันที 0 บาท",
+    "is_read": false,
+    "timestamp": "2026-01-11T16:53:00Z",
+    "action_link": "/vouchers"
+  },
+  {
+    "notif_id": "nf-045",
+    "user_id": "u013",
+    "type": "SYSTEM",
+    "title": "แจ้งเตือนความปลอดภัย",
+    "message": "มีการเข้าสู่ระบบจากอุปกรณ์ใหม่",
+    "is_read": true,
+    "timestamp": "2026-02-05T05:18:00Z",
+    "action_link": "/settings/security"
+  },
+  {
+    "notif_id": "nf-046",
+    "user_id": "u002",
+    "type": "PAYMENT",
+    "title": "ชำระเงินสำเร็จ",
+    "message": "ได้รับยอดเงินสำหรับรายการ #747 แล้ว",
+    "is_read": false,
+    "timestamp": "2026-01-17T03:20:00Z",
+    "action_link": "/wallet/history"
+  },
+  {
+    "notif_id": "nf-047",
+    "user_id": "u001",
+    "type": "SYSTEM",
+    "title": "ยินดีต้อนรับ!",
+    "message": "ขอบคุณที่สมัครสมาชิกกับเรา เริ่มต้นใช้งานได้เลย",
+    "is_read": false,
+    "timestamp": "2026-02-01T00:51:00Z",
+    "action_link": "/profile"
+  },
+  {
+    "notif_id": "nf-048",
+    "user_id": "u008",
+    "type": "REMINDER",
+    "title": "ใบนัดแพทย์พรุ่งนี้",
+    "message": "อย่าลืมคุณมีนัดกับคุณหมอ #357 พรุ่งนี้",
+    "is_read": false,
+    "timestamp": "2026-01-19T08:16:00Z",
+    "action_link": "/appointments/357"
+  },
+  {
+    "notif_id": "nf-049",
+    "user_id": "u009",
+    "type": "ORDER_UPDATE",
+    "title": "สินค้าจัดส่งแล้ว",
+    "message": "คำสั่งซื้อ #182 ของคุณกำลังเดินทาง",
+    "is_read": false,
+    "timestamp": "2026-02-03T18:27:00Z",
+    "action_link": "/orders/182"
+  },
+  {
+    "notif_id": "nf-050",
+    "user_id": "u003",
+    "type": "REMINDER",
+    "title": "ตั๋วเครื่องบินพร้อมแล้ว",
+    "message": "เตรียมตัวให้พร้อมสำหรับการเดินทางเที่ยวบิน #587",
+    "is_read": true,
+    "timestamp": "2026-01-16T08:08:00Z",
+    "action_link": "/tickets/587"
+  }
+]

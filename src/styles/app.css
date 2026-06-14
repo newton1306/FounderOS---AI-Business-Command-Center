@@ -286,12 +286,20 @@ h4 {
   overflow: hidden;
 }
 .notification-panel .floating-list {
+  display: flex;
+  flex-direction: column;
   min-height: 0;
-  max-height: min(450px, calc(100vh - 220px));
+  max-height: none;
   overflow-y: auto;
   overscroll-behavior: contain;
   padding-bottom: 8px;
   padding-right: 2px;
+}
+.notification-panel {
+  height: min(520px, calc(100vh - 140px));
+}
+.notification-panel .floating-item {
+  flex: 0 0 auto;
 }
 .notification-panel .floating-item span {
   overflow-wrap: anywhere;

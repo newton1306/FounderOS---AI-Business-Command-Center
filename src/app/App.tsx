@@ -83,11 +83,11 @@ export function App() {
       const next = simulateLiveOrder(current);
       const event = next.simulationEvents[0];
       setUnreadCount((c) => c + 1);
-      // On mobile, don't show any toast/popup
-      if (!isMobileViewport()) {
-        toast.success(event.title, { description: event.detail });
-        if (event.severity === "warning") toast.warning("Low Stock Alert", { description: event.detail });
-      }
+      const toastOptions = isMobileViewport()
+        ? { description: event.detail, duration: 3500, position: "top-center" as const }
+        : { description: event.detail };
+      if (event.severity === "warning" || event.severity === "critical") toast.warning(event.title, toastOptions);
+      else toast.success(event.title, toastOptions);
       return next;
     });
   }

@@ -12,7 +12,7 @@ export function CustomerVoicePage(ctx: AppContext) {
   const chatGroups = useMemo(() => groupDuplicateChats(chats), []);
   const avg = reviews.length ? reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length : 0;
   const negative = reviews.filter((review) => review.rating <= 2);
-  const hiddenDuplicateChats = chats.length - chatGroups.length;
+  const uniqueChatCustomers = new Set(chats.map((chat) => chat.user_id)).size;
   const summary = ctx.voiceSummary?.data || null;
   const summaryMode = ctx.voiceSummary?.mode || null;
   const [mobileTab, setMobileTab] = useState<"ai" | "reviews" | "chats">("ai");
@@ -49,12 +49,11 @@ export function CustomerVoicePage(ctx: AppContext) {
 
   return (
     <section className="page-stack voice-page voice-page-v2">
-      <div className="section-head page-actions-head" />
       <div className="kpi-grid compact">
         <Metric label="Average Rating" value={avg.toFixed(1)} />
         <Metric label="Negative Reviews" value={String(negative.length)} />
         <Metric label="Needs Reply" value={String(chatGroups.filter((group) => chatNeedsReply(group.chat)).length)} />
-        <Metric label="Merged Duplicates" value={String(hiddenDuplicateChats)} />
+        <Metric label="Chat Customers" value={String(uniqueChatCustomers)} />
       </div>
 
       {/* Mobile tab selector for 3-column view */}
@@ -130,7 +129,7 @@ export function CustomerVoicePage(ctx: AppContext) {
                   <span className={`chat-state-chip ${state.tone}`}>{state.label}</span>
                 </div>
                 <ChatThreadPreview chat={chat} customerName={customer?.name} />
-                {group.duplicates.length > 1 && <span className="duplicate-note">Merged {group.duplicates.length} similar records: {group.duplicates.map((item) => item.chat_id).join(", ")}</span>}
+                {group.duplicates.length > 1 && <span className="duplicate-note">Grouped {group.duplicates.length} chats from this customer: {group.duplicates.map((item) => item.chat_id).join(", ")}</span>}
                 <time>Last activity {dateTime(latest?.timestamp || new Date().toISOString())}</time>
                 {canGenerateReply ? <button className="button secondary ai-action" type="button" onClick={() => generateReply(chat.chat_id)} disabled={Boolean(ctx.chatReplyLoading[chat.chat_id])}><span className="ai-icon-pair"><Star size={13} /><Bot size={15} /></span>{ctx.chatReplyLoading[chat.chat_id] ? "Gemini is thinking..." : "Gemini Reply"}</button> : <span className="chat-action-note">{state.note}</span>}
                 {ctx.chatReplies[chat.chat_id] && <div className="reply-box">{ctx.chatReplies[chat.chat_id].mode === "fallback" && <FallbackNotice />}{ctx.chatReplies[chat.chat_id].text}</div>}
@@ -185,22 +184,23 @@ function getChatState(chat: Chat) {
 function groupDuplicateChats(items: Chat[]) {
   const groups = new Map<string, Chat[]>();
   for (const chat of items) {
-    const signature = [
-      chat.user_id,
-      ...chat.messages.map((message) => `${message.sender}:${message.text}`)
-    ].join("|");
-    groups.set(signature, [...(groups.get(signature) || []), chat]);
+    groups.set(chat.user_id, [...(groups.get(chat.user_id) || []), chat]);
   }
 
   return Array.from(groups.values())
     .map((duplicates) => {
-      const chat = duplicates.find((item) => item.status === "OPEN") || duplicates[0];
-      return { chat, duplicates };
+      const sorted = [...duplicates].sort(compareChats);
+      return { chat: sorted[0], duplicates: sorted };
     })
-    .sort((a, b) => {
-      if (a.chat.status !== b.chat.status) return a.chat.status === "OPEN" ? -1 : 1;
-      const aLatest = a.chat.messages.at(-1)?.timestamp || "";
-      const bLatest = b.chat.messages.at(-1)?.timestamp || "";
-      return bLatest.localeCompare(aLatest);
-    });
+    .sort((a, b) => compareChats(a.chat, b.chat));
+}
+
+function compareChats(a: Chat, b: Chat) {
+  const aNeedsReply = chatNeedsReply(a);
+  const bNeedsReply = chatNeedsReply(b);
+  if (aNeedsReply !== bNeedsReply) return aNeedsReply ? -1 : 1;
+  if (a.status !== b.status) return a.status === "OPEN" ? -1 : 1;
+  const aLatest = a.messages.at(-1)?.timestamp || "";
+  const bLatest = b.messages.at(-1)?.timestamp || "";
+  return bLatest.localeCompare(aLatest);
 }

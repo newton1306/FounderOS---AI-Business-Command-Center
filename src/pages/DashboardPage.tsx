@@ -28,6 +28,7 @@ const SUGGEST_MESSAGES = [
 
 export function DashboardPage(ctx: AppContext) {
   const metrics = useMemo(() => getMetrics(ctx.state), [ctx.state]);
+  const orderStatusData = useMemo(() => orderStatusBreakdown(ctx.state), [ctx.state]);
   const [briefLoading, setBriefLoading] = useState(false);
   const assistantRef = useRef<HTMLElement>(null);
 
@@ -129,16 +130,27 @@ export function DashboardPage(ctx: AppContext) {
           </ResponsiveContainer>
         </ChartCard>
         <ChartCard title="Order Status" tone="status">
-          <ResponsiveContainer width="100%" height={chartHeight}>
-            <PieChart>
-              <Pie data={orderStatusBreakdown(ctx.state)} dataKey="value" nameKey="name" innerRadius={38} outerRadius={58} paddingAngle={3} cornerRadius={6}>
-                {orderStatusBreakdown(ctx.state).map((_, index) => <Cell key={index} fill={pieColors[index % pieColors.length]} />)}
-              </Pie>
-              <text x="50%" y="48%" textAnchor="middle" dominantBaseline="middle" className="donut-center-main">{metrics.orders}</text>
-              <text x="50%" y="62%" textAnchor="middle" dominantBaseline="middle" className="donut-center-sub">orders</text>
-              <Tooltip />
-            </PieChart>
-          </ResponsiveContainer>
+          <div className="order-status-chart">
+            <ResponsiveContainer width="100%" height={112}>
+              <PieChart>
+                <Pie data={orderStatusData} dataKey="value" nameKey="name" innerRadius={32} outerRadius={48} paddingAngle={3} cornerRadius={6}>
+                  {orderStatusData.map((_, index) => <Cell key={index} fill={pieColors[index % pieColors.length]} />)}
+                </Pie>
+                <text x="50%" y="46%" textAnchor="middle" dominantBaseline="middle" className="donut-center-main">{metrics.orders}</text>
+                <text x="50%" y="62%" textAnchor="middle" dominantBaseline="middle" className="donut-center-sub">orders</text>
+                <Tooltip />
+              </PieChart>
+            </ResponsiveContainer>
+            <div className="status-legend" aria-label="Order status legend">
+              {orderStatusData.map((item, index) => (
+                <span className="status-legend-item" key={item.name}>
+                  <i style={{ background: pieColors[index % pieColors.length] }} aria-hidden="true" />
+                  <b>{item.name}</b>
+                  <em>{item.value}</em>
+                </span>
+              ))}
+            </div>
+          </div>
         </ChartCard>
         <ChartCard title="Revenue by Category" tone="category">
           <ResponsiveContainer width="100%" height={chartHeight}>

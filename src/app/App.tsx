@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { NavLink, Route, Routes, useLocation, useNavigate } from "react-router-dom";
-import { BarChart3, Bell, Bot, Boxes, LayoutDashboard, MessageSquareText, PackageSearch, Radio, RefreshCcw, Search, ShoppingCart, ToggleLeft, ToggleRight, Wifi, WifiOff, X } from "lucide-react";
+import { BarChart3, Bell, Bot, LayoutDashboard, MessageSquareText, PackageSearch, Radio, RefreshCcw, Search, ShoppingCart, ToggleLeft, ToggleRight, Wifi, WifiOff, X } from "lucide-react";
 import { toast } from "sonner";
 import { chats, orders, products, users } from "../data/source";
 import { getActivities, getMetrics } from "../lib/analytics";
@@ -175,13 +175,6 @@ export function App() {
             );
           })}
         </nav>
-        <div className="sidebar-card">
-          <Boxes size={18} aria-hidden="true" />
-          <span>{metrics.lowStock} stock risks</span>
-        </div>
-        <div className="sidebar-utility" aria-hidden="true">
-          <span></span>
-        </div>
       </aside>
 
       <div className="workspace">

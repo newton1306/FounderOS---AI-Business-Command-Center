@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Area, AreaChart, Bar, BarChart, CartesianGrid, Cell, LabelList, Line, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
-import { Bot, MessageSquareText, Send, Sparkles, TriangleAlert, Star } from "lucide-react";
+import { Bot, MessageSquareText, Send, Sparkles, TriangleAlert, Star, X } from "lucide-react";
 import type { AppContext } from "../app/App";
 import { getActivities, getMetrics, orderStatusBreakdown, revenueByCategory, revenueTrend, stockRiskData } from "../lib/analytics";
 import { getChatbotAnswer, getFounderBrief } from "../lib/aiClient";
@@ -35,12 +35,16 @@ export function DashboardPage(ctx: AppContext) {
     setBriefLoading(true);
     ctx.setAiMode("live");
     ctx.setAiReason("Checking Gemini API...");
-    const result = await getFounderBrief(ctx.state);
-    ctx.setFounderBrief(result.data);
-    ctx.setFounderBriefMode(result.mode);
-    ctx.setAiMode(result.mode);
-    ctx.setAiReason(result.reason);
-    setBriefLoading(false);
+    try {
+      const result = await getFounderBrief(ctx.state);
+      ctx.setFounderBrief(result.data);
+      ctx.setFounderBriefMode(result.mode);
+      ctx.setFounderBriefPopupOpen(true);
+      ctx.setAiMode(result.mode);
+      ctx.setAiReason(result.reason);
+    } finally {
+      setBriefLoading(false);
+    }
   }
 
   return (
@@ -92,6 +96,10 @@ export function DashboardPage(ctx: AppContext) {
           ))}
         </div>
       </section>
+
+      {ctx.founderBrief && ctx.founderBriefPopupOpen && (
+        <FounderBriefPopup ctx={ctx} />
+      )}
 
       <section className="chart-grid">
         <ChartCard title="Revenue Trend" tone="trend">
@@ -201,15 +209,17 @@ interface ChatMessage {
 function ChatbotPanel({ ctx }: { ctx: AppContext }) {
   const messages = ctx.chatMessages;
   const setMessages = ctx.setChatMessages;
-  const [input, setInput] = useState("");
-  const [loading, setLoading] = useState(false);
+  const input = ctx.chatbotDraft;
+  const loading = ctx.chatbotLoading;
+  const setInput = ctx.setChatbotDraft;
+  const setLoading = ctx.setChatbotLoading;
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   // Auto scroll to bottom
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    messagesEndRef.current?.scrollIntoView({ behavior: document.activeElement === inputRef.current ? "auto" : "smooth", block: "nearest" });
   }, [messages]);
 
   // Product name autocomplete
@@ -233,6 +243,8 @@ function ChatbotPanel({ ctx }: { ctx: AppContext }) {
     setSuggestions([]);
     setMessages((prev) => [...prev, { role: "user", text: trimmed }]);
     setLoading(true);
+    ctx.setAiMode("live");
+    ctx.setAiReason("Checking Gemini API...");
     try {
       const result = await getChatbotAnswer(trimmed, ctx.state);
       ctx.setAiMode(result.mode);
@@ -252,7 +264,7 @@ function ChatbotPanel({ ctx }: { ctx: AppContext }) {
       return words.join(" ") + " ";
     });
     setSuggestions([]);
-    inputRef.current?.focus();
+    if (window.innerWidth > 820) inputRef.current?.focus();
   }
 
   return (
@@ -336,8 +348,39 @@ function ChatbotPanel({ ctx }: { ctx: AppContext }) {
   );
 }
 
+function FounderBriefPopup({ ctx }: { ctx: AppContext }) {
+  const brief = ctx.founderBrief;
+  if (!brief) return null;
+  return (
+    <div className="brief-popup-backdrop" role="presentation">
+      <section className="brief-popup" role="dialog" aria-modal="true" aria-labelledby="brief-popup-title">
+        <div className="brief-popup-head">
+          <div>
+            <p className="caption">Gemini Suggest</p>
+            <h2 id="brief-popup-title">สิ่งที่ควรทำวันนี้</h2>
+          </div>
+          <button className="icon-button" type="button" onClick={() => ctx.setFounderBriefPopupOpen(false)} aria-label="Close suggestion">
+            <X size={16} aria-hidden="true" />
+          </button>
+        </div>
+        {ctx.founderBriefMode === "fallback" && <FallbackNotice />}
+        <p className="summary">{brief.summary}</p>
+        <div className="action-list">
+          {brief.actions.map((action) => (
+            <article className="action-item" key={action.title}>
+              <strong>{action.title}</strong>
+              <span>{action.reason}</span>
+              <em>{action.impact}</em>
+            </article>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+}
+
 function FallbackNotice() {
-  return <p className="fallback-result-label">This result is from local fallback due to API rate limit</p>;
+  return <p className="fallback-result-label">ผลลัพธ์นี้มาจาก fallback  เนื่องจาก API rate limit</p>;
 }
 
 function Kpi({ label, value, detail, icon }: { label: string; value: string; detail: string; icon?: React.ReactNode }) {

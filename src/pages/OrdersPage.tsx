@@ -16,6 +16,7 @@ export function OrdersPage(ctx: AppContext) {
   const [selected, setSelected] = useState(ctx.state.orders[0]?.order_id || "");
   const [summary, setSummary] = useState("");
   const [summaryMode, setSummaryMode] = useState<AiMode | null>(null);
+  const [summaryLoading, setSummaryLoading] = useState(false);
   const updatePulse = useUpdatePulse(ctx.state.lastUpdated);
 
   const filtered = useMemo(() => ctx.state.orders.filter((order) => {
@@ -35,13 +36,18 @@ export function OrdersPage(ctx: AppContext) {
 
   async function analyzeOrder() {
     if (!order) return;
+    setSummaryLoading(true);
     ctx.setAiMode("live");
     ctx.setAiReason("Checking Gemini API...");
-    const result = await getOrderSummary(order, ctx.state);
-    setSummary(result.data);
-    setSummaryMode(result.mode);
-    ctx.setAiMode(result.mode);
-    ctx.setAiReason(result.reason);
+    try {
+      const result = await getOrderSummary(order, ctx.state);
+      setSummary(result.data);
+      setSummaryMode(result.mode);
+      ctx.setAiMode(result.mode);
+      ctx.setAiReason(result.reason);
+    } finally {
+      setSummaryLoading(false);
+    }
   }
 
   return (
@@ -96,7 +102,7 @@ export function OrdersPage(ctx: AppContext) {
           <div className="list">{chats.filter((chat) => chat.user_id === customer.user_id).slice(0, 2).map((chat) => <article className="list-item" key={chat.chat_id}><strong>{chat.chat_id} - {chat.status}</strong><span>{chat.messages.at(-1)?.text}</span></article>)}</div>
           <h4>Notifications</h4>
           <div className="list">{relatedNotifications(customer).slice(0, 2).map((item) => <article className="list-item" key={item.notif_id}><strong>{item.title}</strong><span>{item.message}</span><em>{dateTime(item.timestamp)}</em></article>)}</div>
-          <button className="button primary ai-action" type="button" onClick={analyzeOrder}><span className="ai-icon-pair"><Star size={13} /><Bot size={15} /></span>Gemini Order Summary</button>
+          <button className="button primary ai-action" type="button" onClick={analyzeOrder} disabled={summaryLoading}><span className="ai-icon-pair"><Star size={13} /><Bot size={15} /></span>{summaryLoading ? "Gemini is thinking..." : "Gemini Order Summary"}</button>
           {summary && <div className="reply-box">{summaryMode === "fallback" && <FallbackNotice />}{summary}</div>}
         </aside>}
       </div>
@@ -105,5 +111,5 @@ export function OrdersPage(ctx: AppContext) {
 }
 
 function FallbackNotice() {
-  return <p className="fallback-result-label">This result is from local fallback due to API rate limit</p>;
+  return <p className="fallback-result-label">ผลลัพธ์นี้มาจาก fallback  เนื่องจาก API rate limit</p>;
 }

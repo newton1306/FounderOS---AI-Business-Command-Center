@@ -4,7 +4,7 @@ import type { AppContext } from "../app/App";
 import { chats } from "../data/source";
 import { detectChatTopic, productById, productReviews, userById } from "../lib/analytics";
 import { getReply, getReviewPainSummary } from "../lib/aiClient";
-import type { ActionBrief, AiMode, Chat } from "../lib/types";
+import type { Chat } from "../lib/types";
 import { dateTime } from "../lib/format";
 
 export function CustomerVoicePage(ctx: AppContext) {
@@ -15,29 +15,36 @@ export function CustomerVoicePage(ctx: AppContext) {
   const hiddenDuplicateChats = chats.length - chatGroups.length;
   const summary = ctx.voiceSummary?.data || null;
   const summaryMode = ctx.voiceSummary?.mode || null;
-  const [reply, setReply] = useState<Record<string, string>>({});
-  const [replyMode, setReplyMode] = useState<Record<string, AiMode>>({});
   const [mobileTab, setMobileTab] = useState<"ai" | "reviews" | "chats">("reviews");
 
   async function summarize() {
+    ctx.setVoiceSummaryLoading(true);
     ctx.setAiMode("live");
     ctx.setAiReason("Checking Gemini API...");
-    const result = await getReviewPainSummary(ctx.state);
-    ctx.setVoiceSummary({ data: result.data, mode: result.mode });
-    ctx.setAiMode(result.mode);
-    ctx.setAiReason(result.reason);
+    try {
+      const result = await getReviewPainSummary(ctx.state);
+      ctx.setVoiceSummary({ data: result.data, mode: result.mode });
+      ctx.setAiMode(result.mode);
+      ctx.setAiReason(result.reason);
+    } finally {
+      ctx.setVoiceSummaryLoading(false);
+    }
   }
 
   async function generateReply(chatId: string) {
     const chat = chats.find((item) => item.chat_id === chatId);
     if (!chat) return;
+    ctx.setChatReplyLoading((current) => ({ ...current, [chatId]: true }));
     ctx.setAiMode("live");
     ctx.setAiReason("Checking Gemini API...");
-    const result = await getReply(chat);
-    setReply((current) => ({ ...current, [chatId]: result.data }));
-    setReplyMode((current) => ({ ...current, [chatId]: result.mode }));
-    ctx.setAiMode(result.mode);
-    ctx.setAiReason(result.reason);
+    try {
+      const result = await getReply(chat);
+      ctx.setChatReplies((current) => ({ ...current, [chatId]: { text: result.data, mode: result.mode } }));
+      ctx.setAiMode(result.mode);
+      ctx.setAiReason(result.reason);
+    } finally {
+      ctx.setChatReplyLoading((current) => ({ ...current, [chatId]: false }));
+    }
   }
 
   return (
@@ -64,15 +71,15 @@ export function CustomerVoicePage(ctx: AppContext) {
           <div className="voice-ai-header">
             <span className="ai-corner-star" aria-label="Gemini powered"><Star size={15} aria-hidden="true" /></span>
             <h3>AI Pain Analysis</h3>
-            {summary && <button className="button secondary ai-action voice-ai-btn" type="button" onClick={summarize}><span className="ai-icon-pair"><Star size={13} /><Bot size={15} /></span>Refresh</button>}
+            {summary && <button className="button secondary ai-action voice-ai-btn" type="button" onClick={summarize} disabled={ctx.voiceSummaryLoading}><span className="ai-icon-pair"><Star size={13} /><Bot size={15} /></span>{ctx.voiceSummaryLoading ? "Analyzing..." : "Refresh"}</button>}
           </div>
           {!summary ? (
             <div className="voice-ai-empty">
               <Bot size={28} />
               <p>Analyze pain points from reviews and customer chats with Gemini</p>
               <div className="gemini-cta-center">
-                <button className="button primary ai-action gemini-cta-pulse" type="button" onClick={summarize}>
-                  <span className="ai-icon-pair"><Star size={13} /><Bot size={15} /></span>Analyze
+                <button className="button primary ai-action gemini-cta-pulse" type="button" onClick={summarize} disabled={ctx.voiceSummaryLoading}>
+                  <span className="ai-icon-pair"><Star size={13} /><Bot size={15} /></span>{ctx.voiceSummaryLoading ? "Analyzing..." : "Analyze"}
                 </button>
                 <span className="cta-hand" aria-hidden="true">👆</span>
               </div>
@@ -126,8 +133,8 @@ export function CustomerVoicePage(ctx: AppContext) {
                 {latest?.sender === "SHOP" && latestShopMessage && <em className="shop-preview">Shop replied: {latestShopMessage.text}</em>}
                 {group.duplicates.length > 1 && <span className="duplicate-note">Merged {group.duplicates.length} similar records: {group.duplicates.map((item) => item.chat_id).join(", ")}</span>}
                 <time>{dateTime((latestCustomerMessage || latest)?.timestamp || new Date().toISOString())}</time>
-                <button className="button secondary ai-action" type="button" onClick={() => generateReply(chat.chat_id)}><span className="ai-icon-pair"><Star size={13} /><Bot size={15} /></span>Gemini Reply</button>
-                {reply[chat.chat_id] && <div className="reply-box">{replyMode[chat.chat_id] === "fallback" && <FallbackNotice />}{reply[chat.chat_id]}</div>}
+                <button className="button secondary ai-action" type="button" onClick={() => generateReply(chat.chat_id)} disabled={Boolean(ctx.chatReplyLoading[chat.chat_id])}><span className="ai-icon-pair"><Star size={13} /><Bot size={15} /></span>{ctx.chatReplyLoading[chat.chat_id] ? "Gemini is thinking..." : "Gemini Reply"}</button>
+                {ctx.chatReplies[chat.chat_id] && <div className="reply-box">{ctx.chatReplies[chat.chat_id].mode === "fallback" && <FallbackNotice />}{ctx.chatReplies[chat.chat_id].text}</div>}
               </article>;
             })}
           </div>
@@ -138,7 +145,7 @@ export function CustomerVoicePage(ctx: AppContext) {
 }
 
 function FallbackNotice() {
-  return <p className="fallback-result-label">This result is from local fallback due to API rate limit</p>;
+  return <p className="fallback-result-label">ผลลัพธ์นี้มาจาก fallback  เนื่องจาก API rate limit</p>;
 }
 
 function Metric({ label, value }: { label: string; value: string }) {

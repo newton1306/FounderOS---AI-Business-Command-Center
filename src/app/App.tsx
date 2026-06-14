@@ -48,9 +48,15 @@ export function App() {
   const [aiReason, setAiReason] = useState("ready");
   const [founderBrief, setFounderBrief] = useState<ActionBrief | null>(null);
   const [founderBriefMode, setFounderBriefMode] = useState<AiMode | null>(null);
+  const [founderBriefPopupOpen, setFounderBriefPopupOpen] = useState(false);
   const [autoSim, setAutoSim] = useState(false);
   const [chatMessages, setChatMessages] = useState<Array<{role: "user" | "bot"; text: string}>>([]);
+  const [chatbotLoading, setChatbotLoading] = useState(false);
+  const [chatbotDraft, setChatbotDraft] = useState("");
   const [voiceSummary, setVoiceSummary] = useState<{data: ActionBrief; mode: AiMode} | null>(null);
+  const [voiceSummaryLoading, setVoiceSummaryLoading] = useState(false);
+  const [chatReplies, setChatReplies] = useState<Record<string, { text: string; mode: AiMode }>>({});
+  const [chatReplyLoading, setChatReplyLoading] = useState<Record<string, boolean>>({});
   const [searchQuery, setSearchQuery] = useState("");
   const [searchOpen, setSearchOpen] = useState(false);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
@@ -139,7 +145,7 @@ export function App() {
     else setSearchOpen(true);
   }
 
-  const context = { state, setState, aiMode, setAiMode, aiReason, setAiReason, founderBrief, setFounderBrief, founderBriefMode, setFounderBriefMode, online, pwaReady, simulate, autoSim, setAutoSim, chatMessages, setChatMessages, voiceSummary, setVoiceSummary };
+  const context = { state, setState, aiMode, setAiMode, aiReason, setAiReason, founderBrief, setFounderBrief, founderBriefMode, setFounderBriefMode, founderBriefPopupOpen, setFounderBriefPopupOpen, online, pwaReady, simulate, autoSim, setAutoSim, chatMessages, setChatMessages, chatbotLoading, setChatbotLoading, chatbotDraft, setChatbotDraft, voiceSummary, setVoiceSummary, voiceSummaryLoading, setVoiceSummaryLoading, chatReplies, setChatReplies, chatReplyLoading, setChatReplyLoading };
   const statusItems = [
     { icon: online ? Wifi : WifiOff, label: online ? "Online" : "Offline", tone: online ? "success" : "warning" },
     { icon: Radio, label: pwaReady ? "PWA Ready" : "PWA Pending", tone: pwaReady ? "success" : "neutral" },
@@ -300,6 +306,8 @@ export type AppContext = {
   setFounderBrief: (brief: ActionBrief | null) => void;
   founderBriefMode: AiMode | null;
   setFounderBriefMode: (mode: AiMode | null) => void;
+  founderBriefPopupOpen: boolean;
+  setFounderBriefPopupOpen: (value: boolean) => void;
   online: boolean;
   pwaReady: boolean;
   simulate: () => void;
@@ -307,6 +315,16 @@ export type AppContext = {
   setAutoSim: (value: boolean) => void;
   chatMessages: Array<{role: "user" | "bot"; text: string}>;
   setChatMessages: React.Dispatch<React.SetStateAction<Array<{role: "user" | "bot"; text: string}>>>;
+  chatbotLoading: boolean;
+  setChatbotLoading: (value: boolean) => void;
+  chatbotDraft: string;
+  setChatbotDraft: React.Dispatch<React.SetStateAction<string>>;
   voiceSummary: {data: ActionBrief; mode: AiMode} | null;
   setVoiceSummary: (value: {data: ActionBrief; mode: AiMode} | null) => void;
+  voiceSummaryLoading: boolean;
+  setVoiceSummaryLoading: (value: boolean) => void;
+  chatReplies: Record<string, { text: string; mode: AiMode }>;
+  setChatReplies: React.Dispatch<React.SetStateAction<Record<string, { text: string; mode: AiMode }>>>;
+  chatReplyLoading: Record<string, boolean>;
+  setChatReplyLoading: React.Dispatch<React.SetStateAction<Record<string, boolean>>>;
 };

@@ -12,6 +12,7 @@ export function ProductDetailPage(ctx: AppContext) {
   const insight = useMemo(() => getProductInsights(ctx.state).find((item) => item.product.product_id === productId), [ctx.state, productId]);
   const [ai, setAi] = useState<ActionBrief | null>(null);
   const [aiMode, setAiMode] = useState<AiMode | null>(null);
+  const [aiLoading, setAiLoading] = useState(false);
   const [mobileTab, setMobileTab] = useState<"ai" | "orders" | "reviews">("ai");
   if (!insight) return <div className="empty-state">Product not found.</div>;
   const product = insight.product;
@@ -19,13 +20,18 @@ export function ProductDetailPage(ctx: AppContext) {
   const relatedReviews = reviewsForProduct(product.product_id);
 
   async function analyze() {
+    setAiLoading(true);
     ctx.setAiMode("live");
     ctx.setAiReason("Checking Gemini API...");
-    const result = await getProductInsight(product, ctx.state);
-    setAi(result.data);
-    setAiMode(result.mode);
-    ctx.setAiMode(result.mode);
-    ctx.setAiReason(result.reason);
+    try {
+      const result = await getProductInsight(product, ctx.state);
+      setAi(result.data);
+      setAiMode(result.mode);
+      ctx.setAiMode(result.mode);
+      ctx.setAiReason(result.reason);
+    } finally {
+      setAiLoading(false);
+    }
   }
 
   return (
@@ -37,7 +43,7 @@ export function ProductDetailPage(ctx: AppContext) {
           <p className="caption">{product.category}</p>
           <h2>{product.name}</h2>
           <p className="summary">Stock impact: {product.stock <= 5 ? "urgent restock risk" : "inventory is usable but should be watched against order velocity"}.</p>
-          <button className="button primary ai-action" type="button" onClick={analyze}><span className="ai-icon-pair"><Star size={13} /><Bot size={15} /></span>Gemini Product Insight</button>
+          <button className="button primary ai-action" type="button" onClick={analyze} disabled={aiLoading}><span className="ai-icon-pair"><Star size={13} /><Bot size={15} /></span>{aiLoading ? "Gemini is thinking..." : "Gemini Product Insight"}</button>
         </div>
       </div>
       <div className="kpi-grid compact">
@@ -77,7 +83,7 @@ export function ProductDetailPage(ctx: AppContext) {
 }
 
 function FallbackNotice() {
-  return <p className="fallback-result-label">This result is from local fallback due to API rate limit</p>;
+  return <p className="fallback-result-label">ผลลัพธ์นี้มาจาก fallback  เนื่องจาก API rate limit</p>;
 }
 
 function Metric({ label, value }: { label: string; value: string }) {

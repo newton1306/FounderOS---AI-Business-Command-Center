@@ -8,7 +8,8 @@ dist/
 # Local environment
 .env
 .env.*
-!.env.example
+.env.example
+PRODUCT.md
 *.pem
 *.key
 *.p12

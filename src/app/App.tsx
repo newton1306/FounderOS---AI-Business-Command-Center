@@ -1,6 +1,6 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { NavLink, Route, Routes, useLocation, useNavigate } from "react-router-dom";
-import { BarChart3, Bell, Bot, Boxes, LayoutDashboard, MessageSquareText, PackageSearch, Radio, RefreshCcw, Search, ShoppingCart, Wifi, WifiOff, X } from "lucide-react";
+import { BarChart3, Bell, Bot, Boxes, LayoutDashboard, MessageSquareText, PackageSearch, Radio, RefreshCcw, Search, ShoppingCart, ToggleLeft, ToggleRight, Wifi, WifiOff, X } from "lucide-react";
 import { toast } from "sonner";
 import { chats, orders, products, users } from "../data/source";
 import { getActivities, getMetrics } from "../lib/analytics";
@@ -31,6 +31,10 @@ function getPageTitle(pathname: string) {
   return "Overview";
 }
 
+function isMobileViewport() {
+  return typeof window !== "undefined" && window.innerWidth <= 820;
+}
+
 export function App() {
   const location = useLocation();
   const navigate = useNavigate();
@@ -45,7 +49,6 @@ export function App() {
   const [founderBrief, setFounderBrief] = useState<ActionBrief | null>(null);
   const [founderBriefMode, setFounderBriefMode] = useState<AiMode | null>(null);
   const [autoSim, setAutoSim] = useState(false);
-  const [mobileStatusOpen, setMobileStatusOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchOpen, setSearchOpen] = useState(false);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
@@ -70,8 +73,11 @@ export function App() {
     setState((current) => {
       const next = simulateLiveOrder(current);
       const event = next.simulationEvents[0];
-      toast.success(event.title, { description: event.detail });
-      if (event.severity === "warning") toast.warning("Low Stock Alert", { description: event.detail });
+      // On mobile, don't show any toast/popup
+      if (!isMobileViewport()) {
+        toast.success(event.title, { description: event.detail });
+        if (event.severity === "warning") toast.warning("Low Stock Alert", { description: event.detail });
+      }
       return next;
     });
   }
@@ -100,6 +106,7 @@ export function App() {
     return [...productResults, ...orderResults, ...chatResults].slice(0, 6);
   }, [searchQuery, state.orders, state.products]);
 
+  // Notifications: show all items, green (success) first
   const notificationItems = useMemo(() => {
     const activityItems = getActivities(state).map((item) => ({
       id: item.id,
@@ -114,8 +121,8 @@ export function App() {
         const toneOrder = { success: 0, warning: 1, neutral: 2 } as const;
         const toneDiff = toneOrder[a.tone] - toneOrder[b.tone];
         return toneDiff || Date.parse(b.timestamp) - Date.parse(a.timestamp);
-      })
-      .slice(0, 8);
+      });
+    // No .slice() — show ALL notifications, panel is scrollable
   }, [state.simulationEvents]);
 
   function goToResult(to: string) {
@@ -123,7 +130,6 @@ export function App() {
     setSearchOpen(false);
     setSearchQuery("");
     setNotificationsOpen(false);
-    setMobileStatusOpen(false);
   }
 
   function submitSearch() {
@@ -177,6 +183,12 @@ export function App() {
             <h1>{pageTitle}</h1>
           </div>
           <div className="topbar-tools">
+            {/* Auto Simulation toggle in topbar */}
+            <label className="topbar-sim-toggle" title="Auto Simulation">
+              <input type="checkbox" checked={autoSim} onChange={(event) => setAutoSim(event.target.checked)} />
+              {autoSim ? <ToggleRight size={22} /> : <ToggleLeft size={22} />}
+              <span className="topbar-sim-label">Auto Sim</span>
+            </label>
             <label className="global-search" aria-label="Search FounderOS">
               <input value={searchQuery} onChange={(event) => { setSearchQuery(event.target.value); setSearchOpen(true); }} onFocus={() => setSearchOpen(true)} onKeyDown={(event) => { if (event.key === "Enter") submitSearch(); if (event.key === "Escape") setSearchOpen(false); }} placeholder="Search..." />
               <button type="button" onClick={submitSearch} aria-label="Run search"><Search size={18} aria-hidden="true" /></button>
@@ -206,6 +218,7 @@ export function App() {
         </main>
       </div>
 
+      {/* Mobile nav: 4 items only (no Status) */}
       <nav className="mobile-nav" aria-label="Mobile primary">
         {nav.map((item) => {
           const Icon = item.icon;
@@ -216,46 +229,31 @@ export function App() {
             </NavLink>
           );
         })}
-        <button className={mobileStatusOpen ? "active" : ""} type="button" onClick={() => setMobileStatusOpen((value) => !value)} aria-expanded={mobileStatusOpen} aria-controls="mobile-status-drawer">
-          <BarChart3 size={20} aria-hidden="true" />
-          <span>Status</span>
-        </button>
       </nav>
-
-      <aside id="mobile-status-drawer" className={`mobile-status-drawer ${mobileStatusOpen ? "open" : ""}`} aria-hidden={!mobileStatusOpen}>
-        <div className="section-head">
-          <div>
-            <p className="caption">System status</p>
-            <h2>FounderOS Live</h2>
-          </div>
-          <button className="icon-button" type="button" onClick={() => setMobileStatusOpen(false)} aria-label="Close status panel">
-            <X size={16} aria-hidden="true" />
-          </button>
-        </div>
-        <div className="mobile-status-list">
-          {statusItems.map((item) => <StatusChip key={item.label} icon={item.icon} label={item.label} tone={item.tone} />)}
-        </div>
-        <div className="mobile-status-actions utility-actions">
-          <label className="global-search mobile-search" aria-label="Search FounderOS">
-            <input value={searchQuery} onChange={(event) => { setSearchQuery(event.target.value); setSearchOpen(true); }} onFocus={() => setSearchOpen(true)} onKeyDown={(event) => { if (event.key === "Enter") submitSearch(); if (event.key === "Escape") setSearchOpen(false); }} placeholder="Search..." />
-            <button type="button" onClick={submitSearch} aria-label="Run search"><Search size={18} aria-hidden="true" /></button>
-          </label>
-          <button className="button secondary" type="button" onClick={() => { setNotificationsOpen((value) => !value); setSearchOpen(false); }}>
-            <Bell size={16} aria-hidden="true" />
-            Notifications
-          </button>
-        </div>
-        {searchOpen && <SearchPanel query={searchQuery} results={searchResults} onClose={() => setSearchOpen(false)} onSelect={goToResult} />}
-        {notificationsOpen && <NotificationPanel items={notificationItems} onClose={() => setNotificationsOpen(false)} onSelect={goToResult} />}
-      </aside>
     </div>
   );
 }
 
+// Search panel: closes on click-outside, no X button
 function SearchPanel({ query, results, onClose, onSelect }: { query: string; results: Array<{ id: string; title: string; meta: string; to: string }>; onClose: () => void; onSelect: (to: string) => void }) {
+  const panelRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (panelRef.current && !panelRef.current.contains(event.target as Node)) {
+        // Also don't close if clicking the search input
+        const target = event.target as HTMLElement;
+        if (target.closest(".global-search")) return;
+        onClose();
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [onClose]);
+
   return (
-    <section className="floating-panel search-panel" aria-label="Search results">
-      <div className="section-head"><h2>Search</h2><button className="icon-button" type="button" onClick={onClose} aria-label="Close search"><X size={15} /></button></div>
+    <section ref={panelRef} className="floating-panel search-panel" aria-label="Search results">
+      <div className="section-head"><h2>Search</h2></div>
       <div className="floating-list">
         {!query.trim() ? <p className="panel-empty">Type a product, order, customer, or chat.</p> : results.length ? results.map((item) => (
           <button className="floating-item" type="button" key={item.id} onClick={() => onSelect(item.to)}>

@@ -1,9 +1,9 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Area, AreaChart, Bar, BarChart, CartesianGrid, Cell, LabelList, Line, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
-import { Bot, MessageSquareText, Sparkles, TriangleAlert, Star, ToggleLeft, ToggleRight } from "lucide-react";
+import { Bot, MessageSquareText, Send, Sparkles, TriangleAlert, Star } from "lucide-react";
 import type { AppContext } from "../app/App";
 import { getActivities, getMetrics, orderStatusBreakdown, revenueByCategory, revenueTrend, stockRiskData } from "../lib/analytics";
-import { getFounderBrief } from "../lib/aiClient";
+import { getChatbotAnswer, getFounderBrief } from "../lib/aiClient";
 import { currency, dateTime, number } from "../lib/format";
 import { useUpdatePulse } from "../lib/useUpdatePulse";
 
@@ -18,11 +18,18 @@ function axisLabel(value: string, max = 10) {
   return shortLabel(value.replace(/\s+/g, " "), max).replace(/ /g, "\u00a0");
 }
 
+const SUGGEST_MESSAGES = [
+  "สินค้าไหนขายดี?",
+  "สต็อกต่ำมีอะไรบ้าง?",
+  "ยอดรายได้ทั้งหมด",
+  "ออเดอร์มีกี่รายการ?",
+  "รีวิวเชิงลบมีอะไรบ้าง?",
+  "แชทลูกค้าที่เปิดอยู่"
+];
+
 export function DashboardPage(ctx: AppContext) {
   const metrics = useMemo(() => getMetrics(ctx.state), [ctx.state]);
-  const activities = useMemo(() => getActivities(ctx.state), [ctx.state]);
   const [briefLoading, setBriefLoading] = useState(false);
-  const updatePulse = useUpdatePulse(ctx.state.lastUpdated);
 
   async function suggestBrief() {
     setBriefLoading(true);
@@ -133,50 +140,195 @@ export function DashboardPage(ctx: AppContext) {
             </BarChart>
           </ResponsiveContainer>
         </ChartCard>
-        <ChartCard title="Low Stock Watchlist" tone="stock">
-          <ResponsiveContainer width="100%" height={chartHeight}>
-            <BarChart data={stockRiskData(ctx.state).slice(0, 4)} layout="vertical" margin={{ left: 0, right: 30, top: 8, bottom: 0 }}>
-              <defs>
-                <linearGradient id="stockBars" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stopColor="oklch(0.72 0.13 78)" />
-                  <stop offset="100%" stopColor="oklch(0.58 0.14 42)" />
-                </linearGradient>
-              </defs>
-              <CartesianGrid stroke="oklch(0.89 0.008 95)" strokeDasharray="3 7" horizontal={false} />
-              <XAxis type="number" tick={{ fontSize: 11 }} tickLine={false} axisLine={false} />
-              <YAxis type="category" dataKey="name" tickFormatter={(value) => axisLabel(String(value), 12)} interval={0} width={94} tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
-              <Tooltip />
-              <Bar dataKey="stock" fill="url(#stockBars)" radius={[0, 8, 8, 0]} barSize={12}>
-                <LabelList dataKey="stock" position="right" formatter={(value: number) => value > 0 ? value : ""} className="chart-value-label" />
-              </Bar>
-            </BarChart>
-          </ResponsiveContainer>
-        </ChartCard>
+        {/* Low Stock Watchlist: Card-based instead of BarChart */}
+        <article className="chart-card chart-card-stock">
+          <h3>Low Stock Watchlist</h3>
+          <StockWatchlist state={ctx.state} />
+        </article>
       </section>
 
-      <section className="activity-panel">
-        <div className="section-head">
-          <div>
-            <p className="caption">Live operations</p>
-            <h2>Activity Feed</h2>
+      {/* Chatbot panel replaces Activity Feed */}
+      <ChatbotPanel ctx={ctx} />
+    </div>
+  );
+}
+
+function StockWatchlist({ state }: { state: AppContext["state"] }) {
+  const items = stockRiskData(state).slice(0, 4);
+  const maxThreshold = 20;
+  if (!items.length) {
+    return <div className="stock-watchlist-empty">✅ All products have healthy stock levels</div>;
+  }
+  return (
+    <div className="stock-watchlist">
+      {items.map((item) => {
+        const pct = Math.min(100, (item.stock / maxThreshold) * 100);
+        const isOut = item.stock <= 0;
+        const isLow = item.stock > 0 && item.stock <= 5;
+        return (
+          <div className="stock-item" key={item.name}>
+            <div className="stock-item-head">
+              <strong>{shortLabel(item.name, 18)}</strong>
+              {isOut && <span className="stock-badge out">OUT OF STOCK</span>}
+              {isLow && <span className="stock-badge low">LOW</span>}
+              {!isOut && !isLow && <span className="stock-badge watch">WATCH</span>}
+            </div>
+            <div className="stock-bar-track">
+              <div
+                className={`stock-bar-fill ${isOut ? "out" : isLow ? "low" : "watch"}`}
+                style={{ width: `${Math.max(isOut ? 100 : pct, 4)}%` }}
+              />
+            </div>
+            <div className="stock-item-meta">
+              <span>{item.stock} units left</span>
+              <span>{item.unitsSold} sold</span>
+            </div>
           </div>
-          <label className="toggle">
-            <input type="checkbox" checked={ctx.autoSim} onChange={(event) => ctx.setAutoSim(event.target.checked)} />
-            {ctx.autoSim ? <ToggleRight size={24} /> : <ToggleLeft size={24} />}
-            Auto Simulation
-          </label>
+        );
+      })}
+    </div>
+  );
+}
+
+interface ChatMessage {
+  role: "user" | "bot";
+  text: string;
+}
+
+function ChatbotPanel({ ctx }: { ctx: AppContext }) {
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [suggestions, setSuggestions] = useState<string[]>([]);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  // Auto scroll to bottom
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
+  // Product name autocomplete
+  useEffect(() => {
+    const q = input.toLowerCase().trim();
+    if (q.length < 2) {
+      setSuggestions([]);
+      return;
+    }
+    const matches = ctx.state.products
+      .filter((p) => p.name.toLowerCase().includes(q) || p.category.toLowerCase().includes(q))
+      .slice(0, 4)
+      .map((p) => p.name);
+    setSuggestions(matches);
+  }, [input, ctx.state.products]);
+
+  async function sendMessage(text: string) {
+    const trimmed = text.trim();
+    if (!trimmed || loading) return;
+    setInput("");
+    setSuggestions([]);
+    setMessages((prev) => [...prev, { role: "user", text: trimmed }]);
+    setLoading(true);
+    try {
+      const result = await getChatbotAnswer(trimmed, ctx.state);
+      ctx.setAiMode(result.mode);
+      ctx.setAiReason(result.reason);
+      setMessages((prev) => [...prev, { role: "bot", text: result.data }]);
+    } catch {
+      setMessages((prev) => [...prev, { role: "bot", text: "ขออภัยครับ เกิดข้อผิดพลาด ลองถามใหม่อีกครั้ง" }]);
+    }
+    setLoading(false);
+  }
+
+  function insertProductName(name: string) {
+    setInput((prev) => {
+      // Replace last partial word with product name
+      const words = prev.split(/\s+/);
+      words[words.length - 1] = name;
+      return words.join(" ") + " ";
+    });
+    setSuggestions([]);
+    inputRef.current?.focus();
+  }
+
+  return (
+    <section className="chatbot-panel">
+      <div className="section-head">
+        <div className="chatbot-head-left">
+          <span className="chatbot-gemini-icon"><Sparkles size={16} /></span>
+          <div>
+            <p className="caption">Gemini Assistant</p>
+            <h2>Ask about your store</h2>
+          </div>
         </div>
-        <div className="feed-list">
-          {activities.map((item, index) => (
-            <article className={`feed-item ${item.severity || "info"} ${updatePulse && index === 0 ? "pop-update" : ""}`} key={item.id}>
-              <strong>{item.title}</strong>
-              <span>{item.detail}</span>
-              <time>{dateTime(item.timestamp)}</time>
-            </article>
+      </div>
+
+      <div className="chat-messages">
+        {messages.length === 0 && (
+          <div className="chat-welcome">
+            <Bot size={32} />
+            <p>ถามอะไรก็ได้เกี่ยวกับร้านของคุณ</p>
+            <div className="chat-suggest-grid">
+              {SUGGEST_MESSAGES.map((msg) => (
+                <button className="chat-suggest-btn" key={msg} type="button" onClick={() => sendMessage(msg)}>
+                  {msg}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+        {messages.map((msg, i) => (
+          <div className={`chat-bubble ${msg.role}`} key={i}>
+            {msg.role === "bot" && <span className="chat-bubble-icon"><Sparkles size={12} /></span>}
+            <div className="chat-bubble-text">{msg.text}</div>
+          </div>
+        ))}
+        {loading && (
+          <div className="chat-bubble bot">
+            <span className="chat-bubble-icon"><Sparkles size={12} /></span>
+            <div className="chat-bubble-text chat-typing">กำลังคิด...</div>
+          </div>
+        )}
+        <div ref={messagesEndRef} />
+      </div>
+
+      {/* Product name suggestions */}
+      {suggestions.length > 0 && (
+        <div className="chat-product-suggestions">
+          {suggestions.map((name) => (
+            <button className="chat-product-pill" key={name} type="button" onClick={() => insertProductName(name)}>
+              📦 {name}
+            </button>
           ))}
         </div>
-      </section>
-    </div>
+      )}
+
+      <div className="chat-input-row">
+        <input
+          ref={inputRef}
+          className="chat-input"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyDown={(e) => { if (e.key === "Enter") sendMessage(input); }}
+          placeholder="ถามเกี่ยวกับร้าน เช่น สินค้าเหลือเท่าไหร่..."
+          disabled={loading}
+        />
+        <button className="chat-send-btn" type="button" onClick={() => sendMessage(input)} disabled={loading || !input.trim()}>
+          <Send size={16} />
+        </button>
+      </div>
+
+      {/* Quick suggest after conversation started */}
+      {messages.length > 0 && (
+        <div className="chat-quick-suggests">
+          {SUGGEST_MESSAGES.slice(0, 3).map((msg) => (
+            <button className="chat-quick-btn" key={msg} type="button" onClick={() => sendMessage(msg)} disabled={loading}>
+              {msg}
+            </button>
+          ))}
+        </div>
+      )}
+    </section>
   );
 }
 

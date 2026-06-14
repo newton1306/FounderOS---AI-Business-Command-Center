@@ -1,4 +1,4 @@
-import { founderBriefFallback, orderSummaryFallback, productInsightFallback, replyFallback, reviewPainFallback } from "./fallbackAi";
+import { chatbotFallback, founderBriefFallback, orderSummaryFallback, productInsightFallback, replyFallback, reviewPainFallback } from "./fallbackAi";
 import { getJson, setJson } from "./storage";
 import type { ActionBrief, AiMode, BusinessState, Chat, Order, Product } from "./types";
 
@@ -82,5 +82,12 @@ export function getOrderSummary(order: Order, state: BusinessState) {
     { task: "order-summary", order, state },
     () => orderSummaryFallback(order, state),
     `ai_order_${order.order_id}_cache`
+  );
+}
+
+export function getChatbotAnswer(question: string, state: BusinessState) {
+  return callGemini<string>(
+    { task: "chatbot", question, state },
+    () => chatbotFallback(question, state)
   );
 }

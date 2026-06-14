@@ -17,7 +17,7 @@ export function CustomerVoicePage(ctx: AppContext) {
   const [summaryMode, setSummaryMode] = useState<AiMode | null>(null);
   const [reply, setReply] = useState<Record<string, string>>({});
   const [replyMode, setReplyMode] = useState<Record<string, AiMode>>({});
-  const [mobileTab, setMobileTab] = useState<"reviews" | "chats">("reviews");
+  const [mobileTab, setMobileTab] = useState<"ai" | "reviews" | "chats">("reviews");
 
   async function summarize() {
     ctx.setAiMode("live");
@@ -42,7 +42,7 @@ export function CustomerVoicePage(ctx: AppContext) {
   }
 
   return (
-    <section className={`page-stack voice-page ${summary ? "has-ai-summary" : ""}`}>
+    <section className="page-stack voice-page voice-page-v2">
       <div className="section-head page-actions-head">
         <button className="button primary ai-action" type="button" onClick={summarize}><span className="ai-icon-pair"><Star size={13} /><Bot size={15} /></span>Gemini Pain Summary</button>
       </div>
@@ -52,12 +52,45 @@ export function CustomerVoicePage(ctx: AppContext) {
         <Metric label="Open Chats" value={String(chatGroups.filter((group) => group.chat.status === "OPEN").length)} />
         <Metric label="Merged Duplicates" value={String(hiddenDuplicateChats)} />
       </div>
-      {summary && <section className="decision-panel ai-surface"><span className="ai-corner-star" aria-label="Gemini powered"><Star size={15} aria-hidden="true" /></span>{summaryMode === "fallback" && <FallbackNotice />}<p className="summary">{summary.summary}</p><div className="action-list">{summary.actions.map((action) => <article className="action-item" key={action.title}><strong>{action.title}</strong><span>{action.reason}</span><em>{action.impact}</em></article>)}</div></section>}
-      <div className="mobile-segment" aria-label="Customer voice sections">
+
+      {/* Mobile tab selector for 3-column view */}
+      <div className="mobile-segment mobile-segment-3" aria-label="Customer voice sections">
+        <button className={mobileTab === "ai" ? "active" : ""} type="button" onClick={() => setMobileTab("ai")}>AI Summary</button>
         <button className={mobileTab === "reviews" ? "active" : ""} type="button" onClick={() => setMobileTab("reviews")}>Reviews</button>
         <button className={mobileTab === "chats" ? "active" : ""} type="button" onClick={() => setMobileTab("chats")}>Chats</button>
       </div>
-      <div className="two-column">
+
+      {/* 3-column horizontal layout: AI Summary | Reviews | Chats */}
+      <div className="voice-three-col">
+        {/* AI Summary — always visible, prominent */}
+        <section className="panel voice-ai-panel" data-mobile-panel={mobileTab === "ai" ? "active" : "hidden"}>
+          <div className="voice-ai-header">
+            <span className="ai-corner-star" aria-label="Gemini powered"><Star size={15} aria-hidden="true" /></span>
+            <h3>AI Pain Analysis</h3>
+          </div>
+          {!summary ? (
+            <div className="voice-ai-empty">
+              <Bot size={28} />
+              <p>กด "Gemini Pain Summary" ด้านบนเพื่อวิเคราะห์ปัญหาจากรีวิวและแชท</p>
+            </div>
+          ) : (
+            <div className="voice-ai-content">
+              {summaryMode === "fallback" && <FallbackNotice />}
+              <p className="summary">{summary.summary}</p>
+              <div className="action-list">
+                {summary.actions.map((action) => (
+                  <article className="action-item" key={action.title}>
+                    <strong>{action.title}</strong>
+                    <span>{action.reason}</span>
+                    <em>{action.impact}</em>
+                  </article>
+                ))}
+              </div>
+            </div>
+          )}
+        </section>
+
+        {/* Product Reviews */}
         <section className="panel" data-mobile-panel={mobileTab === "reviews" ? "active" : "hidden"}>
           <h3>Product Reviews</h3>
           <div className="list">
@@ -67,6 +100,8 @@ export function CustomerVoicePage(ctx: AppContext) {
             }) : <div className="empty-state"><Search size={20} />No reviews available.</div>}
           </div>
         </section>
+
+        {/* Chat Inbox */}
         <section className="panel" data-mobile-panel={mobileTab === "chats" ? "active" : "hidden"}>
           <h3>Chat Inbox</h3>
           <div className="list">

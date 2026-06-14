@@ -194,6 +194,33 @@ h4 {
   justify-content: flex-end;
   position: relative;
 }
+.topbar-sim-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px 4px 10px;
+  border-radius: 999px;
+  background: var(--bg);
+  box-shadow: var(--card-shadow);
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--muted);
+  cursor: pointer;
+  transition: background 180ms ease, color 180ms ease;
+  white-space: nowrap;
+}
+.topbar-sim-toggle:has(input:checked) {
+  color: var(--primary-strong);
+  background: var(--primary-soft);
+}
+.topbar-sim-toggle input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.topbar-sim-label {
+  display: inline;
+}
 .global-search {
   flex: 1 1 240px;
   max-width: 330px;
@@ -255,14 +282,20 @@ h4 {
   top: calc(100% + 10px);
   right: 0;
   width: min(420px, calc(100vw - 40px));
-  max-height: min(460px, calc(100vh - 170px));
+  max-height: min(520px, calc(100vh - 140px));
   display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
   gap: 10px;
   padding: 12px;
   border-radius: var(--radius);
   background: var(--bg);
   box-shadow: var(--soft-shadow);
   overflow: hidden;
+}
+.notification-panel .floating-list {
+  max-height: min(450px, calc(100vh - 220px));
+  overflow-y: auto;
+  padding-bottom: 8px;
 }
 .floating-panel .section-head h2 {
   font-size: 0.95rem;
@@ -292,6 +325,10 @@ h4 {
 }
 .floating-item.success {
   background: var(--primary-soft);
+  border-left: 4px solid var(--primary);
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 2px 8px oklch(0.45 0.08 155 / 0.15);
 }
 .floating-item.warning {
   background: oklch(0.94 0.045 82);
@@ -556,7 +593,7 @@ main {
   grid-template-rows: 108px minmax(0, 1fr);
   grid-template-areas:
     "kpis kpis kpis"
-    "brief charts activity";
+    "brief charts chatbot";
   align-items: stretch;
 }
 .section-head {
@@ -934,6 +971,91 @@ main {
 .chart-card-status::after { background: oklch(0.64 0.13 245); }
 .chart-card-category::after { background: oklch(0.58 0.15 145); }
 .chart-card-stock::after { background: oklch(0.70 0.14 78); }
+.stock-watchlist {
+  display: grid;
+  gap: 10px;
+  overflow-y: auto;
+  max-height: calc(100% - 28px);
+  scrollbar-width: thin;
+  scrollbar-color: oklch(0.60 0.045 155 / 0.72) transparent;
+}
+.stock-watchlist-empty {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  color: var(--muted);
+  font-weight: 600;
+}
+.stock-item {
+  display: grid;
+  gap: 4px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: var(--surface);
+}
+.stock-item-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+.stock-item-head strong {
+  font-size: 0.82rem;
+  line-height: 1.2;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.stock-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 7px;
+  border-radius: 999px;
+  font-size: 0.62rem;
+  font-weight: 900;
+  white-space: nowrap;
+  flex: 0 0 auto;
+}
+.stock-badge.out {
+  background: var(--danger);
+  color: white;
+}
+.stock-badge.low {
+  background: oklch(0.94 0.045 82);
+  color: oklch(0.35 0.08 82);
+}
+.stock-badge.watch {
+  background: var(--primary-soft);
+  color: var(--primary-strong);
+}
+.stock-bar-track {
+  height: 6px;
+  border-radius: 999px;
+  background: oklch(0.93 0.008 95);
+  overflow: hidden;
+}
+.stock-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 400ms ease;
+}
+.stock-bar-fill.out {
+  background: linear-gradient(90deg, var(--danger), oklch(0.50 0.14 24));
+}
+.stock-bar-fill.low {
+  background: linear-gradient(90deg, oklch(0.72 0.13 78), oklch(0.58 0.14 42));
+}
+.stock-bar-fill.watch {
+  background: linear-gradient(90deg, oklch(0.66 0.14 145), oklch(0.50 0.10 155));
+}
+.stock-item-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: var(--muted);
+  font-weight: 650;
+}
 .chart-card .recharts-wrapper {
   overflow: visible;
 }
@@ -973,10 +1095,220 @@ main {
   display: flex;
   flex-direction: column;
 }
-.page-grid > .activity-panel { grid-area: activity; }
+.page-grid > .activity-panel { grid-area: chatbot; }
+.chatbot-panel {
+  grid-area: chatbot;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 14px;
+  background: var(--bg);
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+}
+.chatbot-head-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.chatbot-gemini-icon {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: white;
+  background: conic-gradient(from 25deg, oklch(0.58 0.12 265), oklch(0.70 0.13 82), oklch(0.58 0.13 155), oklch(0.58 0.12 265));
+  box-shadow: 0 3px 7px oklch(0.25 0.04 155 / 0.18);
+  flex: 0 0 auto;
+}
+.chat-messages {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 4px 8px 0;
+  scrollbar-width: thin;
+  scrollbar-color: oklch(0.60 0.045 155 / 0.72) transparent;
+}
+.chat-welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 8px;
+  color: var(--muted);
+  text-align: center;
+}
+.chat-welcome p {
+  margin: 0;
+  font-weight: 600;
+}
+.chat-suggest-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  margin-top: 6px;
+}
+.chat-suggest-btn {
+  padding: 6px 12px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 180ms ease, transform 180ms ease;
+}
+.chat-suggest-btn:hover {
+  background: var(--primary-soft);
+  color: var(--primary-strong);
+  transform: translateY(-1px);
+}
+.chat-bubble {
+  display: flex;
+  gap: 8px;
+  max-width: 88%;
+  animation: chatPop 300ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.chat-bubble.user {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+.chat-bubble-icon {
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: conic-gradient(from 25deg, oklch(0.58 0.12 265), oklch(0.70 0.13 82), oklch(0.58 0.13 155), oklch(0.58 0.12 265));
+  color: white;
+  flex: 0 0 auto;
+  margin-top: 2px;
+}
+.chat-bubble-text {
+  padding: 8px 12px;
+  border-radius: 14px;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  white-space: pre-line;
+}
+.chat-bubble.user .chat-bubble-text {
+  background: var(--dark);
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+.chat-bubble.bot .chat-bubble-text {
+  background: var(--surface);
+  color: var(--ink);
+  border-bottom-left-radius: 4px;
+}
+.chat-typing {
+  color: var(--muted);
+  font-style: italic;
+}
+@keyframes chatPop {
+  0% { opacity: 0; transform: translateY(8px) scale(0.96); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+.chat-product-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 4px 0;
+}
+.chat-product-pill {
+  padding: 4px 10px;
+  border: 0;
+  border-radius: 999px;
+  background: oklch(0.95 0.025 82);
+  color: oklch(0.28 0.06 82);
+  font-size: 0.74rem;
+  font-weight: 750;
+  cursor: pointer;
+  transition: background 140ms ease;
+}
+.chat-product-pill:hover {
+  background: oklch(0.90 0.045 82);
+}
+.chat-input-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 6px 0 0;
+}
+.chat-input {
+  flex: 1;
+  min-width: 0;
+  height: 40px;
+  border: 0;
+  border-radius: 999px;
+  padding: 0 16px;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 0.86rem;
+  outline: none;
+}
+.chat-input:focus {
+  box-shadow: 0 0 0 2px oklch(0.72 0.08 155);
+}
+.chat-input::placeholder {
+  color: oklch(0.50 0.01 95);
+}
+.chat-send-btn {
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: white;
+  background: var(--dark);
+  cursor: pointer;
+  flex: 0 0 auto;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+.chat-send-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+.chat-send-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.chat-quick-suggests {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  padding: 4px 0 0;
+}
+.chat-quick-btn {
+  padding: 3px 9px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 140ms ease;
+}
+.chat-quick-btn:hover {
+  background: var(--primary-soft);
+  color: var(--primary-strong);
+}
+.chat-quick-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
 .decision-panel,
 .chart-grid,
-.activity-panel {
+.chatbot-panel {
   min-height: 0;
 }
 .toggle {
@@ -1096,29 +1428,65 @@ select {
   overflow: hidden;
 }
 .voice-page {
-  grid-template-rows: auto auto minmax(0, 1fr);
+  grid-template-rows: auto auto auto minmax(0, 1fr);
 }
-.voice-page.has-ai-summary {
+.voice-page-v2 {
   grid-template-rows: auto auto auto minmax(0, 1fr);
 }
 .voice-page .kpi-grid.compact {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
-.voice-page > .decision-panel {
-  min-height: 0;
-  max-height: 190px;
-}
-.voice-page > .decision-panel .summary {
-  padding-right: 36px;
-}
-.voice-page > .decision-panel .action-list {
-  overflow: auto;
-}
-.voice-page .two-column {
+.voice-three-col {
+  display: grid;
+  grid-template-columns: minmax(280px, 1.2fr) minmax(220px, 1fr) minmax(220px, 1fr);
+  gap: 12px;
   min-height: 0;
   height: 100%;
   align-items: stretch;
   overflow: hidden;
+}
+.voice-ai-panel {
+  background:
+    radial-gradient(circle at 92% 12%, oklch(0.86 0.12 82 / 0.34), transparent 18%),
+    linear-gradient(135deg, var(--bg), oklch(0.96 0.018 145));
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.voice-ai-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.voice-ai-header .ai-corner-star {
+  position: static;
+  flex: 0 0 auto;
+}
+.voice-ai-empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--muted);
+  text-align: center;
+  padding: 16px;
+}
+.voice-ai-empty p {
+  margin: 0;
+  font-weight: 600;
+  max-width: 22ch;
+  line-height: 1.45;
+}
+.voice-ai-content {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: oklch(0.60 0.045 155 / 0.72) transparent;
 }
 .voice-page .panel {
   min-height: 0;
@@ -1345,12 +1713,12 @@ select {
       "kpis"
       "brief"
       "charts"
-      "activity";
+      "chatbot";
   }
   .dashboard-page .kpi-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-  .dashboard-page .activity-panel,
+  .dashboard-page .chatbot-panel,
   .dashboard-page .decision-panel {
     min-height: 260px;
   }
@@ -1381,7 +1749,7 @@ select {
       "kpis"
       "brief"
       "charts"
-      "activity";
+      "chatbot";
   }
   .dashboard-page .kpi-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1491,7 +1859,7 @@ select {
       "kpis"
       "brief"
       "charts"
-      "activity";
+      "chatbot";
   }
   .dashboard-page .kpi-grid {
     order: 1;
@@ -1502,8 +1870,9 @@ select {
   .dashboard-page .chart-grid {
     order: 3;
   }
-  .dashboard-page .activity-panel {
+  .dashboard-page .chatbot-panel {
     order: 4;
+    min-height: 340px;
   }
   .founder-brief {
     padding-top: 18px;
@@ -1629,7 +1998,8 @@ select {
   }
   .chart-grid,
   .two-column,
-  .orders-layout {
+  .orders-layout,
+  .voice-three-col {
     grid-template-columns: 1fr;
   }
   .voice-page,
@@ -1638,24 +2008,26 @@ select {
     overflow: visible;
   }
   .voice-page,
-  .voice-page.has-ai-summary {
+  .voice-page-v2 {
     grid-template-rows: auto;
   }
-  .voice-page > .decision-panel {
-    max-height: none;
-  }
-  .voice-page > .decision-panel .action-list {
+  .voice-three-col {
+    height: auto;
     overflow: visible;
   }
-  .voice-page .two-column,
   .voice-page .panel,
   .voice-page .panel > .list,
+  .voice-ai-panel,
+  .voice-ai-content,
   .orders-page .orders-layout,
   .orders-page .orders-list,
   .orders-page .detail-side {
     height: auto;
     max-height: none;
     overflow: visible;
+  }
+  .topbar-sim-label {
+    display: none;
   }
   .orders-page .filters {
     flex-wrap: wrap;
@@ -1683,6 +2055,9 @@ select {
     padding: 6px;
     border-radius: 999px;
     background: var(--surface-strong);
+  }
+  .mobile-segment-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   .product-detail-page .mobile-segment {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1738,7 +2113,7 @@ select {
   .metric-row {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  .voice-page .two-column,
+  .voice-page .voice-three-col,
   .product-detail-sections {
     display: block;
   }
@@ -1773,7 +2148,7 @@ select {
     right: 12px;
     bottom: 12px;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     background: var(--bg);
     border-radius: 24px;
     padding: 8px;
